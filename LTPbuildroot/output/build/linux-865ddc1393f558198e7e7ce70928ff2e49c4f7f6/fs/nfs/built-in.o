@@ -1,0 +1,106 @@
+!<thin>
+//                                              646       `
+client.o/
+dir.o/
+file.o/
+getroot.o/
+inode.o/
+super.o/
+io.o/
+direct.o/
+pagelist.o/
+read.o/
+symlink.o/
+unlink.o/
+write.o/
+namespace.o/
+mount_clnt.o/
+nfstrace.o/
+export.o/
+nfsroot.o/
+sysctl.o/
+fscache.o/
+fscache-index.o/
+nfs2super.o/
+proc.o/
+nfs2xdr.o/
+nfs3super.o/
+nfs3client.o/
+nfs3proc.o/
+nfs3xdr.o/
+nfs3acl.o/
+nfs4proc.o/
+nfs4xdr.o/
+nfs4state.o/
+nfs4renewd.o/
+nfs4super.o/
+nfs4file.o/
+delegation.o/
+nfs4idmap.o/
+callback.o/
+callback_xdr.o/
+callback_proc.o/
+nfs4namespace.o/
+nfs4getroot.o/
+nfs4client.o/
+nfs4session.o/
+dns_resolve.o/
+nfs4trace.o/
+nfs4sysctl.o/
+pnfs.o/
+pnfs_dev.o/
+pnfs_nfs.o/
+filelayout/filelayout.o/
+filelayout/filelayoutdev.o/
+/0              0           0     0     644     39168     `
+/10             0           0     0     644     50460     `
+/17             0           0     0     644     22536     `
+/25             0           0     0     644     3124      `
+/36             0           0     0     644     57800     `
+/45             0           0     0     644     56092     `
+/54             0           0     0     644     3216      `
+/60             0           0     0     644     18200     `
+/70             0           0     0     644     27504     `
+/82             0           0     0     644     15036     `
+/90             0           0     0     644     3956      `
+/101            0           0     0     644     9628      `
+/111            0           0     0     644     48692     `
+/120            0           0     0     644     9024      `
+/133            0           0     0     644     5744      `
+/147            0           0     0     644     78668     `
+/159            0           0     0     644     3284      `
+/169            0           0     0     644     9036      `
+/180            0           0     0     644     3304      `
+/190            0           0     0     644     9776      `
+/201           /0           0     0     644     5104      `
+/218            0           0     0     644     3876      `
+/231            0           0     0     644     14480     `
+/239            0           0     0     644     11488     `
+/250            0           0     0     644     3920      `
+/263            0           0     0     644     4664      `
+/277            0           0     0     644     17168     `
+/289            0           0     0     644     21976     `
+/300            0           0     0     644     7632      `
+/311            0           0     0     644     120388    `
+/323            0           0     0     644     70980     `
+/334            0           0     0     644     40284     `
+/347            0           0     0     644     3828      `
+/361            0           0     0     644     9792      `
+/374            0           0     0     644     4036      `
+/386            0           0     0     644     15740     `
+/400            0           0     0     644     15088     `
+/413            0           0     0     644     7456      `
+/425            0           0     0     644     12664     `
+/441           /0           0     0     644     9552      `
+/458           /0           0     0     644     7488      `
+/475            0           0     0     644     2572      `
+/490            0           0     0     644     16816     `
+/504            0           0     0     644     10840     `
+/519            0           0     0     644     2224      `
+/534            0           0     0     644     256896    `
+/547            0           0     0     644     3528      `
+/561            0           0     0     644     57880     `
+/569            0           0     0     644     11412     `
+/581            0           0     0     644     25296     `
+/593            0           0     0     644     21436     `
+/618           /0           0     0     644     6948      `

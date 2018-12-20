@@ -1,0 +1,1 @@
+cmd_drivers/usb/serial/ark3116.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/usb/serial/ark3116.ko drivers/usb/serial/ark3116.o drivers/usb/serial/ark3116.mod.o ;  true

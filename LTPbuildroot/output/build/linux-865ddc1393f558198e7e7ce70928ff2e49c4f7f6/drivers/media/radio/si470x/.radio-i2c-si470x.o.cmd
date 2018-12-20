@@ -1,0 +1,1 @@
+cmd_drivers/media/radio/si470x/radio-i2c-si470x.o := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL    -r -o drivers/media/radio/si470x/radio-i2c-si470x.o drivers/media/radio/si470x/radio-si470x-i2c.o drivers/media/radio/si470x/radio-si470x-common.o 

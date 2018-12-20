@@ -1,0 +1,1 @@
+cmd_fs/squashfs/squashfs.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o fs/squashfs/squashfs.ko fs/squashfs/squashfs.o fs/squashfs/squashfs.mod.o ;  true

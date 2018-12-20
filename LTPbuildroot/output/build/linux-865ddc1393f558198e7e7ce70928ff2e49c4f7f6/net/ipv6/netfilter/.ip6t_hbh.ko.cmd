@@ -1,0 +1,1 @@
+cmd_net/ipv6/netfilter/ip6t_hbh.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/ipv6/netfilter/ip6t_hbh.ko net/ipv6/netfilter/ip6t_hbh.o net/ipv6/netfilter/ip6t_hbh.mod.o ;  true

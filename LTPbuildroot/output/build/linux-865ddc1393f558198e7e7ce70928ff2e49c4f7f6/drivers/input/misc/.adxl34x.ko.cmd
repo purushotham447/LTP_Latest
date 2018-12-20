@@ -1,0 +1,1 @@
+cmd_drivers/input/misc/adxl34x.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/input/misc/adxl34x.ko drivers/input/misc/adxl34x.o drivers/input/misc/adxl34x.mod.o ;  true

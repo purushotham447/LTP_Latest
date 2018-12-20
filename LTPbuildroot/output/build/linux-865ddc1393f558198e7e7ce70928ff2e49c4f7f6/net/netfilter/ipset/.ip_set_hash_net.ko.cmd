@@ -1,0 +1,1 @@
+cmd_net/netfilter/ipset/ip_set_hash_net.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/netfilter/ipset/ip_set_hash_net.ko net/netfilter/ipset/ip_set_hash_net.o net/netfilter/ipset/ip_set_hash_net.mod.o ;  true

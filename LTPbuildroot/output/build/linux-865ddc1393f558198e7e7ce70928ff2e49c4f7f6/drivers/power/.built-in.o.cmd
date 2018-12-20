@@ -1,0 +1,1 @@
+cmd_drivers/power/built-in.o :=  rm -f drivers/power/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/power/built-in.o drivers/power/reset/built-in.o drivers/power/supply/built-in.o 

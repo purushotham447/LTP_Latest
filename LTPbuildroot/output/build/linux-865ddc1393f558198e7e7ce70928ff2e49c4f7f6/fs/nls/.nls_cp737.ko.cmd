@@ -1,0 +1,1 @@
+cmd_fs/nls/nls_cp737.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o fs/nls/nls_cp737.ko fs/nls/nls_cp737.o fs/nls/nls_cp737.mod.o ;  true

@@ -1,0 +1,1 @@
+cmd_drivers/video/fbdev/core/sysfillrect.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/video/fbdev/core/sysfillrect.ko drivers/video/fbdev/core/sysfillrect.o drivers/video/fbdev/core/sysfillrect.mod.o ;  true

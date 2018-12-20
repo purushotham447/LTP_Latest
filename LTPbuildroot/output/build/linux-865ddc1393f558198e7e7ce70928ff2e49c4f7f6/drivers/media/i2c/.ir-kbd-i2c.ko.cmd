@@ -1,0 +1,1 @@
+cmd_drivers/media/i2c/ir-kbd-i2c.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/i2c/ir-kbd-i2c.ko drivers/media/i2c/ir-kbd-i2c.o drivers/media/i2c/ir-kbd-i2c.mod.o ;  true

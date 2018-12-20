@@ -1,0 +1,1 @@
+cmd_arch/arm/crypto/aes-arm-bs.o := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL    -r -o arch/arm/crypto/aes-arm-bs.o arch/arm/crypto/aes-neonbs-core.o arch/arm/crypto/aes-neonbs-glue.o 

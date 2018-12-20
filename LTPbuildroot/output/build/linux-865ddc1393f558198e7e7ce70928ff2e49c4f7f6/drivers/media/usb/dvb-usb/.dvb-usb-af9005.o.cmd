@@ -1,0 +1,1 @@
+cmd_drivers/media/usb/dvb-usb/dvb-usb-af9005.o := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL    -r -o drivers/media/usb/dvb-usb/dvb-usb-af9005.o drivers/media/usb/dvb-usb/af9005.o drivers/media/usb/dvb-usb/af9005-fe.o 

@@ -1,0 +1,4 @@
+#!/bin/bash
+#!/bin/ksh
+make -f ../Makefile.linux VPATH=.. \
+ PORG="-g -Wformat -Wsign-compare -Wmissing-declarations -Wmissing-prototypes -Wreturn-type -D_ALL_SOURCE" OS=linux

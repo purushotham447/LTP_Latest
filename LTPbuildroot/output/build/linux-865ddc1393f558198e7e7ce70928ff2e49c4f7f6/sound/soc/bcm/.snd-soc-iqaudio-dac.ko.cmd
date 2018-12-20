@@ -1,0 +1,1 @@
+cmd_sound/soc/bcm/snd-soc-iqaudio-dac.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o sound/soc/bcm/snd-soc-iqaudio-dac.ko sound/soc/bcm/snd-soc-iqaudio-dac.o sound/soc/bcm/snd-soc-iqaudio-dac.mod.o ;  true

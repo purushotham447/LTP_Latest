@@ -1,0 +1,1 @@
+cmd_drivers/net/wireless/ralink/rt2x00/rt2800usb.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/net/wireless/ralink/rt2x00/rt2800usb.ko drivers/net/wireless/ralink/rt2x00/rt2800usb.o drivers/net/wireless/ralink/rt2x00/rt2800usb.mod.o ;  true

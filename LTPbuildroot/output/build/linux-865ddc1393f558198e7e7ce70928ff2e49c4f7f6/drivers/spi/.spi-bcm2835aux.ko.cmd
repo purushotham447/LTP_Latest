@@ -1,0 +1,1 @@
+cmd_drivers/spi/spi-bcm2835aux.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/spi/spi-bcm2835aux.ko drivers/spi/spi-bcm2835aux.o drivers/spi/spi-bcm2835aux.mod.o ;  true

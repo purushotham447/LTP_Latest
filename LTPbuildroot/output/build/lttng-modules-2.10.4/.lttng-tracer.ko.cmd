@@ -1,0 +1,1 @@
+cmd_/usr/src/output/build/lttng-modules-2.10.4/./lttng-tracer.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o /usr/src/output/build/lttng-modules-2.10.4/./lttng-tracer.ko /usr/src/output/build/lttng-modules-2.10.4/./lttng-tracer.o /usr/src/output/build/lttng-modules-2.10.4/./lttng-tracer.mod.o ;  true

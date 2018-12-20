@@ -1,0 +1,44 @@
+!<thin>
+//                                              282       `
+nfs4proc.o/
+nfs4xdr.o/
+nfs4state.o/
+nfs4renewd.o/
+nfs4super.o/
+nfs4file.o/
+delegation.o/
+nfs4idmap.o/
+callback.o/
+callback_xdr.o/
+callback_proc.o/
+nfs4namespace.o/
+nfs4getroot.o/
+nfs4client.o/
+nfs4session.o/
+dns_resolve.o/
+nfs4trace.o/
+nfs4sysctl.o/
+pnfs.o/
+pnfs_dev.o/
+pnfs_nfs.o/
+/0              0           0     0     644     120388    `
+/12             0           0     0     644     70980     `
+/23             0           0     0     644     40284     `
+/36             0           0     0     644     3828      `
+/50             0           0     0     644     9792      `
+/63             0           0     0     644     4036      `
+/75             0           0     0     644     15740     `
+/89             0           0     0     644     15088     `
+/102            0           0     0     644     7456      `
+/114            0           0     0     644     12664     `
+/130           /0           0     0     644     9552      `
+/147           /0           0     0     644     7488      `
+/164            0           0     0     644     2572      `
+/179            0           0     0     644     16816     `
+/193            0           0     0     644     10840     `
+/208            0           0     0     644     2224      `
+/223            0           0     0     644     256896    `
+/236            0           0     0     644     3528      `
+/250            0           0     0     644     57880     `
+/258            0           0     0     644     11412     `
+/270            0           0     0     644     25296     `

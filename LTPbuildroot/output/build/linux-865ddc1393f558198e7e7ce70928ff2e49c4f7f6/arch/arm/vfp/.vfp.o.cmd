@@ -1,0 +1,1 @@
+cmd_arch/arm/vfp/vfp.o := rm -f arch/arm/vfp/vfp.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD arch/arm/vfp/vfp.o arch/arm/vfp/vfpmodule.o arch/arm/vfp/entry.o arch/arm/vfp/vfphw.o arch/arm/vfp/vfpsingle.o arch/arm/vfp/vfpdouble.o

@@ -1,0 +1,164 @@
+--------------------
+./configure --shared --prefix=/usr
+Tue Dec 18 16:51:06 UTC 2018
+=== ztest8087.c ===
+extern int getchar();
+int hello() {return getchar();}
+===
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc -c ztest8087.c
+... using gcc
+
+Checking for obsessive-compulsive compiler options...
+=== ztest8087.c ===
+int foo() { return 0; }
+===
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc -c -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os -fPIC ztest8087.c
+
+Checking for shared library support...
+=== ztest8087.c ===
+extern int getchar();
+int hello() {return getchar();}
+===
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc -w -c -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os -fPIC -fPIC ztest8087.c
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc -shared -Wl,-soname,libz.so.1,--version-script,zlib.map -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os -fPIC -fPIC -o ztest8087.so ztest8087.o
+Building shared library libz.so.1.2.11 with /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc.
+
+=== ztest8087.c ===
+#include <stdio.h>
+#include <stdlib.h>
+size_t dummy = 0;
+===
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc -c -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os -fPIC ztest8087.c
+Checking for size_t... Yes.
+
+
+=== ztest8087.c ===
+#include <sys/types.h>
+off64_t dummy = 0;
+===
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc -c -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os -fPIC -D_LARGEFILE64_SOURCE=1 ztest8087.c
+Checking for off64_t... Yes.
+Checking for fseeko... Yes.
+
+=== ztest8087.c ===
+#include <string.h>
+#include <errno.h>
+int main() { return strlen(strerror(errno)); }
+===
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os -fPIC -D_LARGEFILE64_SOURCE=1 -o ztest8087 ztest8087.c
+Checking for strerror... Yes.
+
+=== ztest8087.c ===
+#include <unistd.h>
+int main() { return 0; }
+===
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc -c -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os -fPIC -D_LARGEFILE64_SOURCE=1 ztest8087.c
+Checking for unistd.h... Yes.
+
+=== ztest8087.c ===
+#include <stdarg.h>
+int main() { return 0; }
+===
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc -c -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os -fPIC -D_LARGEFILE64_SOURCE=1 ztest8087.c
+Checking for stdarg.h... Yes.
+
+=== ztest8087.c ===
+#include <stdio.h>
+#include <stdarg.h>
+#include "zconf.h"
+int main()
+{
+#ifndef STDC
+  choke me
+#endif
+  return 0;
+}
+===
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc -c -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os -fPIC -D_LARGEFILE64_SOURCE=1 ztest8087.c
+Checking whether to use vs[n]printf() or s[n]printf()... using vs[n]printf().
+
+=== ztest8087.c ===
+#include <stdio.h>
+#include <stdarg.h>
+int mytest(const char *fmt, ...)
+{
+  char buf[20];
+  va_list ap;
+  va_start(ap, fmt);
+  vsnprintf(buf, sizeof(buf), fmt, ap);
+  va_end(ap);
+  return 0;
+}
+int main()
+{
+  return (mytest("Hello%d\n", 1));
+}
+===
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os -fPIC -D_LARGEFILE64_SOURCE=1 -o ztest8087 ztest8087.c
+Checking for vsnprintf() in stdio.h... Yes.
+
+=== ztest8087.c ===
+#include <stdio.h>
+#include <stdarg.h>
+int mytest(const char *fmt, ...)
+{
+  int n;
+  char buf[20];
+  va_list ap;
+  va_start(ap, fmt);
+  n = vsnprintf(buf, sizeof(buf), fmt, ap);
+  va_end(ap);
+  return n;
+}
+int main()
+{
+  return (mytest("Hello%d\n", 1));
+}
+===
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc -c -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os -fPIC -D_LARGEFILE64_SOURCE=1 ztest8087.c
+Checking for return value of vsnprintf()... Yes.
+
+=== ztest8087.c ===
+#define ZLIB_INTERNAL __attribute__((visibility ("hidden")))
+int ZLIB_INTERNAL foo;
+int main()
+{
+  return 0;
+}
+===
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc -c -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os -fPIC -D_LARGEFILE64_SOURCE=1 ztest8087.c
+Checking for attribute(visibility) support... Yes.
+
+ALL = static shared all64
+AR = /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar
+ARFLAGS = rc
+CC = /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc
+CFLAGS = -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN
+CPP = /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-cpp
+EXE =
+LDCONFIG = ldconfig
+LDFLAGS =
+LDSHARED = /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc -shared -Wl,-soname,libz.so.1,--version-script,zlib.map
+LDSHAREDLIBC = -lc
+OBJC = $(OBJZ) $(OBJG)
+PIC_OBJC = $(PIC_OBJZ) $(PIC_OBJG)
+RANLIB = /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ranlib
+SFLAGS = -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os -fPIC -fPIC -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN
+SHAREDLIB = libz.so
+SHAREDLIBM = libz.so.1
+SHAREDLIBV = libz.so.1.2.11
+STATICLIB = libz.a
+TEST = all teststatic testshared test64
+VER = 1.2.11
+Z_U4 =
+SRCDIR =
+exec_prefix = ${prefix}
+includedir = ${prefix}/include
+libdir = ${exec_prefix}/lib
+mandir = ${prefix}/share/man
+prefix = /usr
+sharedlibdir = ${libdir}
+uname = Linux
+--------------------
+
+

@@ -1,0 +1,1 @@
+cmd_drivers/media/dvb-frontends/mxl5xx.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/dvb-frontends/mxl5xx.ko drivers/media/dvb-frontends/mxl5xx.o drivers/media/dvb-frontends/mxl5xx.mod.o ;  true

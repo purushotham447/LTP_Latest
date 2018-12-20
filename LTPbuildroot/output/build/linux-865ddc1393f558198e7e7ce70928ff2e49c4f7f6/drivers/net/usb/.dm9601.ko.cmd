@@ -1,0 +1,1 @@
+cmd_drivers/net/usb/dm9601.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/net/usb/dm9601.ko drivers/net/usb/dm9601.o drivers/net/usb/dm9601.mod.o ;  true

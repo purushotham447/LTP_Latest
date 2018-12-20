@@ -1,0 +1,1 @@
+cmd_drivers/net/wireless/broadcom/brcm80211/built-in.o :=  rm -f drivers/net/wireless/broadcom/brcm80211/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/net/wireless/broadcom/brcm80211/built-in.o

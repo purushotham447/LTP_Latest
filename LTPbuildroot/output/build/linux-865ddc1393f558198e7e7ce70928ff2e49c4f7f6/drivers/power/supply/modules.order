@@ -1,0 +1,2 @@
+kernel/drivers/power/supply/ds2760_battery.ko
+kernel/drivers/power/supply/ltc2941-battery-gauge.ko

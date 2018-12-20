@@ -1,0 +1,11 @@
+prefix=/usr/src/output/host
+exec_prefix=/usr/src/output/host
+libdir=/usr/src/output/host/lib
+includedir=/usr/src/output/host/include
+
+Name: libkmod
+Description: Library to deal with kernel modules
+Version: 24
+Libs: -L${libdir} -lkmod
+Libs.private:  
+Cflags: -I${includedir}

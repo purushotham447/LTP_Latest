@@ -1,0 +1,48 @@
+#include <linux/module.h>
+#include <linux/vermagic.h>
+#include <linux/compiler.h>
+
+MODULE_INFO(vermagic, VERMAGIC_STRING);
+MODULE_INFO(name, KBUILD_MODNAME);
+
+__visible struct module __this_module
+__attribute__((section(".gnu.linkonce.this_module"))) = {
+	.name = KBUILD_MODNAME,
+	.init = init_module,
+#ifdef CONFIG_MODULE_UNLOAD
+	.exit = cleanup_module,
+#endif
+	.arch = MODULE_ARCH_INIT,
+};
+
+#ifdef RETPOLINE
+MODULE_INFO(retpoline, "Y");
+#endif
+
+static const struct modversion_info ____versions[]
+__used
+__attribute__((section("__versions"))) = {
+	{ 0x13e75575, __VMLINUX_SYMBOL_STR(module_layout) },
+	{ 0x2e5810c6, __VMLINUX_SYMBOL_STR(__aeabi_unwind_cpp_pr1) },
+	{ 0x97255bdf, __VMLINUX_SYMBOL_STR(strlen) },
+	{ 0x36849e0f, __VMLINUX_SYMBOL_STR(remove_proc_entry) },
+	{ 0xb1ad28e0, __VMLINUX_SYMBOL_STR(__gnu_mcount_nc) },
+	{ 0x27e1a049, __VMLINUX_SYMBOL_STR(printk) },
+	{ 0xff771bd, __VMLINUX_SYMBOL_STR(__cpu_online_mask) },
+	{ 0x4e8bfb05, __VMLINUX_SYMBOL_STR(lib_ring_buffer_lost_event_too_big) },
+	{ 0xd2c8889e, __VMLINUX_SYMBOL_STR(lttng_pid_tracker_lookup) },
+	{ 0xe007de41, __VMLINUX_SYMBOL_STR(kallsyms_lookup_name) },
+	{ 0xee98474c, __VMLINUX_SYMBOL_STR(lttng_probe_register) },
+	{ 0xe89155c9, __VMLINUX_SYMBOL_STR(lttng_probe_unregister) },
+	{ 0xe187693c, __VMLINUX_SYMBOL_STR(kstrtouint_from_user) },
+	{ 0x3ef53914, __VMLINUX_SYMBOL_STR(lttng_dynamic_len_stack) },
+	{ 0x5f487a65, __VMLINUX_SYMBOL_STR(proc_create_data) },
+};
+
+static const char __module_depends[]
+__used
+__attribute__((section(".modinfo"))) =
+"depends=lttng-lib-ring-buffer,lttng-tracer";
+
+
+MODULE_INFO(srcversion, "34B586A8703DA29E9BE2A5A");

@@ -1,0 +1,1 @@
+unaligned-funcs.o: ../../../libgcc/config/arm/unaligned-funcs.c

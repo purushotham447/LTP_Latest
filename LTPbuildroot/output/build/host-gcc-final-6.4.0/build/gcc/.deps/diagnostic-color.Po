@@ -1,0 +1,30 @@
+diagnostic-color.o: ../../gcc/diagnostic-color.c config.h auto-host.h \
+ ../../gcc/../include/ansidecl.h ../../gcc/system.h \
+ ../../gcc/../include/safe-ctype.h ../../gcc/../include/filenames.h \
+ ../../gcc/../include/hashtab.h ../../gcc/../include/ansidecl.h \
+ /usr/src/output/host/include/gmp.h ../../gcc/../include/libiberty.h \
+ ../../gcc/hwint.h ../../gcc/diagnostic-color.h
+
+config.h:
+
+auto-host.h:
+
+../../gcc/../include/ansidecl.h:
+
+../../gcc/system.h:
+
+../../gcc/../include/safe-ctype.h:
+
+../../gcc/../include/filenames.h:
+
+../../gcc/../include/hashtab.h:
+
+../../gcc/../include/ansidecl.h:
+
+/usr/src/output/host/include/gmp.h:
+
+../../gcc/../include/libiberty.h:
+
+../../gcc/hwint.h:
+
+../../gcc/diagnostic-color.h:

@@ -1,0 +1,182 @@
+<HTML>
+<HEAD>
+<TITLE>Data Test Program (dt) June 20th, 2012</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#D19275">
+
+<CENTER><H2><STRONG>What's New as of June 20th, 2012</STRONG></H2></CENTER>
+
+<H2>Changes For This Release</H2>
+The following changes were made to <I>dt</I> Version 17.66:
+<UL>
+<LI>
+Multiple device support has been added. The if= and of= options now accept
+a comma (",") separated list of devices. Each device will be executed in its'
+own process, and if the procs= or slices= options are specified, additional
+processes will be created (as usual).
+<p>
+Note: Multiple processes will become threads when the multi-threaded dt is ready.<BR>
+Also Note: Multiple devices on the command line is a short term solution, since the
+next major dt release will support a target input file to define many devices each
+with their own test options. But that said, the CLI method has been successful for
+50+ devices on Windows (CLI length varies per host OS).
+<p>
+So why add this support after all these years?<br>
+well, for folks initiating their IO tools from NATE control servers, you'll realize
+the following benefits:
+<DL>
+    <DD>- Reduces control server connections (e.g. rsh or ssh) to test clients.
+	<DD>* Uses one connection for all devices, rather than one connection per device.
+    <DD>- Reduces control server memory consumption when subtest()'ing with large objects.
+    <DD>- dt does the scale out, so automation does not need to run on the test clients.
+</DL>
+<P>
+So, what's different?
+<DL>
+    <DD>- All process output is written to stdout, unless a log file is specified.
+    <DD>- Each process' output is identified by the process ID (same as procs/slices).
+    <DD>- By default, dt will wait for all device processes to complete before exiting.
+	<DD>* For those desiring procs to terminate on error, please add "oncerr=abort".
+</DL>
+<P>
+Please Note: To assure unique data per device, please consider adding the prefix= option.
+A standard prefix that has worked well is: <B>prefix="%d@%h"</B>, where '%d' expands
+to the device name amd '%h' expands to the host name. This prefix is written at the start
+of each block, and has been instrumental in helping triage data corruptions.
+<p>
+<li>
+Updated log file format control strings to allow the device name "%dsf" or the
+full device path "%device" to be included in the log file name:
+<p>
+<pre>
+    Log File Format Keywords:
+        %dsf   = The device name.       %device = The device path.
+        %iodir = The I/O direction.     %iotype = The I/O type.
+        %host  = The host name.         %pid    = The process ID.
+        %user  = The user name.
+
+      Example: log=dt_%host_%dsf-%iodir_%iotype-%pid.log
+</pre>
+So for each device, the device name/path is substituted into the log file name, to
+generate a unique log for each device. Note: Path delimiters: '/' or '\\', are
+converted to an understore '_'. For "%dsf", the device directory: '/dev/' or '\\.\'
+are stripped. See examples below.
+<P>
+Please Note: Use of dt's log file option requires write access to the testbed directory,
+if you include a log path directory to this. On Windows, your testbed share must be mapped.
+On *nix, the auto-mounter takes care of this (of course), if client is properly configured.
+<p>
+<li>
+A new trigger type has been added, which uses the NetApp specific ZAPI API to send required
+commands to panic the cluster or specific nodes:
+<PRE>
+    Trigger Types:
+        zapipanic = Panic controllers via ZAPI.
+</PRE>
+At the present time, sending ZAPI commands is accomplished using this external tool:
+<DL>
+	<DD>/usr/software/test/bin/ontapi on *nix systems.
+	<DD>X:\\bin\\apitest\\apitest.exe on Windows systems.
+</DL>
+<P>
+Later, ZAPI support may be integrated directly into dt (planned as part of threaded dt).
+<PRE>
+    NetApp Specific Options:
+        ontap_cserver=string  The cluster server name.
+        ontap_nodes=string    The cluster node name(s).
+        ontap_username=string The user name (optional).
+        ontap_password=string The password (optional).
+        ontapi_path=string    The 'ontapi' path (optional)
+</PRE>
+<p>
+<li>
+When attempting to execute the trigger script, if an unexpected exit status is
+returned, dt will now terminate instead of continuing to run. This unexpected exit
+status usually means the script path cannot be found, and a request from end users
+would prefer dt terminate, so it now will!
+<p>
+<li>
+On Windows, changed GetComputerName() to GetComputerNameEx() to	avoid having the computer
+name truncated to 15 characters! This was evidenced in keepalive messages using "%h" or "%H",
+and when formatting log files with "%host".
+<p>
+<li>
+Fix bug when using enable=deleteperpass option. Was breaking out of the main test loop, if the
+destination directory previous existed, rather than being created by dt.
+</ul>
+<P>
+<CENTER>Within NetApp, the updated <I>dt</I> kits are located @ URL:</CENTER>
+<P>
+<CENTER><A HREF="http://web.rtp.netapp.com/~rtmiller/dt.html">http://web.rtp.netapp.com/~rtmiller/dt.html</A></CENTER>
+<P>
+<CENTER>External to NetApp, you can obtain <I>dt</I> kits from URL:</CENTER>
+<P>
+<CENTER>TBD</CENTER>
+</UL>
+<HR>
+Unix Example:
+<PRE>
+ssan-rhel5u4-21# <B>cd /var/tmp</B>
+ssan-rhel5u4-21# <B>mkdir dtlogs</B>
+ssan-rhel5u4-21# <B>dt.last version</B>
+    --> Date: June 20th, 2012, Version: 17.66, Author: Robin T. Miller <--
+ssan-rhel5u4-21# <B>dt.last if=/dev/sdb,/dev/sdc,/dev/sdd,/dev/sde count=1 log=dtlogs/dt-%host-%dsf.log disable=compare,stats</B>
+ssan-rhel5u4-21# <B>ls dtlogs</B>
+dt-ssan-rhel5u4-21-multi-dsfs.log  dt-ssan-rhel5u4-21-sdc.log-16709  dt-ssan-rhel5u4-21-sde.log-16711
+dt-ssan-rhel5u4-21-sdb.log-16708   dt-ssan-rhel5u4-21-sdd.log-16710
+ssan-rhel5u4-21# 
+ssan-rhel5u4-21# <B>rm dtlogs/*log*</B>
+ssan-rhel5u4-21# <B>dt of=/var/tmp/dt.data1,/var/tmp/dt.data2 count=1 log=dtlogs/dt-%host-%device.log disable=stats enable=pdebug</B>
+ssan-rhel5u4-21# <B>ls dtlogs</B>
+dt-ssan-rhel5u4-21-multi-devices.log            dt-ssan-rhel5u4-21-_var_tmp_dt_data2.log-22914
+dt-ssan-rhel5u4-21-_var_tmp_dt_data1.log-22913
+ssan-rhel5u4-21# 
+</PRE>
+Windows Example:
+<pre>
+X:\bin><B>x:\bin\dt.last if=\\.\PhysicalDrive1,\\.\PhysicalDrive2 log=c:\temp\dt-%host-%dsf.log count=1 disable=compare,stats</B>
+
+X:\bin><B>dir c:\temp\dt*log*</B>
+ Volume in drive C has no label.
+ Volume Serial Number is 54F3-DB6A
+
+ Directory of c:\temp
+
+06/22/2012  10:11 AM               224 dt-rtmiller1-lxp-multi-dsfs.log
+06/22/2012  10:11 AM               218 dt-rtmiller1-lxp-PhysicalDrive1.log
+06/22/2012  10:11 AM               218 dt-rtmiller1-lxp-PhysicalDrive2.log
+               3 File(s)            660 bytes
+               0 Dir(s)  57,474,859,008 bytes free
+
+X:\bin>
+</PRE>	
+ZAPI Panic Examples:
+<P>
+This first example is forcing a panic of all nodes via the cluster server (cserver).
+<P>
+Force an error condition that forces the trigger to be executed:
+<PRE>
+robin-ptc% <B>./dt if=/var/tmp/dt.data bs=512 count=1 position=0 \
+                pattern=0xdeadface flags=direct \
+                trigger=zapipanic ontap_cserver=rtmiller-vsim3-d2.sim.rtp.netapp.com</B>
+</PRE>
+Then verify all nodes of the cluster have rebooted with dump enabled (panic).
+<P>
+This second example forces a panic on specified cluster nodes:
+<PRE>
+robin-ptc% <B>./dt if=/var/tmp/dt.data bs=512 count=1 position=0 \
+                pattern=0xdeadface flags=direct trigger=zapipanic \
+                ontap_nodes=rtmiller-vsim3.sim.rtp.netapp.com,rtmiller-vsim4.sim.rtp.netapp.com</B>
+</PRE>
+See <A HREF="http://burtweb-prd.eng.netapp.com/burt/burt-bin/start?burt-id=592918&button=view">BURT 592918</A>
+for more details.
+<HR>
+<A HREF="mailto:Robin.Miller@netapp.com"><IMG SRC="../gifs/mailbox.gif" ALT="Mail"></A>
+Send mail to admin of this page: <EM>Robin.Miller@netapp.com</EM>
+<A HREF="../index.html"><IMG SRC="../gifs/home04.gif" ALT="Home"></A>
+To Robin's home page.
+<P>
+Last Modified: June 20th, 2012
+</BODY>
+</HTML>

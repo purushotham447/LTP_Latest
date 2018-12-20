@@ -1,0 +1,1 @@
+cmd_drivers/staging/irda/drivers/kingsun-sir.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/staging/irda/drivers/kingsun-sir.ko drivers/staging/irda/drivers/kingsun-sir.o drivers/staging/irda/drivers/kingsun-sir.mod.o ;  true

@@ -1,0 +1,479 @@
+<HTML>
+<HEAD>
+<TITLE>Data Test Program (dt) November 1st, 2010</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#D19275">
+
+<CENTER><H2><STRONG>What's New as of November 1st, 2010</STRONG></H2></CENTER>
+
+<H2>Changes For This Release</H2>
+This release added a couple options to help with file system parameters
+added in version 17.25.
+<p>
+The following changes were made to <I>dt</I> Version 17.25:
+<UL>
+<LI>
+Added corruption analysis of IOT data pattern. This includes a side-by-side comparison
+of the corrupted block, with options available to control dumping all corrupted blocks
+and/or good blocks, along with analysis of the IOT data itself.
+<p>
+Options Added:
+<pre>
+    boff=string      Set the buffer offsets to: dec or hex (Default: hex}
+    dfmt=string      Set the data format to: byte or word  (Default: byte}
+    maxbad=value     Set maximum bad blocks to display.    (default is 1)
+    enable=dumpall   Dump all blocks (good and bad).       (Default: disabled)
+</pre>
+The file offset and block range of each corruption and good block is summarized, and the
+IOT data is analyzed to determine if it's from a different pass, indicating stale data.
+When the IOT pattern is selected, the data format is set to "dfmt=word", since IOT data
+is packed in 32-bit word values.
+<p>
+Note: The previous corruption dumping is still included, but is being deprecated.
+<br>
+Also Note: This corruption analysis/display format is only available with the IOT pattern.
+<p>
+<li>
+During data corruption re-reads, display the dt command line for manually re-reading the
+corrupted data. (see example below)
+<p>
+Note: The re-read command line is *not* displayed with pattern files, pattern strings, and
+4 byte patterns, since it is not possible to specify the pattern offset for the re-read.
+<p>
+<li>
+Added a flush buffers frequency option, to be used with file system testing. This translates
+into a Unix fsync() or Windows FlushFileBuffers() to push data from the buffer cache to the
+underlying physical storage. This may be helpful during file system writes, to detect write
+failures that are otherwise unknown to dt due to their async nature. When write failures
+are missed, dt reports a data corruption during its' read/compare pass. This option may be
+used in lieu to Direct I/O, which does catch write failures, when buffered I/O is preferred.
+<p>
+<pre>
+Option Format:	
+    ffreq=value      The frequency (in records) to flush buffers.
+</pre>
+<p>
+<li>
+For Windows when creating multiple processes, quote the *keepalive= and prefix= options,
+so they can contain embedded spaces and/or special characters.
+<p>
+<li>
+The message displayed by the no-progess option, now includes the record number. Also, the
+timer debug (enable=tdebug) has also been made more verbose as well.
+<p>
+<li>
+Added bs=random enhancement, to automatically choose variable I/O sizes between 512 bytes
+and 256k bytes. This is the same option the <i>sio</i> tool uses.
+<p>
+<pre>
+Option Format:
+    bs=random        Random size between 512 and 256k.
+</pre>
+Note: This is the equivalent of: min=b max=256k incr=var options.
+<p>
+<li>
+When the device block size option is used, dsize=value, the dump limit is also adjusted
+if the dsize is larger than the default dump size of 512 bytes. In this way, when data
+corruptions are reported, the full device block size is reported.
+<p>
+Note: Setting dsize also sets the IOT blocking size.
+<p>
+<li>
+Added enable=deleteperpass option to delete test files between multiple passes. This is
+especially handy when testing file system full/quota exceeded conditions, to start clean
+on each pass. Otherwise, even with file truncation, subsequent passes may encounter early
+file system full conditions, esp. with random I/O, which may not be very interesting.
+<p>
+<pre>
+Option Format:
+    enable=deleteperpass    Delete files per pass. (Default: disabled)
+</pre>
+<p>
+<li>
+Several corner cases issues have been corrected with file system full conditions.
+<p>
+There was a case with multiple files, when "no space" was encountered on the first file on
+multiple passes, dt did not properly exit its' file loop, which lead to losing the last
+file written state, and subsequently either reading too much data, or seeking to the
+wrong location with random I/O, which lead to a false data corruption.
+<p>
+The other corner case corrected, is when reads were being adjusted to account for short
+writes (usually due to file system full), and the read count was also being adjusted to
+enforce the data limit. These two conditions lead to dt either reading too much data or
+seeking to the wrong offset with random I/O (similar to issue above).
+<p>
+As part of debugging this issue, a sanity check is now performed when reading the last
+file information, to avoid false corruptions. Instead, a "Programming error" message is
+displayed, the history (if any) is dumped, and dt will exit with a failure.
+<p>
+Note: These issues are not prevalent, since most folks do not encounter file system full
+very often, nonetheless *any* occasional false data corruption is cause for alarm, so
+for those who have encountered this, I appologize!
+<p>
+How would you know?
+<br>
+Short writes due to file system full are reported thusly: (file name is new)
+<pre>
+dt: WARNING: File /boot/tmp/DT_0/DT_3/DT_2/dt.data-00000002, record #7, attempted to write 593920 bytes, wrote only 135168 bytes.
+</pre>
+If your corruption occurred on the same file and record as the short write, then you may
+have hit one of the bugs above! (please send me a pointer to your test logs for review)
+</ul>
+<P>
+<CENTER>Within NetApp, the updated <I>dt</I> kits are located @ URL:</CENTER>
+<P>
+<CENTER><A HREF="http://web.rtp.netapp.com/~rtmiller/dt.html">http://web.rtp.netapp.com/~rtmiller/dt.html</A></CENTER>
+<P>
+<CENTER>External to NetApp, you can obtain <I>dt</I> kits from URL:</CENTER>
+<P>
+<CENTER>TBD</CENTER>
+</UL>
+<HR>
+<A HREF="mailto:Robin.Miller@netapp.com"><IMG SRC="../gifs/mailbox.gif" ALT="Mail"></A>
+Send mail to admin of this page: <EM>Robin.Miller@netapp.com</EM>
+<A HREF="../index.html"><IMG SRC="../gifs/home04.gif" ALT="Home"></A>
+To Robin's home page.
+<P>
+Last Modified: November 1st, 2010
+<HR>
+
+<H2>Examples:</H2>
+<HR SIZE=5 NOSHADE>
+<pre>
+robin-ptc% <b>dt version</b>
+    --> Date: November 18th, 2010, Version: 17.25, Author: Robin T. Miller <--
+robin-ptc% <b>dt if=/var/tmp/nate_test-1612 bs=17408 count=1 position=122765824 \
+>         prefix="'F:\ibmx346-31\nate_test-1612@IBMX346-31'" pattern=iot iotseed=0x13131313</b>
+
+dt: Error number 1 occurred on Fri Nov 19 12:47:35 2010
+dt: Elapsed time since beginning of pass: 00m00.02s
+dt: Elapsed time since beginning of test: 00m00.02s
+dt: Data compare error at byte 7724 in record number 1
+dt: Relative block number where the error occurred is 239792, position 122773548 (offset 44)
+dt: Block expected = 239792 (0x0003a8b0), block found = 709552 (0x000ad3b0), count = 17408
+dt: The correct data starts at address 0x9ffbe2c (marked by asterisk '*')
+dt: Dumping Pattern Buffer (base = 0x9ffa000, offset = 7724, limit = 512 bytes):
+Offset
+000000  6f 6d c8 c4 82 80 db d7 95 93 ee ea a8 a6 01 fe "om              "
+000016  bb b9 14 11 ce cc 27 24 e1 df 3a 37 f4 f2 4d 4a "      '$  :7  MJ"
+000032  07 06 61 5d 1a 19 74 70 2d 2c 87 83 40 3f 9a 96 "  a]  tp-,  @?  "
+000048  53 52 ad a9 66 65 c0 bc 79 78 d3 cf 8c 8b e6 e2 "SR  fe  yx      "
+000064  9f 9e f9 f5 b2 b1 0c 09 c5 c4 1f 1c d8 d7 32 2f "              2/"
+000080  eb ea 45 42 fe fd 58 55 11 11 6c 68 24 24 7f 7b "  EB  XU  lh$$ {"
+000096  37 37 92 8e 4a 4a a5 a1 5d 5d b8 b4 70 70 cb c7 "77  JJ  ]]  pp  "
+000112  83 83 de da 96 96 f1 ed a9 a9 04 01 bc bc 17 14 "                "
+000128  cf cf 2a 27 e2 e2 3d 3a f5 f5 50 4d 08 09 64 60 "  *'  =:  PM  d`"
+000144  1b 1c 77 73 2e 2f 8a 86 41 42 9d 99 54 55 b0 ac "  ws./  AB  TU  "
+000160  67 68 c3 bf 7a 7b d6 d2 8d 8e e9 e5 a0 a1 fc f8 "gh  z{          "
+000176  b3 b4 0f 0c c6 c7 22 1f d9 da 35 32 ec ed 48 45 "      "   52  HE"
+000192  ff 00 5c 58 12 14 6f 6b 25 27 82 7e 38 3a 95 91 "  \X  ok%' ~8:  "
+000208  4b 4d a8 a4 27 46 3a 5c 69 62 6d 78 33 34 36 2d "KM  'F:\ibmx346-"
+000224  33 31 5c 6e 61 74 65 5f 74 65 73 74 2d 31 36 31 "31\nate_test-161"
+000240  32 40 49 42 4d 58 33 34 36 2d 33 31 27 00 00 00 "2@IBMX346-31'   "
+000256 *b0 a8 03 00 c3 bb 16 13 d6 ce 29 26 e9 e1 3c 39 "          )&  <9"
+000272  fc f4 4f 4c 0f 08 63 5f 22 1b 76 72 35 2e 89 85 "  OL  c_" vr5.  "
+000288  48 41 9c 98 5b 54 af ab 6e 67 c2 be 81 7a d5 d1 "HA  [T  ng   z  "
+000304  94 8d e8 e4 a7 a0 fb f7 ba b3 0e 0b cd c6 21 1e "              ! "
+000320  e0 d9 34 31 f3 ec 47 44 06 00 5b 57 19 13 6e 6a "  41  GD  [W  nj"
+000336  2c 26 81 7d 3f 39 94 90 52 4c a7 a3 65 5f ba b6 ",& }?9  RL  e_  "
+000352  78 72 cd c9 8b 85 e0 dc 9e 98 f3 ef b1 ab 06 03 "xr              "
+000368  c4 be 19 16 d7 d1 2c 29 ea e4 3f 3c fd f7 52 4f "      ,)  ?<  RO"
+000384  10 0b 66 62 23 1e 79 75 36 31 8c 88 49 44 9f 9b "  fb# yu61  ID  "
+000400  5c 57 b2 ae 6f 6a c5 c1 82 7d d8 d4 95 90 eb e7 "\W  oj   }      "
+000416  a8 a3 fe fa bb b6 11 0e ce c9 24 21 e1 dc 37 34 "          $!  74"
+000432  f4 ef 4a 47 07 03 5e 5a 1a 16 71 6d 2d 29 84 80 "  JG  ^Z  qm-)  "
+000448  40 3c 97 93 53 4f aa a6 66 62 bd b9 79 75 d0 cc "@<  SO  fb  yu  "
+000464  8c 88 e3 df 9f 9b f6 f2 b2 ae 09 06 c5 c1 1c 19 "                "
+000480  d8 d4 2f 2c eb e7 42 3f fe fa 55 52 11 0e 69 65 "  /,  B?  UR  ie"
+000496  24 21 7c 78 37 34 8f 8b 4a 47 a2 9e 5d 5a b5 b1 "$!|x74  JG  ]Z  "
+
+dt: The incorrect data starts at address 0xa002e2c (marked by asterisk '*')
+dt: Dumping Data Buffer (base = 0xa001000, offset = 7724, limit = 512 bytes):
+Offset
+000000  6f 6d c8 c4 82 80 db d7 95 93 ee ea a8 a6 01 fe "om              "
+000016  bb b9 14 11 ce cc 27 24 e1 df 3a 37 f4 f2 4d 4a "      '$  :7  MJ"
+000032  07 06 61 5d 1a 19 74 70 2d 2c 87 83 40 3f 9a 96 "  a]  tp-,  @?  "
+000048  53 52 ad a9 66 65 c0 bc 79 78 d3 cf 8c 8b e6 e2 "SR  fe  yx      "
+000064  9f 9e f9 f5 b2 b1 0c 09 c5 c4 1f 1c d8 d7 32 2f "              2/"
+000080  eb ea 45 42 fe fd 58 55 11 11 6c 68 24 24 7f 7b "  EB  XU  lh$$ {"
+000096  37 37 92 8e 4a 4a a5 a1 5d 5d b8 b4 70 70 cb c7 "77  JJ  ]]  pp  "
+000112  83 83 de da 96 96 f1 ed a9 a9 04 01 bc bc 17 14 "                "
+000128  cf cf 2a 27 e2 e2 3d 3a f5 f5 50 4d 08 09 64 60 "  *'  =:  PM  d`"
+000144  1b 1c 77 73 2e 2f 8a 86 41 42 9d 99 54 55 b0 ac "  ws./  AB  TU  "
+000160  67 68 c3 bf 7a 7b d6 d2 8d 8e e9 e5 a0 a1 fc f8 "gh  z{          "
+000176  b3 b4 0f 0c c6 c7 22 1f d9 da 35 32 ec ed 48 45 "      "   52  HE"
+000192  ff 00 5c 58 12 14 6f 6b 25 27 82 7e 38 3a 95 91 "  \X  ok%' ~8:  "
+000208  4b 4d a8 a4 27 46 3a 5c 69 62 6d 78 33 34 36 2d "KM  'F:\ibmx346-"
+000224  33 31 5c 6e 61 74 65 5f 74 65 73 74 2d 31 36 31 "31\nate_test-161"
+000240  32 40 49 42 4d 58 33 34 36 2d 33 31 27 00 00 00 "2@IBMX346-31'   "
+000256 *b0 d3 0a 00 c2 e5 1c 12 d4 f7 2e 24 e6 09 41 36 "          .$  A6"
+000272  f8 1b 53 48 0a 2e 65 5a 1c 40 77 6c 2e 52 89 7e "  SH .eZ @wl.R ~"
+000288  40 64 9b 90 52 76 ad a2 64 88 bf b4 76 9a d1 c6 "@d  Rv  d   v   "
+000304  88 ac e3 d8 9a be f5 ea ac d0 07 fd be e2 19 0f "                "
+000320  d0 f4 2b 21 e2 06 3e 33 f4 18 50 45 06 2b 62 57 "  +!  >3  PE +bW"
+000336  18 3d 74 69 2a 4f 86 7b 3c 61 98 8d 4e 73 aa 9f " =ti*O {<   Ns  "
+000352  60 85 bc b1 72 97 ce c3 84 a9 e0 d5 96 bb f2 e7 "`   r           "
+000368  a8 cd 04 fa ba df 16 0c cc f1 28 1e de 03 3b 30 "          (   ;0"
+000384  f0 15 4d 42 02 28 5f 54 14 3a 71 66 26 4c 83 78 "  MB (_T :qf&L x"
+000400  38 5e 95 8a 4a 70 a7 9c 5c 82 b9 ae 6e 94 cb c0 "8^  Jp  \   n   "
+000416  80 a6 dd d2 92 b8 ef e4 a4 ca 01 f7 b6 dc 13 09 "                "
+000432  c8 ee 25 1b da 00 38 2d ec 12 4a 3f fe 24 5c 51 "  %   8-  J? $\Q"
+000448  10 37 6e 63 22 49 80 75 34 5b 92 87 46 6d a4 99 " 7nc"I u4[  Fm  "
+000464  58 7f b6 ab 6a 91 c8 bd 7c a3 da cf 8e b5 ec e1 "X   j   |       "
+000480  a0 c7 fe f3 b2 d9 10 06 c4 eb 22 18 d6 fd 34 2a "          "   4*"
+000496  e8 0f 47 3c fa 21 59 4e 0c 34 6b 60 1e 46 7d 72 "  G< !YN 4k` F}r"
+
+Analyzing IOT Record Data: (Note: Block #'s are relative to start of record!)
+
+                IOT block size: 512
+        Total number of blocks: 34 (17408 bytes)
+        Current IOT seed value: 0x13131313
+       Previous IOT seed value: 0x12121212
+          Start of good blocks: 1
+         Length of good blocks: 15 (7680 bytes)
+       Good blocks file offset: 122765824 (lba 239777)
+     Start of corrupted blocks: 16
+    Length of corrupted blocks: 19 (9728 bytes)
+  Corrupted blocks file offset: 122773504 (lba 239792)
+    Number of corrupted blocks: 19
+   Number of good blocks found: 15
+   Number of zero blocks found: 0
+
+                   File offset: 122765824
+                Transfer count: 17408 (0x4400)
+           Read buffer address: 0xa001000
+          Pattern base address: 0x9ffa000
+                 Prefix string: 'F:\ibmx346-31\nate_test-1612@IBMX346-31'
+                 Prefix length: 44 bytes (0x2c)
+                          Note: Incorrect data is marked with asterisk '*'
+
+                  Record Block: 15
+           Record Block offset: 122773504 (lba 239792)
+         Expected Block Number: 239792 (0x0003a8b0)
+         Received Block Number: 709552 (0x000ad3b0)
+       Received data from seed: 0x12121212 (stale data)
+
+Byte Expected: address 0x9ffbe00           Received: address 0xa002e00
+0000 5c3a4627 786d6269 2d363433 6e5c3133   5c3a4627 786d6269 2d363433 6e5c3133 
+      \ : F '  x m b i  - 6 4 3  n \ 1 3    \ : F '  x m b i  - 6 4 3  n \ 1 3 
+0010 5f657461 74736574 3136312d 42494032   5f657461 74736574 3136312d 42494032 
+      _ e t a  t s e t  1 6 1 -  B I @ 2    _ e t a  t s e t  1 6 1 -  B I @ 2 
+0020 3433584d 31332d36 00000027 0003a8b0 * 3433584d 31332d36 00000027 000ad3b0 
+      4 3 X M  1 3 - 6        '             4 3 X M  1 3 - 6        '          
+0030 1316bbc3 2629ced6 393ce1e9 4c4ff4fc * 121ce5c2 242ef7d4 364109e6 48531bf8 
+0040 5f63080f 72761b22 85892e35 989c4148 * 5a652e0a 6c77401c 7e89522e 909b6440 
+0050 abaf545b bec2676e d1d57a81 e4e88d94 * a2ad7652 b4bf8864 c6d19a76 d8e3ac88 
+0060 f7fba0a7 0b0eb3ba 1e21c6cd 3134d9e0 * eaf5be9a fd07d0ac 0f19e2be 212bf4d0 
+0070 4447ecf3 575b0006 6a6e1319 7d81262c * 333e06e2 455018f4 57622b06 69743d18 
+0080 9094393f a3a74c52 b6ba5f65 c9cd7278 * 7b864f2a 8d98613c 9faa734e b1bc8560 
+0090 dce0858b eff3989e 0306abb1 1619bec4 * c3ce9772 d5e0a984 e7f2bb96 fa04cda8 
+00a0 292cd1d7 3c3fe4ea 4f52f7fd 62660b10 * 0c16dfba 1e28f1cc 303b03de 424d15f0 
+00b0 75791e23 888c3136 9b9f4449 aeb2575c * 545f2802 66713a14 78834c26 8a955e38 
+00c0 c1c56a6f d4d87d82 e7eb9095 fafea3a8 * 9ca7704a aeb9825c c0cb946e d2dda680 
+00d0 0e11b6bb 2124c9ce 3437dce1 474aeff4 * e4efb892 f701caa4 0913dcb6 1b25eec8 
+00e0 5a5e0307 6d71161a 8084292d 93973c40 * 2d3800da 3f4a12ec 515c24fe 636e3710 
+00f0 a6aa4f53 b9bd6266 ccd07579 dfe3888c * 75804922 87925b34 99a46d46 abb67f58 
+0100 f2f69b9f 0609aeb2 191cc1c5 2c2fd4d8 * bdc8916a cfdaa37c e1ecb58e f3fec7a0 
+0110 3f42e7eb 5255fafe 65690e11 787c2124 * 0610d9b2 1822ebc4 2a34fdd6 3c470fe8 
+0120 8b8f3437 9ea2474a b1b55a5d c4c86d70 * 4e5921fa 606b340c 727d461e 848f5830 
+0130 d7db8083 eaee9396 fe01a6a9 1114b9bc * 96a16a42 a8b37c54 bac58e66 ccd7a078 
+0140 2427cccf 373adfe2 4a4df2f5 5d610608 * dee9b28a f0fbc49c 030dd6ae 151fe8c0 
+0150 7074191b 83872c2e 969a3f41 a9ad5254 * 2731fad2 39440ce4 4b561ef6 5d683108 
+0160 bcc06567 cfd3787a e2e68b8d f5f99ea0 * 6f7a431a 818c552c 939e673e a5b07950 
+0170 090cb1b3 1c1fc4c6 2f32d7d9 4245eaec * b7c28b62 c9d49d74 dbe6af86 edf8c198 
+0180 5558fdff 686c1112 7b7f2425 8e923738 * 000ad3aa 121ce5bc 242ef7ce 364109e0 
+0190 a1a54a4b b4b85d5e c7cb7071 dade8384 * 48531bf2 5a652e04 6c774016 7e895228 
+01a0 edf19697 0104a9aa 1417bcbd 272acfd0 * 909b643a a2ad764c b4bf885e c6d19a70 
+01b0 3a3de2e3 4d50f5f6 60640909 73771c1c * d8e3ac82 eaf5be94 fd07d0a6 0f19e2b8 
+01c0 868a2f2f 999d4242 acb05555 bfc36868 * 212bf4ca 333e06dc 455018ee 57622b00 
+01d0 d2d67b7b e5e98e8e f8fca1a1 0c0fb4b4 * 69743d12 7b864f24 8d986136 9faa7348 
+01e0 1f22c7c7 3235dada 4548eded 585c0100 * b1bc855a c3ce976c d5e0a97e e7f2bb90 
+01f0 6b6f1413 7e822726 91953a39 a4a84d4c * fa04cda2 0c16dfb4 1e28f1c6 303b03d8 
+
+dt: Rereading and verifying record data using Direct I/O...
+dt: Seeked to block 239777 (0x3a8a1) at offset 122765824
+dt: Record #1 - Reading 17408 bytes (34 blocks) into buffer 0xa006000, lba's 239777 - 239810 (pos 122765824)
+dt: Reread data matches previous data read, possible write failure!
+dt: Command line to re-read the corrupted data:
+dt: -> /u/rtmiller/Tools/dt.d-WIP/linux2.6-x86/dt if=/var/tmp/nate_test-1612 bs=17408 count=1 position=122765824 prefix="'F:\ibmx346-31\nate_test-1612@IBMX346-31'" pattern=iot iotseed=0x13131313 flags=direct
+
+Total Statistics:
+      Input device/file name: /var/tmp/nate_test-1612 (device type=regular)
+     Type of I/O's performed: sequential (forward)
+    Data pattern prefix used: 'F:\ibmx346-31\nate_test-1612@IBMX346-31'
+    Data pattern string used: 'IOT Pattern' (blocking is 512 bytes)
+     Total records processed: 1 @ 17408 bytes/record (17.000 Kbytes)
+     Total bytes transferred: 17408 (17.000 Kbytes, 0.017 Mbytes)
+      Average transfer rates: 870400 bytes/sec, 850.000 Kbytes/sec
+     Number I/O's per second: 50.000
+      Total passes completed: 1/1
+       Total errors detected: 1/1
+          Total elapsed time: 00m00.02s
+           Total system time: 00m00.00s
+             Total user time: 00m00.00s
+               Starting time: Fri Nov 19 12:47:35 2010
+                 Ending time: Fri Nov 19 12:47:35 2010
+
+robin-ptc% <b>dt if=/var/tmp/nate_test-1612 bs=17408 count=1 position=122765824 \
+>         prefix="'F:\ibmx346-31\nate_test-1612@IBMX346-31'" pattern=iot iotseed=0x13131313 \
+>         maxbad=2 dlimit=128 boff=dec dfmt=byte</b>
+
+dt: Error number 1 occurred on Fri Nov 19 12:51:21 2010
+dt: Elapsed time since beginning of pass: 00m00.00s
+dt: Elapsed time since beginning of test: 00m00.00s
+dt: Data compare error at byte 7724 in record number 1
+dt: Relative block number where the error occurred is 239792, position 122773548 (offset 44)
+dt: Block expected = 239792 (0x0003a8b0), block found = 709552 (0x000ad3b0), count = 17408
+dt: The correct data starts at address 0x8face2c (marked by asterisk '*')
+dt: Dumping Pattern Buffer (base = 0x8fab000, offset = 7724, limit = 128 bytes):
+Offset
+000000  ff 00 5c 58 12 14 6f 6b 25 27 82 7e 38 3a 95 91 "  \X  ok%' ~8:  "
+000016  4b 4d a8 a4 27 46 3a 5c 69 62 6d 78 33 34 36 2d "KM  'F:\ibmx346-"
+000032  33 31 5c 6e 61 74 65 5f 74 65 73 74 2d 31 36 31 "31\nate_test-161"
+000048  32 40 49 42 4d 58 33 34 36 2d 33 31 27 00 00 00 "2@IBMX346-31'   "
+000064 *b0 a8 03 00 c3 bb 16 13 d6 ce 29 26 e9 e1 3c 39 "          )&  <9"
+000080  fc f4 4f 4c 0f 08 63 5f 22 1b 76 72 35 2e 89 85 "  OL  c_" vr5.  "
+000096  48 41 9c 98 5b 54 af ab 6e 67 c2 be 81 7a d5 d1 "HA  [T  ng   z  "
+000112  94 8d e8 e4 a7 a0 fb f7 ba b3 0e 0b cd c6 21 1e "              ! "
+
+dt: The incorrect data starts at address 0x8fb3e2c (marked by asterisk '*')
+dt: Dumping Data Buffer (base = 0x8fb2000, offset = 7724, limit = 128 bytes):
+Offset
+000000  ff 00 5c 58 12 14 6f 6b 25 27 82 7e 38 3a 95 91 "  \X  ok%' ~8:  "
+000016  4b 4d a8 a4 27 46 3a 5c 69 62 6d 78 33 34 36 2d "KM  'F:\ibmx346-"
+000032  33 31 5c 6e 61 74 65 5f 74 65 73 74 2d 31 36 31 "31\nate_test-161"
+000048  32 40 49 42 4d 58 33 34 36 2d 33 31 27 00 00 00 "2@IBMX346-31'   "
+000064 *b0 d3 0a 00 c2 e5 1c 12 d4 f7 2e 24 e6 09 41 36 "          .$  A6"
+000080  f8 1b 53 48 0a 2e 65 5a 1c 40 77 6c 2e 52 89 7e "  SH .eZ @wl.R ~"
+000096  40 64 9b 90 52 76 ad a2 64 88 bf b4 76 9a d1 c6 "@d  Rv  d   v   "
+000112  88 ac e3 d8 9a be f5 ea ac d0 07 fd be e2 19 0f "                "
+
+Analyzing IOT Record Data: (Note: Block #'s are relative to start of record!)
+
+                IOT block size: 512
+        Total number of blocks: 34 (17408 bytes)
+        Current IOT seed value: 0x13131313
+       Previous IOT seed value: 0x12121212
+          Start of good blocks: 1
+         Length of good blocks: 15 (7680 bytes)
+       Good blocks file offset: 122765824 (lba 239777)
+     Start of corrupted blocks: 16
+    Length of corrupted blocks: 19 (9728 bytes)
+  Corrupted blocks file offset: 122773504 (lba 239792)
+    Number of corrupted blocks: 19
+   Number of good blocks found: 15
+   Number of zero blocks found: 0
+
+                   File offset: 122765824
+                Transfer count: 17408 (0x4400)
+           Read buffer address: 0x8fb2000
+          Pattern base address: 0x8fab000
+                 Prefix string: 'F:\ibmx346-31\nate_test-1612@IBMX346-31'
+                 Prefix length: 44 bytes (0x2c)
+                          Note: Incorrect data is marked with asterisk '*'
+
+                  Record Block: 15
+           Record Block offset: 122773504 (lba 239792)
+         Expected Block Number: 239792 (0x0003a8b0)
+         Received Block Number: 709552 (0x000ad3b0)
+       Received data from seed: 0x12121212 (stale data)
+
+Byte Expected: address 0x8face00                       Received: address 0x8fb3e00
+0000 27 46 3a 5c 69 62 6d 78 33 34 36 2d 33 31 5c 6e   27 46 3a 5c 69 62 6d 78 33 34 36 2d 33 31 5c 6e 
+      '  F  :  \  i  b  m  x  3  4  6  -  3  1  \  n    '  F  :  \  i  b  m  x  3  4  6  -  3  1  \  n 
+0016 61 74 65 5f 74 65 73 74 2d 31 36 31 32 40 49 42   61 74 65 5f 74 65 73 74 2d 31 36 31 32 40 49 42 
+      a  t  e  _  t  e  s  t  -  1  6  1  2  @  I  B    a  t  e  _  t  e  s  t  -  1  6  1  2  @  I  B 
+0032 4d 58 33 34 36 2d 33 31 27 00 00 00 b0 a8 03 00 * 4d 58 33 34 36 2d 33 31 27 00 00 00 b0 d3 0a 00 
+      M  X  3  4  6  -  3  1  '                         M  X  3  4  6  -  3  1  '                      
+0048 c3 bb 16 13 d6 ce 29 26 e9 e1 3c 39 fc f4 4f 4c * c2 e5 1c 12 d4 f7 2e 24 e6 09 41 36 f8 1b 53 48 
+0064 0f 08 63 5f 22 1b 76 72 35 2e 89 85 48 41 9c 98 * 0a 2e 65 5a 1c 40 77 6c 2e 52 89 7e 40 64 9b 90 
+0080 5b 54 af ab 6e 67 c2 be 81 7a d5 d1 94 8d e8 e4 * 52 76 ad a2 64 88 bf b4 76 9a d1 c6 88 ac e3 d8 
+0096 a7 a0 fb f7 ba b3 0e 0b cd c6 21 1e e0 d9 34 31 * 9a be f5 ea ac d0 07 fd be e2 19 0f d0 f4 2b 21 
+0112 f3 ec 47 44 06 00 5b 57 19 13 6e 6a 2c 26 81 7d * e2 06 3e 33 f4 18 50 45 06 2b 62 57 18 3d 74 69 
+
+                  Record Block: 16
+           Record Block offset: 122774016 (lba 239793)
+         Expected Block Number: 239793 (0x0003a8b1)
+         Received Block Number: 709553 (0x000ad3b1)
+       Received data from seed: 0x12121212 (stale data)
+
+Byte Expected: address 0x8fad000                       Received: address 0x8fb4000
+0000 27 46 3a 5c 69 62 6d 78 33 34 36 2d 33 31 5c 6e   27 46 3a 5c 69 62 6d 78 33 34 36 2d 33 31 5c 6e 
+      '  F  :  \  i  b  m  x  3  4  6  -  3  1  \  n    '  F  :  \  i  b  m  x  3  4  6  -  3  1  \  n 
+0016 61 74 65 5f 74 65 73 74 2d 31 36 31 32 40 49 42   61 74 65 5f 74 65 73 74 2d 31 36 31 32 40 49 42 
+      a  t  e  _  t  e  s  t  -  1  6  1  2  @  I  B    a  t  e  _  t  e  s  t  -  1  6  1  2  @  I  B 
+0032 4d 58 33 34 36 2d 33 31 27 00 00 00 b1 a8 03 00 * 4d 58 33 34 36 2d 33 31 27 00 00 00 b1 d3 0a 00 
+      M  X  3  4  6  -  3  1  '                         M  X  3  4  6  -  3  1  '                      
+0048 c4 bb 16 13 d7 ce 29 26 ea e1 3c 39 fd f4 4f 4c * c3 e5 1c 12 d5 f7 2e 24 e7 09 41 36 f9 1b 53 48 
+0064 10 08 63 5f 23 1b 76 72 36 2e 89 85 49 41 9c 98 * 0b 2e 65 5a 1d 40 77 6c 2f 52 89 7e 41 64 9b 90 
+0080 5c 54 af ab 6f 67 c2 be 82 7a d5 d1 95 8d e8 e4 * 53 76 ad a2 65 88 bf b4 77 9a d1 c6 89 ac e3 d8 
+0096 a8 a0 fb f7 bb b3 0e 0b ce c6 21 1e e1 d9 34 31 * 9b be f5 ea ad d0 07 fd bf e2 19 0f d1 f4 2b 21 
+0112 f4 ec 47 44 07 00 5b 57 1a 13 6e 6a 2d 26 81 7d * e3 06 3e 33 f5 18 50 45 07 2b 62 57 19 3d 74 69 
+
+dt: Rereading and verifying record data using Direct I/O...
+dt: Seeked to block 239777 (0x3a8a1) at offset 122765824
+dt: Record #1 - Reading 17408 bytes (34 blocks) into buffer 0x8fb7000, lba's 239777 - 239810 (pos 122765824)
+dt: Reread data matches previous data read, possible write failure!
+dt: Command line to re-read the corrupted data:
+dt: -> /u/rtmiller/Tools/dt.d-WIP/linux2.6-x86/dt if=/var/tmp/nate_test-1612 bs=17408 count=1 position=122765824 prefix="'F:\ibmx346-31\nate_test-1612@IBMX346-31'" pattern=iot iotseed=0x13131313 flags=direct dlimit=128
+
+Total Statistics:
+      Input device/file name: /var/tmp/nate_test-1612 (device type=regular)
+     Type of I/O's performed: sequential (forward)
+    Data pattern prefix used: 'F:\ibmx346-31\nate_test-1612@IBMX346-31'
+    Data pattern string used: 'IOT Pattern' (blocking is 512 bytes)
+     Total records processed: 1 @ 17408 bytes/record (17.000 Kbytes)
+     Total bytes transferred: 17408 (17.000 Kbytes, 0.017 Mbytes)
+      Average transfer rates: 0 bytes/sec, 0.000 Kbytes/sec
+     Number I/O's per second: 0.000
+      Total passes completed: 1/1
+       Total errors detected: 1/1
+          Total elapsed time: 00m00.00s
+           Total system time: 00m00.00s
+             Total user time: 00m00.00s
+               Starting time: Fri Nov 19 12:51:21 2010
+                 Ending time: Fri Nov 19 12:51:21 2010
+
+robin-ptc% <b>dt of=/var/tmp/dt.data bs=random count=3 enable=Debug disable=pstats</b>
+dt: Parent process ID is 15929
+dt: Opening output file '/var/tmp/dt.data', open flags = 0101 (0x41)...
+dt: Output file '/var/tmp/dt.data' successfully opened, fd = 3
+dt: Allocated buffer at address 0xb7f92000 of 262148 bytes, using offset 0
+dt: Using data pattern 0x39c39c39 for pass 1
+dt: Record #1 - Writing 179040 bytes (350 blocks) from buffer 0xb7f92000, lba's 0 - 349.352 (pos 0)
+dt: Record #2 - Writing 177392 bytes (347 blocks) from buffer 0xb7f92000, lba's 349.352 - 695.80 (pos 179040)
+dt: Record #3 - Writing 231936 bytes (453 blocks) from buffer 0xb7f92000, lba's 696.80 - 1148.80 (pos 356432)
+dt: Flushing data to file '/var/tmp/dt.data'...
+dt: Closing file '/var/tmp/dt.data', fd = 3...
+dt: End of Write pass 0/1, 1149 blocks, 0.561 Mbytes, 3 records, errors 0/1, elapsed 00m00.02s
+dt: Reopening file '/var/tmp/dt.data', open flags = 0 (0)...
+dt: File '/var/tmp/dt.data' successfully reopened, fd = 3
+dt: Record #1 - Reading 179040 bytes (350 blocks) into buffer 0xb7f92000, lba's 0 - 349.352 (pos 0)
+dt: Record #2 - Reading 177392 bytes (347 blocks) into buffer 0xb7f92000, lba's 349.352 - 695.80 (pos 179040)
+dt: Record #3 - Reading 231936 bytes (453 blocks) into buffer 0xb7f92000, lba's 696.80 - 1148.80 (pos 356432)
+dt: End of Read pass 1/1, 1149 blocks, 0.561 Mbytes, 3 records, errors 0/1, elapsed 00m00.01s
+dt: Terminating with code 0...
+dt: Closing file '/var/tmp/dt.data', fd = 3...
+
+Total Statistics:
+     Output device/file name: /var/tmp/dt.data (device type=regular)
+     Type of I/O's performed: sequential (forward, rseed=0x3d1a8801)
+   Data pattern read/written: 0x39c39c39
+     Total records processed: 6 with min=512, max=262144, incr=variable
+     Total bytes transferred: 1176736 (1149.156 Kbytes, 1.122 Mbytes)
+      Average transfer rates: 39224533 bytes/sec, 38305.208 Kbytes/sec
+     Number I/O's per second: 200.000
+      Total passes completed: 1/1
+       Total errors detected: 0/1
+          Total elapsed time: 00m00.03s
+           Total system time: 00m00.00s
+             Total user time: 00m00.00s
+               Starting time: Mon Nov  1 13:07:59 2010
+                 Ending time: Mon Nov  1 13:07:59 2010
+
+dt: Exiting with status code 0...
+robin-ptc% 
+</pre>
+</BODY>
+</HTML>

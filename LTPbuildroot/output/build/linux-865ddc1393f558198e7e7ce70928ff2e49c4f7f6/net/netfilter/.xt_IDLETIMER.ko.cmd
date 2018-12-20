@@ -1,0 +1,1 @@
+cmd_net/netfilter/xt_IDLETIMER.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/netfilter/xt_IDLETIMER.ko net/netfilter/xt_IDLETIMER.o net/netfilter/xt_IDLETIMER.mod.o ;  true

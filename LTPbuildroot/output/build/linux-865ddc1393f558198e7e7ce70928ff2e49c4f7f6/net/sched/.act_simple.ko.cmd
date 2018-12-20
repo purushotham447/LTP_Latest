@@ -1,0 +1,1 @@
+cmd_net/sched/act_simple.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/sched/act_simple.ko net/sched/act_simple.o net/sched/act_simple.mod.o ;  true

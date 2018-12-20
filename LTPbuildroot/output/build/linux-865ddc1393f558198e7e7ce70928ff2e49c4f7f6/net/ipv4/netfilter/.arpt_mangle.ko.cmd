@@ -1,0 +1,1 @@
+cmd_net/ipv4/netfilter/arpt_mangle.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/ipv4/netfilter/arpt_mangle.ko net/ipv4/netfilter/arpt_mangle.o net/ipv4/netfilter/arpt_mangle.mod.o ;  true

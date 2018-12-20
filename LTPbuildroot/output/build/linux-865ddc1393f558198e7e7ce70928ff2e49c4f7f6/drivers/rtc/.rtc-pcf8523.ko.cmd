@@ -1,0 +1,1 @@
+cmd_drivers/rtc/rtc-pcf8523.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/rtc/rtc-pcf8523.ko drivers/rtc/rtc-pcf8523.o drivers/rtc/rtc-pcf8523.mod.o ;  true

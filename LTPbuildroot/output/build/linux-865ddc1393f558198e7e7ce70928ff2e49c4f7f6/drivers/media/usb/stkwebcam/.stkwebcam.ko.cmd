@@ -1,0 +1,1 @@
+cmd_drivers/media/usb/stkwebcam/stkwebcam.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/usb/stkwebcam/stkwebcam.ko drivers/media/usb/stkwebcam/stkwebcam.o drivers/media/usb/stkwebcam/stkwebcam.mod.o ;  true

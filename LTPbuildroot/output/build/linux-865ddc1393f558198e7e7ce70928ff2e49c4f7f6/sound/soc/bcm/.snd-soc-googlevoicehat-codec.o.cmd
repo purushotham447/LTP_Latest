@@ -1,0 +1,1 @@
+cmd_sound/soc/bcm/snd-soc-googlevoicehat-codec.o := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL    -r -o sound/soc/bcm/snd-soc-googlevoicehat-codec.o sound/soc/bcm/googlevoicehat-codec.o 

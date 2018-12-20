@@ -1,0 +1,19 @@
+!<thin>
+//                                              400       `
+vc04_services/interface/vchiq_arm/vchiq_core.o/
+vc04_services/interface/vchiq_arm/vchiq_arm.o/
+vc04_services/interface/vchiq_arm/vchiq_kern_lib.o/
+vc04_services/interface/vchiq_arm/vchiq_2835_arm.o/
+vc04_services/interface/vchiq_arm/vchiq_debugfs.o/
+vc04_services/interface/vchiq_arm/vchiq_shim.o/
+vc04_services/interface/vchiq_arm/vchiq_util.o/
+vc04_services/interface/vchiq_arm/vchiq_connected.o/
+
+/0              0           0     0     644     65144     `
+/48             0           0     0     644     51684     `
+/95             0           0     0     644     15260     `
+/147            0           0     0     644     14156     `
+/199           /0           0     0     644     8932      `
+/250            0           0     0     644     23508     `
+/298            0           0     0     644     4072      `
+/346            0           0     0     644     4284      `

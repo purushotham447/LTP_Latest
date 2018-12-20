@@ -1,0 +1,1 @@
+cmd_sound/soc/codecs/snd-soc-ak4554.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o sound/soc/codecs/snd-soc-ak4554.ko sound/soc/codecs/snd-soc-ak4554.o sound/soc/codecs/snd-soc-ak4554.mod.o ;  true

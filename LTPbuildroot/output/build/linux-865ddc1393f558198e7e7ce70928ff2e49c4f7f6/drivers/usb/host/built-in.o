@@ -1,0 +1,47 @@
+!<thin>
+//                                              604       `
+dwc_otg/dwc_otg_driver.o/
+dwc_otg/dwc_otg_attr.o/
+dwc_otg/dwc_otg_cil.o/
+dwc_otg/dwc_otg_cil_intr.o/
+dwc_otg/dwc_otg_pcd_linux.o/
+dwc_otg/dwc_otg_pcd.o/
+dwc_otg/dwc_otg_pcd_intr.o/
+dwc_otg/dwc_otg_hcd.o/
+dwc_otg/dwc_otg_hcd_linux.o/
+dwc_otg/dwc_otg_hcd_intr.o/
+dwc_otg/dwc_otg_hcd_queue.o/
+dwc_otg/dwc_otg_hcd_ddma.o/
+dwc_otg/dwc_otg_adp.o/
+dwc_otg/dwc_otg_fiq_fsm.o/
+dwc_otg/dwc_otg_fiq_stub.o/
+dwc_common_port/dwc_cc.o/
+dwc_common_port/dwc_modpow.o/
+dwc_common_port/dwc_dh.o/
+dwc_common_port/dwc_crypto.o/
+dwc_common_port/dwc_notifier.o/
+dwc_common_port/dwc_common_linux.o/
+dwc_common_port/dwc_mem.o/
+
+/0              0           0     0     644     28012     `
+/26             0           0     0     644     25276     `
+/50             0           0     0     644     102736    `
+/73             0           0     0     644     15716     `
+/101            0           0     0     644     14888     `
+/130            0           0     0     644     21000     `
+/153            0           0     0     644     38928     `
+/181            0           0     0     644     38964     `
+/204            0           0     0     644     14776     `
+/233            0           0     0     644     26160     `
+/261            0           0     0     644     10460     `
+/290            0           0     0     644     12296     `
+/318            0           0     0     644     11272     `
+/341            0           0     0     644     11532     `
+/368            0           0     0     644     672       `
+/396            0           0     0     644     8692      `
+/422            0           0     0     644     780       `
+/452            0           0     0     644     776       `
+/478            0           0     0     644     780       `
+/508            0           0     0     644     7080      `
+/540            0           0     0     644     88460     `
+/576            0           0     0     644     776       `

@@ -1,0 +1,1 @@
+cmd_net/sunrpc/auth_gss/built-in.o :=  rm -f net/sunrpc/auth_gss/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD net/sunrpc/auth_gss/built-in.o net/sunrpc/auth_gss/auth_rpcgss.o 

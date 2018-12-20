@@ -1,0 +1,1 @@
+cmd_drivers/bluetooth/bpa10x.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/bluetooth/bpa10x.ko drivers/bluetooth/bpa10x.o drivers/bluetooth/bpa10x.mod.o ;  true

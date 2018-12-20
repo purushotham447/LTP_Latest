@@ -1,0 +1,1 @@
+cmd_drivers/staging/irda/drivers/sir-dev.o := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL    -r -o drivers/staging/irda/drivers/sir-dev.o drivers/staging/irda/drivers/sir_dev.o drivers/staging/irda/drivers/sir_dongle.o 

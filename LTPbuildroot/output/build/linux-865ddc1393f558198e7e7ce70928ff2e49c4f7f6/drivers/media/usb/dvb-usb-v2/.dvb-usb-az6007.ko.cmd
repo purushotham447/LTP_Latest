@@ -1,0 +1,1 @@
+cmd_drivers/media/usb/dvb-usb-v2/dvb-usb-az6007.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/usb/dvb-usb-v2/dvb-usb-az6007.ko drivers/media/usb/dvb-usb-v2/dvb-usb-az6007.o drivers/media/usb/dvb-usb-v2/dvb-usb-az6007.mod.o ;  true

@@ -1,0 +1,15 @@
+libunwind.o: ../../../libgcc/config/arm/libunwind.S libunwind.vis \
+ ../../../libgcc/config/arm/lib1funcs.S \
+ ../../../libgcc/config/arm/ieee754-df.S \
+ ../../../libgcc/config/arm/ieee754-sf.S \
+ ../../../libgcc/config/arm/bpabi.S
+
+libunwind.vis:
+
+../../../libgcc/config/arm/lib1funcs.S:
+
+../../../libgcc/config/arm/ieee754-df.S:
+
+../../../libgcc/config/arm/ieee754-sf.S:
+
+../../../libgcc/config/arm/bpabi.S:

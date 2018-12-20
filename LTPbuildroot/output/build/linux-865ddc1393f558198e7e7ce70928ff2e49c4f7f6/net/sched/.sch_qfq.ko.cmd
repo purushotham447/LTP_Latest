@@ -1,0 +1,1 @@
+cmd_net/sched/sch_qfq.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/sched/sch_qfq.ko net/sched/sch_qfq.o net/sched/sch_qfq.mod.o ;  true

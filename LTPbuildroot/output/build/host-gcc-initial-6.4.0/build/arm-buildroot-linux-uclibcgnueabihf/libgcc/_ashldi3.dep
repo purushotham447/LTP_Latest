@@ -1,0 +1,12 @@
+_ashldi3.o: ../../../libgcc/config/arm/lib1funcs.S _ashldi3.vis \
+ ../../../libgcc/config/arm/ieee754-df.S \
+ ../../../libgcc/config/arm/ieee754-sf.S \
+ ../../../libgcc/config/arm/bpabi.S
+
+_ashldi3.vis:
+
+../../../libgcc/config/arm/ieee754-df.S:
+
+../../../libgcc/config/arm/ieee754-sf.S:
+
+../../../libgcc/config/arm/bpabi.S:

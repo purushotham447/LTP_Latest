@@ -1,0 +1,18 @@
+!<thin>
+//                                              104       `
+vt_ioctl.o/
+vc_screen.o/
+selection.o/
+keyboard.o/
+consolemap.o/
+consolemap_deftbl.o/
+vt.o/
+defkeymap.o/
+/0              0           0     0     644     17284     `
+/12             0           0     0     644     11088     `
+/25             0           0     0     644     7664      `
+/38             0           0     0     644     38764     `
+/50             0           0     0     644     15152     `
+/64             0           0     0     644     1732      `
+/85             0           0     0     644     79796     `
+/91             0           0     0     644     10448     `

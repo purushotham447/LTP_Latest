@@ -1,0 +1,285 @@
+#include <linux/module.h>
+#include <linux/vermagic.h>
+#include <linux/compiler.h>
+
+MODULE_INFO(vermagic, VERMAGIC_STRING);
+MODULE_INFO(name, KBUILD_MODNAME);
+
+__visible struct module __this_module
+__attribute__((section(".gnu.linkonce.this_module"))) = {
+	.name = KBUILD_MODNAME,
+	.init = init_module,
+#ifdef CONFIG_MODULE_UNLOAD
+	.exit = cleanup_module,
+#endif
+	.arch = MODULE_ARCH_INIT,
+};
+
+MODULE_INFO(intree, "Y");
+
+#ifdef RETPOLINE
+MODULE_INFO(retpoline, "Y");
+#endif
+
+static const struct modversion_info ____versions[]
+__used
+__attribute__((section("__versions"))) = {
+	{ 0x13e75575, __VMLINUX_SYMBOL_STR(module_layout) },
+	{ 0x5f8504e7, __VMLINUX_SYMBOL_STR(register_netdevice) },
+	{ 0x3640667f, __VMLINUX_SYMBOL_STR(sdio_writeb) },
+	{ 0x6082fd21, __VMLINUX_SYMBOL_STR(sdio_readb) },
+	{ 0x2d3385d3, __VMLINUX_SYMBOL_STR(system_wq) },
+	{ 0xbceaaf05, __VMLINUX_SYMBOL_STR(brcmu_d11_attach) },
+	{ 0xa8109599, __VMLINUX_SYMBOL_STR(kmalloc_caches) },
+	{ 0x12da5bb2, __VMLINUX_SYMBOL_STR(__kmalloc) },
+	{ 0xf9a482f9, __VMLINUX_SYMBOL_STR(msleep) },
+	{ 0xf88c3301, __VMLINUX_SYMBOL_STR(sg_init_table) },
+	{ 0xff178f6, __VMLINUX_SYMBOL_STR(__aeabi_idivmod) },
+	{ 0x72c460e2, __VMLINUX_SYMBOL_STR(wiphy_free) },
+	{ 0xc09d4b2a, __VMLINUX_SYMBOL_STR(cfg80211_connect_done) },
+	{ 0x6f7f1a6f, __VMLINUX_SYMBOL_STR(debugfs_create_dir) },
+	{ 0x95dc1b95, __VMLINUX_SYMBOL_STR(mem_map) },
+	{ 0x349cba85, __VMLINUX_SYMBOL_STR(strchr) },
+	{ 0xa3faa39c, __VMLINUX_SYMBOL_STR(param_ops_int) },
+	{ 0x2e5810c6, __VMLINUX_SYMBOL_STR(__aeabi_unwind_cpp_pr1) },
+	{ 0x97255bdf, __VMLINUX_SYMBOL_STR(strlen) },
+	{ 0x68dd09c1, __VMLINUX_SYMBOL_STR(device_release_driver) },
+	{ 0xaa076099, __VMLINUX_SYMBOL_STR(irq_of_parse_and_map) },
+	{ 0xea124bd1, __VMLINUX_SYMBOL_STR(gcd) },
+	{ 0x43a53735, __VMLINUX_SYMBOL_STR(__alloc_workqueue_key) },
+	{ 0x27bbf221, __VMLINUX_SYMBOL_STR(disable_irq_nosync) },
+	{ 0x9c64fbd, __VMLINUX_SYMBOL_STR(ieee80211_frequency_to_channel) },
+	{ 0x9278bcfb, __VMLINUX_SYMBOL_STR(cfg80211_inform_bss_data) },
+	{ 0xf68285c0, __VMLINUX_SYMBOL_STR(register_inetaddr_notifier) },
+	{ 0xd261b8a6, __VMLINUX_SYMBOL_STR(brcmu_boardrev_str) },
+	{ 0x1391f507, __VMLINUX_SYMBOL_STR(send_sig) },
+	{ 0x19e03378, __VMLINUX_SYMBOL_STR(cfg80211_get_p2p_attr) },
+	{ 0x79aa04a2, __VMLINUX_SYMBOL_STR(get_random_bytes) },
+	{ 0xb5a57d8a, __VMLINUX_SYMBOL_STR(remove_wait_queue) },
+	{ 0xc5bc2853, __VMLINUX_SYMBOL_STR(sdio_enable_func) },
+	{ 0xc7a4fbed, __VMLINUX_SYMBOL_STR(rtnl_lock) },
+	{ 0x62747f09, __VMLINUX_SYMBOL_STR(cfg80211_report_wowlan_wakeup) },
+	{ 0x2f2a6c42, __VMLINUX_SYMBOL_STR(sdio_claim_irq) },
+	{ 0x240afbaa, __VMLINUX_SYMBOL_STR(brcmu_pkt_buf_get_skb) },
+	{ 0xd6d7cce4, __VMLINUX_SYMBOL_STR(netif_carrier_on) },
+	{ 0xa1d55e90, __VMLINUX_SYMBOL_STR(_raw_spin_lock_bh) },
+	{ 0xf7802486, __VMLINUX_SYMBOL_STR(__aeabi_uidivmod) },
+	{ 0x4e6d24c3, __VMLINUX_SYMBOL_STR(get_random_u32) },
+	{ 0x2a3aa678, __VMLINUX_SYMBOL_STR(_test_and_clear_bit) },
+	{ 0xf13a6c95, __VMLINUX_SYMBOL_STR(seq_printf) },
+	{ 0xcdd58911, __VMLINUX_SYMBOL_STR(netif_carrier_off) },
+	{ 0x4205ad24, __VMLINUX_SYMBOL_STR(cancel_work_sync) },
+	{ 0x653e8626, __VMLINUX_SYMBOL_STR(usb_kill_urb) },
+	{ 0x60352082, __VMLINUX_SYMBOL_STR(register_inet6addr_notifier) },
+	{ 0x303cf0c5, __VMLINUX_SYMBOL_STR(seq_write) },
+	{ 0xe2fae716, __VMLINUX_SYMBOL_STR(kmemdup) },
+	{ 0x1927b708, __VMLINUX_SYMBOL_STR(cfg80211_rx_mgmt) },
+	{ 0xe8663ae6, __VMLINUX_SYMBOL_STR(ieee80211_channel_to_frequency) },
+	{ 0xd5152710, __VMLINUX_SYMBOL_STR(sg_next) },
+	{ 0x4c2ae700, __VMLINUX_SYMBOL_STR(strnstr) },
+	{ 0xc5c4c4ab, __VMLINUX_SYMBOL_STR(driver_for_each_device) },
+	{ 0xb1ad28e0, __VMLINUX_SYMBOL_STR(__gnu_mcount_nc) },
+	{ 0x99ab9445, __VMLINUX_SYMBOL_STR(__dev_kfree_skb_any) },
+	{ 0x5ee52022, __VMLINUX_SYMBOL_STR(init_timer_key) },
+	{ 0xee494dc4, __VMLINUX_SYMBOL_STR(brcmu_pktq_pdeq_tail) },
+	{ 0xe4ca3b4f, __VMLINUX_SYMBOL_STR(mutex_unlock) },
+	{ 0x85df9b6c, __VMLINUX_SYMBOL_STR(strsep) },
+	{ 0xf58bb32, __VMLINUX_SYMBOL_STR(of_device_is_compatible) },
+	{ 0x6733b8c6, __VMLINUX_SYMBOL_STR(__platform_driver_probe) },
+	{ 0x999e8297, __VMLINUX_SYMBOL_STR(vfree) },
+	{ 0x8040d0f7, __VMLINUX_SYMBOL_STR(pm_runtime_allow) },
+	{ 0xc28eb5e5, __VMLINUX_SYMBOL_STR(brcmu_pktq_penq) },
+	{ 0xe033c580, __VMLINUX_SYMBOL_STR(cfg80211_unregister_wdev) },
+	{ 0x38bfced7, __VMLINUX_SYMBOL_STR(brcmu_pktq_mdeq) },
+	{ 0xb51f63e2, __VMLINUX_SYMBOL_STR(pm_runtime_forbid) },
+	{ 0x91715312, __VMLINUX_SYMBOL_STR(sprintf) },
+	{ 0x60ceba45, __VMLINUX_SYMBOL_STR(debugfs_remove_recursive) },
+	{ 0x27168320, __VMLINUX_SYMBOL_STR(kthread_create_on_node) },
+	{ 0x526c3a6c, __VMLINUX_SYMBOL_STR(jiffies) },
+	{ 0x9c9518d7, __VMLINUX_SYMBOL_STR(skb_unlink) },
+	{ 0x77e71afb, __VMLINUX_SYMBOL_STR(skb_trim) },
+	{ 0x13aa1cda, __VMLINUX_SYMBOL_STR(cfg80211_mgmt_tx_status) },
+	{ 0x882e57e5, __VMLINUX_SYMBOL_STR(param_ops_string) },
+	{ 0xce2840e7, __VMLINUX_SYMBOL_STR(irq_set_irq_wake) },
+	{ 0x418e630e, __VMLINUX_SYMBOL_STR(__netdev_alloc_skb) },
+	{ 0x3e72ef7b, __VMLINUX_SYMBOL_STR(netif_rx) },
+	{ 0x7c5b837a, __VMLINUX_SYMBOL_STR(__pskb_pull_tail) },
+	{ 0x93de854a, __VMLINUX_SYMBOL_STR(__init_waitqueue_head) },
+	{ 0xaad8c7d6, __VMLINUX_SYMBOL_STR(default_wake_function) },
+	{ 0x87ced379, __VMLINUX_SYMBOL_STR(mmc_wait_for_req) },
+	{ 0xff6e7c7e, __VMLINUX_SYMBOL_STR(debugfs_create_u32) },
+	{ 0x2fe252cc, __VMLINUX_SYMBOL_STR(unregister_inet6addr_notifier) },
+	{ 0xe707d823, __VMLINUX_SYMBOL_STR(__aeabi_uidiv) },
+	{ 0xdd0a2ba2, __VMLINUX_SYMBOL_STR(strlcat) },
+	{ 0x8463b2d2, __VMLINUX_SYMBOL_STR(sdio_writel) },
+	{ 0xfa2a45e, __VMLINUX_SYMBOL_STR(__memzero) },
+	{ 0xfc982daa, __VMLINUX_SYMBOL_STR(del_timer_sync) },
+	{ 0xb79db79c, __VMLINUX_SYMBOL_STR(cfg80211_vendor_cmd_reply) },
+	{ 0xc03b0859, __VMLINUX_SYMBOL_STR(brcmu_pktq_pdeq_match) },
+	{ 0x5f754e5a, __VMLINUX_SYMBOL_STR(memset) },
+	{ 0xb2726c02, __VMLINUX_SYMBOL_STR(netif_rx_ni) },
+	{ 0x314e90da, __VMLINUX_SYMBOL_STR(netif_tx_wake_queue) },
+	{ 0x51d559d1, __VMLINUX_SYMBOL_STR(_raw_spin_unlock_irqrestore) },
+	{ 0x37befc70, __VMLINUX_SYMBOL_STR(jiffies_to_msecs) },
+	{ 0x82b04bfc, __VMLINUX_SYMBOL_STR(usb_deregister) },
+	{ 0x2aee63f4, __VMLINUX_SYMBOL_STR(__mutex_init) },
+	{ 0x1165d124, __VMLINUX_SYMBOL_STR(dev_coredumpv) },
+	{ 0x27e1a049, __VMLINUX_SYMBOL_STR(printk) },
+	{ 0xf14c5dcc, __VMLINUX_SYMBOL_STR(kthread_stop) },
+	{ 0x71c90087, __VMLINUX_SYMBOL_STR(memcmp) },
+	{ 0x90d57597, __VMLINUX_SYMBOL_STR(of_find_property) },
+	{ 0x782acaeb, __VMLINUX_SYMBOL_STR(wiphy_read_of_freq_limits) },
+	{ 0x40100300, __VMLINUX_SYMBOL_STR(wait_for_completion_interruptible) },
+	{ 0xac4c7e42, __VMLINUX_SYMBOL_STR(free_netdev) },
+	{ 0x6bbb3fc7, __VMLINUX_SYMBOL_STR(wiphy_unregister) },
+	{ 0xa1c76e0a, __VMLINUX_SYMBOL_STR(_cond_resched) },
+	{ 0x328a05f1, __VMLINUX_SYMBOL_STR(strncpy) },
+	{ 0xedf01cff, __VMLINUX_SYMBOL_STR(register_netdev) },
+	{ 0x18650c66, __VMLINUX_SYMBOL_STR(nla_put) },
+	{ 0xb6800866, __VMLINUX_SYMBOL_STR(mmc_set_data_timeout) },
+	{ 0xe75a4ede, __VMLINUX_SYMBOL_STR(sdio_readl) },
+	{ 0x27838042, __VMLINUX_SYMBOL_STR(cfg80211_del_sta_sinfo) },
+	{ 0xa7453a2c, __VMLINUX_SYMBOL_STR(ieee80211_get_channel) },
+	{ 0x84b183ae, __VMLINUX_SYMBOL_STR(strncmp) },
+	{ 0x73e20c1c, __VMLINUX_SYMBOL_STR(strlcpy) },
+	{ 0x1e986d8f, __VMLINUX_SYMBOL_STR(brcmu_pktq_peek_tail) },
+	{ 0xc61928b9, __VMLINUX_SYMBOL_STR(brcmu_pktq_flush) },
+	{ 0x16305289, __VMLINUX_SYMBOL_STR(warn_slowpath_null) },
+	{ 0xbeef10b4, __VMLINUX_SYMBOL_STR(skb_push) },
+	{ 0xfd16e532, __VMLINUX_SYMBOL_STR(mutex_lock) },
+	{ 0x8c03d20c, __VMLINUX_SYMBOL_STR(destroy_workqueue) },
+	{ 0xfea325fc, __VMLINUX_SYMBOL_STR(cfg80211_michael_mic_failure) },
+	{ 0xddbc98e, __VMLINUX_SYMBOL_STR(wiphy_apply_custom_regulatory) },
+	{ 0x8c83ccb9, __VMLINUX_SYMBOL_STR(irq_get_irq_data) },
+	{ 0xa38caae0, __VMLINUX_SYMBOL_STR(mod_timer) },
+	{ 0x62451f4, __VMLINUX_SYMBOL_STR(add_timer) },
+	{ 0xa735db59, __VMLINUX_SYMBOL_STR(prandom_u32) },
+	{ 0xd6b8e852, __VMLINUX_SYMBOL_STR(request_threaded_irq) },
+	{ 0x8e865d3c, __VMLINUX_SYMBOL_STR(arm_delay_ops) },
+	{ 0xc144892b, __VMLINUX_SYMBOL_STR(skb_pull) },
+	{ 0x8982bbbd, __VMLINUX_SYMBOL_STR(request_firmware_nowait) },
+	{ 0xcb2853d, __VMLINUX_SYMBOL_STR(cfg80211_ibss_joined) },
+	{ 0x2196324, __VMLINUX_SYMBOL_STR(__aeabi_idiv) },
+	{ 0xfe487975, __VMLINUX_SYMBOL_STR(init_wait_entry) },
+	{ 0xc8d67c1f, __VMLINUX_SYMBOL_STR(brcmu_dbg_hex_dump) },
+	{ 0xb39bf7e4, __VMLINUX_SYMBOL_STR(sdio_readsb) },
+	{ 0xa24e7282, __VMLINUX_SYMBOL_STR(sdio_unregister_driver) },
+	{ 0xcdd158d, __VMLINUX_SYMBOL_STR(sg_alloc_table) },
+	{ 0x5bf9c3ef, __VMLINUX_SYMBOL_STR(sdio_f0_writeb) },
+	{ 0x7685a5b3, __VMLINUX_SYMBOL_STR(cfg80211_check_combinations) },
+	{ 0x9ba94644, __VMLINUX_SYMBOL_STR(skb_queue_tail) },
+	{ 0x9f984513, __VMLINUX_SYMBOL_STR(strrchr) },
+	{ 0x43497351, __VMLINUX_SYMBOL_STR(usb_submit_urb) },
+	{ 0x40a9b349, __VMLINUX_SYMBOL_STR(vzalloc) },
+	{ 0x98134cfb, __VMLINUX_SYMBOL_STR(cfg80211_roamed) },
+	{ 0x9fd8746f, __VMLINUX_SYMBOL_STR(cfg80211_put_bss) },
+	{ 0xfe029963, __VMLINUX_SYMBOL_STR(unregister_inetaddr_notifier) },
+	{ 0x12a38747, __VMLINUX_SYMBOL_STR(usleep_range) },
+	{ 0xc1b8bedb, __VMLINUX_SYMBOL_STR(__cfg80211_alloc_reply_skb) },
+	{ 0xedd8f28e, __VMLINUX_SYMBOL_STR(wiphy_register) },
+	{ 0xe5b510be, __VMLINUX_SYMBOL_STR(cfg80211_crit_proto_stopped) },
+	{ 0xdd3916ac, __VMLINUX_SYMBOL_STR(_raw_spin_unlock_bh) },
+	{ 0x648dc57b, __VMLINUX_SYMBOL_STR(debugfs_create_devm_seqfile) },
+	{ 0x151bcbc9, __VMLINUX_SYMBOL_STR(sdio_release_irq) },
+	{ 0x4a65e1ee, __VMLINUX_SYMBOL_STR(cfg80211_classify8021d) },
+	{ 0x8ddd8aad, __VMLINUX_SYMBOL_STR(schedule_timeout) },
+	{ 0x86a4889a, __VMLINUX_SYMBOL_STR(kmalloc_order_trace) },
+	{ 0x48da9d64, __VMLINUX_SYMBOL_STR(kfree_skb) },
+	{ 0x2e7074fd, __VMLINUX_SYMBOL_STR(cfg80211_ready_on_channel) },
+	{ 0xe3dead2e, __VMLINUX_SYMBOL_STR(wiphy_new_nm) },
+	{ 0x375708c2, __VMLINUX_SYMBOL_STR(alloc_netdev_mqs) },
+	{ 0xe7fc7fae, __VMLINUX_SYMBOL_STR(request_firmware_direct) },
+	{ 0xa56a787, __VMLINUX_SYMBOL_STR(eth_type_trans) },
+	{ 0xdede32e8, __VMLINUX_SYMBOL_STR(sdio_f0_readb) },
+	{ 0xf4bfa21, __VMLINUX_SYMBOL_STR(wake_up_process) },
+	{ 0xf4c95eee, __VMLINUX_SYMBOL_STR(pskb_expand_head) },
+	{ 0xb4e5d113, __VMLINUX_SYMBOL_STR(ether_setup) },
+	{ 0xfd397c86, __VMLINUX_SYMBOL_STR(cfg80211_disconnected) },
+	{ 0x3f2988a1, __VMLINUX_SYMBOL_STR(brcmu_dotrev_str) },
+	{ 0x4c890c25, __VMLINUX_SYMBOL_STR(kmem_cache_alloc_trace) },
+	{ 0x9c0bd51f, __VMLINUX_SYMBOL_STR(_raw_spin_lock) },
+	{ 0x598542b2, __VMLINUX_SYMBOL_STR(_raw_spin_lock_irqsave) },
+	{ 0xf6f927, __VMLINUX_SYMBOL_STR(unregister_netdevice_queue) },
+	{ 0x6ae10440, __VMLINUX_SYMBOL_STR(cfg80211_new_sta) },
+	{ 0x4215a929, __VMLINUX_SYMBOL_STR(__wake_up) },
+	{ 0xb3f7646e, __VMLINUX_SYMBOL_STR(kthread_should_stop) },
+	{ 0x243a6d96, __VMLINUX_SYMBOL_STR(sdio_memcpy_toio) },
+	{ 0x9e52ac12, __VMLINUX_SYMBOL_STR(prepare_to_wait_event) },
+	{ 0x31d65870, __VMLINUX_SYMBOL_STR(sdio_writew) },
+	{ 0xe522e385, __VMLINUX_SYMBOL_STR(brcmu_pktq_penq_head) },
+	{ 0x6d9820cd, __VMLINUX_SYMBOL_STR(brcmu_pktq_init) },
+	{ 0x1e047854, __VMLINUX_SYMBOL_STR(warn_slowpath_fmt) },
+	{ 0xdd31568b, __VMLINUX_SYMBOL_STR(add_wait_queue) },
+	{ 0xfcec0987, __VMLINUX_SYMBOL_STR(enable_irq) },
+	{ 0x37a0cba, __VMLINUX_SYMBOL_STR(kfree) },
+	{ 0x9d669763, __VMLINUX_SYMBOL_STR(memcpy) },
+	{ 0x6df1aaf1, __VMLINUX_SYMBOL_STR(kernel_sigaction) },
+	{ 0xf9e73082, __VMLINUX_SYMBOL_STR(scnprintf) },
+	{ 0x6897ade, __VMLINUX_SYMBOL_STR(usb_register_driver) },
+	{ 0x98dfb43, __VMLINUX_SYMBOL_STR(finish_wait) },
+	{ 0x2dcfd344, __VMLINUX_SYMBOL_STR(cfg80211_remain_on_channel_expired) },
+	{ 0x527cbcdf, __VMLINUX_SYMBOL_STR(unregister_netdev) },
+	{ 0x9cd60539, __VMLINUX_SYMBOL_STR(sg_free_table) },
+	{ 0x676bbc0f, __VMLINUX_SYMBOL_STR(_set_bit) },
+	{ 0xb2d48a2e, __VMLINUX_SYMBOL_STR(queue_work_on) },
+	{ 0x689e06e, __VMLINUX_SYMBOL_STR(complete) },
+	{ 0xb81960ca, __VMLINUX_SYMBOL_STR(snprintf) },
+	{ 0xca54fee, __VMLINUX_SYMBOL_STR(_test_and_set_bit) },
+	{ 0xb32e3017, __VMLINUX_SYMBOL_STR(sdio_readw) },
+	{ 0x29012166, __VMLINUX_SYMBOL_STR(sdio_register_driver) },
+	{ 0xfaaa86c8, __VMLINUX_SYMBOL_STR(consume_skb) },
+	{ 0xf1a6af5d, __VMLINUX_SYMBOL_STR(sdio_memcpy_fromio) },
+	{ 0x4ae3262e, __VMLINUX_SYMBOL_STR(cfg80211_sched_scan_stopped) },
+	{ 0xc97fbcbd, __VMLINUX_SYMBOL_STR(sdio_claim_host) },
+	{ 0x934c6be5, __VMLINUX_SYMBOL_STR(platform_driver_unregister) },
+	{ 0x7f02188f, __VMLINUX_SYMBOL_STR(__msecs_to_jiffies) },
+	{ 0xaab91aae, __VMLINUX_SYMBOL_STR(cfg80211_scan_done) },
+	{ 0x39e0d40b, __VMLINUX_SYMBOL_STR(of_property_read_variable_u32_array) },
+	{ 0x49ebacbd, __VMLINUX_SYMBOL_STR(_clear_bit) },
+	{ 0x87a4ffab, __VMLINUX_SYMBOL_STR(brcmu_pkt_buf_free_skb) },
+	{ 0x7529a1e4, __VMLINUX_SYMBOL_STR(skb_put) },
+	{ 0x29dec96f, __VMLINUX_SYMBOL_STR(wait_for_completion_timeout) },
+	{ 0x6ebc1f5f, __VMLINUX_SYMBOL_STR(usb_free_urb) },
+	{ 0x3782dfe5, __VMLINUX_SYMBOL_STR(sdio_set_block_size) },
+	{ 0x2ebcd9e7, __VMLINUX_SYMBOL_STR(release_firmware) },
+	{ 0x6e720ff2, __VMLINUX_SYMBOL_STR(rtnl_unlock) },
+	{ 0x14e07511, __VMLINUX_SYMBOL_STR(sdio_disable_func) },
+	{ 0x54b8b402, __VMLINUX_SYMBOL_STR(usb_alloc_urb) },
+	{ 0xc1514a3b, __VMLINUX_SYMBOL_STR(free_irq) },
+	{ 0x6ae54aee, __VMLINUX_SYMBOL_STR(sdio_release_host) },
+	{ 0xea86380, __VMLINUX_SYMBOL_STR(cfg80211_sched_scan_results) },
+	{ 0x22a5d1f3, __VMLINUX_SYMBOL_STR(brcmu_pktq_mlen) },
+};
+
+static const char __module_depends[]
+__used
+__attribute__((section(".modinfo"))) =
+"depends=brcmutil,cfg80211";
+
+MODULE_ALIAS("sdio:c*v02D0dA887*");
+MODULE_ALIAS("sdio:c*v02D0d4324*");
+MODULE_ALIAS("sdio:c*v02D0d4329*");
+MODULE_ALIAS("sdio:c*v02D0d4330*");
+MODULE_ALIAS("sdio:c*v02D0d4334*");
+MODULE_ALIAS("sdio:c*v02D0dA94C*");
+MODULE_ALIAS("sdio:c*v02D0dA94D*");
+MODULE_ALIAS("sdio:c*v02D0dA962*");
+MODULE_ALIAS("sdio:c*v02D0d4335*");
+MODULE_ALIAS("sdio:c*v02D0d4339*");
+MODULE_ALIAS("sdio:c*v02D0dA9A6*");
+MODULE_ALIAS("sdio:c*v02D0d4345*");
+MODULE_ALIAS("sdio:c*v02D0dA9BF*");
+MODULE_ALIAS("sdio:c*v02D0d4354*");
+MODULE_ALIAS("sdio:c*v02D0d4356*");
+MODULE_ALIAS("sdio:c*v02D0d4373*");
+MODULE_ALIAS("usb:v0A5CpBD1Ed*dc*dsc*dp*ic*isc*ip*in*");
+MODULE_ALIAS("usb:v0A5CpBD17d*dc*dsc*dp*ic*isc*ip*in*");
+MODULE_ALIAS("usb:v0A5CpBD1Fd*dc*dsc*dp*ic*isc*ip*in*");
+MODULE_ALIAS("usb:v0A5CpBD27d*dc*dsc*dp*ic*isc*ip*in*");
+MODULE_ALIAS("usb:v13B1p0039d*dc*dsc*dp*ic*isc*ip*in*");
+MODULE_ALIAS("usb:v04B4pBD29d*dc*dsc*dp*ic*isc*ip*in*");
+MODULE_ALIAS("usb:v043Ep3101d*dc*dsc*dp*ic*isc*ip*in*");
+MODULE_ALIAS("usb:v0A5Cp0BDCd*dc*dsc*dp*ic*isc*ip*in*");
+MODULE_ALIAS("usb:v04B4p0BDCd*dc*dsc*dp*ic*isc*ip*in*");
+
+MODULE_INFO(srcversion, "50F037BC0E1160354EFC8D4");

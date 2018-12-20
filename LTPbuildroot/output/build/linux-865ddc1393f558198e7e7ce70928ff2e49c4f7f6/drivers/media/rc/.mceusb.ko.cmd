@@ -1,0 +1,1 @@
+cmd_drivers/media/rc/mceusb.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/rc/mceusb.ko drivers/media/rc/mceusb.o drivers/media/rc/mceusb.mod.o ;  true

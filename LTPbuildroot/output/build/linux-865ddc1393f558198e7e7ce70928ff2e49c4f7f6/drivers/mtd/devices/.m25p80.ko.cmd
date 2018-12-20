@@ -1,0 +1,1 @@
+cmd_drivers/mtd/devices/m25p80.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/mtd/devices/m25p80.ko drivers/mtd/devices/m25p80.o drivers/mtd/devices/m25p80.mod.o ;  true

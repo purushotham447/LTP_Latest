@@ -1,0 +1,1 @@
+cmd_drivers/media/tuners/tuner-simple.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/tuners/tuner-simple.ko drivers/media/tuners/tuner-simple.o drivers/media/tuners/tuner-simple.mod.o ;  true

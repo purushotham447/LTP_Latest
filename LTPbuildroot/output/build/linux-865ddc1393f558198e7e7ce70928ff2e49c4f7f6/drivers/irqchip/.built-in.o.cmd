@@ -1,0 +1,1 @@
+cmd_drivers/irqchip/built-in.o :=  rm -f drivers/irqchip/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/irqchip/built-in.o drivers/irqchip/irqchip.o drivers/irqchip/irq-bcm2835.o drivers/irqchip/irq-bcm2836.o 

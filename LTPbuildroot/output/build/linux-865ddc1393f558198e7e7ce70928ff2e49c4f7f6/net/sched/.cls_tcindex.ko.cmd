@@ -1,0 +1,1 @@
+cmd_net/sched/cls_tcindex.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/sched/cls_tcindex.ko net/sched/cls_tcindex.o net/sched/cls_tcindex.mod.o ;  true

@@ -1,0 +1,1 @@
+cmd_drivers/staging/fbtft/fb_st7789v.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/staging/fbtft/fb_st7789v.ko drivers/staging/fbtft/fb_st7789v.o drivers/staging/fbtft/fb_st7789v.mod.o ;  true

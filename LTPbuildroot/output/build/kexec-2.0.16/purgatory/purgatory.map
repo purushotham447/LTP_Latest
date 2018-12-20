@@ -1,0 +1,359 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD purgatory/purgatory.o
+LOAD purgatory/printf.o
+LOAD purgatory/string.o
+LOAD purgatory/sha256.o
+
+.interp
+ *(.interp)
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.hash
+ *(.hash)
+
+.gnu.hash
+ *(.gnu.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+
+.rela.text
+ *(.rela.text)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+
+.rela.rodata
+ *(.rela.rodata)
+
+.rel.data.rel.ro
+ *(.rel.data.rel.ro)
+
+.rela.data.rel.ro
+ *(.rela.data.rel.ro)
+
+.rel.data
+ *(.rel.data)
+
+.rela.data
+ *(.rela.data)
+
+.rel.tdata
+ *(.rel.tdata)
+
+.rela.tdata
+ *(.rela.tdata)
+
+.rel.tbss
+ *(.rel.tbss)
+
+.rela.tbss
+ *(.rela.tbss)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.iplt
+ *(.rel.iplt)
+
+.rela.iplt
+ *(.rela.iplt)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.init
+ *(SORT(.init))
+
+.plt
+ *(.plt)
+
+.iplt
+ *(.iplt)
+
+.text           0x0000000000000000     0x2dec
+ *(.text .stub)
+ .text          0x0000000000000000      0x118 purgatory/purgatory.o
+                0x0000000000000000                verify_sha256_digest
+                0x00000000000000ec                purgatory
+ .text          0x0000000000000118      0x290 purgatory/printf.o
+                0x0000000000000118                vsprintf
+                0x0000000000000354                sprintf
+                0x000000000000037c                printf
+ .text          0x00000000000003a8       0x9c purgatory/string.o
+                0x00000000000003a8                strnlen
+                0x00000000000003d0                memset
+                0x00000000000003ec                memcpy
+                0x000000000000040c                memcmp
+ .text          0x0000000000000444     0x29a8 purgatory/sha256.o
+                0x0000000000000444                sha256_starts
+                0x00000000000004b8                sha256_process
+                0x0000000000002c2c                sha256_update
+                0x0000000000002c38                sha256_finish
+ *(.gnu.warning)
+
+.fini
+ *(SORT(.fini))
+
+.rodata
+ *(.rodata)
+
+.rodata.str1.1  0x0000000000000000       0x6b
+ .rodata.str1.1
+                0x0000000000000000       0x5a purgatory/purgatory.o
+ .rodata.str1.1
+                0x000000000000005a       0x11 purgatory/printf.o
+
+.rodata1
+ *(.rodata1)
+
+.ARM.extab
+ *(.ARM.extab)
+
+.ARM.exidx
+ *(.ARM.exidx)
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+
+.eh_frame
+ *(.eh_frame)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.gnu_extab
+ *(.gnu_extab*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+
+.eh_frame
+ *(.eh_frame)
+
+.gnu_extab
+ *(.gnu_extab)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+
+.tdata
+ *(.tdata)
+
+.tbss
+ *(.tbss)
+
+.preinit_array
+ *(.preinit_array)
+
+.jcr
+ *(.jcr)
+
+.dynamic
+ *(.dynamic)
+
+.got
+ *(.got.plt)
+ *(.igot.plt)
+ *(.got)
+ *(.igot)
+
+.data           0x0000000000000000      0x160
+ *(.data)
+ .data          0x0000000000000000      0x120 purgatory/purgatory.o
+                0x0000000000000000                sha256_regions
+                0x0000000000000100                sha256_digest
+ .data          0x0000000000000120        0x0 purgatory/printf.o
+ .data          0x0000000000000120        0x0 purgatory/string.o
+ .data          0x0000000000000120       0x40 purgatory/sha256.o
+
+.data1
+ *(.data1)
+
+.bss            0x0000000000000000        0x0
+ *(.bss)
+ .bss           0x0000000000000000        0x0 purgatory/purgatory.o
+ .bss           0x0000000000000000        0x0 purgatory/printf.o
+ .bss           0x0000000000000000        0x0 purgatory/string.o
+ .bss           0x0000000000000000        0x0 purgatory/sha256.o
+ *(COMMON)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0xc4
+ *(.comment)
+ .comment       0x0000000000000000       0x31 purgatory/purgatory.o
+ .comment       0x0000000000000031       0x31 purgatory/printf.o
+ .comment       0x0000000000000062       0x31 purgatory/string.o
+ .comment       0x0000000000000093       0x31 purgatory/sha256.o
+
+.note.GNU-stack
+                0x0000000000000000        0x0
+ .note.GNU-stack
+                0x0000000000000000        0x0 purgatory/purgatory.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 purgatory/printf.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 purgatory/string.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 purgatory/sha256.o
+
+.ARM.attributes
+                0x0000000000000000       0x41
+ .ARM.attributes
+                0x0000000000000000       0x41 purgatory/purgatory.o
+ .ARM.attributes
+                0x0000000000000041       0x41 purgatory/printf.o
+ .ARM.attributes
+                0x0000000000000082       0x41 purgatory/string.o
+ .ARM.attributes
+                0x00000000000000c3       0x41 purgatory/sha256.o
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line .debug_line.* .debug_line_end)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges
+ *(.debug_ranges)
+
+.debug_macro
+ *(.debug_macro)
+
+.debug_addr
+ *(.debug_addr)
+
+.gnu.attributes
+ *(.gnu.attributes)
+
+.note.gnu.arm.ident
+ *(.note.gnu.arm.ident)
+OUTPUT(purgatory/purgatory.ro.sym elf32-littlearm)

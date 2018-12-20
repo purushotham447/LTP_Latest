@@ -1,0 +1,48 @@
+May 16th, 2014 by Robin T. Miller
+
+	There's a script named makedt, which is what I use for building the various dt's,
+for various OS's. Please Note: Depending on the OS version, additional build parameters
+may be defined (see makedt for details).
+
+	The proper way to build dt is to create a subdirectory, which makedt does, then cd there
+to do a build similar to this simple script (see below).
+
+	The Makefile for each OS being built will use the OS variable to create a symbolic link to
+the appropriate SCSI library, if one exists for that OS (none for FreeBAD or MacOS at this time).
+This, of course, is new since this is the first dt release with the SCSI library included.
+
+	Hope this helps!
+
+Cheers,
+Robin
+
+________________________________________
+
+ssan-rhel5u4-21% pwd
+/u/rtmiller/Tools/dt.v18.32/linux2.6-x86-64
+ssan-rhel5u4-21% cat domake
+#!/bin/bash
+#!/bin/ksh
+make -f ../Makefile.linux VPATH=.. \
+ PORG="-g -Wformat -Wsign-compare -Wmissing-declarations -Wmissing-prototypes -Wreturn-type -D_ALL_SOURCE" OS=linux
+ssan-rhel5u4-21%           
+ssan-rhel5u4-21% ./domake
+cc -g -Wformat -Wsign-compare -Wmissing-declarations -Wmissing-prototypes -Wreturn-type -D_ALL_SOURCE -std=c99 -I.. -DAIO -DMMAP -D__linux__ -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -DSCSI   -c -o dt.o ../dt.c
+cc -g -Wformat -Wsign-compare -Wmissing-declarations -Wmissing-prototypes -Wreturn-type -D_ALL_SOURCE -std=c99 -I.. -DAIO -DMMAP -D__linux__ -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -DSCSI   -c -o dtaio.o ../dtaio.c
+cc -g -Wformat -Wsign-compare -Wmissing-declarations -Wmissing-prototypes -Wreturn-type -D_ALL_SOURCE -std=c99 -I.. -DAIO -DMMAP -D__linux__ -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -DSCSI   -c -o dtgen.o ../dtgen.c
+cc -g -Wformat -Wsign-compare -Wmissing-declarations -Wmissing-prototypes -Wreturn-type -D_ALL_SOURCE -std=c99 -I.. -DAIO -DMMAP -D__linux__ -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -DSCSI   -c -o dtinfo.o ../dtinfo.c
+cc -g -Wformat -Wsign-compare -Wmissing-declarations -Wmissing-prototypes -Wreturn-type -D_ALL_SOURCE -std=c99 -I.. -DAIO -DMMAP -D__linux__ -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -DSCSI   -c -o dtmmap.o ../dtmmap.c
+cc -g -Wformat -Wsign-compare -Wmissing-declarations -Wmissing-prototypes -Wreturn-type -D_ALL_SOURCE -std=c99 -I.. -DAIO -DMMAP -D__linux__ -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -DSCSI   -c -o dtprocs.o ../dtprocs.c
+cc -g -Wformat -Wsign-compare -Wmissing-declarations -Wmissing-prototypes -Wreturn-type -D_ALL_SOURCE -std=c99 -I.. -DAIO -DMMAP -D__linux__ -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -DSCSI   -c -o dtread.o ../dtread.c
+cc -g -Wformat -Wsign-compare -Wmissing-declarations -Wmissing-prototypes -Wreturn-type -D_ALL_SOURCE -std=c99 -I.. -DAIO -DMMAP -D__linux__ -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -DSCSI   -c -o dtwrite.o ../dtwrite.c
+cc -g -Wformat -Wsign-compare -Wmissing-declarations -Wmissing-prototypes -Wreturn-type -D_ALL_SOURCE -std=c99 -I.. -DAIO -DMMAP -D__linux__ -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -DSCSI   -c -o dtstats.o ../dtstats.c
+cc -g -Wformat -Wsign-compare -Wmissing-declarations -Wmissing-prototypes -Wreturn-type -D_ALL_SOURCE -std=c99 -I.. -DAIO -DMMAP -D__linux__ -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -DSCSI   -c -o dttape.o ../dttape.c
+cc -g -Wformat -Wsign-compare -Wmissing-declarations -Wmissing-prototypes -Wreturn-type -D_ALL_SOURCE -std=c99 -I.. -DAIO -DMMAP -D__linux__ -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -DSCSI   -c -o dtunix.o ../dtunix.c
+cc -g -Wformat -Wsign-compare -Wmissing-declarations -Wmissing-prototypes -Wreturn-type -D_ALL_SOURCE -std=c99 -I.. -DAIO -DMMAP -D__linux__ -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -DSCSI   -c -o dtutil.o ../dtutil.c
+cc -g -Wformat -Wsign-compare -Wmissing-declarations -Wmissing-prototypes -Wreturn-type -D_ALL_SOURCE -std=c99 -I.. -DAIO -DMMAP -D__linux__ -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -DSCSI   -c -o dtusage.o ../dtusage.c
+cc -g -Wformat -Wsign-compare -Wmissing-declarations -Wmissing-prototypes -Wreturn-type -D_ALL_SOURCE -std=c99 -I.. -DAIO -DMMAP -D__linux__ -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -DSCSI   -c -o libscsi.o ../libscsi.c
+cc -g -Wformat -Wsign-compare -Wmissing-declarations -Wmissing-prototypes -Wreturn-type -D_ALL_SOURCE -std=c99 -I.. -DAIO -DMMAP -D__linux__ -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -DSCSI   -c -o scsidata.o ../scsidata.c
+cc -g -Wformat -Wsign-compare -Wmissing-declarations -Wmissing-prototypes -Wreturn-type -D_ALL_SOURCE -std=c99 -I.. -DAIO -DMMAP -D__linux__ -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -DSCSI   -c -o scsilib.o scsilib.c
+loading dt ...done
+ssan-rhel5u4-21%
+

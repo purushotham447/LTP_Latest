@@ -1,0 +1,1 @@
+cmd_net/netfilter/xt_hashlimit.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/netfilter/xt_hashlimit.ko net/netfilter/xt_hashlimit.o net/netfilter/xt_hashlimit.mod.o ;  true

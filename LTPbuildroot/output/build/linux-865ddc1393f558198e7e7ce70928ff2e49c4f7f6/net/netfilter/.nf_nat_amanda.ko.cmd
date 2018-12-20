@@ -1,0 +1,1 @@
+cmd_net/netfilter/nf_nat_amanda.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/netfilter/nf_nat_amanda.ko net/netfilter/nf_nat_amanda.o net/netfilter/nf_nat_amanda.mod.o ;  true

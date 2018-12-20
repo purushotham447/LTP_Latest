@@ -1,0 +1,33 @@
+pspax -u 0
+errno = 0; uid = strtol(optarg, NULL, 10); if (uid == 0 && errno != 0) error("invalid value");
+
+add support for RPATH checking with -nL ?
+
+we truncate 64bit types in many places to (unsigned long) ... do we really
+care though ?  this would be an issue if:
+ - host is 32bit
+ - object being analyzed is 64bit
+ - object has symbols which is larger than 32bits
+
+dumpelf does not do string checking in very very verbose mode.  it assumes the
+strings are sane when dumping the sections.  only way around this is to check
+everything single byte and print it out a character at a time ... sucks ...
+
+we don't handle versioned symbols well.  take an ELF with debugging and do:
+	scanelf -s '' elf
+notice that glibc symbols generally have version info.  then search for that:
+	scanelf -s foo@@ver elf
+no hits as all of our symbol comparisons ignore the versioning info.
+
+allow digging into ARM_ATTRIBUTES (.ARM.attributes) sections
+	- need info on the section layout
+	- figure out how to integrate cleanly (target-independent driller)
+	http://sourceware.org/binutils/docs/as/GNU-Object-Attributes.html
+
+scanelf should look at the dynamic table for rpath/needed/soname entries instead
+of requiring section headers and looking up by section names.  need to implement
+support for GNU_HASH first though so we can get the string table sizes.
+
+rewrite elf->e_shnum handling.  if it's 0 (SH_UNDEF), then the size is
+contained in the sh_size of the first section header at index 0.  add a
+source code check too.

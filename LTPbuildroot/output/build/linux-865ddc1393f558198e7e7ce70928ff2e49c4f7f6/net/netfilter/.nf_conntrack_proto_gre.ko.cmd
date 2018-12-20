@@ -1,0 +1,1 @@
+cmd_net/netfilter/nf_conntrack_proto_gre.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/netfilter/nf_conntrack_proto_gre.ko net/netfilter/nf_conntrack_proto_gre.o net/netfilter/nf_conntrack_proto_gre.mod.o ;  true

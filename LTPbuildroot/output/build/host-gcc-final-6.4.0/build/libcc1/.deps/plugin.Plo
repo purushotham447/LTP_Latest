@@ -1,0 +1,724 @@
+plugin.lo: ../../libcc1/plugin.cc /usr/include/stdc-predef.h \
+ cc1plugin-config.h ../gcc/config.h ../gcc/auto-host.h \
+ ../../libcc1/../gcc/gcc-plugin.h ../gcc/config.h \
+ ../../libcc1/../gcc/system.h \
+ /usr/lib/gcc/x86_64-linux-gnu/6/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/6/include/stddef.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio.h \
+ ../../libcc1/../include/safe-ctype.h /usr/include/ctype.h \
+ /usr/include/endian.h /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap-16.h /usr/include/xlocale.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/sigset.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/sys/sysmacros.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h /usr/include/errno.h \
+ /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
+ /usr/include/x86_64-linux-gnu/asm/errno.h \
+ /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
+ /usr/include/c++/6/cstring \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/cpu_defines.h \
+ /usr/include/string.h /usr/include/c++/6/new \
+ /usr/include/c++/6/exception \
+ /usr/include/c++/6/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/6/bits/exception_ptr.h \
+ /usr/include/c++/6/bits/exception_defines.h \
+ /usr/include/c++/6/bits/nested_exception.h \
+ /usr/include/c++/6/bits/move.h /usr/include/c++/6/bits/concept_check.h \
+ /usr/include/c++/6/type_traits /usr/include/c++/6/utility \
+ /usr/include/c++/6/bits/stl_relops.h /usr/include/c++/6/bits/stl_pair.h \
+ /usr/include/c++/6/initializer_list /usr/include/strings.h \
+ /usr/include/c++/6/stdlib.h /usr/include/c++/6/cstdlib \
+ /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h \
+ ../../libcc1/../include/getopt.h \
+ /usr/include/x86_64-linux-gnu/sys/param.h \
+ /usr/lib/gcc/x86_64-linux-gnu/6/include-fixed/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/6/include-fixed/syslimits.h \
+ /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h /usr/include/signal.h \
+ /usr/include/x86_64-linux-gnu/bits/signum.h \
+ /usr/include/x86_64-linux-gnu/bits/siginfo.h \
+ /usr/include/x86_64-linux-gnu/bits/sigaction.h \
+ /usr/include/x86_64-linux-gnu/bits/sigcontext.h \
+ /usr/include/x86_64-linux-gnu/bits/sigstack.h \
+ /usr/include/x86_64-linux-gnu/sys/ucontext.h \
+ /usr/include/x86_64-linux-gnu/bits/sigthread.h \
+ /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
+ /usr/include/x86_64-linux-gnu/asm/param.h \
+ /usr/include/asm-generic/param.h \
+ /usr/include/x86_64-linux-gnu/sys/time.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h /usr/include/fcntl.h \
+ /usr/include/x86_64-linux-gnu/bits/fcntl.h \
+ /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
+ /usr/include/x86_64-linux-gnu/bits/uio.h \
+ /usr/include/x86_64-linux-gnu/bits/stat.h \
+ /usr/include/x86_64-linux-gnu/sys/wait.h \
+ /usr/include/x86_64-linux-gnu/sys/mman.h \
+ /usr/include/x86_64-linux-gnu/bits/mman.h \
+ /usr/include/x86_64-linux-gnu/bits/mman-linux.h \
+ /usr/include/x86_64-linux-gnu/sys/resource.h \
+ /usr/include/x86_64-linux-gnu/bits/resource.h \
+ /usr/include/x86_64-linux-gnu/sys/times.h \
+ /usr/lib/gcc/x86_64-linux-gnu/6/include/stdint.h /usr/include/stdint.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/inttypes.h \
+ /usr/include/x86_64-linux-gnu/sys/stat.h \
+ ../../libcc1/../include/filenames.h ../../libcc1/../include/hashtab.h \
+ ../../libcc1/../include/ansidecl.h /usr/include/dlfcn.h \
+ /usr/include/x86_64-linux-gnu/bits/dlfcn.h \
+ /usr/src/output/host/include/gmp.h /usr/include/c++/6/iosfwd \
+ /usr/include/c++/6/bits/stringfwd.h /usr/include/c++/6/bits/memoryfwd.h \
+ /usr/include/c++/6/bits/postypes.h /usr/include/c++/6/cwchar \
+ /usr/include/c++/6/cstdio ../../libcc1/../include/libiberty.h \
+ ../../libcc1/../gcc/hwint.h ../../libcc1/../gcc/coretypes.h \
+ ../../libcc1/../gcc/machmode.h ../gcc/insn-modes.h \
+ ../../libcc1/../gcc/mode-classes.def ../../libcc1/../gcc/signop.h \
+ ../../libcc1/../gcc/wide-int.h ../../libcc1/../gcc/double-int.h \
+ ../../libcc1/../gcc/real.h ../../libcc1/../gcc/fixed-value.h \
+ ../../libcc1/../gcc/hash-table.h ../../libcc1/../gcc/statistics.h \
+ ../../libcc1/../gcc/ggc.h ../gcc/gtype-desc.h ../../libcc1/../gcc/vec.h \
+ ../../libcc1/../include/hashtab.h ../../libcc1/../gcc/inchash.h \
+ ../../libcc1/../gcc/mem-stats-traits.h ../../libcc1/../gcc/hash-traits.h \
+ ../../libcc1/../gcc/hash-map-traits.h ../../libcc1/../gcc/mem-stats.h \
+ ../../libcc1/../gcc/hash-map.h ../../libcc1/../gcc/hash-set.h \
+ ../../libcc1/../gcc/input.h ../../libcc1/../libcpp/include/line-map.h \
+ ../../libcc1/../gcc/is-a.h ../../libcc1/../gcc/memory-block.h \
+ ../../libcc1/../gcc/backend.h ../gcc/tm.h ../gcc/options.h \
+ ../../libcc1/../gcc/flag-types.h \
+ ../../libcc1/../gcc/config/arm/arm-opts.h \
+ ../../libcc1/../gcc/config/arm/arm-cores.def ../gcc/insn-constants.h \
+ ../../libcc1/../gcc/config/dbxelf.h ../../libcc1/../gcc/config/elfos.h \
+ ../../libcc1/../gcc/config/gnu-user.h ../../libcc1/../gcc/config/linux.h \
+ ../../libcc1/../gcc/config/linux-android.h \
+ ../../libcc1/../gcc/config/glibc-stdint.h \
+ ../../libcc1/../gcc/config/arm/elf.h \
+ ../../libcc1/../gcc/config/arm/linux-gas.h \
+ ../../libcc1/../gcc/config/arm/linux-elf.h \
+ ../../libcc1/../gcc/config/arm/bpabi.h \
+ ../../libcc1/../gcc/config/arm/linux-eabi.h \
+ ../../libcc1/../gcc/config/arm/aout.h \
+ ../../libcc1/../gcc/config/vxworks-dummy.h \
+ ../../libcc1/../gcc/config/arm/arm.h \
+ ../../libcc1/../gcc/config/initfini-array.h ../gcc/insn-flags.h \
+ ../gcc/insn-modes.h ../../libcc1/../gcc/defaults.h \
+ ../../libcc1/../gcc/function.h ../../libcc1/../gcc/bitmap.h \
+ ../../libcc1/../include/obstack.h ../../libcc1/../gcc/sbitmap.h \
+ ../../libcc1/../gcc/basic-block.h ../../libcc1/../gcc/cfg-flags.def \
+ ../../libcc1/../gcc/cfg.h ../../libcc1/../gcc/dominance.h \
+ ../../libcc1/../gcc/cfghooks.h ../../libcc1/../gcc/predict.h \
+ ../../libcc1/../gcc/predict.def ../../libcc1/../gcc/hard-reg-set.h \
+ ../../libcc1/../gcc/cfgrtl.h ../../libcc1/../gcc/cfganal.h \
+ ../../libcc1/../gcc/lcm.h ../../libcc1/../gcc/cfgbuild.h \
+ ../../libcc1/../gcc/cfgcleanup.h ../../libcc1/../include/plugin-api.h \
+ ../../libcc1/../gcc/ipa-ref.h ../../libcc1/../gcc/alias.h \
+ ../../libcc1/../gcc/flags.h ../../libcc1/../gcc/tree-core.h \
+ ../../libcc1/../libcpp/include/symtab.h ../gcc/all-tree.def \
+ ../../libcc1/../gcc/tree.def ../../libcc1/../gcc/c-family/c-common.def \
+ ../../libcc1/../gcc/ada/gcc-interface/ada-tree.def \
+ ../../libcc1/../gcc/cp/cp-tree.def \
+ ../../libcc1/../gcc/java/java-tree.def \
+ ../../libcc1/../gcc/objc/objc-tree.def ../../libcc1/../gcc/builtins.def \
+ ../../libcc1/../gcc/sync-builtins.def \
+ ../../libcc1/../gcc/omp-builtins.def \
+ ../../libcc1/../gcc/cilk-builtins.def \
+ ../../libcc1/../gcc/gtm-builtins.def ../../libcc1/../gcc/sanitizer.def \
+ ../../libcc1/../gcc/cilkplus.def ../../libcc1/../gcc/chkp-builtins.def \
+ ../../libcc1/../gcc/internal-fn.def ../../libcc1/../gcc/treestruct.def \
+ ../../libcc1/../gcc/fold-const.h ../gcc/tree-check.h \
+ ../../libcc1/../gcc/plugin.h ../../libcc1/../gcc/highlev-plugin-common.h \
+ ../../libcc1/../gcc/plugin.def ../../libcc1/../gcc/system.h \
+ ../../libcc1/../gcc/coretypes.h ../../libcc1/../gcc/stringpool.h \
+ ../../libcc1/../include/gcc-interface.h ../../libcc1/../gcc/hash-set.h \
+ ../../libcc1/../gcc/machmode.h ../../libcc1/../gcc/vec.h \
+ ../../libcc1/../gcc/double-int.h ../../libcc1/../gcc/input.h \
+ ../../libcc1/../gcc/alias.h ../gcc/options.h \
+ ../../libcc1/../gcc/wide-int.h ../../libcc1/../gcc/inchash.h \
+ ../../libcc1/../gcc/tree.h ../../libcc1/../gcc/fold-const.h \
+ ../../libcc1/../gcc/stor-layout.h ../../libcc1/../gcc/c/c-tree.h \
+ ../../libcc1/../gcc/c-family/c-common.h \
+ ../../libcc1/../include/splay-tree.h \
+ ../../libcc1/../libcpp/include/cpplib.h \
+ ../../libcc1/../libcpp/include/symtab.h \
+ ../../libcc1/../libcpp/include/line-map.h \
+ ../../libcc1/../gcc/diagnostic-core.h ../gcc/bversion.h \
+ ../../libcc1/../gcc/diagnostic.def ../../libcc1/../gcc/diagnostic.h \
+ ../../libcc1/../gcc/pretty-print.h ../../libcc1/../gcc/wide-int-print.h \
+ ../../libcc1/../gcc/diagnostic-core.h ../../libcc1/../gcc/toplev.h \
+ ../../libcc1/../gcc/timevar.h ../../libcc1/../gcc/timevar.def \
+ ../../libcc1/../gcc/hash-table.h ../../libcc1/../gcc/c-family/c-pragma.h \
+ ../../libcc1/../gcc/c/c-lang.h ../../libcc1/../gcc/langhooks.h \
+ ../../libcc1/../gcc/langhooks-def.h ../../libcc1/../gcc/hooks.h \
+ ../../libcc1/callbacks.hh ../../libcc1/status.hh \
+ ../../libcc1/connection.hh ../../libcc1/rpc.hh ../../libcc1/marshall.hh \
+ ../../libcc1/../include/gcc-c-interface.h \
+ ../../libcc1/../include/gcc-interface.h \
+ ../../libcc1/../include/gcc-c-fe.def \
+ ../../libcc1/../include/gcc-c-fe.def
+
+/usr/include/stdc-predef.h:
+
+cc1plugin-config.h:
+
+../gcc/config.h:
+
+../gcc/auto-host.h:
+
+../../libcc1/../gcc/gcc-plugin.h:
+
+../gcc/config.h:
+
+../../libcc1/../gcc/system.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/6/include/stdarg.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/6/include/stddef.h:
+
+/usr/include/stdio.h:
+
+/usr/include/features.h:
+
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
+
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
+/usr/include/x86_64-linux-gnu/bits/types.h:
+
+/usr/include/x86_64-linux-gnu/bits/typesizes.h:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/wchar.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/sys_errlist.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio.h:
+
+../../libcc1/../include/safe-ctype.h:
+
+/usr/include/ctype.h:
+
+/usr/include/endian.h:
+
+/usr/include/x86_64-linux-gnu/bits/endian.h:
+
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:
+
+/usr/include/x86_64-linux-gnu/bits/byteswap-16.h:
+
+/usr/include/xlocale.h:
+
+/usr/include/x86_64-linux-gnu/sys/types.h:
+
+/usr/include/time.h:
+
+/usr/include/x86_64-linux-gnu/sys/select.h:
+
+/usr/include/x86_64-linux-gnu/bits/select.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigset.h:
+
+/usr/include/x86_64-linux-gnu/bits/time.h:
+
+/usr/include/x86_64-linux-gnu/sys/sysmacros.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
+
+/usr/include/errno.h:
+
+/usr/include/x86_64-linux-gnu/bits/errno.h:
+
+/usr/include/linux/errno.h:
+
+/usr/include/x86_64-linux-gnu/asm/errno.h:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/asm-generic/errno-base.h:
+
+/usr/include/c++/6/cstring:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/c++config.h:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/os_defines.h:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/cpu_defines.h:
+
+/usr/include/string.h:
+
+/usr/include/c++/6/new:
+
+/usr/include/c++/6/exception:
+
+/usr/include/c++/6/bits/atomic_lockfree_defines.h:
+
+/usr/include/c++/6/bits/exception_ptr.h:
+
+/usr/include/c++/6/bits/exception_defines.h:
+
+/usr/include/c++/6/bits/nested_exception.h:
+
+/usr/include/c++/6/bits/move.h:
+
+/usr/include/c++/6/bits/concept_check.h:
+
+/usr/include/c++/6/type_traits:
+
+/usr/include/c++/6/utility:
+
+/usr/include/c++/6/bits/stl_relops.h:
+
+/usr/include/c++/6/bits/stl_pair.h:
+
+/usr/include/c++/6/initializer_list:
+
+/usr/include/strings.h:
+
+/usr/include/c++/6/stdlib.h:
+
+/usr/include/c++/6/cstdlib:
+
+/usr/include/stdlib.h:
+
+/usr/include/x86_64-linux-gnu/bits/waitflags.h:
+
+/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
+
+/usr/include/alloca.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
+
+/usr/include/unistd.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
+
+/usr/include/x86_64-linux-gnu/bits/environments.h:
+
+/usr/include/x86_64-linux-gnu/bits/confname.h:
+
+../../libcc1/../include/getopt.h:
+
+/usr/include/x86_64-linux-gnu/sys/param.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed/limits.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed/syslimits.h:
+
+/usr/include/limits.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/local_lim.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
+
+/usr/include/signal.h:
+
+/usr/include/x86_64-linux-gnu/bits/signum.h:
+
+/usr/include/x86_64-linux-gnu/bits/siginfo.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigaction.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigcontext.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigstack.h:
+
+/usr/include/x86_64-linux-gnu/sys/ucontext.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigthread.h:
+
+/usr/include/x86_64-linux-gnu/bits/param.h:
+
+/usr/include/linux/param.h:
+
+/usr/include/x86_64-linux-gnu/asm/param.h:
+
+/usr/include/asm-generic/param.h:
+
+/usr/include/x86_64-linux-gnu/sys/time.h:
+
+/usr/include/x86_64-linux-gnu/bits/timex.h:
+
+/usr/include/fcntl.h:
+
+/usr/include/x86_64-linux-gnu/bits/fcntl.h:
+
+/usr/include/x86_64-linux-gnu/bits/fcntl-linux.h:
+
+/usr/include/x86_64-linux-gnu/bits/uio.h:
+
+/usr/include/x86_64-linux-gnu/bits/stat.h:
+
+/usr/include/x86_64-linux-gnu/sys/wait.h:
+
+/usr/include/x86_64-linux-gnu/sys/mman.h:
+
+/usr/include/x86_64-linux-gnu/bits/mman.h:
+
+/usr/include/x86_64-linux-gnu/bits/mman-linux.h:
+
+/usr/include/x86_64-linux-gnu/sys/resource.h:
+
+/usr/include/x86_64-linux-gnu/bits/resource.h:
+
+/usr/include/x86_64-linux-gnu/sys/times.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/6/include/stdint.h:
+
+/usr/include/stdint.h:
+
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+
+/usr/include/inttypes.h:
+
+/usr/include/x86_64-linux-gnu/sys/stat.h:
+
+../../libcc1/../include/filenames.h:
+
+../../libcc1/../include/hashtab.h:
+
+../../libcc1/../include/ansidecl.h:
+
+/usr/include/dlfcn.h:
+
+/usr/include/x86_64-linux-gnu/bits/dlfcn.h:
+
+/usr/src/output/host/include/gmp.h:
+
+/usr/include/c++/6/iosfwd:
+
+/usr/include/c++/6/bits/stringfwd.h:
+
+/usr/include/c++/6/bits/memoryfwd.h:
+
+/usr/include/c++/6/bits/postypes.h:
+
+/usr/include/c++/6/cwchar:
+
+/usr/include/c++/6/cstdio:
+
+../../libcc1/../include/libiberty.h:
+
+../../libcc1/../gcc/hwint.h:
+
+../../libcc1/../gcc/coretypes.h:
+
+../../libcc1/../gcc/machmode.h:
+
+../gcc/insn-modes.h:
+
+../../libcc1/../gcc/mode-classes.def:
+
+../../libcc1/../gcc/signop.h:
+
+../../libcc1/../gcc/wide-int.h:
+
+../../libcc1/../gcc/double-int.h:
+
+../../libcc1/../gcc/real.h:
+
+../../libcc1/../gcc/fixed-value.h:
+
+../../libcc1/../gcc/hash-table.h:
+
+../../libcc1/../gcc/statistics.h:
+
+../../libcc1/../gcc/ggc.h:
+
+../gcc/gtype-desc.h:
+
+../../libcc1/../gcc/vec.h:
+
+../../libcc1/../include/hashtab.h:
+
+../../libcc1/../gcc/inchash.h:
+
+../../libcc1/../gcc/mem-stats-traits.h:
+
+../../libcc1/../gcc/hash-traits.h:
+
+../../libcc1/../gcc/hash-map-traits.h:
+
+../../libcc1/../gcc/mem-stats.h:
+
+../../libcc1/../gcc/hash-map.h:
+
+../../libcc1/../gcc/hash-set.h:
+
+../../libcc1/../gcc/input.h:
+
+../../libcc1/../libcpp/include/line-map.h:
+
+../../libcc1/../gcc/is-a.h:
+
+../../libcc1/../gcc/memory-block.h:
+
+../../libcc1/../gcc/backend.h:
+
+../gcc/tm.h:
+
+../gcc/options.h:
+
+../../libcc1/../gcc/flag-types.h:
+
+../../libcc1/../gcc/config/arm/arm-opts.h:
+
+../../libcc1/../gcc/config/arm/arm-cores.def:
+
+../gcc/insn-constants.h:
+
+../../libcc1/../gcc/config/dbxelf.h:
+
+../../libcc1/../gcc/config/elfos.h:
+
+../../libcc1/../gcc/config/gnu-user.h:
+
+../../libcc1/../gcc/config/linux.h:
+
+../../libcc1/../gcc/config/linux-android.h:
+
+../../libcc1/../gcc/config/glibc-stdint.h:
+
+../../libcc1/../gcc/config/arm/elf.h:
+
+../../libcc1/../gcc/config/arm/linux-gas.h:
+
+../../libcc1/../gcc/config/arm/linux-elf.h:
+
+../../libcc1/../gcc/config/arm/bpabi.h:
+
+../../libcc1/../gcc/config/arm/linux-eabi.h:
+
+../../libcc1/../gcc/config/arm/aout.h:
+
+../../libcc1/../gcc/config/vxworks-dummy.h:
+
+../../libcc1/../gcc/config/arm/arm.h:
+
+../../libcc1/../gcc/config/initfini-array.h:
+
+../gcc/insn-flags.h:
+
+../gcc/insn-modes.h:
+
+../../libcc1/../gcc/defaults.h:
+
+../../libcc1/../gcc/function.h:
+
+../../libcc1/../gcc/bitmap.h:
+
+../../libcc1/../include/obstack.h:
+
+../../libcc1/../gcc/sbitmap.h:
+
+../../libcc1/../gcc/basic-block.h:
+
+../../libcc1/../gcc/cfg-flags.def:
+
+../../libcc1/../gcc/cfg.h:
+
+../../libcc1/../gcc/dominance.h:
+
+../../libcc1/../gcc/cfghooks.h:
+
+../../libcc1/../gcc/predict.h:
+
+../../libcc1/../gcc/predict.def:
+
+../../libcc1/../gcc/hard-reg-set.h:
+
+../../libcc1/../gcc/cfgrtl.h:
+
+../../libcc1/../gcc/cfganal.h:
+
+../../libcc1/../gcc/lcm.h:
+
+../../libcc1/../gcc/cfgbuild.h:
+
+../../libcc1/../gcc/cfgcleanup.h:
+
+../../libcc1/../include/plugin-api.h:
+
+../../libcc1/../gcc/ipa-ref.h:
+
+../../libcc1/../gcc/alias.h:
+
+../../libcc1/../gcc/flags.h:
+
+../../libcc1/../gcc/tree-core.h:
+
+../../libcc1/../libcpp/include/symtab.h:
+
+../gcc/all-tree.def:
+
+../../libcc1/../gcc/tree.def:
+
+../../libcc1/../gcc/c-family/c-common.def:
+
+../../libcc1/../gcc/ada/gcc-interface/ada-tree.def:
+
+../../libcc1/../gcc/cp/cp-tree.def:
+
+../../libcc1/../gcc/java/java-tree.def:
+
+../../libcc1/../gcc/objc/objc-tree.def:
+
+../../libcc1/../gcc/builtins.def:
+
+../../libcc1/../gcc/sync-builtins.def:
+
+../../libcc1/../gcc/omp-builtins.def:
+
+../../libcc1/../gcc/cilk-builtins.def:
+
+../../libcc1/../gcc/gtm-builtins.def:
+
+../../libcc1/../gcc/sanitizer.def:
+
+../../libcc1/../gcc/cilkplus.def:
+
+../../libcc1/../gcc/chkp-builtins.def:
+
+../../libcc1/../gcc/internal-fn.def:
+
+../../libcc1/../gcc/treestruct.def:
+
+../../libcc1/../gcc/fold-const.h:
+
+../gcc/tree-check.h:
+
+../../libcc1/../gcc/plugin.h:
+
+../../libcc1/../gcc/highlev-plugin-common.h:
+
+../../libcc1/../gcc/plugin.def:
+
+../../libcc1/../gcc/system.h:
+
+../../libcc1/../gcc/coretypes.h:
+
+../../libcc1/../gcc/stringpool.h:
+
+../../libcc1/../include/gcc-interface.h:
+
+../../libcc1/../gcc/hash-set.h:
+
+../../libcc1/../gcc/machmode.h:
+
+../../libcc1/../gcc/vec.h:
+
+../../libcc1/../gcc/double-int.h:
+
+../../libcc1/../gcc/input.h:
+
+../../libcc1/../gcc/alias.h:
+
+../gcc/options.h:
+
+../../libcc1/../gcc/wide-int.h:
+
+../../libcc1/../gcc/inchash.h:
+
+../../libcc1/../gcc/tree.h:
+
+../../libcc1/../gcc/fold-const.h:
+
+../../libcc1/../gcc/stor-layout.h:
+
+../../libcc1/../gcc/c/c-tree.h:
+
+../../libcc1/../gcc/c-family/c-common.h:
+
+../../libcc1/../include/splay-tree.h:
+
+../../libcc1/../libcpp/include/cpplib.h:
+
+../../libcc1/../libcpp/include/symtab.h:
+
+../../libcc1/../libcpp/include/line-map.h:
+
+../../libcc1/../gcc/diagnostic-core.h:
+
+../gcc/bversion.h:
+
+../../libcc1/../gcc/diagnostic.def:
+
+../../libcc1/../gcc/diagnostic.h:
+
+../../libcc1/../gcc/pretty-print.h:
+
+../../libcc1/../gcc/wide-int-print.h:
+
+../../libcc1/../gcc/diagnostic-core.h:
+
+../../libcc1/../gcc/toplev.h:
+
+../../libcc1/../gcc/timevar.h:
+
+../../libcc1/../gcc/timevar.def:
+
+../../libcc1/../gcc/hash-table.h:
+
+../../libcc1/../gcc/c-family/c-pragma.h:
+
+../../libcc1/../gcc/c/c-lang.h:
+
+../../libcc1/../gcc/langhooks.h:
+
+../../libcc1/../gcc/langhooks-def.h:
+
+../../libcc1/../gcc/hooks.h:
+
+../../libcc1/callbacks.hh:
+
+../../libcc1/status.hh:
+
+../../libcc1/connection.hh:
+
+../../libcc1/rpc.hh:
+
+../../libcc1/marshall.hh:
+
+../../libcc1/../include/gcc-c-interface.h:
+
+../../libcc1/../include/gcc-interface.h:
+
+../../libcc1/../include/gcc-c-fe.def:
+
+../../libcc1/../include/gcc-c-fe.def:

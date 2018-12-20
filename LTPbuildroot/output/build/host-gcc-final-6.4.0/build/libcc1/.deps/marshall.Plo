@@ -1,0 +1,85 @@
+marshall.lo: ../../libcc1/marshall.cc /usr/include/stdc-predef.h \
+ cc1plugin-config.h /usr/include/c++/6/new \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/os_defines.h \
+ /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/include/x86_64-linux-gnu/c++/6/bits/cpu_defines.h \
+ /usr/include/c++/6/exception \
+ /usr/include/c++/6/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/6/bits/exception_ptr.h \
+ /usr/include/c++/6/bits/exception_defines.h \
+ /usr/include/c++/6/bits/nested_exception.h \
+ /usr/include/c++/6/bits/move.h /usr/include/c++/6/bits/concept_check.h \
+ /usr/include/c++/6/type_traits /usr/include/string.h \
+ /usr/lib/gcc/x86_64-linux-gnu/6/include/stddef.h /usr/include/xlocale.h \
+ ../../libcc1/marshall.hh ../../libcc1/status.hh \
+ ../../libcc1/../include/gcc-c-interface.h \
+ ../../libcc1/../include/gcc-interface.h \
+ ../../libcc1/../include/gcc-c-fe.def ../../libcc1/connection.hh \
+ ../../libcc1/callbacks.hh ../../libcc1/../include/hashtab.h \
+ ../../libcc1/../include/ansidecl.h
+
+/usr/include/stdc-predef.h:
+
+cc1plugin-config.h:
+
+/usr/include/c++/6/new:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/c++config.h:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/os_defines.h:
+
+/usr/include/features.h:
+
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
+
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
+/usr/include/x86_64-linux-gnu/c++/6/bits/cpu_defines.h:
+
+/usr/include/c++/6/exception:
+
+/usr/include/c++/6/bits/atomic_lockfree_defines.h:
+
+/usr/include/c++/6/bits/exception_ptr.h:
+
+/usr/include/c++/6/bits/exception_defines.h:
+
+/usr/include/c++/6/bits/nested_exception.h:
+
+/usr/include/c++/6/bits/move.h:
+
+/usr/include/c++/6/bits/concept_check.h:
+
+/usr/include/c++/6/type_traits:
+
+/usr/include/string.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/6/include/stddef.h:
+
+/usr/include/xlocale.h:
+
+../../libcc1/marshall.hh:
+
+../../libcc1/status.hh:
+
+../../libcc1/../include/gcc-c-interface.h:
+
+../../libcc1/../include/gcc-interface.h:
+
+../../libcc1/../include/gcc-c-fe.def:
+
+../../libcc1/connection.hh:
+
+../../libcc1/callbacks.hh:
+
+../../libcc1/../include/hashtab.h:
+
+../../libcc1/../include/ansidecl.h:

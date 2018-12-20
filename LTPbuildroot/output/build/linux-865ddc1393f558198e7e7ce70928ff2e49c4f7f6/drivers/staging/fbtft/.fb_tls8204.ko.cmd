@@ -1,0 +1,1 @@
+cmd_drivers/staging/fbtft/fb_tls8204.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/staging/fbtft/fb_tls8204.ko drivers/staging/fbtft/fb_tls8204.o drivers/staging/fbtft/fb_tls8204.mod.o ;  true

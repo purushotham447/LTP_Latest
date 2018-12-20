@@ -1,0 +1,1 @@
+cmd_drivers/staging/media/lirc/lirc_rpi.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/staging/media/lirc/lirc_rpi.ko drivers/staging/media/lirc/lirc_rpi.o drivers/staging/media/lirc/lirc_rpi.mod.o ;  true

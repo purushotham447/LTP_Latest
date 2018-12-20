@@ -1,0 +1,1 @@
+cmd_drivers/staging/irda/drivers/sir-dev.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/staging/irda/drivers/sir-dev.ko drivers/staging/irda/drivers/sir-dev.o drivers/staging/irda/drivers/sir-dev.mod.o ;  true

@@ -1,0 +1,316 @@
+lra.o: ../../gcc/lra.c config.h auto-host.h \
+ ../../gcc/../include/ansidecl.h ../../gcc/system.h \
+ ../../gcc/../include/safe-ctype.h ../../gcc/../include/filenames.h \
+ ../../gcc/../include/hashtab.h ../../gcc/../include/ansidecl.h \
+ /usr/src/output/host/include/gmp.h ../../gcc/../include/libiberty.h \
+ ../../gcc/hwint.h ../../gcc/coretypes.h ../../gcc/machmode.h \
+ insn-modes.h ../../gcc/mode-classes.def ../../gcc/signop.h \
+ ../../gcc/wide-int.h ../../gcc/double-int.h ../../gcc/real.h \
+ ../../gcc/fixed-value.h ../../gcc/hash-table.h ../../gcc/statistics.h \
+ ../../gcc/ggc.h gtype-desc.h ../../gcc/vec.h \
+ ../../gcc/../include/hashtab.h ../../gcc/inchash.h \
+ ../../gcc/mem-stats-traits.h ../../gcc/hash-traits.h \
+ ../../gcc/hash-map-traits.h ../../gcc/mem-stats.h ../../gcc/hash-map.h \
+ ../../gcc/hash-set.h ../../gcc/input.h \
+ ../../gcc/../libcpp/include/line-map.h ../../gcc/is-a.h \
+ ../../gcc/memory-block.h ../../gcc/backend.h tm.h options.h \
+ ../../gcc/flag-types.h ../../gcc/config/arm/arm-opts.h \
+ ../../gcc/config/arm/arm-cores.def insn-constants.h \
+ ../../gcc/config/dbxelf.h ../../gcc/config/elfos.h \
+ ../../gcc/config/gnu-user.h ../../gcc/config/linux.h \
+ ../../gcc/config/linux-android.h ../../gcc/config/glibc-stdint.h \
+ ../../gcc/config/arm/elf.h ../../gcc/config/arm/linux-gas.h \
+ ../../gcc/config/arm/linux-elf.h ../../gcc/config/arm/bpabi.h \
+ ../../gcc/config/arm/linux-eabi.h ../../gcc/config/arm/aout.h \
+ ../../gcc/config/vxworks-dummy.h ../../gcc/config/arm/arm.h \
+ ../../gcc/config/initfini-array.h insn-flags.h insn-modes.h \
+ ../../gcc/defaults.h ../../gcc/function.h ../../gcc/bitmap.h \
+ ../../gcc/../include/obstack.h ../../gcc/sbitmap.h \
+ ../../gcc/basic-block.h ../../gcc/cfg-flags.def ../../gcc/cfg.h \
+ ../../gcc/dominance.h ../../gcc/target.h insn-codes.h \
+ ../../gcc/hard-reg-set.h ../../gcc/target.def \
+ ../../gcc/target-hooks-macros.h ../../gcc/target-insns.def \
+ ../../gcc/rtl.h ../../gcc/rtl.def ../../gcc/reg-notes.def \
+ ../../gcc/insn-notes.def genrtl.h ../../gcc/statistics.h \
+ ../../gcc/tree.h ../../gcc/tree-core.h \
+ ../../gcc/../libcpp/include/symtab.h all-tree.def ../../gcc/tree.def \
+ ../../gcc/c-family/c-common.def ../../gcc/ada/gcc-interface/ada-tree.def \
+ ../../gcc/cp/cp-tree.def ../../gcc/java/java-tree.def \
+ ../../gcc/objc/objc-tree.def ../../gcc/builtins.def \
+ ../../gcc/sync-builtins.def ../../gcc/omp-builtins.def \
+ ../../gcc/cilk-builtins.def ../../gcc/gtm-builtins.def \
+ ../../gcc/sanitizer.def ../../gcc/cilkplus.def \
+ ../../gcc/chkp-builtins.def ../../gcc/internal-fn.def \
+ ../../gcc/treestruct.def tree-check.h ../../gcc/predict.h \
+ ../../gcc/predict.def ../../gcc/df.h ../../gcc/regset.h \
+ ../../gcc/alloc-pool.h options.h ../../gcc/timevar.h \
+ ../../gcc/timevar.def tm_p.h ../../gcc/config/arm/arm-protos.h \
+ ../../gcc/config/arm/aarch-common-protos.h \
+ ../../gcc/config/linux-protos.h tm-preds.h ../../gcc/optabs.h \
+ ../../gcc/optabs-query.h insn-opinit.h ../../gcc/optabs-libfuncs.h \
+ insn-config.h ../../gcc/regs.h ../../gcc/ira.h ../../gcc/emit-rtl.h \
+ ../../gcc/recog.h ../../gcc/expr.h ../../gcc/cfgrtl.h \
+ ../../gcc/cfgbuild.h ../../gcc/lra.h ../../gcc/lra-int.h \
+ ../../gcc/print-rtl.h
+
+config.h:
+
+auto-host.h:
+
+../../gcc/../include/ansidecl.h:
+
+../../gcc/system.h:
+
+../../gcc/../include/safe-ctype.h:
+
+../../gcc/../include/filenames.h:
+
+../../gcc/../include/hashtab.h:
+
+../../gcc/../include/ansidecl.h:
+
+/usr/src/output/host/include/gmp.h:
+
+../../gcc/../include/libiberty.h:
+
+../../gcc/hwint.h:
+
+../../gcc/coretypes.h:
+
+../../gcc/machmode.h:
+
+insn-modes.h:
+
+../../gcc/mode-classes.def:
+
+../../gcc/signop.h:
+
+../../gcc/wide-int.h:
+
+../../gcc/double-int.h:
+
+../../gcc/real.h:
+
+../../gcc/fixed-value.h:
+
+../../gcc/hash-table.h:
+
+../../gcc/statistics.h:
+
+../../gcc/ggc.h:
+
+gtype-desc.h:
+
+../../gcc/vec.h:
+
+../../gcc/../include/hashtab.h:
+
+../../gcc/inchash.h:
+
+../../gcc/mem-stats-traits.h:
+
+../../gcc/hash-traits.h:
+
+../../gcc/hash-map-traits.h:
+
+../../gcc/mem-stats.h:
+
+../../gcc/hash-map.h:
+
+../../gcc/hash-set.h:
+
+../../gcc/input.h:
+
+../../gcc/../libcpp/include/line-map.h:
+
+../../gcc/is-a.h:
+
+../../gcc/memory-block.h:
+
+../../gcc/backend.h:
+
+tm.h:
+
+options.h:
+
+../../gcc/flag-types.h:
+
+../../gcc/config/arm/arm-opts.h:
+
+../../gcc/config/arm/arm-cores.def:
+
+insn-constants.h:
+
+../../gcc/config/dbxelf.h:
+
+../../gcc/config/elfos.h:
+
+../../gcc/config/gnu-user.h:
+
+../../gcc/config/linux.h:
+
+../../gcc/config/linux-android.h:
+
+../../gcc/config/glibc-stdint.h:
+
+../../gcc/config/arm/elf.h:
+
+../../gcc/config/arm/linux-gas.h:
+
+../../gcc/config/arm/linux-elf.h:
+
+../../gcc/config/arm/bpabi.h:
+
+../../gcc/config/arm/linux-eabi.h:
+
+../../gcc/config/arm/aout.h:
+
+../../gcc/config/vxworks-dummy.h:
+
+../../gcc/config/arm/arm.h:
+
+../../gcc/config/initfini-array.h:
+
+insn-flags.h:
+
+insn-modes.h:
+
+../../gcc/defaults.h:
+
+../../gcc/function.h:
+
+../../gcc/bitmap.h:
+
+../../gcc/../include/obstack.h:
+
+../../gcc/sbitmap.h:
+
+../../gcc/basic-block.h:
+
+../../gcc/cfg-flags.def:
+
+../../gcc/cfg.h:
+
+../../gcc/dominance.h:
+
+../../gcc/target.h:
+
+insn-codes.h:
+
+../../gcc/hard-reg-set.h:
+
+../../gcc/target.def:
+
+../../gcc/target-hooks-macros.h:
+
+../../gcc/target-insns.def:
+
+../../gcc/rtl.h:
+
+../../gcc/rtl.def:
+
+../../gcc/reg-notes.def:
+
+../../gcc/insn-notes.def:
+
+genrtl.h:
+
+../../gcc/statistics.h:
+
+../../gcc/tree.h:
+
+../../gcc/tree-core.h:
+
+../../gcc/../libcpp/include/symtab.h:
+
+all-tree.def:
+
+../../gcc/tree.def:
+
+../../gcc/c-family/c-common.def:
+
+../../gcc/ada/gcc-interface/ada-tree.def:
+
+../../gcc/cp/cp-tree.def:
+
+../../gcc/java/java-tree.def:
+
+../../gcc/objc/objc-tree.def:
+
+../../gcc/builtins.def:
+
+../../gcc/sync-builtins.def:
+
+../../gcc/omp-builtins.def:
+
+../../gcc/cilk-builtins.def:
+
+../../gcc/gtm-builtins.def:
+
+../../gcc/sanitizer.def:
+
+../../gcc/cilkplus.def:
+
+../../gcc/chkp-builtins.def:
+
+../../gcc/internal-fn.def:
+
+../../gcc/treestruct.def:
+
+tree-check.h:
+
+../../gcc/predict.h:
+
+../../gcc/predict.def:
+
+../../gcc/df.h:
+
+../../gcc/regset.h:
+
+../../gcc/alloc-pool.h:
+
+options.h:
+
+../../gcc/timevar.h:
+
+../../gcc/timevar.def:
+
+tm_p.h:
+
+../../gcc/config/arm/arm-protos.h:
+
+../../gcc/config/arm/aarch-common-protos.h:
+
+../../gcc/config/linux-protos.h:
+
+tm-preds.h:
+
+../../gcc/optabs.h:
+
+../../gcc/optabs-query.h:
+
+insn-opinit.h:
+
+../../gcc/optabs-libfuncs.h:
+
+insn-config.h:
+
+../../gcc/regs.h:
+
+../../gcc/ira.h:
+
+../../gcc/emit-rtl.h:
+
+../../gcc/recog.h:
+
+../../gcc/expr.h:
+
+../../gcc/cfgrtl.h:
+
+../../gcc/cfgbuild.h:
+
+../../gcc/lra.h:
+
+../../gcc/lra-int.h:
+
+../../gcc/print-rtl.h:

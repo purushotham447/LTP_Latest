@@ -1,0 +1,1 @@
+cmd_drivers/input/touchscreen/exc3000.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/input/touchscreen/exc3000.ko drivers/input/touchscreen/exc3000.o drivers/input/touchscreen/exc3000.mod.o ;  true

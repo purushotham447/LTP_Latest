@@ -1,0 +1,4 @@
+/usr/src/package/dieharder/0001-Do-not-use-includedir-as-include-search-path-for-bui.patch
+/usr/src/package/dieharder/0002-Fix-missing-type-intptr_t.patch
+/usr/src/package/dieharder/0003-Add-_GNU_SOURCE-for-uint-and-M_PI-with-musl-libc.patch
+/usr/src/package/dieharder/0004-Add-static-to-inline-functions.patch

@@ -1,0 +1,147 @@
+libc/stdlib/qsort.os: libc/stdlib/qsort.c include/libc-symbols.h \
+ include/bits/uClibc_arch_features.h include/bits/uClibc_config.h \
+ libc/stdlib/stdlib.c include/limits.h include/features.h \
+ include/sys/cdefs.h include/libc-internal.h \
+ /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include/stddef.h \
+ /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include-fixed/limits.h \
+ include/bits/posix1_lim.h include/bits/local_lim.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/linux/limits.h \
+ include/bits/uClibc_local_lim.h include/bits/posix2_lim.h \
+ include/bits/xopen_lim.h include/bits/stdio_lim.h include/stdint.h \
+ include/bits/wordsize.h include/inttypes.h include/ctype.h \
+ include/bits/types.h include/bits/kernel_types.h \
+ include/bits/typesizes.h include/bits/uClibc_touplow.h include/errno.h \
+ include/bits/errno.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/linux/errno.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm/errno.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/errno.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/errno-base.h \
+ include/assert.h include/unistd.h include/bits/posix_opt.h \
+ include/bits/uClibc_posix_opt.h include/bits/environments.h \
+ include/bits/confname.h include/bits/getopt.h include/stdlib.h \
+ include/bits/waitflags.h include/bits/waitstatus.h include/endian.h \
+ include/bits/endian.h include/byteswap.h include/bits/byteswap.h \
+ include/bits/byteswap-common.h include/bits/byteswap-16.h \
+ include/sys/types.h include/time.h include/sys/select.h \
+ include/bits/select.h include/bits/sigset.h include/bits/time.h \
+ include/sys/sysmacros.h include/bits/pthreadtypes.h include/alloca.h \
+ include/bits/stackinfo.h include/locale.h include/bits/uClibc_locale.h
+
+include/libc-symbols.h:
+
+include/bits/uClibc_arch_features.h:
+
+include/bits/uClibc_config.h:
+
+libc/stdlib/stdlib.c:
+
+include/limits.h:
+
+include/features.h:
+
+include/sys/cdefs.h:
+
+include/libc-internal.h:
+
+/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include/stddef.h:
+
+/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include-fixed/limits.h:
+
+include/bits/posix1_lim.h:
+
+include/bits/local_lim.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/linux/limits.h:
+
+include/bits/uClibc_local_lim.h:
+
+include/bits/posix2_lim.h:
+
+include/bits/xopen_lim.h:
+
+include/bits/stdio_lim.h:
+
+include/stdint.h:
+
+include/bits/wordsize.h:
+
+include/inttypes.h:
+
+include/ctype.h:
+
+include/bits/types.h:
+
+include/bits/kernel_types.h:
+
+include/bits/typesizes.h:
+
+include/bits/uClibc_touplow.h:
+
+include/errno.h:
+
+include/bits/errno.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/linux/errno.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm/errno.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/errno.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/errno-base.h:
+
+include/assert.h:
+
+include/unistd.h:
+
+include/bits/posix_opt.h:
+
+include/bits/uClibc_posix_opt.h:
+
+include/bits/environments.h:
+
+include/bits/confname.h:
+
+include/bits/getopt.h:
+
+include/stdlib.h:
+
+include/bits/waitflags.h:
+
+include/bits/waitstatus.h:
+
+include/endian.h:
+
+include/bits/endian.h:
+
+include/byteswap.h:
+
+include/bits/byteswap.h:
+
+include/bits/byteswap-common.h:
+
+include/bits/byteswap-16.h:
+
+include/sys/types.h:
+
+include/time.h:
+
+include/sys/select.h:
+
+include/bits/select.h:
+
+include/bits/sigset.h:
+
+include/bits/time.h:
+
+include/sys/sysmacros.h:
+
+include/bits/pthreadtypes.h:
+
+include/alloca.h:
+
+include/bits/stackinfo.h:
+
+include/locale.h:
+
+include/bits/uClibc_locale.h:
+cmd_libc_stdlib_qsort.os := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc -c libc/stdlib/qsort.c -o libc/stdlib/qsort.os -Wall -Wstrict-prototypes -Wstrict-aliasing -funsigned-char -fno-builtin -fno-asm -fmerge-all-constants -std=gnu99 -mlittle-endian -fno-stack-protector -nostdinc -Iinclude -Iinclude -include libc-symbols.h -Ilibc/sysdeps/linux/arm -Ilibc/sysdeps/linux -Ildso/ldso/arm -Ildso/include -I. -Os -fstrict-aliasing -D__USE_STDIO_FUTEXES__ -DHAVE_FORCED_UNWIND -D_LIBC_REENTRANT -Ilibpthread/nptl -Ilibpthread/nptl -Ilibpthread/nptl/sysdeps/unix/sysv/linux/arm -Ilibpthread/nptl/sysdeps/arm -Ilibpthread/nptl/sysdeps/arm -Ilibpthread/nptl/sysdeps/unix/sysv/linux -Ilibpthread/nptl/sysdeps/unix/sysv/linux -Ilibpthread/nptl/sysdeps/pthread -Ilibpthread/nptl/sysdeps/pthread/bits -Ilibpthread/nptl/sysdeps/generic -Ilibc/sysdeps/linux/common -isystem /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include-fixed -isystem /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include -I/usr/src/output/build/linux-headers-4.14.33/usr/include/ -DNDEBUG -DIN_LIB=libc -fPIC -MT libc/stdlib/qsort.os -MD -MP -MF libc/stdlib/.qsort.os.dep

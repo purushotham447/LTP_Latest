@@ -1,0 +1,1 @@
+cmd_drivers/media/dvb-frontends/tda665x.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/dvb-frontends/tda665x.ko drivers/media/dvb-frontends/tda665x.o drivers/media/dvb-frontends/tda665x.mod.o ;  true

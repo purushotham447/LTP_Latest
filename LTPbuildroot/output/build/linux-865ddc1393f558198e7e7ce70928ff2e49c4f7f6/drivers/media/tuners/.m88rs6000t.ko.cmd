@@ -1,0 +1,1 @@
+cmd_drivers/media/tuners/m88rs6000t.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/tuners/m88rs6000t.ko drivers/media/tuners/m88rs6000t.o drivers/media/tuners/m88rs6000t.mod.o ;  true

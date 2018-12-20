@@ -1,0 +1,1 @@
+cmd_drivers/iio/imu/built-in.o :=  rm -f drivers/iio/imu/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/iio/imu/built-in.o drivers/iio/imu/bmi160/built-in.o drivers/iio/imu/inv_mpu6050/built-in.o drivers/iio/imu/st_lsm6dsx/built-in.o 

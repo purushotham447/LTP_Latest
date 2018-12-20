@@ -1,0 +1,1 @@
+/usr/bin/gcc  -O2 -w  -L/usr/src/output/host/lib -Wl,-rpath,/usr/src/output/host/lib -rdynamic CMakeFiles/LIBCURL.dir/curltest.c.o  -o LIBCURL lib/libcmcurl.a -ldl ../cmzlib/libcmzlib.a 

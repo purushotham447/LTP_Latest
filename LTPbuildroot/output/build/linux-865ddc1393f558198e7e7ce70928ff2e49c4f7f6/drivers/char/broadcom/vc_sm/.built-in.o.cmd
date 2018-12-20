@@ -1,0 +1,1 @@
+cmd_drivers/char/broadcom/vc_sm/built-in.o :=  rm -f drivers/char/broadcom/vc_sm/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/char/broadcom/vc_sm/built-in.o drivers/char/broadcom/vc_sm/vc-sm.o 

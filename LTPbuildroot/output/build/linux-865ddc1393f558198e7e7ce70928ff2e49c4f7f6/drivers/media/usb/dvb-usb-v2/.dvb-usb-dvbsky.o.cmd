@@ -1,0 +1,1 @@
+cmd_drivers/media/usb/dvb-usb-v2/dvb-usb-dvbsky.o := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL    -r -o drivers/media/usb/dvb-usb-v2/dvb-usb-dvbsky.o drivers/media/usb/dvb-usb-v2/dvbsky.o 

@@ -1,0 +1,1 @@
+cmd_drivers/media/platform/meson/built-in.o :=  rm -f drivers/media/platform/meson/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/media/platform/meson/built-in.o

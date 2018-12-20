@@ -1,0 +1,3 @@
+/usr/src/package/popt/0001-no-wchar.patch
+/usr/src/package/popt/0002-fix-autoreconf.patch
+/usr/src/package/popt/0003-glob-detection.patch

@@ -1,0 +1,170 @@
+#!/bin/ksh
+
+# Note: This is the build directory cd'ed to when building on remote machines:
+typeset -x BLDIR=$(pwd)
+typeset -x PROGRAM="dt"
+
+OSs=$(uname -s)
+if [ "$OSs" = "HP-UX" ] ; then
+    typeset -x REMCMD="remsh"
+else
+    typeset -x REMCMD="rsh"
+fi
+
+cleanit()
+{
+    if [ $# -lt 3 ]; then
+	print "Usage: cleanup SUBDIR OSNAME BLDSYS"
+	exit 1
+    fi
+
+    SUBDIR=$1
+    OSNAME=$2
+    BLDSYS=$3
+
+    # Cleanup files from a previous build.
+
+    print "\n\t--> Cleaning up '$PROGRAM' for $OSNAME on $BLDSYS in subdirectory $SUBDIR <--\n"
+
+    $REMCMD $BLDSYS -n "cd $BLDIR/$SUBDIR; umask 022; PATH=/usr/local/bin:$PATH ; make -f ../Makefile.$OSNAME clean"
+
+    return
+}
+
+makeit()
+{
+    if [ $# -lt 3 ]; then
+	print "Usage: makeit SUBDIR OSNAME BLDSYS"
+	exit 1
+    fi
+
+    SUBDIR=$1
+    OSNAME=$2
+    BLDSYS=$3
+    BUILDARGS=$4
+
+    # Build directories are remotely mounted on each build system,
+    # so it's safe to check for and create build subdirectory here.
+
+    if [ ! -d $SUBDIR ]; then
+	mkdir $SUBDIR
+    fi
+
+    # Execute the Makefile specific to the OS specified.
+
+    print "\n\t--> Building '$PROGRAM' for $OSNAME on $BLDSYS in subdirectory $SUBDIR <--\n"
+
+    print "Executing cd $BLDIR/$SUBDIR; umask 022; uname -a ; PATH=/usr/software/bin:$PATH ; gcc -v ; make -f ../Makefile.$OSNAME VPATH=.. $BUILDARGS"
+    $REMCMD $BLDSYS -n "cd $BLDIR/$SUBDIR; umask 022; uname -a ; PATH=/usr/software/bin:$PATH ; gcc -v ; make -f ../Makefile.$OSNAME VPATH=.. $BUILDARGS ; file ${PROGRAM}"
+
+    return
+}
+
+# ppc AIX 5.3
+
+# staf-aix5.rtp.netapp.com (user: root, password: netapp), can't login as myself!
+# Not building with gcc!
+# /usr/include/pthread.h:666: error: parse error before '*' token
+# /usr/software/bin is OLD version of gcc... path below is now GONE! :-(
+#makeit aix5.3 aix-aio calculon "OS=aix PATH=/x/eng/shak/aix/gcc/5.3/usr/local/bin:$PATH"
+makeit aix5.3 aix staf-aix5.rtp.netapp.com "OS=aix CC=cc_r"
+
+# Note: This compiler does NOT like my bit fields, and resulting binary is NFG for SCSI!
+#makeit aix5.3 aix bldasvl06.eng.netapp.com "OS=aix CC=/usr/vacpp/bin/gxlc"
+
+# ppc AIX 5.2
+
+makeit aix5.2 aix52-aio bldasvl01.eng.netapp.com "OS=aix CC=cc_r"
+
+# i386 FreeBSD 6.0-RELEASE
+
+makeit FreeBSD-x86 freebsd bldfptc08.spin.eng.netapp.com
+
+# amd64 FreeBSD 6.2-RELEASE
+
+makeit FreeBSD-x86-64 freebsd bldfrtp01.rtp.netapp.com
+
+# x86 Linux 2.4
+# Note: OS=name is needed for properly linking to OS SCSI library!
+
+#makeit linux2.4-x86 linux bldlrtp201
+makeit linux2.4-x86 linux sanity19.eng.netapp.com "OS=linux PORG='-O -m32'"
+
+# x86 Linux 2.6
+
+#cleanit linux2.6-x86 linux staf-rhel5x32.rtp.netapp.com OS=linux
+makeit linux2.6-x86 linux staf-rhel5x32.rtp.netapp.com OS=linux
+
+# x86-64 Linux 2.4
+
+#makeit linux2.4-x86-64 linux staf-rhel4x64.rtp.netapp.com OS=linux
+makeit linux2.4-x86-64 linux sanity19.eng.netapp.com OS=linux
+
+# x86-64 Linux 2.6
+
+cleanit linux2.6-x86-64 linux staf-rhel5x64.rtp.netapp.com OS=linux
+makeit linux2.6-x86-64 linux staf-rhel5x64.rtp.netapp.com OS=linux
+
+# x86 RHEL6
+# Note: RHEL6 32-bit build machines are not setup due to no need (at present).
+#makeit linux-rhel6x32 linux staf-rhel6x32-01.rtp.netapp.com OS=linux
+
+# x86-64 RHEL6
+
+makeit linux-rhel6x64 linux staf-rhel6x64-01.rtp.netapp.com OS=linux
+
+# ia64 Linux
+
+#makeit linux-ia64 linux NEED-ONE OS=linux
+
+# parisc HP-UX 11.11
+
+makeit hpux-parisc-11.11 hpux bldhsvl05.eng.netapp.com "OS=hpux CC=cc"
+#makeit hpux-parisc-11.11 hpux bldhsvl06.eng.netapp.com "OS=hpux CC=cc"
+
+# parisc HP-UX 11.31
+
+makeit hpux-parisc-11.31 hpux bldhsvl07.eng.netapp.com "OS=hpux CC=cc"
+
+# ia64 HP-UX 11.23
+
+makeit hpux-ia64-11.23 hpux-ia64 bldhsvl01.eng.netapp.com "OS=hpux CC=cc"
+
+# ia64 HP-UX 11.31
+
+makeit hpux-ia64-11.31 hpux-ia64 bldhsvl03.eng.netapp.com "OS=hpux CC=cc"
+
+# sparc Solaris 5.8
+
+makeit solaris-sparc solaris roanoke.rtp.netapp.com OS=solaris
+
+# sparc Solaris 5.10
+
+makeit solaris-sparc-5.10 solaris hyde.rtp.netapp.com OS=solaris
+
+# x86 Solaris 5.10
+
+# Note: Cross compilation hacks below! (not a fan!)
+makeit solaris-x86 solaris-x86 bldssvl04.eng.netapp.com "OS=solaris PORG='-O3 -Dctid_t=id_t -Dzoneid_t=id_t'"
+# "CC=/usr/local/build/compilers/i386-pc-solaris2.8-gcc-3.4.2/bin/i386-pc-solaris2.8-gcc"
+
+# sparc Solaris 5.10
+
+# Not working, due to:
+# /usr/lib/amd64/crt1.o: file not recognized: File format not recognized
+# collect2: ld returned 1 exit status
+# *** Error code 1
+# make: Fatal error: Command failed for target `dt'
+# Huh?
+# ssan-dp-sol10u10-21.gdl.englab.netapp.com% file /usr/lib/amd64/crt1.o                                                             
+# /usr/lib/amd64/crt1.o: ELF 64-bit LSB relocatable, AMD x86-64, version 1 (SYSV), not stripped
+# ssan-dp-sol10u10-21.gdl.englab.netapp.com% 
+
+#makeit solaris-x86-64 solaris ssan-dp-sol10u10-21.gdl.englab.netapp.com "OS=solaris PORG='-O -m64' CC=/usr/software/bin/gcc-4.1.1"
+
+# MacOS
+
+typeset -x REMCMD="ssh"
+makeit mac_darwin mac_darwin bolen-mac.hq.netapp.com
+ 
+exit $?

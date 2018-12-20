@@ -1,0 +1,1 @@
+cmd_drivers/media/usb/gspca/gspca_mr97310a.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/usb/gspca/gspca_mr97310a.ko drivers/media/usb/gspca/gspca_mr97310a.o drivers/media/usb/gspca/gspca_mr97310a.mod.o ;  true

@@ -1,0 +1,1 @@
+cmd_drivers/usb/common/usb-common.o := rm -f drivers/usb/common/usb-common.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/usb/common/usb-common.o drivers/usb/common/common.o

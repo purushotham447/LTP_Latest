@@ -1,0 +1,5 @@
+/usr/src/package/dhrystone/0001-cmdline-nruns.patch
+/usr/src/package/dhrystone/0002-HZ.patch
+/usr/src/package/dhrystone/0003-exit.patch
+/usr/src/package/dhrystone/0004-headers.patch
+/usr/src/package/dhrystone/0005-prototypes.patch

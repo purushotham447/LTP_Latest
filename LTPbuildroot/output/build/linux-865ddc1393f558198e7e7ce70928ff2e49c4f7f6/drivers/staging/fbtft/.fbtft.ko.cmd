@@ -1,0 +1,1 @@
+cmd_drivers/staging/fbtft/fbtft.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/staging/fbtft/fbtft.ko drivers/staging/fbtft/fbtft.o drivers/staging/fbtft/fbtft.mod.o ;  true

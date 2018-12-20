@@ -1,0 +1,1 @@
+cmd_fs/overlayfs/overlay.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o fs/overlayfs/overlay.ko fs/overlayfs/overlay.o fs/overlayfs/overlay.mod.o ;  true

@@ -1,0 +1,5 @@
+kernel/drivers/i2c/busses/i2c-bcm2708.ko
+kernel/drivers/i2c/busses/i2c-bcm2835.ko
+kernel/drivers/i2c/busses/i2c-gpio.ko
+kernel/drivers/i2c/busses/i2c-robotfuzz-osif.ko
+kernel/drivers/i2c/busses/i2c-tiny-usb.ko

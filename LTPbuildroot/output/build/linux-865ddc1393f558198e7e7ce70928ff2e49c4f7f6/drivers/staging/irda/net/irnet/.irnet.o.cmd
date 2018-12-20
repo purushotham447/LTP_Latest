@@ -1,0 +1,1 @@
+cmd_drivers/staging/irda/net/irnet/irnet.o := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL    -r -o drivers/staging/irda/net/irnet/irnet.o drivers/staging/irda/net/irnet/irnet_ppp.o drivers/staging/irda/net/irnet/irnet_irda.o 

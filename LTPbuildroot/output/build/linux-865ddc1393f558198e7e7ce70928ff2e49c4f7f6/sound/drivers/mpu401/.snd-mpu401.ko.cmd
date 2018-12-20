@@ -1,0 +1,1 @@
+cmd_sound/drivers/mpu401/snd-mpu401.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o sound/drivers/mpu401/snd-mpu401.ko sound/drivers/mpu401/snd-mpu401.o sound/drivers/mpu401/snd-mpu401.mod.o ;  true

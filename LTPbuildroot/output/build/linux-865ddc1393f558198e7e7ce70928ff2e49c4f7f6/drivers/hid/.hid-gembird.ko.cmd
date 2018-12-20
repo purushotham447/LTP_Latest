@@ -1,0 +1,1 @@
+cmd_drivers/hid/hid-gembird.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/hid/hid-gembird.ko drivers/hid/hid-gembird.o drivers/hid/hid-gembird.mod.o ;  true

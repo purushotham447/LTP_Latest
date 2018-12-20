@@ -1,0 +1,1 @@
+cmd_drivers/staging/irda/net/ircomm/ircomm-tty.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/staging/irda/net/ircomm/ircomm-tty.ko drivers/staging/irda/net/ircomm/ircomm-tty.o drivers/staging/irda/net/ircomm/ircomm-tty.mod.o ;  true

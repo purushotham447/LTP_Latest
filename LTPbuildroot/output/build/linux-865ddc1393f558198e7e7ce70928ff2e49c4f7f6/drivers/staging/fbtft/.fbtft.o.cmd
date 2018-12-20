@@ -1,0 +1,1 @@
+cmd_drivers/staging/fbtft/fbtft.o := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL    -r -o drivers/staging/fbtft/fbtft.o drivers/staging/fbtft/fbtft-core.o drivers/staging/fbtft/fbtft-sysfs.o drivers/staging/fbtft/fbtft-bus.o drivers/staging/fbtft/fbtft-io.o 

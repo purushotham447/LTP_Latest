@@ -1,0 +1,4 @@
+GCC_CFLAGS = -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64  -Os  -DIN_GCC  -DCROSS_DIRECTORY_STRUCTURE  -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wstrict-prototypes -Wmissing-prototypes -Wold-style-definition  -isystem ./include 
+INHIBIT_LIBC_CFLAGS = -Dinhibit_libc
+TARGET_SYSTEM_ROOT = /usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot
+NO_PIE_CFLAGS = 

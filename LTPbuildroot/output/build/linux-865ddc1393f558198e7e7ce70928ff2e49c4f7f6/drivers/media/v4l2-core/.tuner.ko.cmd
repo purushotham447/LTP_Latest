@@ -1,0 +1,1 @@
+cmd_drivers/media/v4l2-core/tuner.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/v4l2-core/tuner.ko drivers/media/v4l2-core/tuner.o drivers/media/v4l2-core/tuner.mod.o ;  true

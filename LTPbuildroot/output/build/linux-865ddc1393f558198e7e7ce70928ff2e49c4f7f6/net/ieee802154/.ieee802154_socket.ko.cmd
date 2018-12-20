@@ -1,0 +1,1 @@
+cmd_net/ieee802154/ieee802154_socket.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/ieee802154/ieee802154_socket.ko net/ieee802154/ieee802154_socket.o net/ieee802154/ieee802154_socket.mod.o ;  true

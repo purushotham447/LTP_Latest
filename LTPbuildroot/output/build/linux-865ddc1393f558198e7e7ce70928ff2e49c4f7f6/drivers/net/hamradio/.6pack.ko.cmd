@@ -1,0 +1,1 @@
+cmd_drivers/net/hamradio/6pack.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/net/hamradio/6pack.ko drivers/net/hamradio/6pack.o drivers/net/hamradio/6pack.mod.o ;  true

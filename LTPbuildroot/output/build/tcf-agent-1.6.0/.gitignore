@@ -1,0 +1,45 @@
+# ignore various emacs droppings
+*~
+\#*\#
+
+# agent
+/agent/obj
+/agent/msvc/obj
+/agent/msvc/*.user
+/agent/msvc/*.opendb
+/agent/msvc/*.VC.db
+/agent/msvc/*.sdf
+/agent/msvc/.vs
+
+# cmake/
+/agent/cmake/msvc-debug
+/agent/cmake/msvc-release
+/agent/cmake/gcc-release
+/agent/cmake/gcc-debug
+
+# server/
+/server/obj
+/server/msvc/obj
+/server/msvc/*.user
+/server/msvc/*.opendb
+/server/msvc/*.VC.db
+/server/msvc/*.sdf
+/server/msvc/.vs
+
+# tests/cmd-line/
+/tests/cmd-line/obj
+
+# examples/daytime/
+/examples/daytime/obj
+
+# tests/mem-leaks/
+/tests/mem-leaks/obj
+
+# tests/test-dwarf/
+/tests/test-dwarf/obj
+/tests/test-dwarf/msvc/obj
+/tests/test-dwarf/msvc/*.user
+/tests/test-dwarf/msvc/*.opendb
+/tests/test-dwarf/msvc/*.VC.db
+/tests/test-dwarf/msvc/*.sdf
+/tests/test-dwarf/msvc/.vs

@@ -1,0 +1,1 @@
+cmd_drivers/net/wireless/marvell/libertas/libertas_sdio.o := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL    -r -o drivers/net/wireless/marvell/libertas/libertas_sdio.o drivers/net/wireless/marvell/libertas/if_sdio.o 

@@ -1,0 +1,1 @@
+cmd_net/6lowpan/nhc_routing.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/6lowpan/nhc_routing.ko net/6lowpan/nhc_routing.o net/6lowpan/nhc_routing.mod.o ;  true

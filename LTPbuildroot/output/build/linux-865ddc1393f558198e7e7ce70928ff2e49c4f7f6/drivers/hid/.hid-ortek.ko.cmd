@@ -1,0 +1,1 @@
+cmd_drivers/hid/hid-ortek.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/hid/hid-ortek.ko drivers/hid/hid-ortek.o drivers/hid/hid-ortek.mod.o ;  true

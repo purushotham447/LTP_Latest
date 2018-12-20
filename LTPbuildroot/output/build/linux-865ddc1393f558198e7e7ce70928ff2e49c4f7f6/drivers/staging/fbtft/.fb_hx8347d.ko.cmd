@@ -1,0 +1,1 @@
+cmd_drivers/staging/fbtft/fb_hx8347d.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/staging/fbtft/fb_hx8347d.ko drivers/staging/fbtft/fb_hx8347d.o drivers/staging/fbtft/fb_hx8347d.mod.o ;  true

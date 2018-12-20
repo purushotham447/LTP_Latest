@@ -1,0 +1,1 @@
+cmd_drivers/staging/fbtft/fb_ili9340.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/staging/fbtft/fb_ili9340.ko drivers/staging/fbtft/fb_ili9340.o drivers/staging/fbtft/fb_ili9340.mod.o ;  true

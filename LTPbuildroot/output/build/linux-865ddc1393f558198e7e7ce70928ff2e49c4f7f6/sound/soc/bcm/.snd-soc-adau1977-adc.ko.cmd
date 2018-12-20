@@ -1,0 +1,1 @@
+cmd_sound/soc/bcm/snd-soc-adau1977-adc.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o sound/soc/bcm/snd-soc-adau1977-adc.ko sound/soc/bcm/snd-soc-adau1977-adc.o sound/soc/bcm/snd-soc-adau1977-adc.mod.o ;  true

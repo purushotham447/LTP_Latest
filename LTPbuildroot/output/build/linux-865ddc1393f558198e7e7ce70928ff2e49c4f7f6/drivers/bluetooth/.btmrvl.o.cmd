@@ -1,0 +1,1 @@
+cmd_drivers/bluetooth/btmrvl.o := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL    -r -o drivers/bluetooth/btmrvl.o drivers/bluetooth/btmrvl_main.o drivers/bluetooth/btmrvl_debugfs.o 

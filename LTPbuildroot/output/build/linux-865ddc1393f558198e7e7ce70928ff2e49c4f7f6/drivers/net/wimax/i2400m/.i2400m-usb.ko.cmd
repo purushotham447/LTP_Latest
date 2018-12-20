@@ -1,0 +1,1 @@
+cmd_drivers/net/wimax/i2400m/i2400m-usb.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/net/wimax/i2400m/i2400m-usb.ko drivers/net/wimax/i2400m/i2400m-usb.o drivers/net/wimax/i2400m/i2400m-usb.mod.o ;  true

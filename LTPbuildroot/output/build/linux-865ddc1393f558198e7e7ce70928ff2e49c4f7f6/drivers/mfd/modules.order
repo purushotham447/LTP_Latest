@@ -1,0 +1,4 @@
+kernel/drivers/mfd/arizona-i2c.ko
+kernel/drivers/mfd/arizona-spi.ko
+kernel/drivers/mfd/wl1273-core.ko
+kernel/drivers/mfd/rpisense-core.ko

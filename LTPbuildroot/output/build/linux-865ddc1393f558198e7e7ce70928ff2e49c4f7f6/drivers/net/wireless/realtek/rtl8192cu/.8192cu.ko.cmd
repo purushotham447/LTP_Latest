@@ -1,0 +1,1 @@
+cmd_drivers/net/wireless/realtek/rtl8192cu/8192cu.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/net/wireless/realtek/rtl8192cu/8192cu.ko drivers/net/wireless/realtek/rtl8192cu/8192cu.o drivers/net/wireless/realtek/rtl8192cu/8192cu.mod.o ;  true

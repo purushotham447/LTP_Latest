@@ -1,0 +1,1 @@
+cmd_drivers/iio/imu/inv_mpu6050/built-in.o :=  rm -f drivers/iio/imu/inv_mpu6050/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/iio/imu/inv_mpu6050/built-in.o

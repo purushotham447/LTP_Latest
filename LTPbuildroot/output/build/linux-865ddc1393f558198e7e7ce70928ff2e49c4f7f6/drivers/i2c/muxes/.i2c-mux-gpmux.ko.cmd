@@ -1,0 +1,1 @@
+cmd_drivers/i2c/muxes/i2c-mux-gpmux.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/i2c/muxes/i2c-mux-gpmux.ko drivers/i2c/muxes/i2c-mux-gpmux.o drivers/i2c/muxes/i2c-mux-gpmux.mod.o ;  true

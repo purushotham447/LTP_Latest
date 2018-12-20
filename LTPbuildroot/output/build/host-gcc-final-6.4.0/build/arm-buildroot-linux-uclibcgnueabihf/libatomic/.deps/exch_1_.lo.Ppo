@@ -1,0 +1,81 @@
+exch_1_.lo: ../../../libatomic/config/arm/exch_n.c \
+ ../../../libatomic/libatomic_i.h auto-config.h \
+ /usr/src/output/build/host-gcc-final-6.4.0/build/gcc/include/stdbool.h \
+ /usr/src/output/build/host-gcc-final-6.4.0/build/gcc/include/stdint.h \
+ /usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/stdint.h \
+ /usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/features.h \
+ /usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/bits/uClibc_config.h \
+ /usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/sys/cdefs.h \
+ /usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/bits/wordsize.h \
+ /usr/src/output/build/host-gcc-final-6.4.0/build/gcc/include/stddef.h \
+ /usr/src/output/build/host-gcc-final-6.4.0/build/gcc/include-fixed/limits.h \
+ /usr/src/output/build/host-gcc-final-6.4.0/build/gcc/include-fixed/syslimits.h \
+ /usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/limits.h \
+ /usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/bits/posix1_lim.h \
+ /usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/bits/local_lim.h \
+ /usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/linux/limits.h \
+ /usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/bits/uClibc_local_lim.h \
+ /usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/bits/posix2_lim.h \
+ /usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/string.h \
+ ../../../libatomic/config/arm/host-config.h \
+ ../../../libatomic/config/linux/arm/host-config.h \
+ ../../../libatomic/config/arm/arm-config.h \
+ ../../../libatomic/config/posix/host-config.h \
+ ../../../libatomic/host-config.h \
+ ../../../libatomic/config/arm/arm-config.h \
+ ../../../libatomic/config/arm/../../exch_n.c \
+ ../../../libatomic/config/arm/../../libatomic_i.h
+
+../../../libatomic/libatomic_i.h:
+
+auto-config.h:
+
+/usr/src/output/build/host-gcc-final-6.4.0/build/gcc/include/stdbool.h:
+
+/usr/src/output/build/host-gcc-final-6.4.0/build/gcc/include/stdint.h:
+
+/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/stdint.h:
+
+/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/features.h:
+
+/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/bits/uClibc_config.h:
+
+/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/sys/cdefs.h:
+
+/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/bits/wordsize.h:
+
+/usr/src/output/build/host-gcc-final-6.4.0/build/gcc/include/stddef.h:
+
+/usr/src/output/build/host-gcc-final-6.4.0/build/gcc/include-fixed/limits.h:
+
+/usr/src/output/build/host-gcc-final-6.4.0/build/gcc/include-fixed/syslimits.h:
+
+/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/limits.h:
+
+/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/bits/posix1_lim.h:
+
+/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/bits/local_lim.h:
+
+/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/linux/limits.h:
+
+/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/bits/uClibc_local_lim.h:
+
+/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/bits/posix2_lim.h:
+
+/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/include/string.h:
+
+../../../libatomic/config/arm/host-config.h:
+
+../../../libatomic/config/linux/arm/host-config.h:
+
+../../../libatomic/config/arm/arm-config.h:
+
+../../../libatomic/config/posix/host-config.h:
+
+../../../libatomic/host-config.h:
+
+../../../libatomic/config/arm/arm-config.h:
+
+../../../libatomic/config/arm/../../exch_n.c:
+
+../../../libatomic/config/arm/../../libatomic_i.h:

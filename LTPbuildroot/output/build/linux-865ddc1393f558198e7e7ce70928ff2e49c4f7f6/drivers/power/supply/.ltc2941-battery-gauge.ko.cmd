@@ -1,0 +1,1 @@
+cmd_drivers/power/supply/ltc2941-battery-gauge.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/power/supply/ltc2941-battery-gauge.ko drivers/power/supply/ltc2941-battery-gauge.o drivers/power/supply/ltc2941-battery-gauge.mod.o ;  true

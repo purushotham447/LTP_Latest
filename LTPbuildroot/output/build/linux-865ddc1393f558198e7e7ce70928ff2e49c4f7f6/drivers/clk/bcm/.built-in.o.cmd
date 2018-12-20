@@ -1,0 +1,1 @@
+cmd_drivers/clk/bcm/built-in.o :=  rm -f drivers/clk/bcm/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/clk/bcm/built-in.o drivers/clk/bcm/clk-bcm2835.o drivers/clk/bcm/clk-bcm2835-aux.o 

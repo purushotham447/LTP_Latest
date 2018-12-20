@@ -1,0 +1,1 @@
+cmd_drivers/net/wireless/realtek/rtlwifi/rtlwifi.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/net/wireless/realtek/rtlwifi/rtlwifi.ko drivers/net/wireless/realtek/rtlwifi/rtlwifi.o drivers/net/wireless/realtek/rtlwifi/rtlwifi.mod.o ;  true

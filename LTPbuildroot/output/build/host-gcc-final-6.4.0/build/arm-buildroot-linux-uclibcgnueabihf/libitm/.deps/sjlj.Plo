@@ -1,0 +1,9 @@
+sjlj.lo: ../../../libitm/config/arm/sjlj.S \
+ ../../../libitm/config/arm/hwcap.h \
+ ../../../libitm/config/generic/asmcfi.h config.h
+
+../../../libitm/config/arm/hwcap.h:
+
+../../../libitm/config/generic/asmcfi.h:
+
+config.h:

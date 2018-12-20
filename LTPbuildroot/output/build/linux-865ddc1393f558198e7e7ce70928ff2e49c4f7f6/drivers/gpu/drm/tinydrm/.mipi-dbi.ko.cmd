@@ -1,0 +1,1 @@
+cmd_drivers/gpu/drm/tinydrm/mipi-dbi.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/gpu/drm/tinydrm/mipi-dbi.ko drivers/gpu/drm/tinydrm/mipi-dbi.o drivers/gpu/drm/tinydrm/mipi-dbi.mod.o ;  true

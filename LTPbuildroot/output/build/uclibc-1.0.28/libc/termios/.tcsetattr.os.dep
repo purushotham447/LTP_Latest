@@ -1,0 +1,117 @@
+libc/termios/tcsetattr.os: libc/termios/tcsetattr.c \
+ include/libc-symbols.h include/bits/uClibc_arch_features.h \
+ include/bits/uClibc_config.h include/errno.h include/features.h \
+ include/sys/cdefs.h include/libc-internal.h \
+ /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include/stddef.h \
+ include/bits/errno.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/linux/errno.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm/errno.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/errno.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/errno-base.h \
+ include/string.h include/termios.h include/bits/types.h \
+ include/bits/wordsize.h include/bits/kernel_types.h \
+ include/bits/typesizes.h include/bits/termios.h \
+ include/sys/ttydefaults.h include/sys/ioctl.h include/bits/ioctls.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm/ioctls.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/ioctls.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/linux/ioctl.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm/ioctl.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/ioctl.h \
+ include/bits/ioctl-types.h include/sys/types.h include/time.h \
+ include/endian.h include/bits/endian.h include/stdint.h \
+ include/byteswap.h include/bits/byteswap.h \
+ include/bits/byteswap-common.h include/bits/byteswap-16.h \
+ include/sys/select.h include/bits/select.h include/bits/sigset.h \
+ include/bits/time.h include/sys/sysmacros.h include/bits/pthreadtypes.h \
+ libc/termios/kernel_termios.h
+
+include/libc-symbols.h:
+
+include/bits/uClibc_arch_features.h:
+
+include/bits/uClibc_config.h:
+
+include/errno.h:
+
+include/features.h:
+
+include/sys/cdefs.h:
+
+include/libc-internal.h:
+
+/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include/stddef.h:
+
+include/bits/errno.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/linux/errno.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm/errno.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/errno.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/errno-base.h:
+
+include/string.h:
+
+include/termios.h:
+
+include/bits/types.h:
+
+include/bits/wordsize.h:
+
+include/bits/kernel_types.h:
+
+include/bits/typesizes.h:
+
+include/bits/termios.h:
+
+include/sys/ttydefaults.h:
+
+include/sys/ioctl.h:
+
+include/bits/ioctls.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm/ioctls.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/ioctls.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/linux/ioctl.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm/ioctl.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/ioctl.h:
+
+include/bits/ioctl-types.h:
+
+include/sys/types.h:
+
+include/time.h:
+
+include/endian.h:
+
+include/bits/endian.h:
+
+include/stdint.h:
+
+include/byteswap.h:
+
+include/bits/byteswap.h:
+
+include/bits/byteswap-common.h:
+
+include/bits/byteswap-16.h:
+
+include/sys/select.h:
+
+include/bits/select.h:
+
+include/bits/sigset.h:
+
+include/bits/time.h:
+
+include/sys/sysmacros.h:
+
+include/bits/pthreadtypes.h:
+
+libc/termios/kernel_termios.h:
+cmd_libc_termios_tcsetattr.os := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc -c libc/termios/tcsetattr.c -o libc/termios/tcsetattr.os -Wall -Wstrict-prototypes -Wstrict-aliasing -funsigned-char -fno-builtin -fno-asm -fmerge-all-constants -std=gnu99 -mlittle-endian -fno-stack-protector -nostdinc -Iinclude -Iinclude -include libc-symbols.h -Ilibc/sysdeps/linux/arm -Ilibc/sysdeps/linux -Ildso/ldso/arm -Ildso/include -I. -Os -fstrict-aliasing -D__USE_STDIO_FUTEXES__ -DHAVE_FORCED_UNWIND -D_LIBC_REENTRANT -Ilibpthread/nptl -Ilibpthread/nptl -Ilibpthread/nptl/sysdeps/unix/sysv/linux/arm -Ilibpthread/nptl/sysdeps/arm -Ilibpthread/nptl/sysdeps/arm -Ilibpthread/nptl/sysdeps/unix/sysv/linux -Ilibpthread/nptl/sysdeps/unix/sysv/linux -Ilibpthread/nptl/sysdeps/pthread -Ilibpthread/nptl/sysdeps/pthread/bits -Ilibpthread/nptl/sysdeps/generic -Ilibc/sysdeps/linux/common -isystem /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include-fixed -isystem /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include -I/usr/src/output/build/linux-headers-4.14.33/usr/include/ -DNDEBUG -DIN_LIB=libc -fPIC -MT libc/termios/tcsetattr.os -MD -MP -MF libc/termios/.tcsetattr.os.dep

@@ -1,0 +1,1 @@
+cmd_net/sched/sch_dsmark.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/sched/sch_dsmark.ko net/sched/sch_dsmark.o net/sched/sch_dsmark.mod.o ;  true

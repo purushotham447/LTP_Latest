@@ -1,0 +1,1 @@
+cmd_drivers/staging/iio/frequency/built-in.o :=  rm -f drivers/staging/iio/frequency/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/staging/iio/frequency/built-in.o

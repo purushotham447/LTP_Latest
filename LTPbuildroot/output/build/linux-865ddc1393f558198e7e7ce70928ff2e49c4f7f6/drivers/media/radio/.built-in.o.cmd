@@ -1,0 +1,1 @@
+cmd_drivers/media/radio/built-in.o :=  rm -f drivers/media/radio/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/media/radio/built-in.o drivers/media/radio/si470x/built-in.o 

@@ -1,0 +1,1 @@
+cmd_sound/soc/bcm/snd-soc-pisound.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o sound/soc/bcm/snd-soc-pisound.ko sound/soc/bcm/snd-soc-pisound.o sound/soc/bcm/snd-soc-pisound.mod.o ;  true

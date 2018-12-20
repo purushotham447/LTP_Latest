@@ -1,0 +1,1 @@
+cmd_drivers/media/v4l2-core/videobuf-dvb.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/v4l2-core/videobuf-dvb.ko drivers/media/v4l2-core/videobuf-dvb.o drivers/media/v4l2-core/videobuf-dvb.mod.o ;  true

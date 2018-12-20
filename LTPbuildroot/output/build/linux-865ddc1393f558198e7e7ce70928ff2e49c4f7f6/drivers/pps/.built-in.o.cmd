@@ -1,0 +1,1 @@
+cmd_drivers/pps/built-in.o :=  rm -f drivers/pps/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/pps/built-in.o drivers/pps/clients/built-in.o drivers/pps/generators/built-in.o 

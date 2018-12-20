@@ -1,0 +1,3 @@
+kernel/drivers/iio/buffer/industrialio-buffer-cb.ko
+kernel/drivers/iio/buffer/industrialio-triggered-buffer.ko
+kernel/drivers/iio/buffer/kfifo_buf.ko

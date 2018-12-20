@@ -1,0 +1,6 @@
+pr-support_s.o: ../../../libgcc/config/arm/pr-support.c unwind.h \
+ /usr/src/output/build/host-gcc-final-6.4.0/build/gcc/include/unwind-arm-common.h
+
+unwind.h:
+
+/usr/src/output/build/host-gcc-final-6.4.0/build/gcc/include/unwind-arm-common.h:

@@ -1,0 +1,1 @@
+cmd_drivers/input/joystick/iforce/iforce.o := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL    -r -o drivers/input/joystick/iforce/iforce.o drivers/input/joystick/iforce/iforce-ff.o drivers/input/joystick/iforce/iforce-main.o drivers/input/joystick/iforce/iforce-packets.o drivers/input/joystick/iforce/iforce-usb.o 

@@ -1,0 +1,1 @@
+cmd_drivers/staging/irda/net/irda.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/staging/irda/net/irda.ko drivers/staging/irda/net/irda.o drivers/staging/irda/net/irda.mod.o ;  true

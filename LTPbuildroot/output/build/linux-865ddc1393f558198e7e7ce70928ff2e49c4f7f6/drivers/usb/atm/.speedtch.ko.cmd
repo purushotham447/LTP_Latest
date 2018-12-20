@@ -1,0 +1,1 @@
+cmd_drivers/usb/atm/speedtch.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/usb/atm/speedtch.ko drivers/usb/atm/speedtch.o drivers/usb/atm/speedtch.mod.o ;  true

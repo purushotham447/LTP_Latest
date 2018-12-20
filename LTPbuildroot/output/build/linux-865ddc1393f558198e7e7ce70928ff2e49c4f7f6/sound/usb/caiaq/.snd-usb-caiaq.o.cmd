@@ -1,0 +1,1 @@
+cmd_sound/usb/caiaq/snd-usb-caiaq.o := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL    -r -o sound/usb/caiaq/snd-usb-caiaq.o sound/usb/caiaq/device.o sound/usb/caiaq/audio.o sound/usb/caiaq/midi.o sound/usb/caiaq/control.o sound/usb/caiaq/input.o 

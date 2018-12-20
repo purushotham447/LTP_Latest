@@ -1,0 +1,1 @@
+cmd_net/sched/act_mirred.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/sched/act_mirred.ko net/sched/act_mirred.o net/sched/act_mirred.mod.o ;  true

@@ -1,0 +1,1 @@
+cmd_fs/notify/dnotify/built-in.o :=  rm -f fs/notify/dnotify/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD fs/notify/dnotify/built-in.o fs/notify/dnotify/dnotify.o 

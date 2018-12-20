@@ -1,0 +1,1 @@
+cmd_drivers/media/usb/em28xx/em28xx-v4l.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/usb/em28xx/em28xx-v4l.ko drivers/media/usb/em28xx/em28xx-v4l.o drivers/media/usb/em28xx/em28xx-v4l.mod.o ;  true

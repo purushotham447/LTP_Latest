@@ -1,0 +1,1 @@
+cmd_drivers/usb/serial/mos7720.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/usb/serial/mos7720.ko drivers/usb/serial/mos7720.o drivers/usb/serial/mos7720.mod.o ;  true

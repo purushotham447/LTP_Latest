@@ -1,0 +1,54 @@
+!<thin>
+//                                              426       `
+trace_clock.o/
+ftrace.o/
+ring_buffer.o/
+trace.o/
+trace_output.o/
+trace_seq.o/
+trace_stat.o/
+trace_printk.o/
+trace_sched_switch.o/
+trace_functions.o/
+trace_irqsoff.o/
+trace_sched_wakeup.o/
+trace_nop.o/
+trace_stack.o/
+trace_functions_graph.o/
+blktrace.o/
+trace_events.o/
+trace_export.o/
+trace_event_perf.o/
+trace_events_filter.o/
+trace_events_trigger.o/
+trace_kprobe.o/
+power-traces.o/
+rpm-traces.o/
+trace_kdb.o/
+trace_probe.o/
+/0              0           0     0     644     4540      `
+/15             0           0     0     644     82780     `
+/25             0           0     0     644     71396     `
+/40             0           0     0     644     132708    `
+/49             0           0     0     644     29336     `
+/65             0           0     0     644     8476      `
+/78             0           0     0     644     5524      `
+/92             0           0     0     644     8720      `
+/108            0           0     0     644     4240      `
+/130            0           0     0     644     11204     `
+/149           /0           0     0     644     15152     `
+/166            0           0     0     644     14280     `
+/188            0           0     0     644     2288      `
+/201            0           0     0     644     13980     `
+/216            0           0     0     644     22492     `
+/241            0           0     0     644     35008     `
+/253            0           0     0     644     50400     `
+/269            0           0     0     644     16464     `
+/285            0           0     0     644     6836      `
+/305            0           0     0     644     27092     `
+/328            0           0     0     644     20784     `
+/352            0           0     0     644     28988     `
+/368            0           0     0     644     43016     `
+/384            0           0     0     644     11260     `
+/398            0           0     0     644     4708      `
+/411            0           0     0     644     20180     `

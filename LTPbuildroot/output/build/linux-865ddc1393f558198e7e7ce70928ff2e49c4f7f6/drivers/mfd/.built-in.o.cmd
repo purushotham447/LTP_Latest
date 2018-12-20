@@ -1,0 +1,1 @@
+cmd_drivers/mfd/built-in.o :=  rm -f drivers/mfd/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/mfd/built-in.o drivers/mfd/stmpe.o drivers/mfd/stmpe-i2c.o drivers/mfd/stmpe-spi.o drivers/mfd/arizona-core.o drivers/mfd/arizona-irq.o drivers/mfd/wm5102-tables.o drivers/mfd/mfd-core.o drivers/mfd/syscon.o 

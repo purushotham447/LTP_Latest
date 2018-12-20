@@ -1,0 +1,12 @@
+_call_via_rX.o: ../../../libgcc/config/arm/lib1funcs.S _call_via_rX.vis \
+ ../../../libgcc/config/arm/ieee754-df.S \
+ ../../../libgcc/config/arm/ieee754-sf.S \
+ ../../../libgcc/config/arm/bpabi.S
+
+_call_via_rX.vis:
+
+../../../libgcc/config/arm/ieee754-df.S:
+
+../../../libgcc/config/arm/ieee754-sf.S:
+
+../../../libgcc/config/arm/bpabi.S:

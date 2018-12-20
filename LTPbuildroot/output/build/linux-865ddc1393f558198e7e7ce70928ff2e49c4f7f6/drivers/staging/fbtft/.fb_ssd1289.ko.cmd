@@ -1,0 +1,1 @@
+cmd_drivers/staging/fbtft/fb_ssd1289.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/staging/fbtft/fb_ssd1289.ko drivers/staging/fbtft/fb_ssd1289.o drivers/staging/fbtft/fb_ssd1289.mod.o ;  true

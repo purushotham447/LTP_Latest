@@ -1,0 +1,1 @@
+cmd_/usr/src/output/build/lttng-modules-2.10.4/./lttng-clock.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o /usr/src/output/build/lttng-modules-2.10.4/./lttng-clock.ko /usr/src/output/build/lttng-modules-2.10.4/./lttng-clock.o /usr/src/output/build/lttng-modules-2.10.4/./lttng-clock.mod.o ;  true

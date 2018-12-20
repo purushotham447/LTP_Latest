@@ -1,0 +1,1 @@
+cmd_drivers/media/dvb-frontends/tda18271c2dd.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/dvb-frontends/tda18271c2dd.ko drivers/media/dvb-frontends/tda18271c2dd.o drivers/media/dvb-frontends/tda18271c2dd.mod.o ;  true

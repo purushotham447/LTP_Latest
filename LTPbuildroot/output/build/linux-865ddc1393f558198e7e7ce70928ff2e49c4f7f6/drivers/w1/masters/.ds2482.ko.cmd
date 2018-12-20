@@ -1,0 +1,1 @@
+cmd_drivers/w1/masters/ds2482.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/w1/masters/ds2482.ko drivers/w1/masters/ds2482.o drivers/w1/masters/ds2482.mod.o ;  true

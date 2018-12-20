@@ -1,0 +1,1 @@
+cmd_drivers/net/hamradio/hdlcdrv.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/net/hamradio/hdlcdrv.ko drivers/net/hamradio/hdlcdrv.o drivers/net/hamradio/hdlcdrv.mod.o ;  true

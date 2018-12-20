@@ -1,0 +1,1 @@
+cmd_drivers/media/dvb-frontends/stb0899.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/dvb-frontends/stb0899.ko drivers/media/dvb-frontends/stb0899.o drivers/media/dvb-frontends/stb0899.mod.o ;  true

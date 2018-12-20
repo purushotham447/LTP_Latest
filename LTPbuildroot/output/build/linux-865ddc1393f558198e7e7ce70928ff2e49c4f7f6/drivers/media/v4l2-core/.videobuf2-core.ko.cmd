@@ -1,0 +1,1 @@
+cmd_drivers/media/v4l2-core/videobuf2-core.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/v4l2-core/videobuf2-core.ko drivers/media/v4l2-core/videobuf2-core.o drivers/media/v4l2-core/videobuf2-core.mod.o ;  true

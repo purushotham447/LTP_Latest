@@ -1,0 +1,1 @@
+cmd_net/ipv6/xfrm6_mode_beet.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/ipv6/xfrm6_mode_beet.ko net/ipv6/xfrm6_mode_beet.o net/ipv6/xfrm6_mode_beet.mod.o ;  true

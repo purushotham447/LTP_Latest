@@ -1,0 +1,3 @@
+btrecord.o: btrecord.c ../btt/list.h btrecord.h ../blktrace.h \
+ ../blktrace_api.h ../rbtree.h
+btreplay.o: btreplay.c ../btt/list.h btrecord.h

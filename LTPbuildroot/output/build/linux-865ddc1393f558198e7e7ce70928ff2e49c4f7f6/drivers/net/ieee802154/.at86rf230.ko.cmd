@@ -1,0 +1,1 @@
+cmd_drivers/net/ieee802154/at86rf230.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/net/ieee802154/at86rf230.ko drivers/net/ieee802154/at86rf230.o drivers/net/ieee802154/at86rf230.mod.o ;  true

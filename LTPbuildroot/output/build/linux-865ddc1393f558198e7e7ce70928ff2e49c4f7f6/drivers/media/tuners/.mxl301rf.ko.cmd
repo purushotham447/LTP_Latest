@@ -1,0 +1,1 @@
+cmd_drivers/media/tuners/mxl301rf.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/tuners/mxl301rf.ko drivers/media/tuners/mxl301rf.o drivers/media/tuners/mxl301rf.mod.o ;  true

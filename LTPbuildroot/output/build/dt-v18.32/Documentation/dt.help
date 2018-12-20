@@ -1,0 +1,371 @@
+
+			Overview of 'dt' Program
+			------------------------
+
+	The 'dt' program is a generic data transfer program which was
+originally written to test sequential tape drives.  It's purpose was to
+provide many of the features available via the 'dd' utility except with
+data verification and performance statistics.
+
+	After the initial development was completed, it was found that
+'dt' was also useful for testing disk devices using both the raw and
+file system interfaces.
+
+	Eventually, there was a need to test terminal interfaces and so
+various commands were added to control this testing (flow control, speed,
+parity, etc.).  The terminal support which resides in 'dt' was written for
+Sun's streams based terminal driver.  This code has been conditionalized
+appropriately for ULTRIX, OSF, and QNX terminal drivers.
+
+	When memory mapped files became available, this support was also
+added to 'dt' so we could compare this performance with normal file system
+performance.  This code is conditionalized for SUN and OSF systems.
+
+	When I was performing my qualification of the RRD42 on ULTRIX, I
+added several more useful options which allowed testing using the RRD TEST
+DISC which is shipped with the RRD40.  This disk contains various data
+patterns which was very useful for debugging several data corruption
+problems in the SCSI drivers.   I added the ability to read a pattern file
+and to seek to various positions of the disk to verify each data pattern.
+
+	An option was added to force use of mis-aligned data buffers to test
+code paths in drivers which must do special handling of this condition.
+This is accomplished by specifiying a buffer offset (align=) which offsets
+the normally page aligned buffers to force unaligned data access.
+
+	New Features:
+
+	"procs="	To initiate multiple processes.
+	"files="	To process multiple tape files.
+	"step="		To force seeks after disk I/O.
+	"runtime="	To control how long to run.
+	"enable=aio"	To enable POSIX Asynchronous I/O.
+	"aios=value"	To set POSIX AIO's to queue (default 8).
+	"align=rotate"	To rotate data address through sizeof(ptr).
+	"pattern=incr"	To use an incrementing data pattern.
+	"min="		To set the minimum record size.
+	"max="		To Set the maximum record size.
+	"incr="		To set the record bytes to increment.
+
+	The "procs" option is useful for load testing, & testing buffer
+cache, driver, and controller optimizations.  The "files" option is useful
+for verifying tape drivers properly report & reset file marks & end of tape
+conditions.  The "step" option is useful to cause non-sequential disk access.
+The "min", "max", & "incr" options are used for variable length records.  In
+addition to these options, errors now have a timestamp associated with them,
+and the start & end times are displayed in the total statistics.
+	
+	The help text below is what resides in the 'dt' program.  Please
+also be aware that 'dt' will let you hurt yourself if you have write access
+to raw disk devices (i.e., running as root).  'dt' does not verify whether
+a disk is mounted or whether it contains file systems. The best way to learn
+'dt' is to simply play with it by specifying different options.
+
+	Good luck, and have fun...
+
+Cheers,
+Robin Miller
+================================================================================
+
+% dt help
+Usage: dt options...
+
+    Where options are:
+        if=filename      The input file to read.
+        of=filename      The output file to write.
+        sdsf=filename    The SCSI device special file.
+        pf=filename      The data pattern file to use.
+        dir=dirpath      The directory path for files.
+        dirp=string      The directory prefix for subdirs.
+        sdirs=value      The number of subdirectories.
+        depth=value      The subdirectory depth.
+        bs=value         The block size to read/write.
+    or  bs=random        Random size between 512 and 256k.
+        log[tu]=filename The log file name to write.
+                         t=truncate, u=unique (w/pid)
+        aios=value       Set number of AIO's to queue.
+        alarm=time       The keepalive alarm time.
+        keepalive=string The keepalive message string.
+        keepalivet=time  The keepalive message frequency.
+        pkeepalive=str   The pass keepalive message string.
+        tkeepalive=str   The totals keepalive message string.
+        align=offset     Set offset within page aligned buffer.
+    or  align=rotate     Rotate data address through sizeof(ptr).
+        capacity=value   Set the device capacity in bytes.
+    or  capacity=max     Set maximum capacity from disk driver.
+        bufmodes={buffered,unbuffered,cachereads,cachewrites}
+                         Set one or more buffering modes (Default: none)
+        boff=string      Set the buffer offsets to: dec or hex (Default: hex)
+        dfmt=string      Set the data format to: byte or word (Default: word)
+        dispose=mode     Set file dispose to: {delete, keep, or keeponerror}.
+        dlimit=value     Set the dump data buffer limit.
+        dtype=string     Set the device type being tested.
+        idtype=string    Set input device type being tested.
+        odtype=string    Set output device type being tested.
+        dsize=value      Set the device block (sector) size.
+        errors=value     The number of errors to tolerate.
+        files=value      Set number of disk/tape files to process.
+        ffreq=value      The frequency (in records) to flush buffers.
+        maxfiles=value   The maximum files for all directories.
+        flow=type        Set flow to: none, cts_rts, or xon_xoff.
+        incr=value       Set number of record bytes to increment.
+    or  incr=variable    Enables variable I/O request sizes.
+        iodir=direction  Set I/O direction to: {forward or reverse}.
+        iomode=mode      Set I/O mode to: {copy, test, or verify}.
+        iotype=type      Set I/O type to: {random or sequential}.
+        iotpass=value    Set the IOT pattern for specified pass.
+        iotseed=value    Set the IOT pattern block seed value.
+        iotune=filename  Set I/O tune delay parameters via file.
+        history=value    Set the number of history request entries.
+        hdsize=value     Set the history data size (bytes to save).
+        min=value        Set the minumum record size to transfer.
+        max=value        Set the maximum record size to transfer.
+        lba=value        Set starting block used w/lbdata option.
+        lbs=value        Set logical block size for lbdata option.
+        limit=value      The number of bytes to transfer.
+        maxdata=value    The maximum data limit (all files).
+        flags=flags      Set open flags:   {excl,sync,...}
+        oflags=flags     Set output flags: {append,trunc,...}
+        maxbad=value     Set maximum bad blocks to display.
+        oncerr=action    Set child error action: {abort or continue}.
+        nice=value       Apply the nice value to alter our priority.
+        noprogt=value    Set the no progress time (in seconds).
+        noprogtt=value   Set the no progress trigger time (secs).
+        notime=optype    Disable timing of specified operation type.
+        parity=string    Set parity to: {even, odd, or none}.
+        passes=value     The number of passes to perform.
+        pattern=value    The 32 bit hex data pattern to use.
+    or  pattern=iot      Use DJ's IOT test pattern.
+    or  pattern=incr     Use an incrementing data pattern.
+    or  pattern=string   The string to use for the data pattern.
+        position=offset  Position to offset before testing.
+        oposition=offset The output file position (copy/verify).
+        prefix=string    The data pattern prefix string.
+        procs=value      The number of processes to create.
+        ralign=value     The random I/O offset alignment.
+        rlimit=value     The random I/O data byte limit.
+        rseed=value      The random number generator seed.
+        records=value    The number of records to process.
+        runtime=time     The number of seconds to execute.
+        slice=value      The specific disk slice to test.
+        slices=value     The number of disk slices to test.
+        skip=value       The number of records to skip past.
+        seek=value       The number of records to seek past.
+        step=value       The number of bytes seeked after I/O.
+        stats=level      The stats level: {brief, full, or none}
+        stopon=filename  Watch for file existance, then stop.
+        trigger=type     The trigger to execute during errors.
+        volumes=value    The number of volumes to process.
+        vrecords=value   The record limit for the last volume.
+        enable=flag      Enable one or more of the flags below.
+        disable=flag     Disable one or more of the flags below.
+
+    Retry Related Options:
+        retry_error=value     The error code to retry.
+        retry_delay=value     The retry delay.              (Def: 5)
+        retry_limit=value     The retry limit.              (Def: 60)
+
+    Error Strings Accepted:
+        EIO (5), ENXIO (6), EBUSY (16), ENODEV (19), ESTALE (116)
+            OR
+        retry_error='*' or -1 to retry all errors.
+
+    SCSI Specific Options:
+        scsi_timeout=value    The SCSI timeout (in ms).     (Def: 0ms)
+        unmap_freq=value      The SCSI unmap frequency.     (Def: 0)
+
+    Flags to enable/disable:
+        aio              POSIX Asynchronous I/O.    (Default: disabled)
+        cerrors          Report close errors.       (Default: enabled)
+        compare          Data comparison.           (Default: enabled)
+        coredump         Core dump on errors.       (Default: disabled)
+        deleteperpass    Delete files per pass.     (Default: disabled)
+        debug            Debug output.              (Default: disabled)
+        Debug            Verbose debug output.      (Default: disabled)
+        edebug           End of file debug.         (Default: disabled)
+        fdebug           File operations debug.     (Default: disabled)
+        mdebug           Memory related debug.      (Default: disabled)
+        mntdebug         Mount device lookup debug. (Default: disabled)
+        pdebug           Process related debug.     (Default: disabled)
+        rdebug           Random debug output.       (Default: disabled)
+        tdebug           Timer debug output.        (Default: disabled)
+        dump             Dump data buffer.          (Default: enabled)
+        dumpall          Dump all blocks.           (Default: disabled)
+        eof              EOF/EOM exit status.       (Default: disabled)
+        fsalign          File system align.         (Default: disabled)
+        funique          Unique output file.        (Default: disabled)
+        fsincr           File size incrementing.    (Default: disabled)
+        fsync            Controls file sync'ing.    (Default: runtime)
+        header           Log file header.           (Default: enabled)
+        hdump            History dump.              (Default: disabled)
+        htiming          History timing.            (Default: disabled)
+        lbdata           Logical block data.        (Default: disabled)
+        logpid           Log process ID.            (Default: disabled)
+        looponerror      Loop on error.             (Default: disabled)
+        microdelay       Microsecond delays.        (Default: disabled)
+        mmap             Memory mapped I/O.         (Default: disabled)
+        mountlookup      Mount device lookup.       (Default: enabled)
+        multi            Multiple volumes.          (Default: disabled)
+        noprog           No progress check.         (Default: disabled)
+        prefill          Prefill read buffer.       (Default: enabled)
+        pstats           Per pass statistics.       (Default: enabled)
+        raw              Read after write.          (Default: disabled)
+        reread           Re-read after raw.         (Default: disabled)
+        readcache        Read cache control.        (Default: enabled)
+        writecache       Write cache control.       (Default: enabled)
+        retryDC          Retry data corruptions.    (Default: enabled)
+        sighup           Hangup signal control.     (Default: enabled)
+        scsi             SCSI operations.           (Default: enabled)
+        sdebug           SCSI debug output.         (Default: disabled)
+        serrors          SCSI error logging.        (Default: disabled)
+        unmap            SCSI unmap per pass.       (Default: disabled)
+        stats            Display statistics.        (Default: enabled)
+        syslog           Log errors to syslog.      (Default: disabled)
+        timestamp        Timestamp each block.      (Default: disabled)
+        trigargs         Trigger cmd arguments.     (Default: enabled)
+        unique           Unique pattern.            (Default: enabled)
+        verbose          Verbose output.            (Default: enabled)
+        verify           Verify data written.       (Default: enabled)
+
+      Example: enable=debug disable=compare,pstats
+
+    Common Open Flags:
+        none                  Clear all user set flags.
+        excl (O_EXCL)         Exclusive open. (don't share)
+        ndelay (O_NDELAY)     Non-delay open. (don't block)
+        nonblock (O_NONBLOCK) Non-blocking open/read/write.
+        direct (O_DIRECT)     Direct disk access. (don't cache data).
+        fsync (O_FSYNC)       Sync both read/write data with disk file.
+        rsync (O_RSYNC)       Synchronize read operations.
+        sync (O_SYNC)         Sync updates for data/file attributes.
+        large (O_LARGEFILE)   Enable large (64-bit) file system support.
+
+    Output Open Flags:
+        none                  Clear all user set flags.
+        append (O_APPEND)     Append data to end of existing file.
+        dsync (O_DSYNC)       Sync data to disk during write operations.
+        trunc (O_TRUNC)       Truncate an existing file before writing.
+
+    Delays (Values are seconds, unless microdelay enabled):
+        odelay=value     Delay before opening the file.    (Default: 0)
+        cdelay=value     Delay before closing the file.    (Default: 0)
+        edelay=value     Delay between multiple passes.    (Default: 0)
+        rdelay=value     Delay before reading each record. (Default: 0)
+        sdelay=value     Delay before starting the test.   (Default: 0)
+        tdelay=value     Delay before child terminates.    (Default: 1)
+        wdelay=value     Delay before writing each record. (Default: 0)
+
+        cdelay, edelay, rdelay, sdelay, and wdelay accept 'random'.
+
+    Numeric Input:
+        For options accepting numeric input, the string may contain any
+        combination of the following characters:
+
+        Special Characters:
+            w = words (4 bytes)            q = quadwords (8 bytes)
+            b = blocks (512 bytes)         k = kilobytes (1024 bytes)
+            m = megabytes (1048576 bytes)  p = page size (4096 bytes)
+            g = gigabytes (1073741824 bytes)
+            t = terabytes (1099511627776 bytes)
+            d = device size (set via dsize=value option)
+            inf or INF = infinity (18446744073709551615 bytes)
+
+        Arithmetic Characters:
+            + = addition                   - = subtraction
+            * or x = multiplcation         / = division
+            % = remainder
+
+        Bitwise Characters:
+            ~ = complement of value       >> = shift bits right
+           << = shift bits left            & = bitwise 'and' operation
+            | = bitwise 'or' operation     ^ = bitwise exclusive 'or'
+
+        The default base for numeric input is decimal, but you can override
+        this default by specifying 0x or 0X for hexadecimal conversions, or
+        a leading zero '0' for octal conversions.  NOTE: Evaluation is from
+        right to left without precedence, and parenthesis are not permitted.
+
+    Keepalive Format Control:
+            %b = The bytes read or written.   %B = Total bytes read and written.
+            %c = Record count for this pass.  %C = Total records for this test.
+            %d = The device name.             %D = The real device name.
+            %e = The number of errors.        %E = The error limit.
+            %f = The files read or written.   %F = Total files read and written.
+            %h = The host name.               %H = The full host name.
+            %k = The kilobytes this pass.     %K = Total kilobytes for this test.
+            %l = Blocks read or written.      %L = Total blocks read and written.
+            %m = The megabytes this pass.     %M = Total megabytes for this test.
+            %p = The pass count.              %P = The pass limit.
+            %r = Records read this pass.      %R = Total records read this test.
+            %s = The seconds this pass.       %S = The total seconds this test.
+            %t = The pass elapsed time.       %T = The total elapsed time.
+            %i = The I/O mode (read/write)    %u = The user (login) name.
+            %w = Records written this pass.   %W = Total records written this test.
+
+    Performance Keywords:
+            %bps  = The bytes per second.     %lbps = Logical blocks per second.
+            %kbps = Kilobytes per second.     %mbps = The megabytes per second.
+            %iops = The I/O's per second.     %spio = The seconds per I/O.
+
+    File Position Keywords:
+            %lba = The current logical block. %offset = The current file offset.
+
+      Lowercase means per pass stats, while uppercase means total stats.
+
+      Default: %d Stats: mode %i, blocks %l, %m Mbytes, pass %p/%P, elapsed %t
+                     or if pass statistics summary is disabled:
+               %d Stats: mode %i, blocks %L, %M Mbytes, pass %p/%P, elapsed %T
+
+    Log File Format Keywords:
+            %dsf    = The device name.      %device = The device path.
+            %iodir  = The I/O direction.    %iotype = The I/O type.
+            %host   = The host name.        %pid    = The process ID.
+            %user   = The user name.
+
+      Example: log=dt_%host_%user_%iodir_%iotype-%pid.log
+
+    I/O Tune File Format Keywords:
+            %iotune = The I/O tune path.    %tmpdir = The temporary directory.
+            %host   = The host name.        %user   = The user (login) name.
+
+      Example: iotune=%iotune OR %tmpdir%host_MyIOtune_file
+
+    Pattern String Input:
+            \\ = Backslash   \a = Alert (bell)   \b = Backspace
+            \f = Formfeed    \n = Newline        \r = Carriage Return
+            \t = Tab         \v = Vertical Tab   \e or \E = Escape
+            \ddd = Octal Value    \xdd or \Xdd = Hexadecimal Value
+
+    Prefix Format Control:
+            %d = The device name.           %D = The real device name.
+            %h = The host name.             %H = The full host name.
+            %p = The process ID.            %P = The parent PID.
+            %s = The device serial number.  %u = The user name.
+
+      Example: prefix="%u@%h (pid %p)"
+
+    Time Input:
+            d = days (86400 seconds),      h = hours (3600 seconds)
+            m = minutes (60 seconds),      s = seconds (the default)
+
+        Arithmetic characters are permitted, and implicit addition is
+        performed on strings of the form '1d5h10m30s'.
+
+    Trigger Types:
+            br = Execute a bus reset.
+            bdr = Execute a bus device reset.
+            lr = Execute a device lun reset.
+            seek = Issue a seek to the failing lba.
+            cmd:string = Execute command with these args:
+              string dname op dsize offset position lba errno noprogt
+              args following cmd:string get appended to above args.
+
+    Defaults:
+        errors=1, files=0, passes=1, records=0, bs=512, log=stderr
+        pattern=0x39c39c39, dispose=delete, align=0 (page aligned)
+        aios=8, dlimit=512, oncerr=continue, volumes=0, vrecords=1
+        iodir=forward, iomode=test, iotype=sequential, stats=full
+        iotseed=0x01010101, hdsize=32, maxbad=10
+
+    --> Date: September 19th, 2013, Version: 18.32, Author: Robin T. Miller <--
+% 

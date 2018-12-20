@@ -1,0 +1,1 @@
+cmd_fs/notify/built-in.o :=  rm -f fs/notify/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD fs/notify/built-in.o fs/notify/fsnotify.o fs/notify/notification.o fs/notify/group.o fs/notify/mark.o fs/notify/fdinfo.o fs/notify/dnotify/built-in.o fs/notify/inotify/built-in.o fs/notify/fanotify/built-in.o 

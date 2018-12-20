@@ -1,0 +1,1 @@
+cmd_drivers/media/usb/gspca/gspca_jl2005bcd.o := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL    -r -o drivers/media/usb/gspca/gspca_jl2005bcd.o drivers/media/usb/gspca/jl2005bcd.o 

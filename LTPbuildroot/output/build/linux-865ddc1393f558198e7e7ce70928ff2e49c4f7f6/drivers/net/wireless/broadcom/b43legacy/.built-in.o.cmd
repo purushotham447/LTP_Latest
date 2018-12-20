@@ -1,0 +1,1 @@
+cmd_drivers/net/wireless/broadcom/b43legacy/built-in.o :=  rm -f drivers/net/wireless/broadcom/b43legacy/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/net/wireless/broadcom/b43legacy/built-in.o

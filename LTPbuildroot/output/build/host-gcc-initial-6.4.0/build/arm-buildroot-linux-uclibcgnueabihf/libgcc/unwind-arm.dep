@@ -1,0 +1,34 @@
+unwind-arm.o: ../../../libgcc/config/arm/unwind-arm.c unwind.h \
+ /usr/src/output/build/host-gcc-initial-6.4.0/build/gcc/include/unwind-arm-common.h \
+ ../../../libgcc/unwind-arm-common.inc ../.././gcc/tconfig.h \
+ ../.././gcc/auto-host.h ../../../libgcc/../include/ansidecl.h \
+ ../../../libgcc/../gcc/tsystem.h \
+ /usr/src/output/build/host-gcc-initial-6.4.0/build/gcc/include/stddef.h \
+ /usr/src/output/build/host-gcc-initial-6.4.0/build/gcc/include/float.h \
+ ../../../libgcc/../include/filenames.h \
+ ../../../libgcc/../include/hashtab.h \
+ ../../../libgcc/../include/ansidecl.h
+
+unwind.h:
+
+/usr/src/output/build/host-gcc-initial-6.4.0/build/gcc/include/unwind-arm-common.h:
+
+../../../libgcc/unwind-arm-common.inc:
+
+../.././gcc/tconfig.h:
+
+../.././gcc/auto-host.h:
+
+../../../libgcc/../include/ansidecl.h:
+
+../../../libgcc/../gcc/tsystem.h:
+
+/usr/src/output/build/host-gcc-initial-6.4.0/build/gcc/include/stddef.h:
+
+/usr/src/output/build/host-gcc-initial-6.4.0/build/gcc/include/float.h:
+
+../../../libgcc/../include/filenames.h:
+
+../../../libgcc/../include/hashtab.h:
+
+../../../libgcc/../include/ansidecl.h:

@@ -1,0 +1,1 @@
+cmd_drivers/scsi/built-in.o :=  rm -f drivers/scsi/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/scsi/built-in.o drivers/scsi/scsi_mod.o drivers/scsi/scsi_transport_iscsi.o drivers/scsi/arm/built-in.o drivers/scsi/sd_mod.o 

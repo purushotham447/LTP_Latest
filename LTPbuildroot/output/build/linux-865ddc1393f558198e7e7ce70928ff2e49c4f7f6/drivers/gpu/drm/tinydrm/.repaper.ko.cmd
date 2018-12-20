@@ -1,0 +1,1 @@
+cmd_drivers/gpu/drm/tinydrm/repaper.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/gpu/drm/tinydrm/repaper.ko drivers/gpu/drm/tinydrm/repaper.o drivers/gpu/drm/tinydrm/repaper.mod.o ;  true

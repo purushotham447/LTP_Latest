@@ -1,0 +1,1 @@
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc --sysroot=/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os  -DNDEBUG  -rdynamic CMakeFiles/agent.dir/tcf/main/main.c.o  -o tcf-agent libtcf-agent.a -luuid -lpthread -lrt 

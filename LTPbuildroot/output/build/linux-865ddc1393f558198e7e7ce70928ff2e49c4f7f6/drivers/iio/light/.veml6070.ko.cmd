@@ -1,0 +1,1 @@
+cmd_drivers/iio/light/veml6070.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/iio/light/veml6070.ko drivers/iio/light/veml6070.o drivers/iio/light/veml6070.mod.o ;  true

@@ -1,0 +1,25 @@
+!<thin>
+//                                              220       `
+cpufreq.o/
+freq_table.o/
+cpufreq_stats.o/
+cpufreq_performance.o/
+cpufreq_powersave.o/
+cpufreq_userspace.o/
+cpufreq_ondemand.o/
+cpufreq_conservative.o/
+cpufreq_governor.o/
+cpufreq_governor_attr_set.o/
+bcm2835-cpufreq.o/
+
+/0              0           0     0     644     70268     `
+/11             0           0     0     644     12880     `
+/25            /0           0     0     644     6488      `
+/42             0           0     0     644     4688      `
+/65             0           0     0     644     4676      `
+/86             0           0     0     644     7248      `
+/107            0           0     0     644     14280     `
+/127            0           0     0     644     8968      `
+/151            0           0     0     644     15156     `
+/171            0           0     0     644     6444      `
+/200            0           0     0     644     7248      `

@@ -1,0 +1,1 @@
+cmd_drivers/hid/usbhid/usbhid.o := rm -f drivers/hid/usbhid/usbhid.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/hid/usbhid/usbhid.o drivers/hid/usbhid/hid-core.o drivers/hid/usbhid/hid-quirks.o drivers/hid/usbhid/hiddev.o drivers/hid/usbhid/hid-pidff.o

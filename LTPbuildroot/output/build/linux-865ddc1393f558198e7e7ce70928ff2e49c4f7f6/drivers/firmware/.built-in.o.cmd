@@ -1,0 +1,1 @@
+cmd_drivers/firmware/built-in.o :=  rm -f drivers/firmware/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/firmware/built-in.o drivers/firmware/raspberrypi.o drivers/firmware/broadcom/built-in.o drivers/firmware/meson/built-in.o drivers/firmware/tegra/built-in.o 

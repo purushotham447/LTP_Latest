@@ -1,0 +1,1 @@
+set libpath "=/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/lib =/usr/local/lib =/lib =/usr/lib"

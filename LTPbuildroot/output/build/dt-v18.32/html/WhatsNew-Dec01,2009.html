@@ -1,0 +1,526 @@
+<HTML>
+<HEAD>
+<TITLE>Data Test Program (dt) December 1st, 2009</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#D19275">
+
+<CENTER><H2><STRONG>What's New as of December 1st, 2009</STRONG></H2></CENTER>
+
+<H2>Changes For This Release</H2>
+This is a major release, with improvements for file system testing.
+<p>
+Background: For those who know dt's history, dt was written first for tapes, and
+later for raw disk testing (amounst others). Folks have used dt for file system
+testing creating multiple files with multiple processes, and while that's good,
+many folks would like to generate many more files and much more metadata activity.
+<p>
+The latest enhancements allow multiple files and a directory path option, which when
+used with multiple processes, dt will create separate directories for each process,
+each with its' own set of files. While many file system operations still need to be
+added, these new enhancements provide much better file system testing (IMHO). dt's
+open flags still allow file appends and truncation (if desired), otherwise overwrites
+occur. Unless instructed to keep files, dt will delete all files when terminating.
+<p>
+Other file system related operations, such as file locking, renaming, and others will
+be forthcoming (as time permits and urgency arises). But, the current enhancements set
+the foundation for more advanced file system testing in the future.
+<p>
+Please Note: dt remains single threaded for its' I/O, so multiple processes are required
+to obtain concurrent file operations. Cleaning up dt to be thread safe requires an effort
+and time (several weeks), which I cannot afford right now in a part time capacity.
+<p>
+Summary of directory/file options:
+<pre>
+               dir= (top level directory)
+        1 to files= (for multiple files)
+        1 to sdirs= (for multiple subdirectories)
+        1 to depth= (subdirectory depth, nested subdirs)
+      enable=fdebug (enable file system debugging only)
+
+    The files= option creates this many files in each directory.
+    Multiple procs= creates multiple top level directories w/PID.
+</pre>
+<P>
+The following changes were made to <I>dt</I> Version 17.01:
+<UL>
+<li>
+Logic was added to handle "file system full" (ENOSPC) conditions. Previously, it was
+possible for dt to read more than it wrote, especially during random or reverse I/O.
+Now, when dt encounters a partial write or no space error, it keeps track of the files
+and data written and ensures it does not read more than it wrote.
+<p>
+Notes:
+<ol>
+<li>
+This "file system full" condition lead to false data compare errors.
+<li>
+If dt does NOT write a single record, the "no space" error is logged as a failure.
+This logic exists, so dt does not loop on file system full, never writing/reading any data!
+<li>
+Exceeding quota "Disc quota exceeded" (EDQUOT) is now handled like a file system full.
+</ol>
+<p>
+<LI>
+Multiple files are now supported via the files= option. This option existed
+before, but was only implemented for multiple tape files.
+<p>
+Option Format:
+<pre>
+    files=value      Set number of disk/tape files to process.
+</pre>
+Notes:
+<ol>
+<li>
+If dispose=delete, dt deletes all files when exiting.
+<li>
+If dispose=keeponerror, signals are considered errors so files are kept.
+<li>
+If a file system full condition is encountered, the write pass stops and the read
+pass will read as many files as were written. Subsequent passes will either overwrite
+previous file data, or you can include the truncate flag (oflags=trunc) to free space
+and loop on file system fills.
+<li>
+When using a prefix string with the device name in its' format (%d), the prefix string
+is updated with each new file name to create uniqueness in each data block.
+<li>
+When using the IOT data pattern, the file number is factored into the IOT pattern
+to generate unique data for each file, creating a different seed for each block.
+<li>
+When dt's internal data patterns are used, the pass count and file number are used
+to cycle through dt's internal data patterns, again to create unique data per file.
+</ol>
+<p>
+<li>
+Added an option to specify the directory to create dt test files in.
+<p>
+Option Format:
+<pre>
+    dir=dirpath      The directory path for files.
+</pre>
+Notes:
+<ol>
+<li>
+When specifying a directory path, the input/output file options do not require a path.
+The file name is appended to the directory path appropriately for Unix vs. WIndows.
+<li>
+If the last part of the directory path does not exist, dt creates the directory
+(please use "mkdir -p" to create all paths). For example, dir="/var/tmp/dtdir"
+will create "dtdir" in /var/tmp, if it doesn't exist.
+<li>
+When used in conjunction with multiple processes, the process ID is appended to the
+directory name, and the directory is created.
+<li>
+When dispose=delete, after deleting files, the directory created is also deleted.
+</ol>
+<p>
+<li>
+Mulitple directories are also supported. You can create multiple subdirectories
+and a directory depth (nested subdirectories).
+<p>
+Options:
+<pre>
+    sdirs=value      The number of subdirectories.
+    depth=value      The subdirectory depth.
+    dirp=string      The directory prefix for subdirs.
+
+Flags to enable/disable:
+    fdebug           File operations debug. (Default: disabled)
+</pre>
+Notes:
+<ol>
+<li>
+sdirs= is the subdirectory width, while depth= is the height which controls the
+number of nested subdirectories under each top level subdirectory.
+<li>
+The default directory name prefix is "d", short so one can nest deeper without
+exceeding the path limit (Linix is 4096). But, dirprefix= allows you to override
+the direcotry prefix or set to "" for no prefix.
+<li>
+Like the multiple files option, when exiting dt will delete all subdirectory files
+and directories, assuming dispose=delete.
+<li>
+When sending dt signals, please use SIGINT or SIGTERM, so cleanup is possible.
+If you kill dt via SIGKILL (-9), then dt won't get a chance to do its' cleanup!
+Also remember, if dt created lots of files and directories, it may take awhile.
+<li>
+File state is maintained, so file system full conditions read the same number of
+files and data as was written during the write pass.
+</ol>
+<p>
+<li>
+Added a keepalivet=value option, so when keepalive is used in conjunction with
+short alarms, commonly used with noprogress options, the keepalive messages can
+be controlled separately.
+<p>
+Option Format:
+<pre>
+    keepalivet=time  The keepalive message frequency.
+</pre>
+<p>
+<li>
+When dumping data during compare failures, the printable ASCII is displayed to the
+right. This is useful when using prefix strings and/or ASCII data patterns.
+<p>
+<li>
+The Unix dt now utilizes POSIX threads for monitoring I/O and reporting keepalive
+messages. Previously, dt used the alarm() API which required a SIGALRM to be delivered,
+but since I/O often blocks signal delivery, this API was problematic and now avoided.
+<p>
+Note: This avoids issues where no progress time/triggers were not reported when I/O's
+were blocked during failovers, or when I/O was hung. Many OS's, esp. during raw I/O,
+sleep at a non-interruptable kernel priority, which blocks signal delivery.
+<p>
+<li>
+An option has been added to alter dt's priority (only on Unix at present).
+<p>
+Option Format:
+<pre>
+    nice=value       Apply the nice value to alter our priority.
+</pre>
+Notes:
+<ol>
+<li>
+The nice() value is OS specific, so please see nice() API manual page for valid values.
+<li>
+This option was added, since heavy CPU loads with Veritas caused their processes not to
+receive sufficient runtime, causing false failure messages from Veritas processes.
+<li>
+In conjunction with this option, dt's IOT pattern compares were optimized to reduce
+CPU consumption. During verify, a memcmp() is used between the expected and received
+data, and when this fails the previous logic to decode the prefix string, LBA's, and
+encoded data is performed to isolate the root corruption.
+</ol>
+<p>
+<li>
+dt's End of File (EOF) status (254) is now mapped to SUCCESS (0). For folks who wish
+dt's previous behaviour, this can be reverted with "enable=eof" flag. Note: This EOF
+status is helpful in specialized test cases where raw disk end of media is required.
+<p>
+<li>
+With multiple processees on Unix, fixed a bug where dt was sending child procs SIGINT
+twice, when the parent received a signal. The second SIGINT received would abort the
+child immediately, thus keeping statistics and cleanup from being performed.
+<p>
+<li>
+Previously when catching signals, dt would exit with the signal number. Although this
+non-zero value was often accepted as a failure, signals are now mapped to FAILURE (-1)
+to be more script friendly. 
+<p>
+<li>
+An enable=pdebug option was added to control process related debug messages. This also
+includes signal handling in addition to multiple processes, and also reports the process
+exit status.
+<p>
+<li>
+Fixed a bug when terminating, that kept test files from being deleted with dispose=KEEP.
+<p>
+<li>
+There were a couple other bug fixes, mainly sanity checks during AIO to ensure acb's
+were allocated before referencing them, and ensuring the input/output devices were
+setup prior to referencing them. In both cases, dt would get "segmentation fault".
+<p>
+Please Note: These conditions occurred when dt was interrupted early, before setup
+was completed, via a signal or an early error forcing termination.
+<p>
+<li>
+The log file option now accepts format keywords to automatically generate unique
+log file names. This is convenient when looping in a script with different options.
+<pre>
+    Log File Format Keywords:
+            %iodir = The I/O direction.     %iotype = The I/O type.
+            %host  = The host name.         %pid    = The process ID.
+            %user  = The user name.
+
+      Example: log=dt_%host_%user_%iodir_%iotype-%pid.log
+</pre>
+<p>
+<li>
+Created a Korn shell script, DiskTests.ksh, for doing regression testing. If you are
+new to using <i>dt</i>, this script is a good starting point!
+</ul>
+<P>
+<CENTER>Within NetApp, the updated <I>dt</I> kits are located @ URL:</CENTER>
+<P>
+<CENTER><A HREF="http://web.rtp.netapp.com/~rtmiller/dt.html">http://web.rtp.netapp.com/~rtmiller/dt.html</A></CENTER>
+<P>
+<CENTER>External to NetApp, you can obtain <I>dt</I> kits from URL:</CENTER>
+<P>
+<CENTER>TBD</CENTER>
+</UL>
+<HR>
+<A HREF="mailto:Robin.Miller@netapp.com"><IMG SRC="../gifs/mailbox.gif" ALT="Mail"></A>
+Send mail to admin of this page: <EM>Robin.Miller@netapp.com</EM>
+<A HREF="../index.html"><IMG SRC="../gifs/home04.gif" ALT="Home"></A>
+To Robin's home page.
+<P>
+Last Modified: November 27th, 2009
+<HR>
+
+<H2>Examples:</H2>
+<HR SIZE=5 NOSHADE>
+<pre>
+steelers% <b>dt version</b>
+    --> Date: December 3rd, 2009, Version: 17.01, Author: Robin T. Miller <--
+steelers% 
+steelers% <b>dt of=/var/tmp/dt.data min=1 max=256k incr=var records=25 files=100 disable=pstats dispose=keep</b>
+dt: End of Write pass 0/1, 636759 blocks, 310.918 Mbytes, 25 records, errors 0/1, elapsed 00m10.12s
+dt: End of Read pass 1/1, 636759 blocks, 310.918 Mbytes, 25 records, errors 0/1, elapsed 00m01.23s
+
+Total Statistics:
+     Output device/file name: /var/tmp/dt.data-00000100 (device type=regular)
+     Type of I/O's performed: sequential (forward, rseed=0x5fbb247f)
+   Data pattern read/written: 0x26673333
+     Total records processed: 5000 with min=1, max=262144, incr=variable
+     Total bytes transferred: 652041280 (636759.062 Kbytes, 621.835 Mbytes)
+      Average transfer rates: 57448571 bytes/sec, 56102.120 Kbytes/sec
+     Number I/O's per second: 440.529
+      Total passes completed: 1/1
+       Total files processed: 200/200 				(<b>100 written, 100 read</b>)
+       Total errors detected: 0/1
+          Total elapsed time: 00m11.35s
+           Total system time: 00m01.23s
+             Total user time: 00m01.57s
+               Starting time: Wed Nov 25 19:58:52 2009
+                 Ending time: Wed Nov 25 19:59:03 2009
+
+steelers% <b>ls /var/tmp/dt.data* | wc -l</b>
+     100
+steelers% <b>od -x < /var/tmp/dt.data-00000001</b>
+0000000 9c39 39c3 9c39 39c3 9c39 39c3 9c39 39c3
+*
+12115460 9c39 39c3 9c39 39c3 9c39 39c3
+12115474
+steelers% <b>od -x < /var/tmp/dt.data-00000002</b>
+0000000 00ff 00ff 00ff 00ff 00ff 00ff 00ff 00ff
+*
+14344540 00ff 00ff 00ff 00ff
+14344550
+steelers% 
+steelers% <b>dt of=/var/tmp/dt.data min=1 max=256k incr=var records=25 files=100 disable=pstats dispose=keep prefix="%d@%h"</b>
+dt: End of Write pass 0/1, 647348 blocks, 316.088 Mbytes, 25 records, errors 0/1, elapsed 00m13.61s
+dt: End of Read pass 1/1, 647348 blocks, 316.088 Mbytes, 25 records, errors 0/1, elapsed 00m04.75s
+
+Total Statistics:
+     Output device/file name: /var/tmp/dt.data-00000100 (device type=regular)
+     Type of I/O's performed: sequential (forward, rseed=0x5fbc07ee)
+    Data pattern prefix used: '/var/tmp/dt.data-00000100@steelers'
+   Data pattern read/written: 0x26673333
+     Total records processed: 5000 with min=1, max=262144, incr=variable
+     Total bytes transferred: 662885128 (647348.758 Kbytes, 632.177 Mbytes)
+      Average transfer rates: 36104854 bytes/sec, 35258.647 Kbytes/sec
+     Number I/O's per second: 272.331
+      Total passes completed: 1/1
+       Total files processed: 200/200
+       Total errors detected: 0/1
+          Total elapsed time: 00m18.36s
+           Total system time: 00m00.72s
+             Total user time: 00m09.04s
+               Starting time: Wed Nov 25 20:08:34 2009
+                 Ending time: Wed Nov 25 20:08:52 2009
+
+steelers% <b>od -cx < /var/tmp/dt.data-00000001 | head</b>
+0000000   /   v   a   r   /   t   m   p   /   d   t   .   d   a   t   a
+        762f 7261 742f 706d 642f 2e74 6164 6174
+0000020   -   0   0   0   0   0   0   0   1   @   s   t   e   e   l   e
+        302d 3030 3030 3030 4031 7473 6565 656c
+0000040   r   s  \0  \0   9 234 303   9   9 234 303   9   9 234 303   9
+        7372 0000 9c39 39c3 9c39 39c3 9c39 39c3
+0000060   9 234 303   9   9 234 303   9   9 234 303   9   9 234 303   9
+        9c39 39c3 9c39 39c3 9c39 39c3 9c39 39c3
+*
+0001000   /   v   a   r   /   t   m   p   /   d   t   .   d   a   t   a
+steelers% <b>od -cx < /var/tmp/dt.data-00000100 | head</b>
+0000000   /   v   a   r   /   t   m   p   /   d   t   .   d   a   t   a
+        762f 7261 742f 706d 642f 2e74 6164 6174
+0000020   -   0   0   0   0   0   1   0   0   @   s   t   e   e   l   e
+        302d 3030 3030 3031 4030 7473 6565 656c
+0000040   r   s  \0  \0   3   3   g   &   3   3   g   &   3   3   g   &
+        7372 0000 3333 2667 3333 2667 3333 2667
+0000060   3   3   g   &   3   3   g   &   3   3   g   &   3   3   g   &
+        3333 2667 3333 2667 3333 2667 3333 2667
+*
+0001000   /   v   a   r   /   t   m   p   /   d   t   .   d   a   t   a
+steelers% 
+steelers% <b>rm /var/tmp/dt.data*</b>
+steelers% <b>dt dir=/var/tmp/dtdir of=dt.data bs=64k records=25 files=25 disable=pstats dispose=keep</b>
+dt: End of Write pass 0/1, 80000 blocks, 39.062 Mbytes, 25 records, errors 0/1, elapsed 00m01.61s
+dt: End of Read pass 1/1, 80000 blocks, 39.062 Mbytes, 25 records, errors 0/1, elapsed 00m00.16s
+
+Total Statistics:
+     Output device/file name: /var/tmp/dtdir/dt.data-00000025 (device type=regular)
+     Type of I/O's performed: sequential (forward)
+   Data pattern read/written: 0x00000000
+     Total records processed: 1250 @ 65536 bytes/record (64.000 Kbytes)
+     Total bytes transferred: 81920000 (80000.000 Kbytes, 78.125 Mbytes)
+      Average transfer rates: 46282486 bytes/sec, 45197.740 Kbytes/sec
+     Number I/O's per second: 706.215
+      Total passes completed: 1/1
+       Total files processed: 50/50
+       Total errors detected: 0/1
+          Total elapsed time: 00m01.77s
+           Total system time: 00m00.06s
+             Total user time: 00m00.21s
+               Starting time: Wed Nov 25 20:13:43 2009
+                 Ending time: Wed Nov 25 20:13:45 2009
+
+steelers% <b>ls -lsR /var/tmp/dtdir</b>
+/var/tmp/dtdir:
+total 40100
+1604 -rw-r--r-- 1 rtmiller gopher 1638400 Nov 25 20:13 dt.data-00000001
+1604 -rw-r--r-- 1 rtmiller gopher 1638400 Nov 25 20:13 dt.data-00000002
+					...
+1604 -rw-r--r-- 1 rtmiller gopher 1638400 Nov 25 20:13 dt.data-00000024
+1604 -rw-r--r-- 1 rtmiller gopher 1638400 Nov 25 20:13 dt.data-00000025
+steelers% 
+steelers% <b>rm -rf /var/tmp/dtdir  </b>
+steelers% <b>dt dir=/var/tmp/dtdir of=dt.data bs=64k records=25 files=25 procs=3 stats=brief dispose=keep</b>
+dt (12155): End of Write pass 0/1, 80000 blocks, 39.062 Mbytes, 25 records, errors 0/1, elapsed 00m04.78s
+dt (12156): End of Write pass 0/1, 80000 blocks, 39.062 Mbytes, 25 records, errors 0/1, elapsed 00m04.78s
+dt (12156): End of Read pass 1/1, 80000 blocks, 39.062 Mbytes, 25 records, errors 0/1, elapsed 00m00.27s
+dt (12156): /var/tmp/dtdir-12156/dt.data-12156-00000025 Totals: 160000 blocks, 78.125 Mbytes, errors 0/1, passes 1/1, elapsed 00m05.05s
+dt (12157): End of Write pass 0/1, 80000 blocks, 39.062 Mbytes, 25 records, errors 0/1, elapsed 00m05.05s
+dt (12155): End of Read pass 1/1, 80000 blocks, 39.062 Mbytes, 25 records, errors 0/1, elapsed 00m00.27s
+dt (12155): /var/tmp/dtdir-12155/dt.data-12155-00000025 Totals: 160000 blocks, 78.125 Mbytes, errors 0/1, passes 1/1, elapsed 00m05.05s
+dt (12157): End of Read pass 1/1, 80000 blocks, 39.062 Mbytes, 25 records, errors 0/1, elapsed 00m00.16s
+dt (12157): /var/tmp/dtdir-12157/dt.data-12157-00000025 Totals: 160000 blocks, 78.125 Mbytes, errors 0/1, passes 1/1, elapsed 00m05.21s
+steelers% <b>ls /var/tmp</b>
+dtdir-12155/  dtdir-12156/  dtdir-12157/
+steelers% 
+steelers% <b>ls -ls /var/tmp/dtdir-12156</b>
+total 40100
+1604 -rw-r--r-- 1 rtmiller gopher 1638400 Nov 25 20:17 dt.data-12156-00000001
+1604 -rw-r--r-- 1 rtmiller gopher 1638400 Nov 25 20:17 dt.data-12156-00000002
+					...
+1604 -rw-r--r-- 1 rtmiller gopher 1638400 Nov 25 20:17 dt.data-12156-00000024
+1604 -rw-r--r-- 1 rtmiller gopher 1638400 Nov 25 20:17 dt.data-12156-00000025
+steelers% 
+steelers% <b>rm -rf /var/tmp/dtdir*</b>
+steelers% <b>dt of=/var/tmp/dt.data bs=64k records=25 files=25 procs=3 stats=brief dispose=keep</b>
+dt (12178): End of Write pass 0/1, 80000 blocks, 39.062 Mbytes, 25 records, errors 0/1, elapsed 00m05.57s
+dt (12180): End of Write pass 0/1, 80000 blocks, 39.062 Mbytes, 25 records, errors 0/1, elapsed 00m05.57s
+dt (12180): End of Read pass 1/1, 80000 blocks, 39.062 Mbytes, 25 records, errors 0/1, elapsed 00m00.27s
+dt (12180): /var/tmp/dt.data-12180-00000025 Totals: 160000 blocks, 78.125 Mbytes, errors 0/1, passes 1/1, elapsed 00m05.84s
+dt (12179): End of Write pass 0/1, 80000 blocks, 39.062 Mbytes, 25 records, errors 0/1, elapsed 00m05.84s
+dt (12178): End of Read pass 1/1, 80000 blocks, 39.062 Mbytes, 25 records, errors 0/1, elapsed 00m00.27s
+dt (12178): /var/tmp/dt.data-12178-00000025 Totals: 160000 blocks, 78.125 Mbytes, errors 0/1, passes 1/1, elapsed 00m05.84s
+dt (12179): End of Read pass 1/1, 80000 blocks, 39.062 Mbytes, 25 records, errors 0/1, elapsed 00m00.16s
+dt (12179): /var/tmp/dt.data-12179-00000025 Totals: 160000 blocks, 78.125 Mbytes, errors 0/1, passes 1/1, elapsed 00m06.00s
+steelers%                                                                                   
+steelers% <b>rm /var/tmp/dt.data*</b>
+steelers% <b>dt dir=/var/tmp/dtdir of=dt.data bs=64k limit=1m files=1k stats=brief alarm=15s</b>
+dt: /var/tmp/dtdir/dt.data-00000311 Stats: mode write, blocks 636928, 311.000 Mbytes, pass 0/1, elapsed 00m15.01s
+dt: /var/tmp/dtdir/dt.data-00000626 Stats: mode write, blocks 1282048, 626.000 Mbytes, pass 0/1, elapsed 00m30.01s
+dt: /var/tmp/dtdir/dt.data-00000893 Stats: mode write, blocks 1828864, 893.000 Mbytes, pass 0/1, elapsed 00m45.01s
+dt: End of Write pass 0/1, 2097152 blocks, 1024.000 Mbytes, 16 records, errors 0/1, elapsed 00m51.35s
+dt: /var/tmp/dtdir/dt.data-00000460 Stats: mode read, blocks 940288, 459.125 Mbytes, pass 0/1, elapsed 00m08.66s
+dt: End of Read pass 1/1, 2097152 blocks, 1024.000 Mbytes, 16 records, errors 0/1, elapsed 00m21.82s
+dt: /var/tmp/dtdir/dt.data-00001024 Totals: 4194304 blocks, 2048.000 Mbytes, errors 0/1, passes 1/1, elapsed 01m13.25s
+steelers% <b>ls /var/tmp</b>
+steelers% 
+steelers% <b>dt if=/var/tmp/dt.data-12179-00000025 prefix="%d@%h" disable=stats dlimit=64</b> (forced error)
+
+dt: Error number 1 occurred on Wed Nov 25 20:24:50 2009
+dt: Elapsed time since beginning of pass: 00m00.00s
+dt: Elapsed time since beginning of test: 00m00.00s
+dt: Data compare error at byte 0 in record number 1
+dt: Relative block number where the error occurred is 0, position 0
+dt: Data expected = 0x2f, data found = 0xff, byte count = 512
+dt: Mismatch of data pattern prefix: '/var/tmp/dt.data-12179-00000025@steelers'
+dt: The correct data starts at address 0x8f4f7d8 (marked by asterisk '*')
+dt: Dumping Prefix Buffer (base = 0x8f4f7d8, offset = 0, limit = 44 bytes):
+Offset
+000000 *2f 76 61 72 2f 74 6d 70 2f 64 74 2e 64 61 74 61 "/var/tmp/dt.data"
+000016  2d 31 32 31 37 39 2d 30 30 30 30 30 30 32 35 40 "-12179-00000025@"
+000032  73 74 65 65 6c 65 72 73 00 00 00 00             "steelers    "
+
+dt: The incorrect data starts at address 0x8f4f000 (marked by asterisk '*')
+dt: Dumping Data Buffer (base = 0x8f4f000, offset = 0, limit = 64 bytes):
+Offset
+000000 *ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff "                "
+000016  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff "                "
+000032  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff "                "
+000048  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff "                "
+
+dt: Rereading and verifying record data using Direct I/O...
+dt: Seeked to block 0 (0) at byte position 0
+dt: Record #1 - Reading 512 bytes (1 block) into buffer 0x8f53000, lba 0 (pos 0)
+dt: Reread data matches previous data read, possible write failure!
+steelers% 
+steelers% <b>dt dir=/var/tmp/dtdir of=dt.data bs=64k count=100 disable=pstats depth=10 dispose=keep</b>
+dt: End of Write pass 0/1, 140800 blocks, 68.750 Mbytes, 100 records, errors 0/1, elapsed 00m02.02s
+dt: End of Read pass 1/1, 140800 blocks, 68.750 Mbytes, 100 records, errors 0/1, elapsed 00m00.28s
+
+Total Statistics:
+     Output device/file name: /var/tmp/dtdir/d1/d2/d3/d4/d5/d6/d7/d8/d9/d10/dt.data (device type=regular)
+     Type of I/O's performed: sequential (forward)
+   Data pattern read/written: 0x39c39c39
+     Total records processed: 2200 @ 65536 bytes/record (64.000 Kbytes)
+     Total bytes transferred: 144179200 (140800.000 Kbytes, 137.500 Mbytes)
+      Average transfer rates: 62686609 bytes/sec, 61217.391 Kbytes/sec
+     Number I/O's per second: 956.522
+      Total passes completed: 1/1
+       Total files processed: 22/22
+       Total errors detected: 0/1
+          Total elapsed time: 00m02.30s
+           Total system time: 00m00.26s
+             Total user time: 00m00.35s
+               Starting time: Tue Dec  1 12:24:54 2009
+                 Ending time: Tue Dec  1 12:24:57 2009
+
+steelers% <b>find /var/tmp/dtdir -type f -print | wc -l</b>
+      11
+steelers% <b>rm -rf /var/tmp/dtdir</b>
+steelers% <b>dt dir=/var/tmp/dtdir of=dt.data bs=64k count=100 disable=pstats depth=10 sdirs=5 dispose=keep</b>
+dt: End of Write pass 0/1, 652800 blocks, 318.750 Mbytes, 100 records, errors 0/1, elapsed 00m10.29s
+dt: End of Read pass 1/1, 652800 blocks, 318.750 Mbytes, 100 records, errors 0/1, elapsed 00m01.64s
+
+Total Statistics:
+     Output device/file name: /var/tmp/dtdir/d5/d2/d3/d4/d5/d6/d7/d8/d9/d10/dt.data (device type=regular)
+     Type of I/O's performed: sequential (forward)
+   Data pattern read/written: 0x39c39c39
+     Total records processed: 10200 @ 65536 bytes/record (64.000 Kbytes)
+     Total bytes transferred: 668467200 (652800.000 Kbytes, 637.500 Mbytes)
+      Average transfer rates: 56032456 bytes/sec, 54719.195 Kbytes/sec
+     Number I/O's per second: 854.987
+      Total passes completed: 1/1
+       Total files processed: 102/102
+       Total errors detected: 0/1
+          Total elapsed time: 00m11.93s
+           Total system time: 00m01.24s
+             Total user time: 00m01.70s
+               Starting time: Tue Dec  1 12:25:57 2009
+                 Ending time: Tue Dec  1 12:26:09 2009
+
+steelers% <b>find /var/tmp/dtdir -type f -print | wc -l</b>
+      51
+steelers% <b>rm -rf /var/tmp/dtdir</b>
+steelers% 
+steelers% <b>dt dir=/boot/tmp/dtdir of=dt.data bs=64k count=10 disable=pstats depth=3 sdirs=10 files=100</b>
+dt: WARNING: Record #8, attempted to write 65536 bytes, wrote only 12288 bytes.
+dt: End of Write pass 0/1, 167320 blocks, 81.699 Mbytes, 8 records, errors 0/1, elapsed 00m05.40s
+dt: End of Read pass 1/1, 167320 blocks, 81.699 Mbytes, 8 records, errors 0/1, elapsed 00m00.34s
+
+Total Statistics:
+     Output device/file name: /boot/tmp/dtdir/d1/dt.data-00000031 (device type=regular)
+     Type of I/O's performed: sequential (forward)
+   Data pattern read/written: 0x6db6db6d
+     Total records processed: 2614 @ 65536 bytes/record, 2 partial
+     Total bytes transferred: 171335680 (167320.000 Kbytes, 163.398 Mbytes)
+      Average transfer rates: 29849422 bytes/sec, 29149.826 Kbytes/sec
+     Number I/O's per second: 455.749
+      Total passes completed: 1/1
+       Total files processed: 262/3100    <<<- <b>Due to "file system full"</b>
+       Total errors detected: 0/1
+          Total elapsed time: 00m05.74s
+           Total system time: 00m00.77s
+             Total user time: 00m00.41s
+               Starting time: Tue Dec  1 12:49:46 2009
+                 Ending time: Tue Dec  1 12:49:52 2009
+
+steelers% <b>ls -ls /boot/tmp/dtdir</b>
+ls: /boot/tmp/dtdir: No such file or directory
+steelers% 
+</pre>
+</BODY>
+</HTML>

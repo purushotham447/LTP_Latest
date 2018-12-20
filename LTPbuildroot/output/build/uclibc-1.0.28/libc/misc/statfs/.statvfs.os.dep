@@ -1,0 +1,101 @@
+libc/misc/statfs/statvfs.os: libc/misc/statfs/statvfs.c \
+ include/libc-symbols.h include/bits/uClibc_arch_features.h \
+ include/bits/uClibc_config.h include/features.h include/sys/cdefs.h \
+ include/libc-internal.h \
+ /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include/stddef.h \
+ include/errno.h include/bits/errno.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/linux/errno.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm/errno.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/errno.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/errno-base.h \
+ include/mntent.h include/stdio.h include/paths.h include/string.h \
+ include/sys/mount.h include/sys/ioctl.h include/bits/ioctls.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm/ioctls.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/ioctls.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/linux/ioctl.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm/ioctl.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/ioctl.h \
+ include/bits/ioctl-types.h include/sys/ttydefaults.h include/sys/stat.h \
+ include/bits/types.h include/bits/wordsize.h include/bits/kernel_types.h \
+ include/bits/typesizes.h include/time.h include/bits/stat.h \
+ include/sys/statfs.h include/bits/statfs.h include/sys/statvfs.h \
+ include/bits/statvfs.h libc/misc/statfs/internal_statvfs.c
+
+include/libc-symbols.h:
+
+include/bits/uClibc_arch_features.h:
+
+include/bits/uClibc_config.h:
+
+include/features.h:
+
+include/sys/cdefs.h:
+
+include/libc-internal.h:
+
+/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include/stddef.h:
+
+include/errno.h:
+
+include/bits/errno.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/linux/errno.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm/errno.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/errno.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/errno-base.h:
+
+include/mntent.h:
+
+include/stdio.h:
+
+include/paths.h:
+
+include/string.h:
+
+include/sys/mount.h:
+
+include/sys/ioctl.h:
+
+include/bits/ioctls.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm/ioctls.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/ioctls.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/linux/ioctl.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm/ioctl.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/ioctl.h:
+
+include/bits/ioctl-types.h:
+
+include/sys/ttydefaults.h:
+
+include/sys/stat.h:
+
+include/bits/types.h:
+
+include/bits/wordsize.h:
+
+include/bits/kernel_types.h:
+
+include/bits/typesizes.h:
+
+include/time.h:
+
+include/bits/stat.h:
+
+include/sys/statfs.h:
+
+include/bits/statfs.h:
+
+include/sys/statvfs.h:
+
+include/bits/statvfs.h:
+
+libc/misc/statfs/internal_statvfs.c:
+cmd_libc_misc_statfs_statvfs.os := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc -c libc/misc/statfs/statvfs.c -o libc/misc/statfs/statvfs.os -Wall -Wstrict-prototypes -Wstrict-aliasing -funsigned-char -fno-builtin -fno-asm -fmerge-all-constants -std=gnu99 -mlittle-endian -fno-stack-protector -nostdinc -Iinclude -Iinclude -include libc-symbols.h -Ilibc/sysdeps/linux/arm -Ilibc/sysdeps/linux -Ildso/ldso/arm -Ildso/include -I. -Os -fstrict-aliasing -D__USE_STDIO_FUTEXES__ -DHAVE_FORCED_UNWIND -D_LIBC_REENTRANT -Ilibpthread/nptl -Ilibpthread/nptl -Ilibpthread/nptl/sysdeps/unix/sysv/linux/arm -Ilibpthread/nptl/sysdeps/arm -Ilibpthread/nptl/sysdeps/arm -Ilibpthread/nptl/sysdeps/unix/sysv/linux -Ilibpthread/nptl/sysdeps/unix/sysv/linux -Ilibpthread/nptl/sysdeps/pthread -Ilibpthread/nptl/sysdeps/pthread/bits -Ilibpthread/nptl/sysdeps/generic -Ilibc/sysdeps/linux/common -isystem /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include-fixed -isystem /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include -I/usr/src/output/build/linux-headers-4.14.33/usr/include/ -DNDEBUG -DIN_LIB=libc -fPIC -MT libc/misc/statfs/statvfs.os -MD -MP -MF libc/misc/statfs/.statvfs.os.dep

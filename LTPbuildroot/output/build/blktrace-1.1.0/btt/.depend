@@ -1,0 +1,55 @@
+args.o: args.c globals.h ../blktrace.h ../blktrace_api.h ../rbtree.h \
+ ../rbtree.h list.h inlines.h
+bt_timeline.o: bt_timeline.c globals.h ../blktrace.h ../blktrace_api.h \
+ ../rbtree.h ../rbtree.h list.h inlines.h
+devmap.o: devmap.c globals.h ../blktrace.h ../blktrace_api.h ../rbtree.h \
+ ../rbtree.h list.h inlines.h
+devs.o: devs.c globals.h ../blktrace.h ../blktrace_api.h ../rbtree.h \
+ ../rbtree.h list.h inlines.h
+dip_rb.o: dip_rb.c globals.h ../blktrace.h ../blktrace_api.h ../rbtree.h \
+ ../rbtree.h list.h inlines.h
+iostat.o: iostat.c globals.h ../blktrace.h ../blktrace_api.h ../rbtree.h \
+ ../rbtree.h list.h inlines.h
+latency.o: latency.c globals.h ../blktrace.h ../blktrace_api.h \
+ ../rbtree.h ../rbtree.h list.h inlines.h
+misc.o: misc.c globals.h ../blktrace.h ../blktrace_api.h ../rbtree.h \
+ ../rbtree.h list.h inlines.h
+output.o: output.c globals.h ../blktrace.h ../blktrace_api.h ../rbtree.h \
+ ../rbtree.h list.h inlines.h
+proc.o: proc.c globals.h ../blktrace.h ../blktrace_api.h ../rbtree.h \
+ ../rbtree.h list.h inlines.h
+seek.o: seek.c globals.h ../blktrace.h ../blktrace_api.h ../rbtree.h \
+ ../rbtree.h list.h inlines.h
+trace.o: trace.c globals.h ../blktrace.h ../blktrace_api.h ../rbtree.h \
+ ../rbtree.h list.h inlines.h
+trace_complete.o: trace_complete.c globals.h ../blktrace.h \
+ ../blktrace_api.h ../rbtree.h ../rbtree.h list.h inlines.h
+trace_im.o: trace_im.c globals.h ../blktrace.h ../blktrace_api.h \
+ ../rbtree.h ../rbtree.h list.h inlines.h
+trace_issue.o: trace_issue.c globals.h ../blktrace.h ../blktrace_api.h \
+ ../rbtree.h ../rbtree.h list.h inlines.h
+trace_queue.o: trace_queue.c globals.h ../blktrace.h ../blktrace_api.h \
+ ../rbtree.h ../rbtree.h list.h inlines.h
+trace_remap.o: trace_remap.c globals.h ../blktrace.h ../blktrace_api.h \
+ ../rbtree.h ../rbtree.h list.h inlines.h
+trace_requeue.o: trace_requeue.c globals.h ../blktrace.h \
+ ../blktrace_api.h ../rbtree.h ../rbtree.h list.h inlines.h
+rbtree.o: ../rbtree.c ../rbtree.h
+mmap.o: mmap.c ../blktrace.h ../blktrace_api.h ../rbtree.h globals.h \
+ ../rbtree.h list.h inlines.h
+trace_plug.o: trace_plug.c globals.h ../blktrace.h ../blktrace_api.h \
+ ../rbtree.h ../rbtree.h list.h inlines.h
+bno_dump.o: bno_dump.c globals.h ../blktrace.h ../blktrace_api.h \
+ ../rbtree.h ../rbtree.h list.h inlines.h
+unplug_hist.o: unplug_hist.c globals.h ../blktrace.h ../blktrace_api.h \
+ ../rbtree.h ../rbtree.h list.h inlines.h
+q2d.o: q2d.c globals.h ../blktrace.h ../blktrace_api.h ../rbtree.h \
+ ../rbtree.h list.h inlines.h
+aqd.o: aqd.c globals.h ../blktrace.h ../blktrace_api.h ../rbtree.h \
+ ../rbtree.h list.h inlines.h
+plat.o: plat.c globals.h ../blktrace.h ../blktrace_api.h ../rbtree.h \
+ ../rbtree.h list.h inlines.h
+rstats.o: rstats.c globals.h ../blktrace.h ../blktrace_api.h ../rbtree.h \
+ ../rbtree.h list.h inlines.h
+p_live.o: p_live.c globals.h ../blktrace.h ../blktrace_api.h ../rbtree.h \
+ ../rbtree.h list.h inlines.h

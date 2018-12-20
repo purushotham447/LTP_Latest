@@ -1,0 +1,1 @@
+cmd_net/netfilter/nf_conntrack_snmp.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/netfilter/nf_conntrack_snmp.ko net/netfilter/nf_conntrack_snmp.o net/netfilter/nf_conntrack_snmp.mod.o ;  true

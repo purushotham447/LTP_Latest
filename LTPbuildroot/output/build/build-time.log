@@ -1,0 +1,1019 @@
+1545148281:start:extract             : host-lzip
+1545148281:end  :extract             : host-lzip
+1545148281:start:patch               : host-lzip
+1545148281:end  :patch               : host-lzip
+1545148281:start:configure           : host-lzip
+1545148282:end  :configure           : host-lzip
+1545148282:start:build               : host-lzip
+1545149977:start:build               : host-lzip
+1545149983:end  :build               : host-lzip
+1545149983:start:install-host        : host-lzip
+1545149983:end  :install-host        : host-lzip
+1545149983:start:extract             : host-binutils
+1545149987:end  :extract             : host-binutils
+1545149987:start:patch               : host-binutils
+1545149989:end  :patch               : host-binutils
+1545149989:start:configure           : host-binutils
+1545149992:end  :configure           : host-binutils
+1545149992:start:build               : host-binutils
+1545150052:end  :build               : host-binutils
+1545150052:start:install-host        : host-binutils
+1545150054:end  :install-host        : host-binutils
+1545150054:start:extract             : host-m4
+1545150054:end  :extract             : host-m4
+1545150054:start:patch               : host-m4
+1545150055:end  :patch               : host-m4
+1545150055:start:configure           : host-m4
+1545150077:end  :configure           : host-m4
+1545150077:start:build               : host-m4
+1545150081:end  :build               : host-m4
+1545150081:start:install-host        : host-m4
+1545150081:end  :install-host        : host-m4
+1545150081:start:extract             : host-gmp
+1545150082:end  :extract             : host-gmp
+1545150082:start:patch               : host-gmp
+1545150082:end  :patch               : host-gmp
+1545150082:start:configure           : host-gmp
+1545150098:end  :configure           : host-gmp
+1545150098:start:build               : host-gmp
+1545150125:end  :build               : host-gmp
+1545150125:start:install-host        : host-gmp
+1545150126:end  :install-host        : host-gmp
+1545150126:start:extract             : host-mpfr
+1545150126:end  :extract             : host-mpfr
+1545150126:start:patch               : host-mpfr
+1545150126:end  :patch               : host-mpfr
+1545150126:start:configure           : host-mpfr
+1545150132:end  :configure           : host-mpfr
+1545150132:start:build               : host-mpfr
+1545150151:end  :build               : host-mpfr
+1545150151:start:install-host        : host-mpfr
+1545150151:end  :install-host        : host-mpfr
+1545150151:start:extract             : host-mpc
+1545150151:end  :extract             : host-mpc
+1545150151:start:patch               : host-mpc
+1545150151:end  :patch               : host-mpc
+1545150152:start:configure           : host-mpc
+1545150156:end  :configure           : host-mpc
+1545150156:start:build               : host-mpc
+1545150160:end  :build               : host-mpc
+1545150160:start:install-host        : host-mpc
+1545150160:end  :install-host        : host-mpc
+1545150161:start:extract             : host-gcc-initial
+1545150168:end  :extract             : host-gcc-initial
+1545150169:start:patch               : host-gcc-initial
+1545150171:end  :patch               : host-gcc-initial
+1545150171:start:configure           : host-gcc-initial
+1545150173:end  :configure           : host-gcc-initial
+1545150174:start:build               : host-gcc-initial
+1545150547:end  :build               : host-gcc-initial
+1545150548:start:install-host        : host-gcc-initial
+1545150554:end  :install-host        : host-gcc-initial
+1545150554:start:extract             : skeleton-init-common
+1545150554:end  :extract             : skeleton-init-common
+1545150554:start:patch               : skeleton-init-common
+1545150555:end  :patch               : skeleton-init-common
+1545150555:start:configure           : skeleton-init-common
+1545150555:end  :configure           : skeleton-init-common
+1545150555:start:build               : skeleton-init-common
+1545150555:end  :build               : skeleton-init-common
+1545150555:start:install-staging     : skeleton-init-common
+1545150555:end  :install-staging     : skeleton-init-common
+1545150555:start:install-target      : skeleton-init-common
+1545150555:end  :install-target      : skeleton-init-common
+1545150555:start:extract             : skeleton-init-sysv
+1545150555:end  :extract             : skeleton-init-sysv
+1545150555:start:patch               : skeleton-init-sysv
+1545150555:end  :patch               : skeleton-init-sysv
+1545150556:start:configure           : skeleton-init-sysv
+1545150556:end  :configure           : skeleton-init-sysv
+1545150556:start:build               : skeleton-init-sysv
+1545150556:end  :build               : skeleton-init-sysv
+1545150556:start:install-target      : skeleton-init-sysv
+1545150556:end  :install-target      : skeleton-init-sysv
+1545150556:start:extract             : skeleton
+1545150556:end  :extract             : skeleton
+1545150556:start:patch               : skeleton
+1545150556:end  :patch               : skeleton
+1545150556:start:configure           : skeleton
+1545150556:end  :configure           : skeleton
+1545150556:start:build               : skeleton
+1545150556:end  :build               : skeleton
+1545150556:start:install-target      : skeleton
+1545150556:end  :install-target      : skeleton
+1545150556:start:extract             : linux-headers
+1545150583:end  :extract             : linux-headers
+1545150584:start:patch               : linux-headers
+1545150584:end  :patch               : linux-headers
+1545150584:start:configure           : linux-headers
+1545150592:end  :configure           : linux-headers
+1545150592:start:build               : linux-headers
+1545150592:end  :build               : linux-headers
+1545150592:start:install-staging     : linux-headers
+1545150597:end  :install-staging     : linux-headers
+1545150597:start:install-target      : linux-headers
+1545150597:end  :install-target      : linux-headers
+1545150598:start:extract             : uclibc
+1545150598:end  :extract             : uclibc
+1545150598:start:patch               : uclibc
+1545150598:end  :patch               : uclibc
+1545150603:start:configure           : uclibc
+1545150603:end  :configure           : uclibc
+1545150603:start:build               : uclibc
+1545150702:end  :build               : uclibc
+1545150702:start:install-staging     : uclibc
+1545150705:end  :install-staging     : uclibc
+1545150705:start:install-target      : uclibc
+1545150709:end  :install-target      : uclibc
+1545150711:start:extract             : host-gcc-final
+1545150719:end  :extract             : host-gcc-final
+1545150719:start:patch               : host-gcc-final
+1545150723:end  :patch               : host-gcc-final
+1545150723:start:configure           : host-gcc-final
+1545150726:end  :configure           : host-gcc-final
+1545150726:start:build               : host-gcc-final
+1545151245:end  :build               : host-gcc-final
+1545151246:start:install-host        : host-gcc-final
+1545151253:end  :install-host        : host-gcc-final
+1545151254:start:extract             : toolchain-buildroot
+1545151254:end  :extract             : toolchain-buildroot
+1545151254:start:patch               : toolchain-buildroot
+1545151254:end  :patch               : toolchain-buildroot
+1545151254:start:configure           : toolchain-buildroot
+1545151254:end  :configure           : toolchain-buildroot
+1545151254:start:build               : toolchain-buildroot
+1545151254:end  :build               : toolchain-buildroot
+1545151254:start:install-target      : toolchain-buildroot
+1545151254:end  :install-target      : toolchain-buildroot
+1545151254:start:extract             : toolchain
+1545151254:end  :extract             : toolchain
+1545151255:start:patch               : toolchain
+1545151255:end  :patch               : toolchain
+1545151255:start:configure           : toolchain
+1545151255:end  :configure           : toolchain
+1545151255:start:build               : toolchain
+1545151255:end  :build               : toolchain
+1545151255:start:install-target      : toolchain
+1545151255:end  :install-target      : toolchain
+1545151255:start:extract             : host-libtool
+1545151255:end  :extract             : host-libtool
+1545151255:start:patch               : host-libtool
+1545151255:end  :patch               : host-libtool
+1545151256:start:configure           : host-libtool
+1545151263:end  :configure           : host-libtool
+1545151263:start:build               : host-libtool
+1545151264:end  :build               : host-libtool
+1545151264:start:install-host        : host-libtool
+1545151265:end  :install-host        : host-libtool
+1545151265:start:extract             : host-autoconf
+1545151266:end  :extract             : host-autoconf
+1545151266:start:patch               : host-autoconf
+1545151266:end  :patch               : host-autoconf
+1545151266:start:configure           : host-autoconf
+1545151268:end  :configure           : host-autoconf
+1545151268:start:build               : host-autoconf
+1545151269:end  :build               : host-autoconf
+1545151269:start:install-host        : host-autoconf
+1545151269:end  :install-host        : host-autoconf
+1545151270:start:extract             : host-automake
+1545151270:end  :extract             : host-automake
+1545151270:start:patch               : host-automake
+1545151270:end  :patch               : host-automake
+1545151270:start:configure           : host-automake
+1545151273:end  :configure           : host-automake
+1545151273:start:build               : host-automake
+1545151273:end  :build               : host-automake
+1545151273:start:install-host        : host-automake
+1545151273:end  :install-host        : host-automake
+1545151274:start:extract             : alsa-lib
+1545151275:end  :extract             : alsa-lib
+1545151275:start:patch               : alsa-lib
+1545151275:end  :patch               : alsa-lib
+1545151275:start:configure           : alsa-lib
+1545151290:end  :configure           : alsa-lib
+1545151290:start:build               : alsa-lib
+1545151305:end  :build               : alsa-lib
+1545151305:start:install-staging     : alsa-lib
+1545151306:end  :install-staging     : alsa-lib
+1545151306:start:install-target      : alsa-lib
+1545151307:end  :install-target      : alsa-lib
+1545151308:start:extract             : host-pkgconf
+1545151308:end  :extract             : host-pkgconf
+1545151308:start:patch               : host-pkgconf
+1545151308:end  :patch               : host-pkgconf
+1545151308:start:configure           : host-pkgconf
+1545151309:end  :configure           : host-pkgconf
+1545151309:start:build               : host-pkgconf
+1545151310:end  :build               : host-pkgconf
+1545151310:start:install-host        : host-pkgconf
+1545151310:end  :install-host        : host-pkgconf
+1545151310:start:extract             : host-libxml2
+1545151311:end  :extract             : host-libxml2
+1545151311:start:patch               : host-libxml2
+1545151311:end  :patch               : host-libxml2
+1545151311:start:configure           : host-libxml2
+1545151320:end  :configure           : host-libxml2
+1545151320:start:build               : host-libxml2
+1545151336:end  :build               : host-libxml2
+1545151336:start:install-host        : host-libxml2
+1545151337:end  :install-host        : host-libxml2
+1545151337:start:extract             : host-gettext
+1545151339:end  :extract             : host-gettext
+1545151339:start:patch               : host-gettext
+1545151339:end  :patch               : host-gettext
+1545151339:start:configure           : host-gettext
+1545151420:end  :configure           : host-gettext
+1545151420:start:build               : host-gettext
+1545151482:end  :build               : host-gettext
+1545151482:start:install-host        : host-gettext
+1545151499:end  :install-host        : host-gettext
+1545151500:start:extract             : host-ncurses
+1545151500:end  :extract             : host-ncurses
+1545151500:start:patch               : host-ncurses
+1545151500:end  :patch               : host-ncurses
+1545151500:start:configure           : host-ncurses
+1545151509:end  :configure           : host-ncurses
+1545151509:start:build               : host-ncurses
+1545151523:end  :build               : host-ncurses
+1545151523:start:install-host        : host-ncurses
+1545151532:end  :install-host        : host-ncurses
+1545151533:start:extract             : ncurses
+1545151533:end  :extract             : ncurses
+1545151533:start:patch               : ncurses
+1545151533:end  :patch               : ncurses
+1545151533:start:configure           : ncurses
+1545151540:end  :configure           : ncurses
+1545151540:start:build               : ncurses
+1545151548:end  :build               : ncurses
+1545151548:start:install-staging     : ncurses
+1545151549:end  :install-staging     : ncurses
+1545151549:start:install-target      : ncurses
+1545151550:end  :install-target      : ncurses
+1545151550:start:extract             : alsa-utils
+1545151551:end  :extract             : alsa-utils
+1545151551:start:patch               : alsa-utils
+1545151551:end  :patch               : alsa-utils
+1545151551:start:configure           : alsa-utils
+1545151561:end  :configure           : alsa-utils
+1545151561:start:build               : alsa-utils
+1545151565:end  :build               : alsa-utils
+1545151565:start:install-staging     : alsa-utils
+1545151566:end  :install-staging     : alsa-utils
+1545151566:start:install-target      : alsa-utils
+1545151566:end  :install-target      : alsa-utils
+1545151566:start:extract             : libaio
+1545151566:end  :extract             : libaio
+1545151566:start:patch               : libaio
+1545151566:end  :patch               : libaio
+1545151566:start:configure           : libaio
+1545151566:end  :configure           : libaio
+1545151566:start:build               : libaio
+1545151566:end  :build               : libaio
+1545151566:start:install-staging     : libaio
+1545151567:end  :install-staging     : libaio
+1545151567:start:install-target      : libaio
+1545151567:end  :install-target      : libaio
+1545151567:start:extract             : blktrace
+1545151567:end  :extract             : blktrace
+1545151567:start:patch               : blktrace
+1545151567:end  :patch               : blktrace
+1545151567:start:configure           : blktrace
+1545151567:end  :configure           : blktrace
+1545151567:start:build               : blktrace
+1545151574:end  :build               : blktrace
+1545151574:start:install-target      : blktrace
+1545151574:end  :install-target      : blktrace
+1545151574:start:extract             : bonnie
+1545151574:end  :extract             : bonnie
+1545151574:start:patch               : bonnie
+1545151574:end  :patch               : bonnie
+1545151574:start:configure           : bonnie
+1545151576:end  :configure           : bonnie
+1545151577:start:build               : bonnie
+1545151577:end  :build               : bonnie
+1545151577:start:install-target      : bonnie
+1545151577:end  :install-target      : bonnie
+1545151577:start:extract             : libtirpc
+1545151578:end  :extract             : libtirpc
+1545151578:start:patch               : libtirpc
+1545151578:end  :patch               : libtirpc
+1545151578:start:configure           : libtirpc
+1545151589:end  :configure           : libtirpc
+1545151589:start:build               : libtirpc
+1545151593:end  :build               : libtirpc
+1545151593:start:install-staging     : libtirpc
+1545151593:end  :install-staging     : libtirpc
+1545151593:start:install-target      : libtirpc
+1545151593:end  :install-target      : libtirpc
+1545151595:start:extract             : busybox
+1545151595:end  :extract             : busybox
+1545151595:start:patch               : busybox
+1545151595:end  :patch               : busybox
+1545151606:start:configure           : busybox
+1545151606:end  :configure           : busybox
+1545151606:start:build               : busybox
+1545151629:end  :build               : busybox
+1545151629:start:install-target      : busybox
+1545151633:end  :install-target      : busybox
+1545151633:start:extract             : cache-calibrator
+1545151633:end  :extract             : cache-calibrator
+1545151633:start:patch               : cache-calibrator
+1545151633:end  :patch               : cache-calibrator
+1545151633:start:configure           : cache-calibrator
+1545151633:end  :configure           : cache-calibrator
+1545151633:start:build               : cache-calibrator
+1545151634:end  :build               : cache-calibrator
+1545151634:start:install-target      : cache-calibrator
+1545151634:end  :install-target      : cache-calibrator
+1545151634:start:extract             : dhrystone
+1545151634:end  :extract             : dhrystone
+1545151634:start:patch               : dhrystone
+1545151634:end  :patch               : dhrystone
+1545151634:start:configure           : dhrystone
+1545151634:end  :configure           : dhrystone
+1545151634:start:build               : dhrystone
+1545151634:end  :build               : dhrystone
+1545151635:start:install-target      : dhrystone
+1545151635:end  :install-target      : dhrystone
+1545151635:start:extract             : gsl
+1545151635:end  :extract             : gsl
+1545151635:start:patch               : gsl
+1545151635:end  :patch               : gsl
+1545151635:start:configure           : gsl
+1545151641:end  :configure           : gsl
+1545151641:start:build               : gsl
+1545151686:end  :build               : gsl
+1545151686:start:install-staging     : gsl
+1545151687:end  :install-staging     : gsl
+1545151687:start:install-target      : gsl
+1545151689:end  :install-target      : gsl
+1545151689:start:extract             : dieharder
+1545151690:end  :extract             : dieharder
+1545151690:start:patch               : dieharder
+1545151690:end  :patch               : dieharder
+1545151690:start:configure           : dieharder
+1545151700:end  :configure           : dieharder
+1545151700:start:build               : dieharder
+1545151723:end  :build               : dieharder
+1545151723:start:install-target      : dieharder
+1545151724:end  :install-target      : dieharder
+1545151724:start:extract             : dmalloc
+1545151724:end  :extract             : dmalloc
+1545151724:start:patch               : dmalloc
+1545151724:end  :patch               : dmalloc
+1545151724:start:configure           : dmalloc
+1545151731:end  :configure           : dmalloc
+1545151731:start:build               : dmalloc
+1545151732:end  :build               : dmalloc
+1545151732:start:install-staging     : dmalloc
+1545151732:end  :install-staging     : dmalloc
+1545151732:start:install-target      : dmalloc
+1545151732:end  :install-target      : dmalloc
+1545151732:start:extract             : host-dosfstools
+1545151732:end  :extract             : host-dosfstools
+1545151732:start:patch               : host-dosfstools
+1545151732:end  :patch               : host-dosfstools
+1545151732:start:configure           : host-dosfstools
+1545151735:end  :configure           : host-dosfstools
+1545151735:start:build               : host-dosfstools
+1545151736:end  :build               : host-dosfstools
+1545151736:start:install-host        : host-dosfstools
+1545151737:end  :install-host        : host-dosfstools
+1545151737:start:extract             : dropbear
+1545151738:end  :extract             : dropbear
+1545151738:start:patch               : dropbear
+1545151738:end  :patch               : dropbear
+1545151738:start:configure           : dropbear
+1545151746:end  :configure           : dropbear
+1545151746:start:build               : dropbear
+1545151756:end  :build               : dropbear
+1545151756:start:install-target      : dropbear
+1545151756:end  :install-target      : dropbear
+1545151756:start:extract             : dt
+1545151756:end  :extract             : dt
+1545151756:start:patch               : dt
+1545151757:end  :patch               : dt
+1545151757:start:configure           : dt
+1545151757:end  :configure           : dt
+1545151757:start:build               : dt
+1545151759:end  :build               : dt
+1545151759:start:install-target      : dt
+1545151759:end  :install-target      : dt
+1545151759:start:extract             : host-libzlib
+1545151759:end  :extract             : host-libzlib
+1545151759:start:patch               : host-libzlib
+1545151759:end  :patch               : host-libzlib
+1545151759:start:configure           : host-libzlib
+1545151760:end  :configure           : host-libzlib
+1545151760:start:build               : host-libzlib
+1545151765:end  :build               : host-libzlib
+1545151765:start:install-host        : host-libzlib
+1545151765:end  :install-host        : host-libzlib
+1545151766:start:extract             : host-zlib
+1545151766:end  :extract             : host-zlib
+1545151766:start:patch               : host-zlib
+1545151766:end  :patch               : host-zlib
+1545151766:start:configure           : host-zlib
+1545151766:end  :configure           : host-zlib
+1545151766:start:build               : host-zlib
+1545151766:end  :build               : host-zlib
+1545151766:start:install-host        : host-zlib
+1545151766:end  :install-host        : host-zlib
+1545151767:start:extract             : host-util-linux
+1545151767:end  :extract             : host-util-linux
+1545151767:start:patch               : host-util-linux
+1545151767:end  :patch               : host-util-linux
+1545151767:start:configure           : host-util-linux
+1545151783:end  :configure           : host-util-linux
+1545151783:start:build               : host-util-linux
+1545151818:end  :build               : host-util-linux
+1545151818:start:install-host        : host-util-linux
+1545151818:end  :install-host        : host-util-linux
+1545151820:start:extract             : host-e2fsprogs
+1545151820:end  :extract             : host-e2fsprogs
+1545151820:start:patch               : host-e2fsprogs
+1545151821:end  :patch               : host-e2fsprogs
+1545151821:start:configure           : host-e2fsprogs
+1545151836:end  :configure           : host-e2fsprogs
+1545151836:start:build               : host-e2fsprogs
+1545151851:end  :build               : host-e2fsprogs
+1545151851:start:install-host        : host-e2fsprogs
+1545151852:end  :install-host        : host-e2fsprogs
+1545151853:start:extract             : host-file
+1545151854:end  :extract             : host-file
+1545151854:start:patch               : host-file
+1545151854:end  :patch               : host-file
+1545151854:start:configure           : host-file
+1545151862:end  :configure           : host-file
+1545151862:start:build               : host-file
+1545151864:end  :build               : host-file
+1545151864:start:install-host        : host-file
+1545151864:end  :install-host        : host-file
+1545151865:start:extract             : libzlib
+1545151866:end  :extract             : libzlib
+1545151866:start:patch               : libzlib
+1545151866:end  :patch               : libzlib
+1545151866:start:configure           : libzlib
+1545151866:end  :configure           : libzlib
+1545151866:start:build               : libzlib
+1545151871:end  :build               : libzlib
+1545151871:start:install-staging     : libzlib
+1545151871:end  :install-staging     : libzlib
+1545151871:start:install-target      : libzlib
+1545151871:end  :install-target      : libzlib
+1545151871:start:extract             : zlib
+1545151872:end  :extract             : zlib
+1545151872:start:patch               : zlib
+1545151872:end  :patch               : zlib
+1545151872:start:configure           : zlib
+1545151872:end  :configure           : zlib
+1545151872:start:build               : zlib
+1545151872:end  :build               : zlib
+1545151872:start:install-target      : zlib
+1545151872:end  :install-target      : zlib
+1545151872:start:extract             : file
+1545151872:end  :extract             : file
+1545151872:start:patch               : file
+1545151872:end  :patch               : file
+1545151872:start:configure           : file
+1545151881:end  :configure           : file
+1545151881:start:build               : file
+1545151882:end  :build               : file
+1545151883:start:install-staging     : file
+1545151883:end  :install-staging     : file
+1545151883:start:install-target      : file
+1545151883:end  :install-target      : file
+1545151883:start:extract             : host-libconfuse
+1545151883:end  :extract             : host-libconfuse
+1545151883:start:patch               : host-libconfuse
+1545151883:end  :patch               : host-libconfuse
+1545151883:start:configure           : host-libconfuse
+1545151887:end  :configure           : host-libconfuse
+1545151887:start:build               : host-libconfuse
+1545151889:end  :build               : host-libconfuse
+1545151889:start:install-host        : host-libconfuse
+1545151889:end  :install-host        : host-libconfuse
+1545151890:start:extract             : host-genimage
+1545151891:end  :extract             : host-genimage
+1545151891:start:patch               : host-genimage
+1545151891:end  :patch               : host-genimage
+1545151891:start:configure           : host-genimage
+1545151894:end  :configure           : host-genimage
+1545151894:start:build               : host-genimage
+1545151894:end  :build               : host-genimage
+1545151894:start:install-host        : host-genimage
+1545151894:end  :install-host        : host-genimage
+1545151896:start:extract             : ifupdown-scripts
+1545151896:end  :extract             : ifupdown-scripts
+1545151896:start:patch               : ifupdown-scripts
+1545151896:end  :patch               : ifupdown-scripts
+1545151896:start:configure           : ifupdown-scripts
+1545151896:end  :configure           : ifupdown-scripts
+1545151896:start:build               : ifupdown-scripts
+1545151896:end  :build               : ifupdown-scripts
+1545151896:start:install-target      : ifupdown-scripts
+1545151896:end  :install-target      : ifupdown-scripts
+1545151896:start:extract             : initscripts
+1545151896:end  :extract             : initscripts
+1545151896:start:patch               : initscripts
+1545151896:end  :patch               : initscripts
+1545151896:start:configure           : initscripts
+1545151896:end  :configure           : initscripts
+1545151896:start:build               : initscripts
+1545151896:end  :build               : initscripts
+1545151896:start:install-target      : initscripts
+1545151896:end  :install-target      : initscripts
+1545151896:start:extract             : iozone
+1545151896:end  :extract             : iozone
+1545151896:start:patch               : iozone
+1545151897:end  :patch               : iozone
+1545151897:start:configure           : iozone
+1545151897:end  :configure           : iozone
+1545151897:start:build               : iozone
+1545151903:end  :build               : iozone
+1545151903:start:install-target      : iozone
+1545151903:end  :install-target      : iozone
+1545151903:start:extract             : jq
+1545151903:end  :extract             : jq
+1545151903:start:patch               : jq
+1545151903:end  :patch               : jq
+1545151903:start:configure           : jq
+1545151909:end  :configure           : jq
+1545151909:start:build               : jq
+1545151912:end  :build               : jq
+1545151912:start:install-staging     : jq
+1545151912:end  :install-staging     : jq
+1545151912:start:install-target      : jq
+1545151912:end  :install-target      : jq
+1545151913:start:extract             : host-cmake
+1545151915:end  :extract             : host-cmake
+1545151915:start:patch               : host-cmake
+1545151916:end  :patch               : host-cmake
+1545151916:start:configure           : host-cmake
+1545152066:end  :configure           : host-cmake
+1545152066:start:build               : host-cmake
+1545152296:end  :build               : host-cmake
+1545152296:start:install-host        : host-cmake
+1545152298:end  :install-host        : host-cmake
+1545152301:start:extract             : jsoncpp
+1545152301:end  :extract             : jsoncpp
+1545152301:start:patch               : jsoncpp
+1545152302:end  :patch               : jsoncpp
+1545152302:start:configure           : jsoncpp
+1545152305:end  :configure           : jsoncpp
+1545152305:start:build               : jsoncpp
+1545152309:end  :build               : jsoncpp
+1545152309:start:install-staging     : jsoncpp
+1545152310:end  :install-staging     : jsoncpp
+1545152310:start:install-target      : jsoncpp
+1545152310:end  :install-target      : jsoncpp
+1545152310:start:extract             : kexec
+1545152310:end  :extract             : kexec
+1545152310:start:patch               : kexec
+1545152310:end  :patch               : kexec
+1545152310:start:configure           : kexec
+1545152312:end  :configure           : kexec
+1545152312:start:build               : kexec
+1545152314:end  :build               : kexec
+1545152314:start:install-target      : kexec
+1545152314:end  :install-target      : kexec
+1545152315:start:extract             : kvm-unit-tests
+1545152315:end  :extract             : kvm-unit-tests
+1545152315:start:patch               : kvm-unit-tests
+1545152315:end  :patch               : kvm-unit-tests
+1545152315:start:configure           : kvm-unit-tests
+1545152315:end  :configure           : kvm-unit-tests
+1545152315:start:build               : kvm-unit-tests
+1545152317:end  :build               : kvm-unit-tests
+1545152317:start:install-target      : kvm-unit-tests
+1545152317:end  :install-target      : kvm-unit-tests
+1545152318:start:extract             : libb64
+1545152318:end  :extract             : libb64
+1545152318:start:patch               : libb64
+1545152318:end  :patch               : libb64
+1545152318:start:configure           : libb64
+1545152318:end  :configure           : libb64
+1545152318:start:build               : libb64
+1545152318:end  :build               : libb64
+1545152318:start:install-staging     : libb64
+1545152318:end  :install-staging     : libb64
+1545152318:start:extract             : libopenssl
+1545152319:end  :extract             : libopenssl
+1545152319:start:patch               : libopenssl
+1545152319:end  :patch               : libopenssl
+1545152319:start:configure           : libopenssl
+1545152321:end  :configure           : libopenssl
+1545152321:start:build               : libopenssl
+1545152365:end  :build               : libopenssl
+1545152365:start:install-staging     : libopenssl
+1545152366:end  :install-staging     : libopenssl
+1545152367:start:install-target      : libopenssl
+1545152367:end  :install-target      : libopenssl
+1545152368:start:extract             : openssl
+1545152368:end  :extract             : openssl
+1545152368:start:patch               : openssl
+1545152368:end  :patch               : openssl
+1545152368:start:configure           : openssl
+1545152368:end  :configure           : openssl
+1545152368:start:build               : openssl
+1545152368:end  :build               : openssl
+1545152368:start:install-target      : openssl
+1545152368:end  :install-target      : openssl
+1545152368:start:extract             : libcurl
+1545152369:end  :extract             : libcurl
+1545152369:start:patch               : libcurl
+1545152369:end  :patch               : libcurl
+1545152369:start:configure           : libcurl
+1545152394:end  :configure           : libcurl
+1545152394:start:build               : libcurl
+1545152407:end  :build               : libcurl
+1545152407:start:install-staging     : libcurl
+1545152407:end  :install-staging     : libcurl
+1545152407:start:install-target      : libcurl
+1545152408:end  :install-target      : libcurl
+1545152408:start:extract             : liburcu
+1545152408:end  :extract             : liburcu
+1545152408:start:patch               : liburcu
+1545152408:end  :patch               : liburcu
+1545152408:start:configure           : liburcu
+1545152414:end  :configure           : liburcu
+1545152415:start:build               : liburcu
+1545152425:end  :build               : liburcu
+1545152425:start:install-staging     : liburcu
+1545152425:end  :install-staging     : liburcu
+1545152425:start:install-target      : liburcu
+1545152425:end  :install-target      : liburcu
+1545152426:start:extract             : libxml2
+1545152426:end  :extract             : libxml2
+1545152426:start:patch               : libxml2
+1545152426:end  :patch               : libxml2
+1545152426:start:configure           : libxml2
+1545152434:end  :configure           : libxml2
+1545152434:start:build               : libxml2
+1545152450:end  :build               : libxml2
+1545152450:start:install-staging     : libxml2
+1545152450:end  :install-staging     : libxml2
+1545152450:start:install-target      : libxml2
+1545152450:end  :install-target      : libxml2
+1545152451:start:extract             : lmbench
+1545152451:end  :extract             : lmbench
+1545152451:start:patch               : lmbench
+1545152451:end  :patch               : lmbench
+1545152451:start:configure           : lmbench
+1545152451:end  :configure           : lmbench
+1545152451:start:build               : lmbench
+1545152463:end  :build               : lmbench
+1545152463:start:install-target      : lmbench
+1545152467:end  :install-target      : lmbench
+1545152467:start:extract             : host-kmod
+1545152467:end  :extract             : host-kmod
+1545152467:start:patch               : host-kmod
+1545152467:end  :patch               : host-kmod
+1545152467:start:configure           : host-kmod
+1545152474:end  :configure           : host-kmod
+1545152474:start:build               : host-kmod
+1545152477:end  :build               : host-kmod
+1545152478:start:install-host        : host-kmod
+1545152478:end  :install-host        : host-kmod
+1545152479:start:extract             : linux
+1545152517:end  :extract             : linux
+1545152517:start:patch               : linux
+1545152518:end  :patch               : linux
+1545152529:start:configure           : linux
+1545152529:end  :configure           : linux
+1545152529:start:build               : linux
+1545153772:end  :build               : linux
+1545153772:start:install-target      : linux
+1545153786:end  :install-target      : linux
+1545153787:start:install-image       : linux
+1545153787:end  :install-image       : linux
+1545153787:start:extract             : ltp-testsuite
+1545153788:end  :extract             : ltp-testsuite
+1545153788:start:patch               : ltp-testsuite
+1545153788:end  :patch               : ltp-testsuite
+1545153788:start:configure           : ltp-testsuite
+1545153815:end  :configure           : ltp-testsuite
+1545153815:start:build               : ltp-testsuite
+1545153963:end  :build               : ltp-testsuite
+1545153964:start:install-target      : ltp-testsuite
+1545153982:end  :install-target      : ltp-testsuite
+1545153992:start:extract             : lttng-modules
+1545153992:end  :extract             : lttng-modules
+1545153992:start:patch               : lttng-modules
+1545153992:end  :patch               : lttng-modules
+1545153992:start:configure           : lttng-modules
+1545153992:end  :configure           : lttng-modules
+1545153992:start:build               : lttng-modules
+1545154025:end  :build               : lttng-modules
+1545154025:start:install-target      : lttng-modules
+1545154031:end  :install-target      : lttng-modules
+1545154031:start:extract             : popt
+1545154031:end  :extract             : popt
+1545154031:start:patch               : popt
+1545154031:end  :patch               : popt
+1545154031:start:configure           : popt
+1545154047:end  :configure           : popt
+1545154047:start:build               : popt
+1545154048:end  :build               : popt
+1545154048:start:install-staging     : popt
+1545154048:end  :install-staging     : popt
+1545154052:start:install-target      : popt
+1545154052:end  :install-target      : popt
+1545154052:start:extract             : util-linux
+1545154053:end  :extract             : util-linux
+1545154053:start:patch               : util-linux
+1545154053:end  :patch               : util-linux
+1545154053:start:configure           : util-linux
+1545154068:end  :configure           : util-linux
+1545154068:start:build               : util-linux
+1545154073:end  :build               : util-linux
+1545154073:start:install-staging     : util-linux
+1545154074:end  :install-staging     : util-linux
+1545154074:start:install-target      : util-linux
+1545154074:end  :install-target      : util-linux
+1545154074:start:extract             : lttng-tools
+1545154075:end  :extract             : lttng-tools
+1545154075:start:patch               : lttng-tools
+1545154075:end  :patch               : lttng-tools
+1545154075:start:configure           : lttng-tools
+1545154101:end  :configure           : lttng-tools
+1545154101:start:build               : lttng-tools
+1545154125:end  :build               : lttng-tools
+1545154125:start:install-target      : lttng-tools
+1545154127:end  :install-target      : lttng-tools
+1545154127:start:extract             : memstat
+1545154127:end  :extract             : memstat
+1545154127:start:patch               : memstat
+1545154127:end  :patch               : memstat
+1545154127:start:configure           : memstat
+1545154127:end  :configure           : memstat
+1545154127:start:build               : memstat
+1545154127:end  :build               : memstat
+1545154127:start:install-target      : memstat
+1545154127:end  :install-target      : memstat
+1545154128:start:extract             : host-mtools
+1545154128:end  :extract             : host-mtools
+1545154128:start:patch               : host-mtools
+1545154128:end  :patch               : host-mtools
+1545154128:start:configure           : host-mtools
+1545154136:end  :configure           : host-mtools
+1545154136:start:build               : host-mtools
+1545154144:end  :build               : host-mtools
+1545154144:start:install-host        : host-mtools
+1545154144:end  :install-host        : host-mtools
+1545154149:start:extract             : netperf
+1545154149:end  :extract             : netperf
+1545154149:start:patch               : netperf
+1545154149:end  :patch               : netperf
+1545154149:start:configure           : netperf
+1545154156:end  :configure           : netperf
+1545154156:start:build               : netperf
+1545154158:end  :build               : netperf
+1545154158:start:install-target      : netperf
+1545154158:end  :install-target      : netperf
+1545154158:start:extract             : openssh
+1545154158:end  :extract             : openssh
+1545154158:start:patch               : openssh
+1545154159:end  :patch               : openssh
+1545154159:start:configure           : openssh
+1545154186:end  :configure           : openssh
+1545154186:start:build               : openssh
+1545154201:end  :build               : openssh
+1545154201:start:install-target      : openssh
+1545154201:end  :install-target      : openssh
+1545154202:start:extract             : host-opkg-utils
+1545154202:end  :extract             : host-opkg-utils
+1545154202:start:patch               : host-opkg-utils
+1545154202:end  :patch               : host-opkg-utils
+1545154202:start:configure           : host-opkg-utils
+1545154202:end  :configure           : host-opkg-utils
+1545154202:start:build               : host-opkg-utils
+1545154202:end  :build               : host-opkg-utils
+1545154202:start:install-host        : host-opkg-utils
+1545154202:end  :install-host        : host-opkg-utils
+1545154204:start:extract             : host-patchelf
+1545154204:end  :extract             : host-patchelf
+1545154204:start:patch               : host-patchelf
+1545154204:end  :patch               : host-patchelf
+1545154204:start:configure           : host-patchelf
+1545154206:end  :configure           : host-patchelf
+1545154206:start:build               : host-patchelf
+1545154210:end  :build               : host-patchelf
+1545154210:start:install-host        : host-patchelf
+1545154210:end  :install-host        : host-patchelf
+1545154212:start:extract             : pax-utils
+1545154212:end  :extract             : pax-utils
+1545154212:start:patch               : pax-utils
+1545154212:end  :patch               : pax-utils
+1545154212:start:configure           : pax-utils
+1545154239:end  :configure           : pax-utils
+1545154239:start:build               : pax-utils
+1545154244:end  :build               : pax-utils
+1545154244:start:install-target      : pax-utils
+1545154244:end  :install-target      : pax-utils
+1545154245:start:extract             : pv
+1545154245:end  :extract             : pv
+1545154245:start:patch               : pv
+1545154245:end  :patch               : pv
+1545154245:start:configure           : pv
+1545154247:end  :configure           : pv
+1545154247:start:build               : pv
+1545154248:end  :build               : pv
+1545154248:start:install-target      : pv
+1545154248:end  :install-target      : pv
+1545154248:start:extract             : ramsmp
+1545154248:end  :extract             : ramsmp
+1545154248:start:patch               : ramsmp
+1545154248:end  :patch               : ramsmp
+1545154248:start:configure           : ramsmp
+1545154248:end  :configure           : ramsmp
+1545154248:start:build               : ramsmp
+1545154249:end  :build               : ramsmp
+1545154249:start:install-target      : ramsmp
+1545154249:end  :install-target      : ramsmp
+1545154249:start:extract             : ramspeed
+1545154249:end  :extract             : ramspeed
+1545154249:start:patch               : ramspeed
+1545154249:end  :patch               : ramspeed
+1545154249:start:configure           : ramspeed
+1545154249:end  :configure           : ramspeed
+1545154249:start:build               : ramspeed
+1545154250:end  :build               : ramspeed
+1545154250:start:install-target      : ramspeed
+1545154250:end  :install-target      : ramspeed
+1545154252:start:extract             : rpi-firmware
+1545154254:end  :extract             : rpi-firmware
+1545154254:start:patch               : rpi-firmware
+1545154254:end  :patch               : rpi-firmware
+1545154254:start:configure           : rpi-firmware
+1545154254:end  :configure           : rpi-firmware
+1545154254:start:build               : rpi-firmware
+1545154254:end  :build               : rpi-firmware
+1545154254:start:install-target      : rpi-firmware
+1545154254:end  :install-target      : rpi-firmware
+1545154254:start:install-image       : rpi-firmware
+1545154254:end  :install-image       : rpi-firmware
+1545154255:start:extract             : rt-tests
+1545154255:end  :extract             : rt-tests
+1545154255:start:patch               : rt-tests
+1545154255:end  :patch               : rt-tests
+1545154255:start:configure           : rt-tests
+1545154255:end  :configure           : rt-tests
+1545154256:start:build               : rt-tests
+1545154257:end  :build               : rt-tests
+1545154257:start:install-target      : rt-tests
+1545154257:end  :install-target      : rt-tests
+1545154257:start:extract             : spidev_test
+1545154257:end  :extract             : spidev_test
+1545154257:start:patch               : spidev_test
+1545154257:end  :patch               : spidev_test
+1545154257:start:configure           : spidev_test
+1545154257:end  :configure           : spidev_test
+1545154257:start:build               : spidev_test
+1545154257:end  :build               : spidev_test
+1545154257:start:install-target      : spidev_test
+1545154257:end  :install-target      : spidev_test
+1545154258:start:extract             : strace
+1545154259:end  :extract             : strace
+1545154259:start:patch               : strace
+1545154259:end  :patch               : strace
+1545154259:start:configure           : strace
+1545154284:end  :configure           : strace
+1545154284:start:build               : strace
+1545154294:end  :build               : strace
+1545154294:start:install-target      : strace
+1545154294:end  :install-target      : strace
+1545154294:start:extract             : stress
+1545154294:end  :extract             : stress
+1545154294:start:patch               : stress
+1545154295:end  :patch               : stress
+1545154295:start:configure           : stress
+1545154297:end  :configure           : stress
+1545154297:start:build               : stress
+1545154297:end  :build               : stress
+1545154297:start:install-target      : stress
+1545154297:end  :install-target      : stress
+1545154298:start:extract             : sudo
+1545154298:end  :extract             : sudo
+1545154298:start:patch               : sudo
+1545154298:end  :patch               : sudo
+1545154298:start:configure           : sudo
+1545154312:end  :configure           : sudo
+1545154312:start:build               : sudo
+1545154325:end  :build               : sudo
+1545154325:start:install-target      : sudo
+1545154327:end  :install-target      : sudo
+1545154327:start:extract             : tcf-agent
+1545154327:end  :extract             : tcf-agent
+1545154327:start:patch               : tcf-agent
+1545154327:end  :patch               : tcf-agent
+1545154327:start:configure           : tcf-agent
+1545154328:end  :configure           : tcf-agent
+1545154328:start:build               : tcf-agent
+1545154337:end  :build               : tcf-agent
+1545154337:start:install-target      : tcf-agent
+1545154337:end  :install-target      : tcf-agent
+1545154337:start:extract             : tinymembench
+1545154337:end  :extract             : tinymembench
+1545154337:start:patch               : tinymembench
+1545154337:end  :patch               : tinymembench
+1545154338:start:configure           : tinymembench
+1545154338:end  :configure           : tinymembench
+1545154338:start:build               : tinymembench
+1545154338:end  :build               : tinymembench
+1545154338:start:install-target      : tinymembench
+1545154338:end  :install-target      : tinymembench
+1545154338:start:extract             : trace-cmd
+1545154338:end  :extract             : trace-cmd
+1545154338:start:patch               : trace-cmd
+1545154338:end  :patch               : trace-cmd
+1545154338:start:configure           : trace-cmd
+1545154338:end  :configure           : trace-cmd
+1545154338:start:build               : trace-cmd
+1545154342:end  :build               : trace-cmd
+1545154342:start:install-staging     : trace-cmd
+1545154342:end  :install-staging     : trace-cmd
+1545154342:start:install-target      : trace-cmd
+1545154342:end  :install-target      : trace-cmd
+1545154342:start:extract             : trinity
+1545154342:end  :extract             : trinity
+1545154342:start:patch               : trinity
+1545154342:end  :patch               : trinity
+1545154342:start:configure           : trinity
+1545154343:end  :configure           : trinity
+1545154343:start:build               : trinity
+1545154355:end  :build               : trinity
+1545154355:start:install-target      : trinity
+1545154356:end  :install-target      : trinity
+1545154356:start:extract             : uclibc-ng-test
+1545154356:end  :extract             : uclibc-ng-test
+1545154356:start:patch               : uclibc-ng-test
+1545154356:end  :patch               : uclibc-ng-test
+1545154356:start:configure           : uclibc-ng-test
+1545154356:end  :configure           : uclibc-ng-test
+1545154356:start:build               : uclibc-ng-test
+1545154375:end  :build               : uclibc-ng-test
+1545154375:start:install-target      : uclibc-ng-test
+1545154375:end  :install-target      : uclibc-ng-test
+1545154375:start:extract             : valgrind
+1545154379:end  :extract             : valgrind
+1545154379:start:patch               : valgrind
+1545154379:end  :patch               : valgrind
+1545154379:start:configure           : valgrind
+1545154405:end  :configure           : valgrind
+1545154406:start:build               : valgrind
+1545154471:end  :build               : valgrind
+1545154471:start:install-staging     : valgrind
+1545154473:end  :install-staging     : valgrind
+1545154473:start:install-target      : valgrind
+1545154475:end  :install-target      : valgrind
+1545154476:start:extract             : host-attr
+1545154476:end  :extract             : host-attr
+1545154476:start:patch               : host-attr
+1545154476:end  :patch               : host-attr
+1545154476:start:configure           : host-attr
+1545154480:end  :configure           : host-attr
+1545154480:start:build               : host-attr
+1545154482:end  :build               : host-attr
+1545154482:start:install-host        : host-attr
+1545154482:end  :install-host        : host-attr
+1545154484:start:extract             : host-acl
+1545154484:end  :extract             : host-acl
+1545154484:start:patch               : host-acl
+1545154484:end  :patch               : host-acl
+1545154484:start:configure           : host-acl
+1545154487:end  :configure           : host-acl
+1545154487:start:build               : host-acl
+1545154490:end  :build               : host-acl
+1545154490:start:install-host        : host-acl
+1545154491:end  :install-host        : host-acl
+1545154492:start:extract             : host-fakeroot
+1545154493:end  :extract             : host-fakeroot
+1545154493:start:patch               : host-fakeroot
+1545154493:end  :patch               : host-fakeroot
+1545154493:start:configure           : host-fakeroot
+1545154501:end  :configure           : host-fakeroot
+1545154501:start:build               : host-fakeroot
+1545154502:end  :build               : host-fakeroot
+1545154502:start:install-host        : host-fakeroot
+1545154502:end  :install-host        : host-fakeroot
+1545154504:start:extract             : host-makedevs
+1545154504:end  :extract             : host-makedevs
+1545154504:start:patch               : host-makedevs
+1545154504:end  :patch               : host-makedevs
+1545154504:start:configure           : host-makedevs
+1545154504:end  :configure           : host-makedevs
+1545154504:start:build               : host-makedevs
+1545154504:end  :build               : host-makedevs
+1545154504:start:install-host        : host-makedevs
+1545154504:end  :install-host        : host-makedevs
+1545154506:start:extract             : host-mkpasswd
+1545154506:end  :extract             : host-mkpasswd
+1545154506:start:patch               : host-mkpasswd
+1545154506:end  :patch               : host-mkpasswd
+1545154506:start:configure           : host-mkpasswd
+1545154506:end  :configure           : host-mkpasswd
+1545154506:start:build               : host-mkpasswd
+1545154506:end  :build               : host-mkpasswd
+1545154506:start:install-host        : host-mkpasswd
+1545154506:end  :install-host        : host-mkpasswd

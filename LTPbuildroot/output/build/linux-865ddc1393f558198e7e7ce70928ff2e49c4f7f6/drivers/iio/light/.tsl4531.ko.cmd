@@ -1,0 +1,1 @@
+cmd_drivers/iio/light/tsl4531.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/iio/light/tsl4531.ko drivers/iio/light/tsl4531.o drivers/iio/light/tsl4531.mod.o ;  true

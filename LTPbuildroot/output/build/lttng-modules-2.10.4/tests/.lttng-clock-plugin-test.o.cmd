@@ -1,0 +1,1 @@
+cmd_/usr/src/output/build/lttng-modules-2.10.4/./tests/lttng-clock-plugin-test.o := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL    -r -o /usr/src/output/build/lttng-modules-2.10.4/./tests/lttng-clock-plugin-test.o /usr/src/output/build/lttng-modules-2.10.4/./tests/clock-plugin/lttng-clock-plugin-test.o 

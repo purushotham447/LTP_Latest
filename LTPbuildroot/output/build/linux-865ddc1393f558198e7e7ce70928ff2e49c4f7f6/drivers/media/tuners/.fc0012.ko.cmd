@@ -1,0 +1,1 @@
+cmd_drivers/media/tuners/fc0012.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/tuners/fc0012.ko drivers/media/tuners/fc0012.o drivers/media/tuners/fc0012.mod.o ;  true

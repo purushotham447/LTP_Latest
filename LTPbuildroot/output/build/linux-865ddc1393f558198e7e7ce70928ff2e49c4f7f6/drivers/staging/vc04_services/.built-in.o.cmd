@@ -1,0 +1,1 @@
+cmd_drivers/staging/vc04_services/built-in.o :=  rm -f drivers/staging/vc04_services/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/staging/vc04_services/built-in.o drivers/staging/vc04_services/vchiq.o 

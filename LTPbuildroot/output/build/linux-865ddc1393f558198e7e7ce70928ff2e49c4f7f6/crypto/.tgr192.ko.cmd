@@ -1,0 +1,1 @@
+cmd_crypto/tgr192.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o crypto/tgr192.ko crypto/tgr192.o crypto/tgr192.mod.o ;  true

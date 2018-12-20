@@ -1,0 +1,201 @@
+The target system is: Buildroot -  - armv7l
+The host system is: Linux - 4.15.0-42-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc 
+Build flags: -D_LARGEFILE_SOURCE;-D_LARGEFILE64_SOURCE;-D_FILE_OFFSET_BITS=64;-Os
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/3.8.2/CompilerIdC/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f543e/fast"
+make[1]: Entering directory '/usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_f543e.dir/build.make CMakeFiles/cmTC_f543e.dir/build
+make[2]: Entering directory '/usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f543e.dir/testCCompiler.c.o
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc --sysroot=/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot   -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os   -DNDEBUG   -o CMakeFiles/cmTC_f543e.dir/testCCompiler.c.o   -c /usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_f543e
+/usr/src/output/host/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f543e.dir/link.txt --verbose=1
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc --sysroot=/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os   -DNDEBUG    -rdynamic CMakeFiles/cmTC_f543e.dir/testCCompiler.c.o  -o cmTC_f543e 
+make[2]: Leaving directory '/usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d340d/fast"
+make[1]: Entering directory '/usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_d340d.dir/build.make CMakeFiles/cmTC_d340d.dir/build
+make[2]: Entering directory '/usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d340d.dir/CMakeCCompilerABI.c.o
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc --sysroot=/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot   -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os   -DNDEBUG   -o CMakeFiles/cmTC_d340d.dir/CMakeCCompilerABI.c.o   -c /usr/src/output/host/share/cmake-3.8/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_d340d
+/usr/src/output/host/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d340d.dir/link.txt --verbose=1
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc --sysroot=/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os   -DNDEBUG   -v -rdynamic CMakeFiles/cmTC_d340d.dir/CMakeCCompilerABI.c.o  -o cmTC_d340d 
+Using built-in specs.
+COLLECT_GCC=/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc.br_real
+COLLECT_LTO_WRAPPER=/usr/src/output/host/libexec/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/lto-wrapper
+Target: arm-buildroot-linux-uclibcgnueabihf
+Configured with: ./configure --prefix=/usr/src/output/host --sysconfdir=/usr/src/output/host/etc --enable-static --target=arm-buildroot-linux-uclibcgnueabihf --with-sysroot=/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot --disable-__cxa_atexit --with-gnu-ld --disable-libssp --disable-multilib --with-gmp=/usr/src/output/host --with-mpc=/usr/src/output/host --with-mpfr=/usr/src/output/host --with-pkgversion='Buildroot 2018.02.1-gba7f6ed-dirty' --with-bugurl=http://bugs.buildroot.net/ --disable-libquadmath --disable-libsanitizer --enable-tls --disable-libmudflap --enable-threads --without-isl --without-cloog --disable-decimal-float --with-abi=aapcs-linux --with-cpu=cortex-a7 --with-fpu=neon-vfpv4 --with-float=hard --with-mode=arm --enable-languages=c,c++ --with-build-time-tools=/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/bin --enable-shared --disable-libgomp
+Thread model: posix
+gcc version 6.4.0 (Buildroot 2018.02.1-gba7f6ed-dirty) 
+COMPILER_PATH=/usr/src/output/host/libexec/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/:/usr/src/output/host/libexec/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/:/usr/src/output/host/libexec/gcc/arm-buildroot-linux-uclibcgnueabihf/:/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/:/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/:/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/../../../../arm-buildroot-linux-uclibcgnueabihf/bin/
+LIBRARY_PATH=/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/:/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/../../../../arm-buildroot-linux-uclibcgnueabihf/lib/:/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/lib/:/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/
+COLLECT_GCC_OPTIONS='-D' '_LARGEFILE_SOURCE' '-D' '_LARGEFILE64_SOURCE' '-D' '_FILE_OFFSET_BITS=64' '-Os' '-D' 'NDEBUG' '-v' '-rdynamic' '-o' 'cmTC_d340d' '-mcpu=cortex-a7' '-mfloat-abi=hard' '-mfpu=neon-vfpv4' '-mabi=aapcs-linux' '-marm' '-mtls-dialect=gnu'
+ /usr/src/output/host/libexec/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/collect2 -plugin /usr/src/output/host/libexec/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/liblto_plugin.so -plugin-opt=/usr/src/output/host/libexec/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccXuAtyc.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot --eh-frame-hdr -export-dynamic -dynamic-linker /lib/ld-uClibc.so.0 -X -m armelf_linux_eabi -o cmTC_d340d /usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/crt1.o /usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/crti.o /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/crtbegin.o -L/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0 -L/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/../../../../arm-buildroot-linux-uclibcgnueabihf/lib -L/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/lib -L/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib CMakeFiles/cmTC_d340d.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/crtend.o /usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/crtn.o
+COLLECT_GCC_OPTIONS='-D' '_LARGEFILE_SOURCE' '-D' '_LARGEFILE64_SOURCE' '-D' '_FILE_OFFSET_BITS=64' '-Os' '-D' 'NDEBUG' '-v' '-rdynamic' '-o' 'cmTC_d340d' '-mcpu=cortex-a7' '-mfloat-abi=hard' '-mfpu=neon-vfpv4' '-mabi=aapcs-linux' '-marm' '-mtls-dialect=gnu'
+make[2]: Leaving directory '/usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(arm-buildroot-linux-uclibcgnueabihf-ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_d340d/fast"]
+  ignore line: [make[1]: Entering directory '/usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_d340d.dir/build.make CMakeFiles/cmTC_d340d.dir/build]
+  ignore line: [make[2]: Entering directory '/usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_d340d.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc --sysroot=/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot   -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os   -DNDEBUG   -o CMakeFiles/cmTC_d340d.dir/CMakeCCompilerABI.c.o   -c /usr/src/output/host/share/cmake-3.8/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_d340d]
+  ignore line: [/usr/src/output/host/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d340d.dir/link.txt --verbose=1]
+  ignore line: [/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc --sysroot=/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os   -DNDEBUG   -v -rdynamic CMakeFiles/cmTC_d340d.dir/CMakeCCompilerABI.c.o  -o cmTC_d340d ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc.br_real]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/src/output/host/libexec/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/lto-wrapper]
+  ignore line: [Target: arm-buildroot-linux-uclibcgnueabihf]
+  ignore line: [Configured with: ./configure --prefix=/usr/src/output/host --sysconfdir=/usr/src/output/host/etc --enable-static --target=arm-buildroot-linux-uclibcgnueabihf --with-sysroot=/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot --disable-__cxa_atexit --with-gnu-ld --disable-libssp --disable-multilib --with-gmp=/usr/src/output/host --with-mpc=/usr/src/output/host --with-mpfr=/usr/src/output/host --with-pkgversion='Buildroot 2018.02.1-gba7f6ed-dirty' --with-bugurl=http://bugs.buildroot.net/ --disable-libquadmath --disable-libsanitizer --enable-tls --disable-libmudflap --enable-threads --without-isl --without-cloog --disable-decimal-float --with-abi=aapcs-linux --with-cpu=cortex-a7 --with-fpu=neon-vfpv4 --with-float=hard --with-mode=arm --enable-languages=c,c++ --with-build-time-tools=/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/bin --enable-shared --disable-libgomp]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 6.4.0 (Buildroot 2018.02.1-gba7f6ed-dirty) ]
+  ignore line: [COMPILER_PATH=/usr/src/output/host/libexec/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/:/usr/src/output/host/libexec/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/:/usr/src/output/host/libexec/gcc/arm-buildroot-linux-uclibcgnueabihf/:/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/:/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/:/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/../../../../arm-buildroot-linux-uclibcgnueabihf/bin/]
+  ignore line: [LIBRARY_PATH=/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/:/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/../../../../arm-buildroot-linux-uclibcgnueabihf/lib/:/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/lib/:/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-D' '_LARGEFILE_SOURCE' '-D' '_LARGEFILE64_SOURCE' '-D' '_FILE_OFFSET_BITS=64' '-Os' '-D' 'NDEBUG' '-v' '-rdynamic' '-o' 'cmTC_d340d' '-mcpu=cortex-a7' '-mfloat-abi=hard' '-mfpu=neon-vfpv4' '-mabi=aapcs-linux' '-marm' '-mtls-dialect=gnu']
+  link line: [ /usr/src/output/host/libexec/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/collect2 -plugin /usr/src/output/host/libexec/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/liblto_plugin.so -plugin-opt=/usr/src/output/host/libexec/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccXuAtyc.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot --eh-frame-hdr -export-dynamic -dynamic-linker /lib/ld-uClibc.so.0 -X -m armelf_linux_eabi -o cmTC_d340d /usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/crt1.o /usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/crti.o /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/crtbegin.o -L/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0 -L/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/../../../../arm-buildroot-linux-uclibcgnueabihf/lib -L/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/lib -L/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib CMakeFiles/cmTC_d340d.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/crtend.o /usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/crtn.o]
+    arg [/usr/src/output/host/libexec/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/src/output/host/libexec/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/src/output/host/libexec/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccXuAtyc.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--sysroot=/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-uClibc.so.0] ==> ignore
+    arg [-X] ==> ignore
+    arg [-m] ==> ignore
+    arg [armelf_linux_eabi] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_d340d] ==> ignore
+    arg [/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/crt1.o] ==> ignore
+    arg [/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/crti.o] ==> ignore
+    arg [/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/crtbegin.o] ==> ignore
+    arg [-L/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0] ==> dir [/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0]
+    arg [-L/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/../../../../arm-buildroot-linux-uclibcgnueabihf/lib] ==> dir [/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/../../../../arm-buildroot-linux-uclibcgnueabihf/lib]
+    arg [-L/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/lib] ==> dir [/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/lib]
+    arg [-L/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib] ==> dir [/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib]
+    arg [CMakeFiles/cmTC_d340d.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/crtend.o] ==> ignore
+    arg [/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib/crtn.o] ==> ignore
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  collapse library dir [/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0] ==> [/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0]
+  collapse library dir [/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/../../../../arm-buildroot-linux-uclibcgnueabihf/lib] ==> [/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/lib]
+  collapse library dir [/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/lib] ==> [/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/lib]
+  collapse library dir [/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib] ==> [/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib]
+  implicit libs: [c]
+  implicit dirs: [/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0;/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/lib;/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/lib;/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/usr/lib]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_17519/fast"
+make[1]: Entering directory '/usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_17519.dir/build.make CMakeFiles/cmTC_17519.dir/build
+make[2]: Entering directory '/usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_17519.dir/feature_tests.c.o
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc --sysroot=/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot   -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os   -DNDEBUG   -std=c11 -o CMakeFiles/cmTC_17519.dir/feature_tests.c.o   -c /usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/feature_tests.c
+Linking C executable cmTC_17519
+/usr/src/output/host/bin/cmake -E cmake_link_script CMakeFiles/cmTC_17519.dir/link.txt --verbose=1
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc --sysroot=/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os   -DNDEBUG    -rdynamic CMakeFiles/cmTC_17519.dir/feature_tests.c.o  -o cmTC_17519 
+make[2]: Leaving directory '/usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f5279/fast"
+make[1]: Entering directory '/usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_f5279.dir/build.make CMakeFiles/cmTC_f5279.dir/build
+make[2]: Entering directory '/usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f5279.dir/feature_tests.c.o
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc --sysroot=/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot   -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os   -DNDEBUG   -std=c99 -o CMakeFiles/cmTC_f5279.dir/feature_tests.c.o   -c /usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/feature_tests.c
+Linking C executable cmTC_f5279
+/usr/src/output/host/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f5279.dir/link.txt --verbose=1
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc --sysroot=/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os   -DNDEBUG    -rdynamic CMakeFiles/cmTC_f5279.dir/feature_tests.c.o  -o cmTC_f5279 
+make[2]: Leaving directory '/usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a76be/fast"
+make[1]: Entering directory '/usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_a76be.dir/build.make CMakeFiles/cmTC_a76be.dir/build
+make[2]: Entering directory '/usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a76be.dir/feature_tests.c.o
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc --sysroot=/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot   -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os   -DNDEBUG   -std=c90 -o CMakeFiles/cmTC_a76be.dir/feature_tests.c.o   -c /usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/feature_tests.c
+Linking C executable cmTC_a76be
+/usr/src/output/host/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a76be.dir/link.txt --verbose=1
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc --sysroot=/usr/src/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os   -DNDEBUG    -rdynamic CMakeFiles/cmTC_a76be.dir/feature_tests.c.o  -o cmTC_a76be 
+make[2]: Leaving directory '/usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/usr/src/output/build/tcf-agent-1.6.0/agent/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros

@@ -1,0 +1,1 @@
+cmd_drivers/staging/speakup/speakup.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/staging/speakup/speakup.ko drivers/staging/speakup/speakup.o drivers/staging/speakup/speakup.mod.o ;  true

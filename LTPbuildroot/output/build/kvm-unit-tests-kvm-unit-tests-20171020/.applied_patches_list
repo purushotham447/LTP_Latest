@@ -1,0 +1,2 @@
+/usr/src/package/kvm-unit-tests/0001-Makefile-remove-Werror-to-avoid-build-failures.patch
+/usr/src/package/kvm-unit-tests/0002-kvm-unit-tests-test-for-rdseed-rdrand.patch

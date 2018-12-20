@@ -1,0 +1,1 @@
+cmd_net/netfilter/nfnetlink_acct.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/netfilter/nfnetlink_acct.ko net/netfilter/nfnetlink_acct.o net/netfilter/nfnetlink_acct.mod.o ;  true

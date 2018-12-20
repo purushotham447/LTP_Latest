@@ -1,0 +1,1 @@
+cmd_drivers/i2c/muxes/i2c-mux-pca954x.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/i2c/muxes/i2c-mux-pca954x.ko drivers/i2c/muxes/i2c-mux-pca954x.o drivers/i2c/muxes/i2c-mux-pca954x.mod.o ;  true

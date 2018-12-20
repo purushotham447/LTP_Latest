@@ -1,0 +1,1 @@
+cmd_drivers/media/dvb-frontends/horus3a.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/dvb-frontends/horus3a.ko drivers/media/dvb-frontends/horus3a.o drivers/media/dvb-frontends/horus3a.mod.o ;  true

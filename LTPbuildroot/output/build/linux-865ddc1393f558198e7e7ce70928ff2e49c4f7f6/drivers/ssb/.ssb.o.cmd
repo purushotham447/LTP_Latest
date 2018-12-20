@@ -1,0 +1,1 @@
+cmd_drivers/ssb/ssb.o := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL    -r -o drivers/ssb/ssb.o drivers/ssb/main.o drivers/ssb/scan.o drivers/ssb/driver_chipcommon.o drivers/ssb/driver_chipcommon_pmu.o 

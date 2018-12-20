@@ -1,0 +1,1 @@
+/usr/bin/gcc -O2  -L/usr/src/output/host/lib -Wl,-rpath,/usr/src/output/host/lib -rdynamic CMakeFiles/pseudonl_purify.dir/ret0.c.o  -o purify 

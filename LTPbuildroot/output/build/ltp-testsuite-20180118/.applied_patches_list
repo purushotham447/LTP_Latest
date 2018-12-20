@@ -1,0 +1,2 @@
+/usr/src/package/ltp-testsuite/0001-rpc-tirpc-disable-tirpc_auth_authdes_-create-tests.patch
+/usr/src/package/ltp-testsuite/0002-numa-Fix-numa-v2-detection-for-cross-compilation.patch

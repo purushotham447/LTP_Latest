@@ -1,0 +1,1 @@
+cmd_drivers/net/usb/smsc75xx.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/net/usb/smsc75xx.ko drivers/net/usb/smsc75xx.o drivers/net/usb/smsc75xx.mod.o ;  true

@@ -1,0 +1,52 @@
+!<thin>
+//                                              518       `
+hdmi.o/
+console/dummycon.o/
+logo/logo.o/
+logo/logo_linux_clut224.o/
+backlight/backlight.o/
+fbdev/core/fb_cmdline.o/
+fbdev/core/fb_notify.o/
+fbdev/core/fbmem.o/
+fbdev/core/fbmon.o/
+fbdev/core/fbcmap.o/
+fbdev/core/fbsysfs.o/
+fbdev/core/modedb.o/
+fbdev/core/fbcvt.o/
+fbdev/core/fb_defio.o/
+fbdev/core/fbcon.o/
+fbdev/core/bitblit.o/
+fbdev/core/softcursor.o/
+fbdev/core/cfbfillrect.o/
+fbdev/core/cfbcopyarea.o/
+fbdev/core/cfbimgblt.o/
+fbdev/bcm2708_fb.o/
+display_timing.o/
+videomode.o/
+of_display_timing.o/
+of_videomode.o/
+/0              0           0     0     644     23120     `
+/8              0           0     0     644     3852      `
+/28             0           0     0     644     4752      `
+/41             0           0     0     644     6764      `
+/68             0           0     0     644     21316     `
+/91             0           0     0     644     6220      `
+/116            0           0     0     644     5004      `
+/140            0           0     0     644     36952     `
+/160            0           0     0     644     21820     `
+/180            0           0     0     644     10904     `
+/201            0           0     0     644     12668     `
+/223            0           0     0     644     29548     `
+/244            0           0     0     644     5452      `
+/264            0           0     0     644     10840     `
+/287            0           0     0     644     47248     `
+/307            0           0     0     644     7192      `
+/329            0           0     0     644     3464      `
+/354            0           0     0     644     6564      `
+/380            0           0     0     644     5024      `
+/406            0           0     0     644     5620      `
+/430            0           0     0     644     19084     `
+/450            0           0     0     644     3032      `
+/468            0           0     0     644     3948      `
+/481            0           0     0     644     9284      `
+/502            0           0     0     644     3332      `

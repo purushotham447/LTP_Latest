@@ -1,0 +1,1 @@
+cmd_drivers/i2c/busses/i2c-bcm2708.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/i2c/busses/i2c-bcm2708.ko drivers/i2c/busses/i2c-bcm2708.o drivers/i2c/busses/i2c-bcm2708.mod.o ;  true

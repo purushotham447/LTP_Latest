@@ -1,0 +1,8 @@
+kernel/drivers/staging/irda/drivers/irda-usb.ko
+kernel/drivers/staging/irda/drivers/stir4200.ko
+kernel/drivers/staging/irda/drivers/mcs7780.ko
+kernel/drivers/staging/irda/drivers/irtty-sir.ko
+kernel/drivers/staging/irda/drivers/sir-dev.ko
+kernel/drivers/staging/irda/drivers/kingsun-sir.ko
+kernel/drivers/staging/irda/drivers/ksdazzle-sir.ko
+kernel/drivers/staging/irda/drivers/ks959-sir.ko

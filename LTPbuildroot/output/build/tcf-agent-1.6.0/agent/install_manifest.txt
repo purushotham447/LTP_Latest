@@ -1,0 +1,2 @@
+/usr/sbin/tcf-agent
+/usr/lib/libtcf-agent.a

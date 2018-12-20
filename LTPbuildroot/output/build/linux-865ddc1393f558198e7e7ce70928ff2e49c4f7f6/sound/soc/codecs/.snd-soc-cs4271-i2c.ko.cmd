@@ -1,0 +1,1 @@
+cmd_sound/soc/codecs/snd-soc-cs4271-i2c.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o sound/soc/codecs/snd-soc-cs4271-i2c.ko sound/soc/codecs/snd-soc-cs4271-i2c.o sound/soc/codecs/snd-soc-cs4271-i2c.mod.o ;  true

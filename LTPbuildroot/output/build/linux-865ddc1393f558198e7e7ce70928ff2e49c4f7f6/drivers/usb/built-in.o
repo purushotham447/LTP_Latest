@@ -1,0 +1,103 @@
+!<thin>
+//                                              1160      `
+core/usb.o/
+core/hub.o/
+core/hcd.o/
+core/urb.o/
+core/message.o/
+core/driver.o/
+core/config.o/
+core/file.o/
+core/buffer.o/
+core/sysfs.o/
+core/endpoint.o/
+core/devio.o/
+core/notify.o/
+core/generic.o/
+core/quirks.o/
+core/devices.o/
+core/port.o/
+core/of.o/
+phy/of.o/
+host/dwc_otg/dwc_otg_driver.o/
+host/dwc_otg/dwc_otg_attr.o/
+host/dwc_otg/dwc_otg_cil.o/
+host/dwc_otg/dwc_otg_cil_intr.o/
+host/dwc_otg/dwc_otg_pcd_linux.o/
+host/dwc_otg/dwc_otg_pcd.o/
+host/dwc_otg/dwc_otg_pcd_intr.o/
+host/dwc_otg/dwc_otg_hcd.o/
+host/dwc_otg/dwc_otg_hcd_linux.o/
+host/dwc_otg/dwc_otg_hcd_intr.o/
+host/dwc_otg/dwc_otg_hcd_queue.o/
+host/dwc_otg/dwc_otg_hcd_ddma.o/
+host/dwc_otg/dwc_otg_adp.o/
+host/dwc_otg/dwc_otg_fiq_fsm.o/
+host/dwc_otg/dwc_otg_fiq_stub.o/
+host/dwc_common_port/dwc_cc.o/
+host/dwc_common_port/dwc_modpow.o/
+host/dwc_common_port/dwc_dh.o/
+host/dwc_common_port/dwc_crypto.o/
+host/dwc_common_port/dwc_notifier.o/
+host/dwc_common_port/dwc_common_linux.o/
+host/dwc_common_port/dwc_mem.o/
+storage/scsiglue.o/
+storage/protocol.o/
+storage/transport.o/
+storage/usb.o/
+storage/initializers.o/
+storage/sierra_ms.o/
+storage/option_ms.o/
+storage/usual-tables.o/
+common/common.o/
+
+/0              0           0     0     644     30972     `
+/12             0           0     0     644     70152     `
+/24             0           0     0     644     54972     `
+/36             0           0     0     644     27732     `
+/48             0           0     0     644     37112     `
+/64             0           0     0     644     34144     `
+/79             0           0     0     644     17424     `
+/94             0           0     0     644     7856      `
+/107            0           0     0     644     5340      `
+/122            0           0     0     644     26388     `
+/136            0           0     0     644     6232      `
+/153            0           0     0     644     37852     `
+/167            0           0     0     644     4948      `
+/182            0           0     0     644     5508      `
+/198            0           0     0     644     5000      `
+/213            0           0     0     644     9504      `
+/229            0           0     0     644     10652     `
+/242            0           0     0     644     4412      `
+/253            0           0     0     644     3696      `
+/263            0           0     0     644     28012     `
+/294            0           0     0     644     25276     `
+/323            0           0     0     644     102736    `
+/351            0           0     0     644     15716     `
+/384            0           0     0     644     14888     `
+/418            0           0     0     644     21000     `
+/446            0           0     0     644     38928     `
+/479            0           0     0     644     38964     `
+/507            0           0     0     644     14776     `
+/541            0           0     0     644     26160     `
+/574            0           0     0     644     10460     `
+/608            0           0     0     644     12296     `
+/641            0           0     0     644     11272     `
+/669            0           0     0     644     11532     `
+/701            0           0     0     644     672       `
+/734            0           0     0     644     8692      `
+/765            0           0     0     644     780       `
+/800            0           0     0     644     776       `
+/831            0           0     0     644     780       `
+/866            0           0     0     644     7080      `
+/903            0           0     0     644     88460     `
+/944            0           0     0     644     776       `
+/976            0           0     0     644     13052     `
+/996            0           0     0     644     5824      `
+/1016           0           0     0     644     19256     `
+/1037           0           0     0     644     39988     `
+/1052           0           0     0     644     2816      `
+/1076           0           0     0     644     4560      `
+/1097           0           0     0     644     3940      `
+/1118           0           0     0     644     10376     `
+/1142           0           0     0     644     12060     `

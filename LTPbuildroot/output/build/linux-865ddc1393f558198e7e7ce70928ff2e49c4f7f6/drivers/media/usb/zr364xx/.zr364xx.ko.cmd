@@ -1,0 +1,1 @@
+cmd_drivers/media/usb/zr364xx/zr364xx.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/usb/zr364xx/zr364xx.ko drivers/media/usb/zr364xx/zr364xx.o drivers/media/usb/zr364xx/zr364xx.mod.o ;  true

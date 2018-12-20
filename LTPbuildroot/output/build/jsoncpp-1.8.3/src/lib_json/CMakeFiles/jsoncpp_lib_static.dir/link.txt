@@ -1,0 +1,2 @@
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar qc libjsoncpp_static.a  CMakeFiles/jsoncpp_lib_static.dir/json_reader.cpp.o CMakeFiles/jsoncpp_lib_static.dir/json_value.cpp.o CMakeFiles/jsoncpp_lib_static.dir/json_writer.cpp.o
+/usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ranlib libjsoncpp_static.a

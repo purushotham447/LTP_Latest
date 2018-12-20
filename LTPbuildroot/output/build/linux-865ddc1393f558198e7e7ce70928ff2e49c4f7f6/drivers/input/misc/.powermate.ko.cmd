@@ -1,0 +1,1 @@
+cmd_drivers/input/misc/powermate.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/input/misc/powermate.ko drivers/input/misc/powermate.o drivers/input/misc/powermate.mod.o ;  true

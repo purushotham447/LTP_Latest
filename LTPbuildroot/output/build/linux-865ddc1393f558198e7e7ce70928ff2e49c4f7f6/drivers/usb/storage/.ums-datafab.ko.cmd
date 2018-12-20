@@ -1,0 +1,1 @@
+cmd_drivers/usb/storage/ums-datafab.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/usb/storage/ums-datafab.ko drivers/usb/storage/ums-datafab.o drivers/usb/storage/ums-datafab.mod.o ;  true

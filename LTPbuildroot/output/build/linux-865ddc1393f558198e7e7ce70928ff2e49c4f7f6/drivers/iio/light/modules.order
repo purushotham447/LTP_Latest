@@ -1,0 +1,2 @@
+kernel/drivers/iio/light/tsl4531.ko
+kernel/drivers/iio/light/veml6070.ko

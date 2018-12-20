@@ -1,0 +1,3 @@
+/usr/src/package/valgrind/0001-workaround-SIGSEGV-on-PPC.patch
+/usr/src/package/valgrind/0002-Define-PTRACE_GETSIGINFO-on-PowerPC-when-not-availab.patch
+/usr/src/package/valgrind/0004-Fixes-for-musl-libc.patch

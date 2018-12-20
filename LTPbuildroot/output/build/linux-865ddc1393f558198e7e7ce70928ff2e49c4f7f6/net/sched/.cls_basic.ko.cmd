@@ -1,0 +1,1 @@
+cmd_net/sched/cls_basic.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/sched/cls_basic.ko net/sched/cls_basic.o net/sched/cls_basic.mod.o ;  true

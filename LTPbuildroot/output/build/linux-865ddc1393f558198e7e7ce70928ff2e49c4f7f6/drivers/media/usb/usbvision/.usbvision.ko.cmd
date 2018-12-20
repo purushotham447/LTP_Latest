@@ -1,0 +1,1 @@
+cmd_drivers/media/usb/usbvision/usbvision.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/usb/usbvision/usbvision.ko drivers/media/usb/usbvision/usbvision.o drivers/media/usb/usbvision/usbvision.mod.o ;  true

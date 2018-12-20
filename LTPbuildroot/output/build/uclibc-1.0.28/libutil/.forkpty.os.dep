@@ -1,0 +1,120 @@
+libutil/forkpty.os: libutil/forkpty.c include/libc-symbols.h \
+ include/bits/uClibc_arch_features.h include/bits/uClibc_config.h \
+ include/sys/types.h include/features.h include/sys/cdefs.h \
+ include/libc-internal.h include/bits/types.h include/bits/wordsize.h \
+ include/bits/kernel_types.h include/bits/typesizes.h include/time.h \
+ /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include/stddef.h \
+ include/endian.h include/bits/endian.h include/stdint.h \
+ include/byteswap.h include/bits/byteswap.h \
+ include/bits/byteswap-common.h include/bits/byteswap-16.h \
+ include/sys/select.h include/bits/select.h include/bits/sigset.h \
+ include/bits/time.h include/sys/sysmacros.h include/bits/pthreadtypes.h \
+ include/termios.h include/bits/termios.h include/sys/ttydefaults.h \
+ include/unistd.h include/bits/posix_opt.h \
+ include/bits/uClibc_posix_opt.h include/bits/environments.h \
+ include/bits/confname.h include/bits/getopt.h include/utmp.h \
+ include/bits/utmp.h include/paths.h include/sys/time.h include/pty.h \
+ include/sys/ioctl.h include/bits/ioctls.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm/ioctls.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/ioctls.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/linux/ioctl.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm/ioctl.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/ioctl.h \
+ include/bits/ioctl-types.h
+
+include/libc-symbols.h:
+
+include/bits/uClibc_arch_features.h:
+
+include/bits/uClibc_config.h:
+
+include/sys/types.h:
+
+include/features.h:
+
+include/sys/cdefs.h:
+
+include/libc-internal.h:
+
+include/bits/types.h:
+
+include/bits/wordsize.h:
+
+include/bits/kernel_types.h:
+
+include/bits/typesizes.h:
+
+include/time.h:
+
+/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include/stddef.h:
+
+include/endian.h:
+
+include/bits/endian.h:
+
+include/stdint.h:
+
+include/byteswap.h:
+
+include/bits/byteswap.h:
+
+include/bits/byteswap-common.h:
+
+include/bits/byteswap-16.h:
+
+include/sys/select.h:
+
+include/bits/select.h:
+
+include/bits/sigset.h:
+
+include/bits/time.h:
+
+include/sys/sysmacros.h:
+
+include/bits/pthreadtypes.h:
+
+include/termios.h:
+
+include/bits/termios.h:
+
+include/sys/ttydefaults.h:
+
+include/unistd.h:
+
+include/bits/posix_opt.h:
+
+include/bits/uClibc_posix_opt.h:
+
+include/bits/environments.h:
+
+include/bits/confname.h:
+
+include/bits/getopt.h:
+
+include/utmp.h:
+
+include/bits/utmp.h:
+
+include/paths.h:
+
+include/sys/time.h:
+
+include/pty.h:
+
+include/sys/ioctl.h:
+
+include/bits/ioctls.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm/ioctls.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/ioctls.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/linux/ioctl.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm/ioctl.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/ioctl.h:
+
+include/bits/ioctl-types.h:
+cmd_libutil_forkpty.os := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc -c libutil/forkpty.c -o libutil/forkpty.os -Wall -Wstrict-prototypes -Wstrict-aliasing -funsigned-char -fno-builtin -fno-asm -fmerge-all-constants -std=gnu99 -mlittle-endian -fno-stack-protector -nostdinc -Iinclude -Iinclude -include libc-symbols.h -Ilibc/sysdeps/linux/arm -Ilibc/sysdeps/linux -Ildso/ldso/arm -Ildso/include -I. -Os -fstrict-aliasing -D__USE_STDIO_FUTEXES__ -DHAVE_FORCED_UNWIND -D_LIBC_REENTRANT -Ilibpthread/nptl -Ilibpthread/nptl -Ilibpthread/nptl/sysdeps/unix/sysv/linux/arm -Ilibpthread/nptl/sysdeps/arm -Ilibpthread/nptl/sysdeps/arm -Ilibpthread/nptl/sysdeps/unix/sysv/linux -Ilibpthread/nptl/sysdeps/unix/sysv/linux -Ilibpthread/nptl/sysdeps/pthread -Ilibpthread/nptl/sysdeps/pthread/bits -Ilibpthread/nptl/sysdeps/generic -Ilibc/sysdeps/linux/common -isystem /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include-fixed -isystem /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include -I/usr/src/output/build/linux-headers-4.14.33/usr/include/ -DNDEBUG -DNOT_IN_libc -DIS_IN_libutil -DIN_LIB=libutil -fPIC -MT libutil/forkpty.os -MD -MP -MF libutil/.forkpty.os.dep

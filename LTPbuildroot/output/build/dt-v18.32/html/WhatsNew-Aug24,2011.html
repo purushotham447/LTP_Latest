@@ -1,0 +1,114 @@
+<HTML>
+<HEAD>
+<TITLE>Data Test Program (dt) August 24th, 2011</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#D19275">
+
+<CENTER><H2><STRONG>What's New as of August 24th, 2011</STRONG></H2></CENTER>
+
+<H2>Changes For This Release</H2>
+The following changes were made to <I>dt</I> Version 17.51:
+<UL>
+<LI>
+Added enable=fsincr option allow incrementing file sizes. Basically, the 1st
+file starts at 512 bytes, 2nd at 1024, etc. up to the limit you specified.
+<p>
+Options Added:
+<pre>
+    fsincr           File size incrementing.(Default: disabled)
+</pre>
+<p>
+<li>
+When using IOT data pattern, the maximum bad blocks reported is now 10.
+One block was deemed to little, reporting all bad blocks was deemed too much!
+Please use the maxbad=value parameter to change this default.
+<p>
+<li>
+Added an option to allow <i>dt</i> to be stopped during long runs via checking for the
+exisstance of a file.
+<p>
+Options Added:
+<pre>
+    stopon=filename  Watch for file existance, then stop.
+</pre>
+<i>dt</i> checks for this at the end of a pass, so after a write/read and verify.
+Remember: When specifying multiple files and multiple directories, all of these must
+be written, read, and verified to make up a single pass.
+<p>
+<li>
+For those using microsecond delays, as part of I/O Tuning, bust wait code to obtain
+small microsecond delays has been removed, since it consumed too much CPU! This was
+very noticible on systems with a single CPU. Therefore, only millisecond delays are
+possible. Remember, these delays occured between each read or write operation.
+<p>
+<li>
+Please be aware, the format of no-progress messages has been enhanced to provide the
+lba and file offset, to help with debugging:
+<pre>
+	dt (15762): No progress made for record 395 (lba 97288, offset 49811568) during write() on /var/tmp/dt.data-15762 for 6 seconds!
+</pre>
+<p>
+<li>
+On Linux with AIO's enabled (implemented as threads), when <i>dt</i> terminates due to
+a runtime or signal, the thread cancel type is changed to asynchronous to terminate
+threads immediately, rather than deferred, to avoid a race when doing cleanup.
+<p>
+<li>
+When doing file system testing with direct I/O (DIO), <i>dt</i> now ensures the block
+sizes and data limit is modulo 512 bytes, which is required on Linux to avoid false errors.
+<p>
+<li>
+On Windows, input values can now be 64-bit values (was limited to 32-bit previously).
+<p>
+<li>
+For Windows, OS specific methods are now used to obtain the disk capacity and sector size.
+This bypasses the previous internal logic previously used to determine the disk capacity,
+necessary for random and reverse I/O.
+<p>
+</ul>
+<P>
+<CENTER>Within NetApp, the updated <I>dt</I> kits are located @ URL:</CENTER>
+<P>
+<CENTER><A HREF="http://web.rtp.netapp.com/~rtmiller/dt.html">http://web.rtp.netapp.com/~rtmiller/dt.html</A></CENTER>
+<P>
+<CENTER>External to NetApp, you can obtain <I>dt</I> kits from URL:</CENTER>
+<P>
+<CENTER>TBD</CENTER>
+</UL>
+<HR>
+<A HREF="mailto:Robin.Miller@netapp.com"><IMG SRC="../gifs/mailbox.gif" ALT="Mail"></A>
+Send mail to admin of this page: <EM>Robin.Miller@netapp.com</EM>
+<A HREF="../index.html"><IMG SRC="../gifs/home04.gif" ALT="Home"></A>
+To Robin's home page.
+<P>
+Last Modified: August 24th, 2011
+<HR>
+
+<H2>Examples:</H2>
+<HR SIZE=5 NOSHADE>
+<pre>
+robin-ptc% <b>dt version</b>
+    --> Date: August 18th, 2011, Version: 17.51, Author: Robin T. Miller <--
+robin-ptc% <b>dt of=dt.data enable=fsincr files=10 limit=10m disable=stats dispose=keep</b>
+robin-ptc% ls -ls
+total 48
+4 -rw-r--r-- 1 rtmiller gopher  512 Aug 24 16:01 dt.data-00000001
+4 -rw-r--r-- 1 rtmiller gopher 1024 Aug 24 16:01 dt.data-00000002
+4 -rw-r--r-- 1 rtmiller gopher 1536 Aug 24 16:01 dt.data-00000003
+4 -rw-r--r-- 1 rtmiller gopher 2048 Aug 24 16:01 dt.data-00000004
+4 -rw-r--r-- 1 rtmiller gopher 2560 Aug 24 16:01 dt.data-00000005
+4 -rw-r--r-- 1 rtmiller gopher 3072 Aug 24 16:01 dt.data-00000006
+4 -rw-r--r-- 1 rtmiller gopher 3584 Aug 24 16:01 dt.data-00000007
+4 -rw-r--r-- 1 rtmiller gopher 4096 Aug 24 16:01 dt.data-00000008
+8 -rw-r--r-- 1 rtmiller gopher 4608 Aug 24 16:01 dt.data-00000009
+8 -rw-r--r-- 1 rtmiller gopher 5120 Aug 24 16:01 dt.data-00000010
+robin-ptc% 
+robin-ptc% <b>dt of=dt.data bs=511 count=1 disable=stats flags=direct</b>
+dt: ERROR: Please specify a block size (511) modulo the device size of 512 bytes!
+robin-ptc% <b>dt of=dt.data bs=512 limit=1023 count=2 disable=stats flags=direct</b>
+dt: ERROR: Please specify a data limit (1023) modulo the device size of 512 bytes!
+robin-ptc% 
+</pre>
+</BODY>
+</HTML>

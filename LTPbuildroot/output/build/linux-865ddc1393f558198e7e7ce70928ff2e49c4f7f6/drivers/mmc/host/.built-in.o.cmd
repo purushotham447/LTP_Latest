@@ -1,0 +1,1 @@
+cmd_drivers/mmc/host/built-in.o :=  rm -f drivers/mmc/host/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/mmc/host/built-in.o drivers/mmc/host/sdhci.o drivers/mmc/host/bcm2835-mmc.o drivers/mmc/host/bcm2835-sdhost.o drivers/mmc/host/sdhci-pltfm.o 

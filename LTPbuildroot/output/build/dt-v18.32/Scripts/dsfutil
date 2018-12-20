@@ -1,0 +1,348 @@
+#!/usr/bin/ksh -p
+#
+# Date:    April 2, 2003
+# Author:  Robin T. Miller
+# Program: dsfutil
+#
+# Description:
+#	Simple script to handle device special files (dsf's).  It will
+# map between old and new dsf's, and convert between block and character
+# (raw) device names.
+#
+# Exit Status: 0 = Success, 1 = Warning, 2 = Error
+#
+# Modification History:
+#
+# July 16th, 2004 by Mona Pepin.
+#       Modify quorum option to utilize clu_reg utility and removed
+# the use of lsdev to verify the major number.
+#
+# June 29th, 2004 by Robin T. Miller.
+#	Cache device directories, to speed up mapping which is necessary
+# when there are hundreds of DSF's to serach.
+#
+# August 9th, 2003 by Robin T. Miller.
+#	Change "show edt did" to "show edt uid" to get unique ID.
+# This latter command will obtain the device ID or serial number, and
+# in the case of tapes and medium changers, only serial # is available.
+#
+# August 8th, 2003 by Robin T. Miller.
+#	Added "L" option to 'ls' commands to follow symbolic link to
+# real device directories, which have been moved under /cdev directory.
+#
+# May 29th, 2003 by Robin T. Miller.
+#	Defined variables to point at /sbin and /usr/sbin tools, so
+# this script can be used without these part of the users' PATH.
+#
+# May 27th, 2003 by Robin T. Miller
+#	Update -quorum to handle check of qdisk minor number better,
+# so 'ls' output will be matched.  e.g. 0x4567 and 0x04567, stripping
+# "0x" allows match to complete successfully.
+#
+# May 23rd, 2003 by Robin T. Miller
+#	Added -clean option to remove scu's cached file.
+#
+# May 22nd, 2003 by Robin T. Miller
+#	Added -isefi option to check for IA64 EFI partition.
+#	Added -paths option to display all dsf's to a device.
+#	Also cache Scu's "show edt did raw" to a temporary file,
+# to improve performance.  This file is deleted and recreated when
+# this file if older than 1 day.  Reconfig's require manual delete!
+# This also reduces the "Invalid Request" msgs emitted by drivers.
+#
+# April 7th, 2003 by Robin T. Miller
+#	Added -uid option to locate the devices' unique ID via Scu.
+#
+# April 4th, 2003 by Robin T. Miller
+#	Added -quorum option to find and display the quorum disk.
+#
+
+#set -x
+
+typeset bdsk="/dev/dsk"
+typeset rdsk="/dev/rdsk"
+typeset bdisk="/dev/disk"
+typeset rdisk="/dev/rdisk"
+typeset EdtTmpFile="/tmp/ScuShowEdt.dat"
+typeset OldDsfsFile="/tmp/OldDsfs.dat"
+typeset NewDsfsFile="/tmp/NewDsfs.dat"
+
+typeset prog=${0##*/}
+
+#
+# Define these incase PATH doesn't include them:
+#
+typeset SCU=${SCU:-/sbin/scu} 
+typeset CLU_INFO=${CLU_INFO:-/sbin/clu_get_info} 
+typeset CLU_REG=${CLU_REG:-/usr/sbin/tcr/clu_reg}
+typeset DSFUTIL=${DSFUTIL:-/sbin/dsfutil}
+
+function usage
+{
+    print "Usage: $prog { -block | -raw | -mapped | -isefi | -paths | -uid } dsf"
+    print "               { -clean | -quorum }"
+    print "\nWhere:"
+    print "    -block dsf   Maps dsf to a block device."
+    print "    -raw dsf     Maps dsf to a raw (character) device."
+    print "    -mapped dsf  Maps old dsf to new or new dsf to old."
+    print "    -clean       Cleanup cached data file(s) (if any)."
+    print "    -isefi dsf   Checks for EFI disk (0=True, 1=False)"
+    print "    -paths dsf   Display all dsf paths to this device."
+    print "    -quorum      Finds and displays the quorum disk."
+    print "    -uid dsf     Display the devices' unique ID."
+    print "\n    dsf = The device special file."
+    print "\nLast Updated: June 29th, 2004 by Robin T. Miller"
+    exit 1
+}
+
+[[ $# -lt 1 ]] && usage
+
+function error
+{
+    print -u2 "$prog: error - $*"
+    exit 2
+}
+
+#
+# initdsfs - Create data files for DSF lookups for speed.
+#
+function initdsfs
+{
+    # delete if more than a day old!
+    if [[ -f $ ]]; then
+	deleteme=$(find $OldDsfsFile ! -mtime -1 -print)
+	if [[ -n "$deleteme" ]]; then
+	    rm $OldDsfsFile
+	    rm $NewDsfsFile
+	fi
+    fi
+    # recreate it, if it doesn't exist.
+    if [[ ! -f $OldDsfsFile ]]; then
+        ls -lL $rdsk > $OldDsfsFile
+        ls -lL $rdisk > $NewDsfsFile
+    fi
+}
+
+#
+# initedt - Create data file to avoid excessive Scu cmds.
+#
+function initedt
+{
+    # delete if more than a day old!
+    if [[ -f $EdtTmpFile ]]; then
+	deleteme=$(find $EdtTmpFile ! -mtime -1 -print)
+	if [[ -n "$deleteme" ]]; then
+	    rm $EdtTmpFile
+	fi
+    fi
+    # recreate it, if it doesn't exist.
+    if [[ ! -f $EdtTmpFile ]]; then
+	$SCU show edt uid raw > $EdtTmpFile
+    fi
+}
+
+option=$1
+
+[[ $# -ge 2 ]] &&
+{
+    dsf=$2
+    dev=${dsf##*/}
+    dir=$(dirname $dsf)
+}
+
+#
+# Note: We're only worried about disk devices right now.
+#
+case $option in
+
+    -block)
+	[[ $# -lt 2 ]] && usage
+	if [[ $dir = "." ]]; then
+	    case $dev in
+		dsk*)	dir=$bdisk
+			;;
+		*)	dir=$bdsk
+			;;
+	    esac
+	fi
+	if [[ $dir = $bdsk ]]; then 
+	    dsf=$dir/$dev
+	elif [[ $dir = $rdsk ]]; then
+	    dsf=$bdsk/$dev
+	elif [[ $dir = $bdisk ]]; then
+	    dsf=$bdisk/$dev
+	elif [[ $dir = $rdisk ]]; then
+	    dsf=$bdisk/$dev
+	else
+	    error "don't know about $dir!"
+	fi
+	print $dsf
+	;;
+
+    -raw)
+	[[ $# -lt 2 ]] && usage
+	if [[ $dir = "." ]]; then
+	    case $dev in
+		dsk*)	dir=$rdisk
+			;;
+		*)	dir=$rdsk
+			;;
+	    esac
+	fi
+	if [[ $dir = $bdsk ]]; then 
+	    dsf=$rdsk/$dev
+	elif [[ $dir = $rdsk ]]; then
+	    dsf=$rdsk/$dev
+	elif [[ $dir = $bdisk ]]; then
+	    dsf=$rdisk/$dev
+	elif [[ $dir = $rdisk ]]; then
+	    dsf=$rdisk/$dev
+	else
+	    error "don't know about $dir!"
+	fi
+	print $dsf
+	;;
+
+    -map*)
+	[[ $# -lt 2 ]] && usage
+	initdsfs
+	if [[ $dir = "." ]]; then
+	    case $dev in
+		dsk*)	dir=$rdisk
+			;;
+		*)	dir=$rdsk
+			;;
+	    esac
+	    dsf=$dir/$dev
+	fi
+	case $dir in
+	    *dsk*)	dsfsFile=$OldDsfsFile
+			;;
+	    *disk*)	dsfsFile=$NewDsfsFile
+			;;
+	    *)		error "don't know about $dir!"
+			;;
+	esac
+	#    	
+	# Fields expected from ls (spaces squished):
+	#     $1    $2 $3  $4  $5      $6   $7  $8  $9       ${10}
+	# crw-r----- 1 bin sys 188 0x002000 Mar 25 14:45 /dev/rdsk/c0t2d0
+	#
+ 	#result=$(ls -lL $dsf 2>&1)
+	#[[ $? -ne 0 ]] && error $result
+	result=$(fgrep $dev $dsfsFile 2>&1)
+	[[ $? -ne 0 ]] && error "didn't find $dev in $dsfsFile!"
+	set -- $result
+	minor=$6
+	if [[ $dir = $bdsk ]]; then
+	    dir=$bdisk
+	    dsfsFile=$NewDsfsFile
+	elif [[ $dir = $rdsk ]]; then
+	    dir=$rdisk
+	    dsfsFile=$NewDsfsFile
+	elif [[ $dir = $bdisk ]]; then
+	    dir=$bdsk
+	    dsfsFile=$OldDsfsFile
+	elif [[ $dir = $rdisk ]]; then
+	    dir=$rdsk
+	    dsfsFile=$OldDsfsFile
+	else
+	    error "don't know about $dir!"
+	fi
+	#result=$(ls -lL $dir | fgrep $minor)
+	#[[ $? -ne 0 ]] && error "didn't find minor number $minor in $dir!"
+	result=$(fgrep $minor $dsfsFile 2>&1)
+	[[ $? -ne 0 ]] && error "didn't find minor number $minor in $dsfsFile!"
+	set -- $result
+	print $dir/${10}
+	;;
+
+    -clean)
+	if [[ -f $EdtTmpFile ]]; then
+	    rm $EdtTmpFile
+	fi
+	if [[ -f $OldDsfsFile ]]; then
+	    rm $OldDsfsFile
+	    rm $NewDsfsFile
+	fi
+	;;
+
+    -isefi)
+	# idisk only exists on IA64 systems.
+	if [ -n "$(whence idisk)" ] ; then
+	    # Must be after CD-ROM check, cause idisk core dumps on these!
+	    if idisk -qv $dsf 2>/dev/null ; then
+		exit 0
+	    fi
+	else
+	    # Non-IA64, search for "EFI PART" signature in the EFI header.
+	    if dd if=$dsf skip=1 count=1 2>/dev/null | strings | grep -q "TRAP IFE" ; then
+		exit 0
+	    fi
+	fi
+	exit 1
+	;;
+
+    -paths)
+	[[ $# -lt 2 ]] && usage
+	initedt
+	uid=$($DSFUTIL -uid $dsf) || exit $?
+	IFS="|"
+	# find all devices with this uid.
+	fgrep "$uid" $EdtTmpFile |
+	while read dsfs bus tid lun dtype scsi pid vid rev uid; do
+	    echo $dsfs | awk '{ for (i = 1; i <= NF; i++) {
+				  if (match ($i, "/dev/")) { print $i }
+				}
+			      }'
+	done
+	;;
+
+    -quorum) 
+        clu_stat=$($CLU_INFO -q) 
+        [[ $? -ne 0 ]] && error "System not configured to be in a cluster!\n"
+	quorum_vote=$($CLU_REG -g clubase/Clu_qdisk_votes 2>/dev/null | \
+                sed -n -e 's/.*=//p') 
+        [[ ${quorum_vote} -eq 0 ]] && error "didn't find quorum disk"
+        qmajor=$($CLU_REG -g clubase/Clu_qdisk_major  2>/dev/null | \
+                sed -n -e 's/.*=//p') 
+        [[ ${qmajor} -ne 196 ]]  && error "didn't find Clu_qdisk_major!"
+	qminor=$($CLU_REG -g clubase/Clu_qdisk_minor  2>/dev/null | \
+                sed -n -e 's/.*=//p')
+        [[ qminor -eq 0 ]] && error "didn't find Clu_qdisk_minor!"
+   
+	if [[ -d $rdisk ]] ; then
+	    dskdir=$rdisk
+	else
+	    dskdir=$rdsk
+	fi
+        # Convert qminor to hex and lowercase  
+        qminor_hex=$(print 16 o 0 ${qminor}p | /usr/bin/dc | tr '[A-Z]' '[a-z]')
+	result=$(ls -lL $dskdir | fgrep ${qminor_hex#0x} 2>&1)
+	[[ $? -ne 0 ]] && error "didn't find qdisk minor number $qminor!"
+	set -- $result
+	print $dskdir/${10}
+	;;
+
+    -uid)
+	[[ $# -lt 2 ]] && usage
+	initedt
+	edt_info=$(fgrep $dev $EdtTmpFile)
+	[[ $? -ne 0 ]] && error "didn't find EDT info for $dev!"
+	#
+	# Fields expected:
+	# $1    $2  $3  $4  $5    %6      $7         $8        $9      $10
+	# dsf's|bus|tid|lun|dtype|scsi|product ID|vendor ID|revision|unique ID
+	#
+	IFS="|"
+	set -- $edt_info
+	print ${10}
+	;;
+
+    *)	print -u2 "$prog: unknown option: $option"
+	usage
+	exit 1
+	;;
+
+esac
+exit 0

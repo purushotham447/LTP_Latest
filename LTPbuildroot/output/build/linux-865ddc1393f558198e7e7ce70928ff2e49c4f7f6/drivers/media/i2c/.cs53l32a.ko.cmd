@@ -1,0 +1,1 @@
+cmd_drivers/media/i2c/cs53l32a.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/i2c/cs53l32a.ko drivers/media/i2c/cs53l32a.o drivers/media/i2c/cs53l32a.mod.o ;  true

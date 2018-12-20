@@ -1,0 +1,1 @@
+cmd_drivers/input/input-core.o := rm -f drivers/input/input-core.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/input/input-core.o drivers/input/input.o drivers/input/input-compat.o drivers/input/input-mt.o drivers/input/ff-core.o

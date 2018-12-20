@@ -1,0 +1,3 @@
+kernel/drivers/net/ethernet/microchip/enc28j60.ko
+kernel/drivers/net/ethernet/qualcomm/qca_7k_common.ko
+kernel/drivers/net/ethernet/qualcomm/qcaspi.ko

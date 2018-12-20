@@ -1,0 +1,5 @@
+@set version-GCC 6.4.0
+@clear DEVELOPMENT
+@set srcdir /usr/src/output/build/host-gcc-final-6.4.0/build/gcc/../../gcc
+@set VERSION_PACKAGE (Buildroot 2018.02.1-gba7f6ed-dirty) 
+@set BUGURL @uref{http://bugs.buildroot.net/}

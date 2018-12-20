@@ -1,0 +1,1 @@
+cmd_drivers/net/ethernet/synopsys/built-in.o :=  rm -f drivers/net/ethernet/synopsys/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/net/ethernet/synopsys/built-in.o

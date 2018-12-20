@@ -1,0 +1,1 @@
+cmd_drivers/watchdog/built-in.o :=  rm -f drivers/watchdog/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/watchdog/built-in.o drivers/watchdog/watchdog.o drivers/watchdog/bcm2835_wdt.o 

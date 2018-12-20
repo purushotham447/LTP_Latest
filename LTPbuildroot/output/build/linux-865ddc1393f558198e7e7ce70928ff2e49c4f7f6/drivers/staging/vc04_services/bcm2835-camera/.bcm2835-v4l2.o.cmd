@@ -1,0 +1,1 @@
+cmd_drivers/staging/vc04_services/bcm2835-camera/bcm2835-v4l2.o := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL    -r -o drivers/staging/vc04_services/bcm2835-camera/bcm2835-v4l2.o drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.o drivers/staging/vc04_services/bcm2835-camera/controls.o drivers/staging/vc04_services/bcm2835-camera/mmal-vchiq.o 

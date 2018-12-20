@@ -1,0 +1,1 @@
+cmd_drivers/tty/serdev/serdev.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/tty/serdev/serdev.ko drivers/tty/serdev/serdev.o drivers/tty/serdev/serdev.mod.o ;  true

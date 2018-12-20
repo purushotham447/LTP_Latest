@@ -1,0 +1,1 @@
+cmd_drivers/rtc/rtc-em3027.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/rtc/rtc-em3027.ko drivers/rtc/rtc-em3027.o drivers/rtc/rtc-em3027.mod.o ;  true

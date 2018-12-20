@@ -1,0 +1,1 @@
+cmd_sound/soc/bcm/snd-soc-bcm2835-i2s.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o sound/soc/bcm/snd-soc-bcm2835-i2s.ko sound/soc/bcm/snd-soc-bcm2835-i2s.o sound/soc/bcm/snd-soc-bcm2835-i2s.mod.o ;  true

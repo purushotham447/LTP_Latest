@@ -1,0 +1,1 @@
+cmd_sound/soc/bcm/snd-soc-audioinjector-pi-soundcard.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o sound/soc/bcm/snd-soc-audioinjector-pi-soundcard.ko sound/soc/bcm/snd-soc-audioinjector-pi-soundcard.o sound/soc/bcm/snd-soc-audioinjector-pi-soundcard.mod.o ;  true

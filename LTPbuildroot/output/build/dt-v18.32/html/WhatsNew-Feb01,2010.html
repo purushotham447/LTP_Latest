@@ -1,0 +1,137 @@
+<HTML>
+<HEAD>
+<TITLE>Data Test Program (dt) February 1st, 2010</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#D19275">
+
+<CENTER><H2><STRONG>What's New as of February 1st, 2010</STRONG></H2></CENTER>
+
+<H2>Changes For This Release</H2>
+This release added a couple options to help with file system parameters
+added in version 17.05.
+<p>
+The new options added are:
+<pre>
+        maxdata= (limit the data created for all files)
+       maxfiles= (limit the number of files for all directories)
+
+      These ideas come from IBM's Blast Tool!
+</pre>
+<P>
+The following changes were made to <I>dt</I> Version 17.07:
+<UL>
+<LI>
+The maximum data created by all files can be specified via the maxdata= option.
+This is useful if you know the file system space, and wish to either divide this
+space between multiple test clients (NAS testing), or prevent <i>dt</i> from
+encountering a file system full condition (which is handled properly now).
+<p>
+Option Format:
+<pre>
+    maxdata=value      The maximum data limit (all files).
+</pre>
+<p>
+<li>
+The maximim files created by in all directories can be specified via the maxfiles= option.
+This is useful if you don't wish to do the math to figure out how many files per directory
+and/or subdirectory are required to say create 1 million files.
+<p>
+Option Format:
+<pre>
+    maxfiles=value   The maximum files for all directories.
+</pre>
+<p>
+<li>
+The directory path, previously required via the dir=path option, is now
+optional, if you of= or if= options specify a directory path. dt will detect
+the path, and automatically setup the directory path for you, making it easier
+to add multiple files/directories to existing scripts.
+<p>
+<pre>
+   Before: dir=/var/tmp of=dt.data (two parameters)
+       Now: of=/var/tmp/dt.data gets broken into dir=/var/tmp of=dt.data
+</pre>
+Note: This setting of dir= is only done when multiple files is selected, so
+files=, sdir=, and/or depth= options must be specified. But now, one can easily
+add say DT_PASS_THRU="files=1k sdirs=100 depth=10" to enable multiple files.
+<p>
+One Bug Fix Included: When dir=path was specified, if the last part of the
+path was NOT created by dt (it already existed), then dt erroneously deleted
+the directory. For example: dir=/var/tmp/dtdir, directory dtdir was deleted
+if it previosuly existed.
+<p>
+<li>
+Switched to using GetFileAttributesEx() on Windows so the 64 bit
+file size can be obtained. Previous stat() method returns only 32 bits
+for file size (st_size), which limits us to 2GB (signed 32-bit value).
+</ul>
+<P>
+<CENTER>Within NetApp, the updated <I>dt</I> kits are located @ URL:</CENTER>
+<P>
+<CENTER><A HREF="http://web.rtp.netapp.com/~rtmiller/dt.html">http://web.rtp.netapp.com/~rtmiller/dt.html</A></CENTER>
+<P>
+<CENTER>External to NetApp, you can obtain <I>dt</I> kits from URL:</CENTER>
+<P>
+<CENTER>TBD</CENTER>
+</UL>
+<HR>
+<A HREF="mailto:Robin.Miller@netapp.com"><IMG SRC="../gifs/mailbox.gif" ALT="Mail"></A>
+Send mail to admin of this page: <EM>Robin.Miller@netapp.com</EM>
+<A HREF="../index.html"><IMG SRC="../gifs/home04.gif" ALT="Home"></A>
+To Robin's home page.
+<P>
+Last Modified: March 1st, 2010
+<HR>
+
+<H2>Examples:</H2>
+<HR SIZE=5 NOSHADE>
+<pre>
+hyde% <b>dt version</b>
+    --> Date: February 1st, 2010, Version: 17.07, Author: Robin T. Miller <--
+hyde% <b>dt of=/var/tmp/dtdir/dt.data count=1 files=15 sdirs=100 maxfiles=100 disable=pstats</b>
+dt: End of Write pass 0/1, 100 blocks, 0.049 Mbytes, 1 records, errors 0/1, elapsed 00m01.40s
+dt: End of Read pass 1/1, 100 blocks, 0.049 Mbytes, 1 records, errors 0/1, elapsed 00m00.00s
+
+Total Statistics:
+     Output device/file name: /var/tmp/dtdir/d6/dt.data-00000010 (device type=regular)
+     Type of I/O's performed: sequential (forward)
+   Data pattern read/written: 0x66673326
+     Total records processed: 200 @ 512 bytes/record (0.500 Kbytes)
+     Total bytes transferred: 102400 (100.000 Kbytes, 0.098 Mbytes)
+      Average transfer rates: 73143 bytes/sec, 71.429 Kbytes/sec
+     Number I/O's per second: 142.857
+      Total passes completed: 1/1
+       Total files processed: 200/1515  <- (100 written, 100 read)
+       Total errors detected: 0/1
+          Total elapsed time: 00m01.40s
+           Total system time: 00m00.07s
+             Total user time: 00m00.00s
+               Starting time: Mon Mar  1 13:51:35 2010
+                 Ending time: Mon Mar  1 13:51:37 2010
+
+hyde% <b>dt of=/var/tmp/dtdir/dt.data count=1 files=15 sdirs=250 maxdata=1m disable=pstats</b>
+dt: End of Write pass 0/1, 2048 blocks, 1.000 Mbytes, 1 records, errors 0/1, elapsed 00m28.98s
+dt: End of Read pass 1/1, 2048 blocks, 1.000 Mbytes, 1 records, errors 0/1, elapsed 00m00.10s
+
+Total Statistics:
+     Output device/file name: /var/tmp/dtdir/d136/dt.data-00000008 (device type=regular)
+     Type of I/O's performed: sequential (forward)
+   Data pattern read/written: 0x33333333
+     Total records processed: 4096 @ 512 bytes/record (0.500 Kbytes)
+     Total bytes transferred: 2097152 (2048.000 Kbytes, 2.000 Mbytes)
+      Average transfer rates: 72117 bytes/sec, 70.426 Kbytes/sec
+     Number I/O's per second: 140.853
+      Total passes completed: 1/1
+       Total files processed: 4096/7530
+       Total errors detected: 0/1
+          Total elapsed time: 00m29.08s
+           Total system time: 00m01.28s
+             Total user time: 00m00.12s
+               Starting time: Mon Mar  1 13:55:47 2010
+                 Ending time: Mon Mar  1 13:56:16 2010
+
+hyde% 
+</pre>
+</BODY>
+</HTML>

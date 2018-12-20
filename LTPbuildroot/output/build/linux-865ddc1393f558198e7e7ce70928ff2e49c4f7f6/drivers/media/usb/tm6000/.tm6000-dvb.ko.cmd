@@ -1,0 +1,1 @@
+cmd_drivers/media/usb/tm6000/tm6000-dvb.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/usb/tm6000/tm6000-dvb.ko drivers/media/usb/tm6000/tm6000-dvb.o drivers/media/usb/tm6000/tm6000-dvb.mod.o ;  true

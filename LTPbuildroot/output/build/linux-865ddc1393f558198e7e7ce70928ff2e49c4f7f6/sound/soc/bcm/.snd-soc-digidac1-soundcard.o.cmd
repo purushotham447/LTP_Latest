@@ -1,0 +1,1 @@
+cmd_sound/soc/bcm/snd-soc-digidac1-soundcard.o := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL    -r -o sound/soc/bcm/snd-soc-digidac1-soundcard.o sound/soc/bcm/digidac1-soundcard.o 

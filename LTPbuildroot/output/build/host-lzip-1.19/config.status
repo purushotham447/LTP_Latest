@@ -1,0 +1,8 @@
+#! /bin/sh
+# This file was generated automatically by configure. Don't edit.
+# Run this file to recreate the current configuration.
+#
+# This script is free software: you have unlimited permission
+# to copy, distribute and modify it.
+
+exec /bin/sh ./configure  "--prefix=/home/epl/LTIB/LTP_Source/home/epl/LTPbuildroot/output/host" "PATH=/home/epl/LTIB/LTP_Source/home/epl/LTPbuildroot/output/host/bin:/home/epl/LTIB/LTP_Source/home/epl/LTPbuildroot/output/host/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin" "PKG_CONFIG=/home/epl/LTIB/LTP_Source/home/epl/LTPbuildroot/output/host/bin/pkg-config" "PKG_CONFIG_SYSROOT_DIR=/" "PKG_CONFIG_ALLOW_SYSTEM_CFLAGS=1" "PKG_CONFIG_ALLOW_SYSTEM_LIBS=1" "PKG_CONFIG_LIBDIR=/home/epl/LTIB/LTP_Source/home/epl/LTPbuildroot/output/host/lib/pkgconfig:/home/epl/LTIB/LTP_Source/home/epl/LTPbuildroot/output/host/share/pkgconfig" "AR=/usr/bin/ar" "AS=/usr/bin/as" "LD=/usr/bin/ld" "NM=/usr/bin/nm" "CC=/usr/bin/gcc" "GCC=/usr/bin/gcc" "CXX=g++" "CPP=/usr/bin/cpp" "OBJCOPY=/usr/bin/objcopy" "RANLIB=/usr/bin/ranlib" "CPPFLAGS=-I/home/epl/LTIB/LTP_Source/home/epl/LTPbuildroot/output/host/include" "CFLAGS=-O2 -I/home/epl/LTIB/LTP_Source/home/epl/LTPbuildroot/output/host/include" "CXXFLAGS=-O2 -I/home/epl/LTIB/LTP_Source/home/epl/LTPbuildroot/output/host/include" "LDFLAGS=-L/home/epl/LTIB/LTP_Source/home/epl/LTPbuildroot/output/host/lib -Wl,-rpath,/home/epl/LTIB/LTP_Source/home/epl/LTPbuildroot/output/host/lib" "INTLTOOL_PERL=/usr/bin/perl" --no-create

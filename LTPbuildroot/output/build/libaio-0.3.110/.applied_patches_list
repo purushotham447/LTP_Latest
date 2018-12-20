@@ -1,0 +1,3 @@
+/usr/src/package/libaio/0001-arches.patch
+/usr/src/package/libaio/0002-src-Makefile-add-ENABLE_SHARED-boolean-to-allow-stat.patch
+/usr/src/package/libaio/0003-destdir.patch

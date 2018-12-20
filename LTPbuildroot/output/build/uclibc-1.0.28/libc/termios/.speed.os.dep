@@ -1,0 +1,53 @@
+libc/termios/speed.os: libc/termios/speed.c include/libc-symbols.h \
+ include/bits/uClibc_arch_features.h include/bits/uClibc_config.h \
+ /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include/stddef.h \
+ include/errno.h include/features.h include/sys/cdefs.h \
+ include/libc-internal.h include/bits/errno.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/linux/errno.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm/errno.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/errno.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/errno-base.h \
+ include/termios.h include/bits/types.h include/bits/wordsize.h \
+ include/bits/kernel_types.h include/bits/typesizes.h \
+ include/bits/termios.h include/sys/ttydefaults.h
+
+include/libc-symbols.h:
+
+include/bits/uClibc_arch_features.h:
+
+include/bits/uClibc_config.h:
+
+/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include/stddef.h:
+
+include/errno.h:
+
+include/features.h:
+
+include/sys/cdefs.h:
+
+include/libc-internal.h:
+
+include/bits/errno.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/linux/errno.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm/errno.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/errno.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/errno-base.h:
+
+include/termios.h:
+
+include/bits/types.h:
+
+include/bits/wordsize.h:
+
+include/bits/kernel_types.h:
+
+include/bits/typesizes.h:
+
+include/bits/termios.h:
+
+include/sys/ttydefaults.h:
+cmd_libc_termios_speed.os := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc -c libc/termios/speed.c -o libc/termios/speed.os -Wall -Wstrict-prototypes -Wstrict-aliasing -funsigned-char -fno-builtin -fno-asm -fmerge-all-constants -std=gnu99 -mlittle-endian -fno-stack-protector -nostdinc -Iinclude -Iinclude -include libc-symbols.h -Ilibc/sysdeps/linux/arm -Ilibc/sysdeps/linux -Ildso/ldso/arm -Ildso/include -I. -Os -fstrict-aliasing -D__USE_STDIO_FUTEXES__ -DHAVE_FORCED_UNWIND -D_LIBC_REENTRANT -Ilibpthread/nptl -Ilibpthread/nptl -Ilibpthread/nptl/sysdeps/unix/sysv/linux/arm -Ilibpthread/nptl/sysdeps/arm -Ilibpthread/nptl/sysdeps/arm -Ilibpthread/nptl/sysdeps/unix/sysv/linux -Ilibpthread/nptl/sysdeps/unix/sysv/linux -Ilibpthread/nptl/sysdeps/pthread -Ilibpthread/nptl/sysdeps/pthread/bits -Ilibpthread/nptl/sysdeps/generic -Ilibc/sysdeps/linux/common -isystem /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include-fixed -isystem /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include -I/usr/src/output/build/linux-headers-4.14.33/usr/include/ -DNDEBUG -DIN_LIB=libc -fPIC -MT libc/termios/speed.os -MD -MP -MF libc/termios/.speed.os.dep

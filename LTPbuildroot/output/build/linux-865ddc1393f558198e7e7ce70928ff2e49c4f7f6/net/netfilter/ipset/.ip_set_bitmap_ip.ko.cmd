@@ -1,0 +1,1 @@
+cmd_net/netfilter/ipset/ip_set_bitmap_ip.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/netfilter/ipset/ip_set_bitmap_ip.ko net/netfilter/ipset/ip_set_bitmap_ip.o net/netfilter/ipset/ip_set_bitmap_ip.mod.o ;  true

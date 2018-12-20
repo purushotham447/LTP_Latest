@@ -1,0 +1,1 @@
+cmd_net/netlink/built-in.o :=  rm -f net/netlink/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD net/netlink/built-in.o net/netlink/af_netlink.o net/netlink/genetlink.o 

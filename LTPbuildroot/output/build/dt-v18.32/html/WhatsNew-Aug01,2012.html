@@ -1,0 +1,89 @@
+<HTML>
+<HEAD>
+<TITLE>Data Test Program (dt) August 1st, 2012</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#D19275">
+
+<CENTER><H2><STRONG>What's New as of August 1st, 2012</STRONG></H2></CENTER>
+
+<H2>Changes For This Release</H2>
+The following changes were made to <I>dt</I> Version 17.70:
+<UL>
+<LI>
+This release adds support for retrying user defined error codes, or all errors.
+This support has been added to help with triaging certain Host OS specific failures,
+and is *not* meant to mask normal errors in any way. These retries are applied to
+all the device operations, including: open(), close(), fcntl(), read(), write(),
+and POSIX AIO read/write operations.
+<p>
+<pre>
+    Retry Related Options:
+        retry_error=value     The error code to retry.
+        retry_delay=value     The retry delay. (Def: 5)
+        retry_limit=value     The retry limit. (Def: 60)
+
+    Error Strings Accepted:
+        EIO (5), ENXIO (6), EBUSY (16), ENODEV (19), ESTALE (151)
+            OR
+        retry_error='*' or -1 to retry all errors.
+
+    OR for Windows:
+
+    Error Strings Accepted:
+        ERROR_UNEXP_NET_ERR (59), ERROR_NETNAME_DELETED (64)
+        ERROR_BUSY (170), ERROR_SEM_TIMEOUT (121)
+        ERROR_VC_DISCONNECTED (240), ERROR_IO_DEVICE (1117)
+            OR
+        retry_error='*' or -1 to retry all errors.
+</pre>
+Please Note: The retry limit is per pass. The main IO loop uses an error limit,
+specified via errors=value, to control the maximum tolerated errors. When retries
+is enabled, the error limit will get set to the retry limit (if currently less than
+the retry limit). But that said, if you have long running tests, you will need to
+specify a higher error limit to keep running when the retry limit is reached.
+</ul>
+<P>
+<CENTER>Within NetApp, the updated <I>dt</I> kits are located @ URL:</CENTER>
+<P>
+<CENTER><A HREF="http://web.rtp.netapp.com/~rtmiller/dt.html">http://web.rtp.netapp.com/~rtmiller/dt.html</A></CENTER>
+<P>
+<CENTER>External to NetApp, you can obtain <I>dt</I> kits from URL:</CENTER>
+<P>
+<CENTER>TBD</CENTER>
+</UL>
+<HR>
+<PRE>
+robin-ptc% <B>dt.last version</B>
+    --> Date: August 1st, 2012, Version: 17.70, Author: Robin T. Miller <--
+robin-ptc% <B>./dt of=/var/tmp/dt.data count=1 retry_error=5 disable=stats retry_limit=3</B> (instrumented failure)
+dt: ERROR: 'read', errno = 5 - Input/output error
+dt: Relative block number where the error occurred is 1, position 512
+dt: Warning: Retrying request after 5 second delay...
+dt: ERROR: 'read', errno = 5 - Input/output error
+dt: Relative block number where the error occurred is 3, position 1536
+dt: Warning: Retrying request after 5 second delay...
+dt: ERROR: 'read', errno = 5 - Input/output error
+dt: Relative block number where the error occurred is 5, position 2560
+dt: Warning: Retrying request after 5 second delay...
+dt: ERROR: 'read', errno = 5 - Input/output error
+dt: Relative block number where the error occurred is 7, position 3584
+dt: Exceeded retry limit (3) for this request!
+dt: ERROR: Error number 1 occurred on Thu Jul 19 15:32:47 2012
+dt: Elapsed time since beginning of pass: 00m15.00s
+dt: Elapsed time since beginning of test: 00m15.00s
+robin-ptc% echo $?
+255
+robin-ptc% 
+</PRE>	
+See <A HREF="http://burtweb-prd.eng.netapp.com/burt/burt-bin/start?id=617580&fz=666&btn=view">BURT 617580</A>
+for more details.
+<HR>
+<A HREF="mailto:Robin.Miller@netapp.com"><IMG SRC="../gifs/mailbox.gif" ALT="Mail"></A>
+Send mail to admin of this page: <EM>Robin.Miller@netapp.com</EM>
+<A HREF="../index.html"><IMG SRC="../gifs/home04.gif" ALT="Home"></A>
+To Robin's home page.
+<P>
+Last Modified: August 13th, 2012
+</BODY>
+</HTML>

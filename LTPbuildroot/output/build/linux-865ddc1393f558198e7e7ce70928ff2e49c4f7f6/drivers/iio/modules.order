@@ -1,0 +1,17 @@
+kernel/drivers/iio/adc/mcp320x.ko
+kernel/drivers/iio/adc/mcp3422.ko
+kernel/drivers/iio/buffer/industrialio-buffer-cb.ko
+kernel/drivers/iio/buffer/industrialio-triggered-buffer.ko
+kernel/drivers/iio/buffer/kfifo_buf.ko
+kernel/drivers/iio/common/ms_sensors/ms_sensors_i2c.ko
+kernel/drivers/iio/humidity/dht11.ko
+kernel/drivers/iio/humidity/hdc100x.ko
+kernel/drivers/iio/humidity/htu21.ko
+kernel/drivers/iio/imu/inv_mpu6050/inv-mpu6050.ko
+kernel/drivers/iio/imu/inv_mpu6050/inv-mpu6050-i2c.ko
+kernel/drivers/iio/light/tsl4531.ko
+kernel/drivers/iio/light/veml6070.ko
+kernel/drivers/iio/pressure/bmp280.ko
+kernel/drivers/iio/pressure/bmp280-i2c.ko
+kernel/drivers/iio/pressure/bmp280-spi.ko
+kernel/drivers/iio/industrialio.ko

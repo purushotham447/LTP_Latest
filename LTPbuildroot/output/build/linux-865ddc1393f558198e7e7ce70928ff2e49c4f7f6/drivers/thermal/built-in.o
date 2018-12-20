@@ -1,0 +1,15 @@
+!<thin>
+//                                              108       `
+thermal_core.o/
+thermal_sysfs.o/
+thermal_helpers.o/
+of-thermal.o/
+step_wise.o/
+broadcom/bcm2835_thermal.o/
+
+/0              0           0     0     644     55404     `
+/16            /0           0     0     644     15632     `
+/33             0           0     0     644     9572      `
+/52             0           0     0     644     20260     `
+/66             0           0     0     644     4256      `
+/79             0           0     0     644     8460      `

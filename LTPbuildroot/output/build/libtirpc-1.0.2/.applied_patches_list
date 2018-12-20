@@ -1,0 +1,7 @@
+/usr/src/package/libtirpc/0001-Disable-parts-of-TIRPC-requiring-NIS-support.patch
+/usr/src/package/libtirpc/0002-uClibc-without-RPC-support-and-musl-does-not-install-rpcent.h.patch
+/usr/src/package/libtirpc/0003-Add-rpcgen-program-from-nfs-utils-sources.patch
+/usr/src/package/libtirpc/0004-Automatically-generate-XDR-header-files-from-.x-sour.patch
+/usr/src/package/libtirpc/0005-Add-more-XDR-files-needed-to-build-rpcbind-on-top-of.patch
+/usr/src/package/libtirpc/0006-Disable-DES-authentification-support.patch
+/usr/src/package/libtirpc/0007-include-stdint.h-for-uintptr_t.patch

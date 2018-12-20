@@ -1,0 +1,1 @@
+cmd_net/sched/act_pedit.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/sched/act_pedit.ko net/sched/act_pedit.o net/sched/act_pedit.mod.o ;  true

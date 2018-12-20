@@ -1,0 +1,1 @@
+cmd_drivers/input/built-in.o :=  rm -f drivers/input/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/input/built-in.o drivers/input/input-core.o drivers/input/input-leds.o drivers/input/mousedev.o drivers/input/keyboard/built-in.o drivers/input/joystick/built-in.o drivers/input/touchscreen/built-in.o drivers/input/misc/built-in.o 

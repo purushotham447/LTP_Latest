@@ -1,0 +1,5 @@
+/usr/src/package/openssh/0001-configure-ac-detect-mips-abi.patch
+/usr/src/package/openssh/0002-configure-ac-properly-set-seccomp-audit-arch-for-mips64.patch
+/usr/src/package/openssh/0003-fix-pam-uclibc-pthreads-clash.patch
+/usr/src/package/openssh/0004-fix-howmany-include.patch
+/usr/src/package/openssh/0005-openbsd-compat-bsd-getpagesize.c-include-includes.h-.patch

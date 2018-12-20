@@ -1,0 +1,1 @@
+linux-atomic-64bit.o: ../../../libgcc/config/arm/linux-atomic-64bit.c

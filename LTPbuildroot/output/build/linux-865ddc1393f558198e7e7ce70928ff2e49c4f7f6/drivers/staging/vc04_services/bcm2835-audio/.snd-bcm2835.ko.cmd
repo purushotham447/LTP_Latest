@@ -1,0 +1,1 @@
+cmd_drivers/staging/vc04_services/bcm2835-audio/snd-bcm2835.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/staging/vc04_services/bcm2835-audio/snd-bcm2835.ko drivers/staging/vc04_services/bcm2835-audio/snd-bcm2835.o drivers/staging/vc04_services/bcm2835-audio/snd-bcm2835.mod.o ;  true

@@ -1,0 +1,484 @@
+#!/usr/local/bin/perl -w
+#--------------------------------------------------
+# Copyright (c) 2007-2009 NetApp Inc.
+# All rights reserved.
+#--------------------------------------------------
+# $Id: //depot/user/derricks/scripts/dt_error#15 $
+#--------------------------------------------------
+# Config File Format:
+#
+# SPT="/path/to/spt"
+# PANIC="no|yes"
+# CONTROLLERS="controller1,controller2"
+# SRAM="adapter1,adapter2,etc"
+# RASTRACE="rastrace_id_1,rastrace_id_2,etc"
+# TRIGGER_LUN="lun1,lun2,lun3"
+# CONTINUE="no|yes"
+# STOP_HOST_MONITOR="no|yes"
+# STOPFILE="file1,file2,file3"
+#
+# NOTE:  LUN should be in the fully qualified format to the raw device
+#        like /dev/rdsk/c1t2d4s2
+#
+#--------------------------------------------------
+# Called by dt trigger without options.  Script
+# Expectes to find the file /dt_error.conf
+#--------------------------------------------------
+# Uses spt to send a Inq with page code 81 to the controller.
+# INQ PC 81 is an invalid command and will be rejected by the controller;
+# however, it will still trigger the analyzer.  This script
+# can be used with dt's trigger option.
+#--------------------------------------------------
+# For mpxio systems, you only need to specify one mpxio device.  
+# For veritas systems, you should specify at least one CTD from 
+# each head so it can survive a fault.
+#--------------------------------------------------
+# Example of how spt is called:
+#
+# ./spt dsf='/dev/rdsk/c3t500A098786F7CED2d110s2' cdb='12 01 81 00 ff 00' dir=read length=255
+#
+#--------------------------------------------------
+# NATE Usage:
+#
+# CLIENT_IO_PASS_THRU="trigger=\"cmd\:/u/derricks/scripts/dt_error\""
+#
+# OR
+#
+# IO_DT_OPTION_TRIGGER_SCRIPT="/u/derricks/scripts/dt_error"
+#--------------------------------------------------
+
+use strict;
+use lib qw( /u/derricks/lib );
+use English;
+use FileHandle;
+use DateTime;
+use Getopt::Long;
+
+$| = 1;
+
+my $host_monitor_stopfile = "/tmp/monitor_stop";
+my $logger = "/bin/logger";
+my $flogger = "logger";
+my $conf = "/dt_error.conf";
+
+my $rc = GetOptions(
+                "help|H" => \&usage,
+                );
+
+
+if ( $> ne "0" ) {
+    print "\nThis script must be run as root .... Exiting\n";
+    exit 1;
+}
+
+# Capture any options that were passed to trigger and send an entry
+# to syslog.
+
+my $args;
+my $good_exit = 0;
+my $bad_exit = 1;
+
+if ( @ARGV > "0" ) {
+    $args = join(" ", @ARGV);
+        
+    # Default behavior is to have dt exit if it gets a noprog trigger
+
+    if ($args =~ /noprog/) {
+       $good_exit = "1";
+    }
+}
+
+
+if ($args) {
+    my @output = `$logger -p user.error -t dt_error $args`;
+}
+
+
+if ( ! -f "$conf" ) {
+    print "\nConf file $conf not found ... Exiting\n\n";
+    exit $good_exit;
+}
+
+
+my $fh_conf = new FileHandle;
+$fh_conf->open("$conf") or suicide("$good_exit", "Unable to open file $conf for read: $!");
+
+my $conf_ref = {};
+
+
+while (my $line = $fh_conf->getline()) {
+    chomp $line;
+    next if ($line =~ /^$/);
+    next if ($line =~ /^#/);
+    $line =~ s/"//g;
+    my @line = split(/\=/, $line);
+    $conf_ref->{$line[0]} = $line[1];
+}
+$fh_conf->close();
+
+
+# Set the default values
+$conf_ref->{PANIC} = "no" unless ($conf_ref->{PANIC});
+$conf_ref->{STOP_VXTRACE} = "no" unless ($conf_ref->{STOP_VXTRACE});
+$conf_ref->{STOP_VXDMP_IOSTAT} = "no" unless ($conf_ref->{STOP_VXDMP_IOSTAT});
+$conf_ref->{STOP_HOST_MONITOR} = "no" unless ($conf_ref->{STOP_HOST_MONITOR});
+$conf_ref->{STOP_SNOOP} = "no" unless ($conf_ref->{STOP_SNOOP});
+
+# Override the default behavior if CONTINUE was found in the config file
+
+if ($conf_ref->{CONTINUE}) {
+    if (lc($conf_ref->{CONTINUE}) eq "yes") {
+        $good_exit = "0";
+    } else {
+        $good_exit = "1";
+    }
+}
+
+my @errors;
+
+if ($conf_ref->{RASTRACE} or $conf_ref->{SRAM} or lc($conf_ref->{PANIC}) eq "yes") {
+    unless ($conf_ref->{CONTROLLERS}) {
+        push @errors, "You must specify one or more controllers in the config file";
+    }
+}
+
+if ($conf_ref->{TRIGGER_LUN} and not $conf_ref->{SPT}) {
+    push @errors, "You must also set the value of SPT in the config file if you specify TRIGGER_LUN";
+}
+
+if (@errors) {
+    print "\n";
+    foreach my $line (@errors) {
+        chomp $line;
+        print "$line\n";
+    }
+    exit $good_exit;
+}
+
+
+if ($args) {
+    timestamp "[$$] dt_error called with args: $args";
+}
+
+
+if ($conf_ref->{TRIGGER_LUN}) {
+    timestamp "[$$] Triggering analyzer";
+    fire_trigger();
+}
+
+if ($conf_ref->{SRAM}) {
+    timestamp "[$$] Performing SRAM Dump with adapter $conf_ref->{SRAM}";
+    sram_dump();
+    sleep 5;
+}
+
+if ($conf_ref->{RASTRACE}) {
+    timestamp "[$$] Dumping RASTRACE";
+    get_rastrace();
+    sleep 5;
+}
+            
+if (lc($conf_ref->{PANIC}) eq "yes") {
+    timestamp "[$$] Panicing Controllers";
+    panic_controllers();
+    timestamp "[$$] Controllers have both been paniced";
+}
+
+if (lc($conf_ref->{STOP_HOST_MONITOR}) eq "yes") {
+    timestamp "[$$] Stopping host monitor";
+    `touch $host_monitor_stopfile`;
+    timestamp "[$$] $host_monitor_stopfile has been created";
+}
+
+if ($conf_ref->{STOPFILE}) {
+    my @stopfiles = split(/\,/, $conf_ref->{STOPFILE});
+    foreach my $file (@stopfiles) {
+        `touch $file`;
+        timestamp "[$$] $file has been created";
+    }
+}
+
+exit $good_exit;
+
+
+#--------------------------------------------------
+# sub fire_trigger
+#--------------------------------------------------
+sub fire_trigger {
+
+    # Split the luns provided for the trigger into an array
+    my @luns = split(/\,/, $conf_ref->{TRIGGER_LUN});
+
+    foreach my $lun (@luns) {
+        chomp $lun;
+        my $spt_options = "dsf=\'${lun}\' cdb=\'12 01 81 00 ff 00\' dir=read length=255";
+        my @output = `$conf_ref->{SPT} $spt_options`;
+        foreach my $line (@output) {
+            chomp $line;
+            print "$line\n";
+        }
+    }
+    return 1;
+}
+
+
+#--------------------------------------------------
+# sub panic_controllers
+#
+# NO ARGS
+#--------------------------------------------------
+sub panic_controllers {
+
+    my @controllers = split(/\,/, $conf_ref->{CONTROLLERS});
+
+
+    my $pid;
+    my $forks = "0";
+    foreach my $controller (@controllers) {
+        $pid = fork();
+        suicide("$bad_exit", "Cannot perform fork for panic on controller $controller: $!") unless defined($pid);
+
+        if ($pid == 0) {
+            # Child Process
+
+            timestamp("[$$] Panicing $controller");
+            run_command($controller, "logger DT_ERROR:  Panicing Controller");
+            run_command($controller, "priv set -q diag; panic");
+
+            exit 0;
+        } else {
+            # Parent Process
+            $forks++;
+        }
+
+    }
+
+    my $i;
+    for ($i = 1; $i <= $forks; $i++) {
+        wait;
+    }
+
+    return 1;
+}
+
+
+#--------------------------------------------------
+# sub sram_dump
+#
+# Take an sram dump
+#--------------------------------------------------
+sub sram_dump {
+
+    my @controllers = split(/\,/, $conf_ref->{CONTROLLERS});
+    my @adapters = split(/\,/, $conf_ref->{SRAM});
+
+    my $pid;
+    my $forks = "0";
+    foreach my $controller (@controllers) {
+        $pid = fork();
+        suicide("$bad_exit", "Cannot perform fork for sram dump on controller $controller: $!") unless defined($pid);
+        if ($pid == 0) {
+            # Child Process
+            foreach my $adapter (@adapters) {
+                timestamp("[$$] Generating sram dump on $controller with adapter $adapter");
+                run_command($controller, "logger DT_ERROR:  SRAM Dump");
+                run_command($controller, "priv set -q diag; fcp dump -f $adapter");
+                sleep 1;
+            }
+            exit 0;
+        } else  {
+            # Parent Process
+            $forks++;
+        }
+    }
+
+    my $i;
+    for ($i = 1; $i <= $forks; $i++) {
+        wait;
+    }
+
+    return 1;
+}
+
+#--------------------------------------------------
+# sub get_rastrace
+#
+# Get rastrace ID for scsit
+#--------------------------------------------------
+sub get_rastrace {
+
+    my @controllers = split(/\,/, $conf_ref->{CONTROLLERS});
+
+    my $forks = "0";
+    my $pid;
+    my @rastrace_list = split(/\,/, $conf_ref->{RASTRACE});
+
+    foreach my $controller (@controllers) {
+        run_command($controller, "logger DT_ERROR:  RASTRACE");
+        foreach my $rastrace_id (@rastrace_list) {
+            $pid = fork();
+            suicide("$bad_exit", "Cannot perform fork for rastrace on controller $controller: $!") unless defined($pid);
+    
+            if ($pid == 0) {
+                # Child Process
+    
+                timestamp("[$$] Dumping rastrace module $rastrace_id on $controller");
+
+                for (my $count = 0; $count < 5; $count++) {
+                    my @output_dump = run_command($controller, "priv set -q diag; rastrace dump -m ${rastrace_id} -i $count");
+                    foreach my $dump_line (@output_dump) {
+                        chomp $dump_line;
+                        print "$dump_line\n";
+                    }
+                }
+                exit 0;
+        
+            } else {
+                # Parent Process
+    
+                $forks++;
+            }
+        }
+
+    }
+
+    my $i;
+    for ($i = 1; $i <= $forks; $i++) {
+        wait;
+    }
+
+    return 1;
+}
+
+#--------------------------------------------------
+# sub run_command
+#
+# ARG1:  Host/Filer
+# ARG2:  Command
+#--------------------------------------------------
+sub run_command {
+
+    my $where = shift;
+    my $command = shift;
+    my @output;
+
+    return 0 unless ( $where and $command );
+
+    timestamp("[$$] $command  [ $where ]");
+
+    my $alarm;
+    $alarm = $SIG{ALRM} if $SIG{ALRM};
+
+
+    $SIG{ALRM} = sub {suicide("$bad_exit", "KILL_RSH\n");};
+    eval {
+        alarm(15);
+        @output = `rsh -n -l root $where "$command"`;
+        alarm(0);
+    };
+    
+    if (grep/KILL_RSH/, $@) {
+
+        my @ps = `ps -eaf`;
+        my @pids;
+
+        # Get a list of children
+        foreach my $line (@ps) {
+            chomp $line;
+            if ($line =~ /\S+\s+(\d+)\s+${PROCESS_ID}\s+.*\s+rsh -n -l root ${where}/) {
+                push @pids, $1;
+            }
+        }
+    
+        # Get a list of grand children
+        foreach my $pid (@pids) {
+            foreach my $line (@ps) {
+                if ($line =~ /\S+\s+(\d+)\s+${pid}\s+.*\s+rsh -n -l root ${where}/) {
+                    push @pids, $1;
+                }
+            }
+        }
+    
+        # Kill off the hung RSH processes
+        foreach my $pid (@pids) {
+            system("kill -9 ${pid}");
+        }
+    }
+    
+    $SIG{ALRM} = $alarm if ($alarm);
+
+    return wantarray ? @output : \@output;
+}
+
+#--------------------------------------------------
+# sub suicide 
+#--------------------------------------------------
+sub suicide {
+    my $code = shift;
+    my $msg = shift;
+    
+    print "$msg\n";
+    
+    exit $code;
+}
+
+#--------------------------------------------
+# sub usage
+#--------------------------------------------
+sub usage {
+    print "\nUsage: \n\n";
+    print "$0 --help\n\n";
+    print "\n";
+    print "\n";
+    print "Create a conf file called /dt_error.conf and place the following\n";
+    print "items in it:\n";
+    print "\n";
+    print qq!SPT="/path/to/spt"\n!;
+    print qq!PANIC="no|yes"\n!;
+    print qq!CONTROLLERS="controller1,controller2"\n!;
+    print qq!SRAM="adapter1,adapter2,etc"\n!;
+    print qq!RASTRACE="rastrace_id_1,rastrace_id_2,etc"\n!;
+    print qq!TRIGGER_LUN="lun1,lun2,etc"\n!;
+    print qq!CONTINUE="no|yes"\n!;
+    print qq!STOP_HOST_MONITOR="no|yes"\n!;
+    print qq!STOPFILE="file1,file2,file3"\n!;
+    print "\n";
+    print "------------------------------------------------\n";
+    print "Defaults:\n";
+    print "------------------------------------------------\n";
+    print qq!PANIC="no"\n!;
+    print qq!CONTINUE="no"\n!;
+    print qq!STOP_HOST_MONITOR="no"\n!;
+    print "\n";
+    print "------------------------------------------------\n";
+    print "Special Notes\n";
+    print "------------------------------------------------\n";
+    print "NOTE1:  If an variable isn't set, then that function won't run.\n\n";
+    print "NOTE2:  CONTROLLERS is only required if you set PANIC, SRAM, or RASTRACE\n\n";
+    print "NOTE3:  STOPFILE is only needed if you want dt_error to create one or more stop files on exit\n\n";
+    print "NOTE4:  CONTINUE will override the default noprog trigger behavior and\n";
+    print "        allow dt to continue instead of abort.  Default is no.\n\n";
+    print "NOTE5:  If you are on solaris, SPT can be found as /x/eng/localtest/arch/sparc-sun-solaris8/bin/spt\n";
+    print "        and /x/eng/localtest/arch/i386-sun-solaris8/bin/spt\n";
+    print "\n";
+    print "------------------------------------------------\n";
+    print "The following is for informational purposes only\n";
+    print "------------------------------------------------\n";
+    print "\n";
+    print "RASTRACE Modules IDs:\n";
+    print "\n";
+    print "FCT_0c, id =  2\n";
+    print "FCT_0d, id =  2\n";
+    print "FCT_0a, id =  2\n";
+    print "FCT_0b, id =  2\n";
+    print "SCSI, id =  3\n";
+    print "SCSIT, id =  4\n";
+    print "VDISK, id =  5\n";
+    print "\n";
+    exit 0;
+}
+
+
+
+
+

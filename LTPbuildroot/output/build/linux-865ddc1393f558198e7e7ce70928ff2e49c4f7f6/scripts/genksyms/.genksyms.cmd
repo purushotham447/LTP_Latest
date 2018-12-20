@@ -1,0 +1,1 @@
+cmd_scripts/genksyms/genksyms := /usr/bin/gcc -O2 -I/usr/src/output/host/include -L/usr/src/output/host/lib -Wl,-rpath,/usr/src/output/host/lib  -o scripts/genksyms/genksyms scripts/genksyms/genksyms.o scripts/genksyms/parse.tab.o scripts/genksyms/lex.lex.o  

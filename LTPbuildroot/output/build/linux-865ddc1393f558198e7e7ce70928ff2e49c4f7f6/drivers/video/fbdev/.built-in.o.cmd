@@ -1,0 +1,1 @@
+cmd_drivers/video/fbdev/built-in.o :=  rm -f drivers/video/fbdev/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/video/fbdev/built-in.o drivers/video/fbdev/core/built-in.o drivers/video/fbdev/bcm2708_fb.o drivers/video/fbdev/omap2/built-in.o 

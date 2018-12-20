@@ -1,0 +1,1 @@
+cmd_block/partitions/built-in.o :=  rm -f block/partitions/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD block/partitions/built-in.o block/partitions/check.o block/partitions/mac.o block/partitions/msdos.o block/partitions/efi.o 

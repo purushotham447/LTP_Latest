@@ -1,0 +1,1 @@
+cmd_net/wireless/lib80211_crypt_ccmp.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/wireless/lib80211_crypt_ccmp.ko net/wireless/lib80211_crypt_ccmp.o net/wireless/lib80211_crypt_ccmp.mod.o ;  true

@@ -1,0 +1,118 @@
+libc/misc/fnmatch/fnmatch.os: libc/misc/fnmatch/fnmatch.c \
+ include/libc-symbols.h include/bits/uClibc_arch_features.h \
+ include/bits/uClibc_config.h include/unistd.h include/features.h \
+ include/sys/cdefs.h include/libc-internal.h \
+ /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include/stddef.h \
+ include/bits/posix_opt.h include/bits/uClibc_posix_opt.h \
+ include/bits/environments.h include/bits/wordsize.h include/bits/types.h \
+ include/bits/kernel_types.h include/bits/typesizes.h \
+ include/bits/confname.h include/bits/getopt.h include/assert.h \
+ include/errno.h include/bits/errno.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/linux/errno.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm/errno.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/errno.h \
+ /usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/errno-base.h \
+ include/fnmatch.h include/ctype.h include/bits/uClibc_touplow.h \
+ include/string.h include/stdlib.h include/bits/waitflags.h \
+ include/bits/waitstatus.h include/endian.h include/bits/endian.h \
+ include/byteswap.h include/bits/byteswap.h \
+ include/bits/byteswap-common.h include/bits/byteswap-16.h \
+ include/sys/types.h include/time.h include/sys/select.h \
+ include/bits/select.h include/bits/sigset.h include/bits/time.h \
+ include/sys/sysmacros.h include/bits/pthreadtypes.h include/alloca.h \
+ libc/misc/fnmatch/fnmatch_loop.c
+
+include/libc-symbols.h:
+
+include/bits/uClibc_arch_features.h:
+
+include/bits/uClibc_config.h:
+
+include/unistd.h:
+
+include/features.h:
+
+include/sys/cdefs.h:
+
+include/libc-internal.h:
+
+/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include/stddef.h:
+
+include/bits/posix_opt.h:
+
+include/bits/uClibc_posix_opt.h:
+
+include/bits/environments.h:
+
+include/bits/wordsize.h:
+
+include/bits/types.h:
+
+include/bits/kernel_types.h:
+
+include/bits/typesizes.h:
+
+include/bits/confname.h:
+
+include/bits/getopt.h:
+
+include/assert.h:
+
+include/errno.h:
+
+include/bits/errno.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/linux/errno.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm/errno.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/errno.h:
+
+/usr/src/output/build/linux-headers-4.14.33/usr/include/asm-generic/errno-base.h:
+
+include/fnmatch.h:
+
+include/ctype.h:
+
+include/bits/uClibc_touplow.h:
+
+include/string.h:
+
+include/stdlib.h:
+
+include/bits/waitflags.h:
+
+include/bits/waitstatus.h:
+
+include/endian.h:
+
+include/bits/endian.h:
+
+include/byteswap.h:
+
+include/bits/byteswap.h:
+
+include/bits/byteswap-common.h:
+
+include/bits/byteswap-16.h:
+
+include/sys/types.h:
+
+include/time.h:
+
+include/sys/select.h:
+
+include/bits/select.h:
+
+include/bits/sigset.h:
+
+include/bits/time.h:
+
+include/sys/sysmacros.h:
+
+include/bits/pthreadtypes.h:
+
+include/alloca.h:
+
+libc/misc/fnmatch/fnmatch_loop.c:
+cmd_libc_misc_fnmatch_fnmatch.os := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc -c libc/misc/fnmatch/fnmatch.c -o libc/misc/fnmatch/fnmatch.os -Wall -Wstrict-prototypes -Wstrict-aliasing -funsigned-char -fno-builtin -fno-asm -fmerge-all-constants -std=gnu99 -mlittle-endian -fno-stack-protector -nostdinc -Iinclude -Iinclude -include libc-symbols.h -Ilibc/sysdeps/linux/arm -Ilibc/sysdeps/linux -Ildso/ldso/arm -Ildso/include -I. -Os -fstrict-aliasing -D__USE_STDIO_FUTEXES__ -DHAVE_FORCED_UNWIND -D_LIBC_REENTRANT -Ilibpthread/nptl -Ilibpthread/nptl -Ilibpthread/nptl/sysdeps/unix/sysv/linux/arm -Ilibpthread/nptl/sysdeps/arm -Ilibpthread/nptl/sysdeps/arm -Ilibpthread/nptl/sysdeps/unix/sysv/linux -Ilibpthread/nptl/sysdeps/unix/sysv/linux -Ilibpthread/nptl/sysdeps/pthread -Ilibpthread/nptl/sysdeps/pthread/bits -Ilibpthread/nptl/sysdeps/generic -Ilibc/sysdeps/linux/common -isystem /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include-fixed -isystem /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include -I/usr/src/output/build/linux-headers-4.14.33/usr/include/ -DNDEBUG -DIN_LIB=libc -fPIC -MT libc/misc/fnmatch/fnmatch.os -MD -MP -MF libc/misc/fnmatch/.fnmatch.os.dep

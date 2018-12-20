@@ -1,0 +1,1 @@
+cmd_fs/nls/nls_iso8859-9.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o fs/nls/nls_iso8859-9.ko fs/nls/nls_iso8859-9.o fs/nls/nls_iso8859-9.mod.o ;  true

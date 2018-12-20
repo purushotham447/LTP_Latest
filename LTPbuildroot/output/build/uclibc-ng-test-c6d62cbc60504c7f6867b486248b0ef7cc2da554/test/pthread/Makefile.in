@@ -1,0 +1,14 @@
+# uClibc-ng pthread tests
+# Licensed under the LGPL v2.1, see the file COPYING.LIB in this tarball.
+
+TESTS_DISABLED += cancellation-points
+
+ifeq ($(TARGET_ARCH),sh)
+TESTS_DISABLED += ex2 ex7
+endif
+
+EXTRA_LDFLAGS := -lpthread
+
+LDFLAGS_cancellation-points := -lrt
+
+CFLAGS_tst-c99 := -std=c99

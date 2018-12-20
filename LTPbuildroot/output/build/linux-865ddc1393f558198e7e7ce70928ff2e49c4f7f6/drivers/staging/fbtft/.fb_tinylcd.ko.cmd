@@ -1,0 +1,1 @@
+cmd_drivers/staging/fbtft/fb_tinylcd.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/staging/fbtft/fb_tinylcd.ko drivers/staging/fbtft/fb_tinylcd.o drivers/staging/fbtft/fb_tinylcd.mod.o ;  true

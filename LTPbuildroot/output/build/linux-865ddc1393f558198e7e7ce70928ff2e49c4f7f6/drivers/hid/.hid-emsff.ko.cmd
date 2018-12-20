@@ -1,0 +1,1 @@
+cmd_drivers/hid/hid-emsff.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/hid/hid-emsff.ko drivers/hid/hid-emsff.o drivers/hid/hid-emsff.mod.o ;  true

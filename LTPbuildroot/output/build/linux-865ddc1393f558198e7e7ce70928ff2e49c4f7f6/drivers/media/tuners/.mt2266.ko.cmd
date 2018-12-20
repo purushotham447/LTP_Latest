@@ -1,0 +1,1 @@
+cmd_drivers/media/tuners/mt2266.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/tuners/mt2266.ko drivers/media/tuners/mt2266.o drivers/media/tuners/mt2266.mod.o ;  true

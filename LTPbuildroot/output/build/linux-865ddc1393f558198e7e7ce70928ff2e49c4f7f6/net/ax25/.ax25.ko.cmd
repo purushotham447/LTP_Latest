@@ -1,0 +1,1 @@
+cmd_net/ax25/ax25.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/ax25/ax25.ko net/ax25/ax25.o net/ax25/ax25.mod.o ;  true

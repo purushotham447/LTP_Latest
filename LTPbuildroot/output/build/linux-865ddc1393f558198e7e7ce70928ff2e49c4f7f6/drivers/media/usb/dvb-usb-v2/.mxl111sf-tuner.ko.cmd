@@ -1,0 +1,1 @@
+cmd_drivers/media/usb/dvb-usb-v2/mxl111sf-tuner.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/usb/dvb-usb-v2/mxl111sf-tuner.ko drivers/media/usb/dvb-usb-v2/mxl111sf-tuner.o drivers/media/usb/dvb-usb-v2/mxl111sf-tuner.mod.o ;  true

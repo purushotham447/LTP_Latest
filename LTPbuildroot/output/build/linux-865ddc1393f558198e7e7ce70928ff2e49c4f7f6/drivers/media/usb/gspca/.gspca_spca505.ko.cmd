@@ -1,0 +1,1 @@
+cmd_drivers/media/usb/gspca/gspca_spca505.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/usb/gspca/gspca_spca505.ko drivers/media/usb/gspca/gspca_spca505.o drivers/media/usb/gspca/gspca_spca505.mod.o ;  true

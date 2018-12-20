@@ -1,0 +1,1 @@
+/usr/bin/gcc -O2  -L/usr/src/output/host/lib -Wl,-rpath,/usr/src/output/host/lib -rdynamic CMakeFiles/pseudo_emulator.dir/pseudo_emulator.c.o  -o pseudo_emulator 

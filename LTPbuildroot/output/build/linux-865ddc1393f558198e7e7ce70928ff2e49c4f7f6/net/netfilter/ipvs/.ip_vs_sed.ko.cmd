@@ -1,0 +1,1 @@
+cmd_net/netfilter/ipvs/ip_vs_sed.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/netfilter/ipvs/ip_vs_sed.ko net/netfilter/ipvs/ip_vs_sed.o net/netfilter/ipvs/ip_vs_sed.mod.o ;  true

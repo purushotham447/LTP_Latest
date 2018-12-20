@@ -1,0 +1,1 @@
+cmd_drivers/staging/built-in.o :=  rm -f drivers/staging/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/staging/built-in.o drivers/staging/media/built-in.o drivers/staging/typec/built-in.o drivers/staging/vc04_services/built-in.o 

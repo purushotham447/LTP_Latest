@@ -1,0 +1,432 @@
+0 termios termios termios   ./termios  
+42 hello hello silly   ./hello  
+42 tiny tiny silly   ./tiny  
+0 qsort qsort stdlib   ./qsort  
+0 test-canon test-canon stdlib   ./test-canon  
+0 test-canon2 test-canon2 stdlib   ./test-canon2  
+0 test-mkostemp-O_CLOEXEC test-mkostemp-O_CLOEXEC stdlib   ./test-mkostemp-O_CLOEXEC  
+0 test-mkostemp-child test-mkostemp-child stdlib   ./test-mkostemp-child  
+0 testatexit testatexit stdlib   ./testatexit  
+0 teston_exit teston_exit stdlib   ./teston_exit  
+0 teststrtol teststrtol stdlib   ./teststrtol  
+0 teststrtoq teststrtoq stdlib   ./teststrtoq  
+0 getgroups getgroups pwd_grp   ./getgroups  
+0 grcat grcat pwd_grp   ./grcat  
+0 pwcat pwcat pwd_grp   ./pwcat  
+0 test_grp test_grp pwd_grp   ./test_grp  
+0 test_pwd test_pwd pwd_grp   ./test_pwd  
+0 bug-strcoll1 bug-strcoll1 string   ./bug-strcoll1  
+0 bug-strncat1 bug-strncat1 string   ./bug-strncat1  
+0 bug-strpbrk1 bug-strpbrk1 string   ./bug-strpbrk1  
+0 bug-strspn1 bug-strspn1 string   ./bug-strspn1  
+0 stratcliff stratcliff string   ./stratcliff  
+0 test-ffs test-ffs string   ./test-ffs  
+0 testcopy testcopy string   ./testcopy  
+0 tester tester string   ./tester  
+0 tst-bswap tst-bswap string   ./tst-bswap  
+0 tst-inlcall tst-inlcall string   ./tst-inlcall  
+0 tst-memmove tst-memmove string   ./tst-memmove  
+0 tst-strlen tst-strlen string   ./tst-strlen  
+0 tst-strtok tst-strtok string   ./tst-strtok  
+0 tst-strxfrm tst-strxfrm string   ./tst-strxfrm  
+0 64bit 64bit stdio   ./64bit  
+0 fclose-loop fclose-loop stdio   ./fclose-loop  
+0 lseek_no_lfs lseek_no_lfs stdio   ./lseek_no_lfs  
+0 scanf_m scanf_m stdio   ./scanf_m  
+0 dladdr dladdr dlopen env X=all LD_LIBRARY_PATH="$PWD:.:"  ./dladdr  
+0 dlafk dlafk dlopen env X=all LD_LIBRARY_PATH="$PWD:.:"  ./dlafk  
+0 dlstatic dlstatic dlopen env X=all LD_LIBRARY_PATH="$PWD:.:"  ./dlstatic  
+0 dltest dltest dlopen env X=all LD_LIBRARY_PATH="$PWD:.:"  ./dltest  
+0 dltest2 dltest2 dlopen env X=all LD_LIBRARY_PATH="$PWD:.:"  ./dltest2  
+0 dlundef dlundef dlopen env X=all LD_LIBRARY_PATH="$PWD:.:"  ./dlundef  
+0 nodelete nodelete dlopen env X=all LD_LIBRARY_PATH="$PWD:.:"  ./nodelete  
+0 nodelete1 nodelete1 dlopen env X=all LD_LIBRARY_PATH="$PWD:.:"  ./nodelete1  
+0 test1 test1 dlopen env X=all LD_LIBRARY_PATH="$PWD:.:"  ./test1  
+0 test2 test2 dlopen env X=all LD_LIBRARY_PATH="$PWD:.:"  ./test2  
+0 testscope testscope dlopen env X=all LD_LIBRARY_PATH="$PWD:.:"  ./testscope  
+0 tst-origin tst-origin dlopen env X=all LD_LIBRARY_PATH="$PWD:.:"  ./tst-origin  
+0 argp-ex1 argp-ex1 argp   ./argp-ex1  
+0 argp-ex2 argp-ex2 argp   ./argp-ex2  
+0 argp-ex3 argp-ex3 argp   ./argp-ex3  ARG1 ARG2
+0 argp-ex4 argp-ex4 argp   ./argp-ex4  ARG1 string1 string2 string3
+0 argp-test argp-test argp   ./argp-test  
+0 bug-argp1 bug-argp1 argp   ./bug-argp1  -- --help
+0 tst-argp1 tst-argp1 argp   ./tst-argp1  
+0 tst-argp2 tst-argp2 argp   ./tst-argp2  
+0 tst-align tst-align nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-align  
+0 tst-align2 tst-align2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-align2  
+0 tst-align3 tst-align3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-align3  
+0 tst-atfork1 tst-atfork1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-atfork1  
+0 tst-atfork2 tst-atfork2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-atfork2  
+0 tst-attr1 tst-attr1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-attr1  
+0 tst-attr2 tst-attr2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-attr2  
+0 tst-attr3 tst-attr3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-attr3  
+0 tst-barrier1 tst-barrier1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-barrier1  
+0 tst-barrier2 tst-barrier2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-barrier2  
+0 tst-barrier3 tst-barrier3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-barrier3  
+0 tst-barrier4 tst-barrier4 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-barrier4  
+0 tst-basic1 tst-basic1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-basic1  
+0 tst-basic2 tst-basic2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-basic2  
+0 tst-basic3 tst-basic3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-basic3  
+0 tst-basic4 tst-basic4 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-basic4  
+0 tst-basic5 tst-basic5 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-basic5  
+0 tst-basic6 tst-basic6 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-basic6  
+0 tst-basic7 tst-basic7 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-basic7  
+0 tst-cancel1 tst-cancel1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancel1  
+0 tst-cancel10 tst-cancel10 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancel10  
+0 tst-cancel11 tst-cancel11 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancel11  
+0 tst-cancel12 tst-cancel12 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancel12  
+0 tst-cancel13 tst-cancel13 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancel13  
+0 tst-cancel14 tst-cancel14 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancel14  
+0 tst-cancel15 tst-cancel15 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancel15  
+0 tst-cancel16 tst-cancel16 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancel16  
+0 tst-cancel18 tst-cancel18 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancel18  
+0 tst-cancel19 tst-cancel19 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancel19  
+0 tst-cancel2 tst-cancel2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancel2  
+0 tst-cancel20 tst-cancel20 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancel20  
+0 tst-cancel21 tst-cancel21 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancel21  
+0 tst-cancel22 tst-cancel22 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancel22  
+0 tst-cancel23 tst-cancel23 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancel23  
+0 tst-cancel25 tst-cancel25 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancel25  
+0 tst-cancel3 tst-cancel3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancel3  
+0 tst-cancel4 tst-cancel4 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancel4  
+0 tst-cancel5 tst-cancel5 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancel5  
+0 tst-cancel6 tst-cancel6 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancel6  
+0 tst-cancel7 tst-cancel7 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancel7  -c ./tst-cancel7
+0 tst-cancel8 tst-cancel8 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancel8  
+0 tst-cancel9 tst-cancel9 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancel9  
+0 tst-cancelx10 tst-cancelx10 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancelx10  
+0 tst-cancelx11 tst-cancelx11 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancelx11  
+0 tst-cancelx12 tst-cancelx12 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancelx12  
+0 tst-cancelx13 tst-cancelx13 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancelx13  
+0 tst-cancelx14 tst-cancelx14 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancelx14  
+0 tst-cancelx15 tst-cancelx15 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancelx15  
+0 tst-cancelx16 tst-cancelx16 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancelx16  
+0 tst-cancelx18 tst-cancelx18 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancelx18  
+0 tst-cancelx2 tst-cancelx2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancelx2  
+0 tst-cancelx20 tst-cancelx20 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancelx20  
+0 tst-cancelx21 tst-cancelx21 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancelx21  
+0 tst-cancelx3 tst-cancelx3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancelx3  
+0 tst-cancelx4 tst-cancelx4 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancelx4  
+0 tst-cancelx6 tst-cancelx6 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancelx6  
+0 tst-cancelx7 tst-cancelx7 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancelx7  
+0 tst-cancelx8 tst-cancelx8 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancelx8  
+0 tst-cancelx9 tst-cancelx9 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cancelx9  
+0 tst-cleanup0 tst-cleanup0 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cleanup0  
+0 tst-cleanup1 tst-cleanup1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cleanup1  
+0 tst-cleanup2 tst-cleanup2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cleanup2  
+0 tst-cleanup3 tst-cleanup3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cleanup3  
+0 tst-cleanup4 tst-cleanup4 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cleanup4  
+0 tst-cleanupx0 tst-cleanupx0 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cleanupx0  
+0 tst-cleanupx1 tst-cleanupx1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cleanupx1  
+0 tst-cleanupx2 tst-cleanupx2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cleanupx2  
+0 tst-cleanupx3 tst-cleanupx3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cleanupx3  
+0 tst-cleanupx4 tst-cleanupx4 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cleanupx4  
+0 tst-clock tst-clock nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-clock  
+0 tst-clock1 tst-clock1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-clock1  
+0 tst-clock2 tst-clock2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-clock2  
+0 tst-clock_nanosleep tst-clock_nanosleep nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-clock_nanosleep  
+0 tst-clockid tst-clockid nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-clockid  
+0 tst-cond-deadlock tst-cond-deadlock nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cond-deadlock  
+0 tst-cond1 tst-cond1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cond1  
+0 tst-cond10 tst-cond10 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cond10  
+0 tst-cond11 tst-cond11 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cond11  
+0 tst-cond12 tst-cond12 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cond12  
+0 tst-cond13 tst-cond13 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cond13  
+0 tst-cond14 tst-cond14 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cond14  
+0 tst-cond15 tst-cond15 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cond15  
+0 tst-cond16 tst-cond16 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cond16  
+0 tst-cond17 tst-cond17 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cond17  
+0 tst-cond18 tst-cond18 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cond18  
+0 tst-cond19 tst-cond19 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cond19  
+0 tst-cond2 tst-cond2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cond2  
+0 tst-cond20 tst-cond20 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cond20  
+0 tst-cond21 tst-cond21 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cond21  
+0 tst-cond22 tst-cond22 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cond22  
+0 tst-cond23 tst-cond23 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cond23  
+0 tst-cond3 tst-cond3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cond3  
+0 tst-cond4 tst-cond4 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cond4  
+0 tst-cond5 tst-cond5 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cond5  
+0 tst-cond6 tst-cond6 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cond6  
+0 tst-cond7 tst-cond7 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cond7  
+0 tst-cond8 tst-cond8 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cond8  
+0 tst-cond9 tst-cond9 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cond9  
+0 tst-cpuclock1 tst-cpuclock1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cpuclock1  
+0 tst-cpuclock2 tst-cpuclock2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cpuclock2  
+0 tst-cputimer1 tst-cputimer1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cputimer1  
+0 tst-cputimer2 tst-cputimer2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cputimer2  
+0 tst-cputimer3 tst-cputimer3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-cputimer3  
+0 tst-detach1 tst-detach1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-detach1  
+0 tst-eintr1 tst-eintr1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-eintr1  
+0 tst-eintr2 tst-eintr2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-eintr2  
+0 tst-eintr3 tst-eintr3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-eintr3  
+0 tst-eintr4 tst-eintr4 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-eintr4  
+0 tst-eintr5 tst-eintr5 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-eintr5  
+0 tst-exec2 tst-exec2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-exec2  
+0 tst-exec3 tst-exec3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-exec3  
+0 tst-exec4 tst-exec4 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-exec4  ./tst-exec4
+0 tst-exit1 tst-exit1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-exit1  
+0 tst-exit2 tst-exit2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-exit2  
+0 tst-exit3 tst-exit3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-exit3  
+0 tst-flock1 tst-flock1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-flock1  
+0 tst-flock2 tst-flock2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-flock2  
+0 tst-fork1 tst-fork1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-fork1  
+0 tst-fork2 tst-fork2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-fork2  
+0 tst-fork3 tst-fork3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-fork3  
+0 tst-fork4 tst-fork4 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-fork4  
+0 tst-getpid1 tst-getpid1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-getpid1  
+0 tst-getpid2 tst-getpid2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-getpid2  
+0 tst-getpid3 tst-getpid3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-getpid3  
+0 tst-initializers1-c89 tst-initializers1-c89 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-initializers1-c89  
+0 tst-initializers1-c99 tst-initializers1-c99 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-initializers1-c99  
+0 tst-initializers1-gnu89 tst-initializers1-gnu89 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-initializers1-gnu89  
+0 tst-initializers1-gnu99 tst-initializers1-gnu99 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-initializers1-gnu99  
+0 tst-initializers1 tst-initializers1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-initializers1  
+0 tst-join1 tst-join1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-join1  
+0 tst-join2 tst-join2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-join2  
+0 tst-join3 tst-join3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-join3  
+0 tst-join4 tst-join4 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-join4  
+0 tst-join5 tst-join5 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-join5  
+0 tst-join6 tst-join6 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-join6  
+0 tst-key1 tst-key1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-key1  
+0 tst-key2 tst-key2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-key2  
+0 tst-key3 tst-key3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-key3  
+0 tst-key4 tst-key4 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-key4  
+0 tst-kill1 tst-kill1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-kill1  
+0 tst-kill2 tst-kill2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-kill2  
+0 tst-kill3 tst-kill3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-kill3  
+0 tst-kill4 tst-kill4 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-kill4  
+0 tst-kill5 tst-kill5 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-kill5  
+0 tst-kill6 tst-kill6 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-kill6  
+0 tst-mqueue1 tst-mqueue1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-mqueue1  
+0 tst-mqueue2 tst-mqueue2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-mqueue2  
+0 tst-mqueue3 tst-mqueue3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-mqueue3  
+0 tst-mqueue4 tst-mqueue4 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-mqueue4  
+0 tst-mqueue5 tst-mqueue5 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-mqueue5  
+0 tst-mqueue6 tst-mqueue6 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-mqueue6  
+0 tst-mqueue7 tst-mqueue7 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-mqueue7  -- ./tst-mqueue7
+0 tst-mqueue8 tst-mqueue8 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-mqueue8  
+0 tst-mqueue9 tst-mqueue9 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-mqueue9  
+0 tst-mutex1 tst-mutex1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-mutex1  
+0 tst-mutex2 tst-mutex2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-mutex2  
+0 tst-mutex3 tst-mutex3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-mutex3  
+0 tst-mutex4 tst-mutex4 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-mutex4  
+0 tst-mutex5 tst-mutex5 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-mutex5  
+0 tst-mutex5a tst-mutex5a nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-mutex5a  
+0 tst-mutex6 tst-mutex6 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-mutex6  
+0 tst-mutex7 tst-mutex7 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-mutex7  
+0 tst-mutex7a tst-mutex7a nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-mutex7a  
+0 tst-mutex8 tst-mutex8 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-mutex8  
+0 tst-mutex9 tst-mutex9 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-mutex9  
+0 tst-oddstacklimit tst-oddstacklimit nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-oddstacklimit  
+0 tst-once1 tst-once1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-once1  
+0 tst-once2 tst-once2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-once2  
+0 tst-once3 tst-once3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-once3  
+0 tst-once4 tst-once4 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-once4  
+0 tst-oncex3 tst-oncex3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-oncex3  
+0 tst-oncex4 tst-oncex4 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-oncex4  
+0 tst-popen1 tst-popen1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-popen1  
+0 tst-raise1 tst-raise1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-raise1  
+0 tst-rwlock1 tst-rwlock1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-rwlock1  
+0 tst-rwlock10 tst-rwlock10 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-rwlock10  
+0 tst-rwlock11 tst-rwlock11 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-rwlock11  
+0 tst-rwlock12 tst-rwlock12 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-rwlock12  
+0 tst-rwlock13 tst-rwlock13 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-rwlock13  
+0 tst-rwlock14 tst-rwlock14 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-rwlock14  
+0 tst-rwlock2 tst-rwlock2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-rwlock2  
+0 tst-rwlock2a tst-rwlock2a nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-rwlock2a  
+0 tst-rwlock3 tst-rwlock3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-rwlock3  
+0 tst-rwlock4 tst-rwlock4 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-rwlock4  
+0 tst-rwlock5 tst-rwlock5 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-rwlock5  
+0 tst-rwlock6 tst-rwlock6 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-rwlock6  
+0 tst-rwlock7 tst-rwlock7 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-rwlock7  
+0 tst-rwlock8 tst-rwlock8 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-rwlock8  
+0 tst-rwlock9 tst-rwlock9 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-rwlock9  
+0 tst-sched1 tst-sched1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-sched1  
+0 tst-sem1 tst-sem1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-sem1  
+0 tst-sem10 tst-sem10 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-sem10  
+0 tst-sem11 tst-sem11 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-sem11  
+0 tst-sem12 tst-sem12 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-sem12  
+0 tst-sem2 tst-sem2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-sem2  
+0 tst-sem3 tst-sem3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-sem3  
+0 tst-sem4 tst-sem4 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-sem4  
+0 tst-sem5 tst-sem5 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-sem5  
+0 tst-sem6 tst-sem6 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-sem6  
+0 tst-sem7 tst-sem7 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-sem7  
+0 tst-sem8 tst-sem8 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-sem8  
+0 tst-sem9 tst-sem9 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-sem9  
+0 tst-signal1 tst-signal1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-signal1  
+0 tst-signal2 tst-signal2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-signal2  
+0 tst-signal3 tst-signal3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-signal3  
+0 tst-signal4 tst-signal4 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-signal4  
+0 tst-signal5 tst-signal5 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-signal5  
+0 tst-signal6 tst-signal6 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-signal6  
+0 tst-signal7 tst-signal7 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-signal7  
+0 tst-spin1 tst-spin1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-spin1  
+0 tst-spin2 tst-spin2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-spin2  
+0 tst-spin3 tst-spin3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-spin3  
+0 tst-stack1 tst-stack1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-stack1  
+0 tst-stack2 tst-stack2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-stack2  
+0 tst-stdio1 tst-stdio1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-stdio1  
+0 tst-stdio2 tst-stdio2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-stdio2  
+0 tst-sysconf tst-sysconf nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-sysconf  
+0 tst-timer2 tst-timer2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-timer2  
+0 tst-timer3 tst-timer3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-timer3  
+0 tst-timer4 tst-timer4 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-timer4  
+0 tst-timer5 tst-timer5 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-timer5  
+0 tst-tls1 tst-tls1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-tls1  
+0 tst-tls2 tst-tls2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-tls2  
+0 tst-tls3 tst-tls3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-tls3  
+0 tst-tls4 tst-tls4 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-tls4  
+0 tst-tls5 tst-tls5 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-tls5  
+0 tst-tsd1 tst-tsd1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-tsd1  
+0 tst-tsd2 tst-tsd2 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-tsd2  
+0 tst-tsd3 tst-tsd3 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-tsd3  
+0 tst-tsd4 tst-tsd4 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-tsd4  
+0 tst-tsd5 tst-tsd5 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-tsd5  
+0 tst-tsd6 tst-tsd6 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-tsd6  
+0 tst-umask1 tst-umask1 nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-umask1  
+0 tst-vfork1x tst-vfork1x nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-vfork1x  
+0 tst-vfork2x tst-vfork2x nptl env LD_LIBRARY_PATH="$PWD:.:" TIMEOUTFACTOR=10  ./tst-vfork2x  
+0 crypt crypt crypt env TIMEOUTFACTOR=50  ./crypt  < crypt.input
+0 md5c-test md5c-test crypt env TIMEOUTFACTOR=50  ./md5c-test  
+0 sha256c-test sha256c-test crypt env TIMEOUTFACTOR=50  ./sha256c-test  
+0 sha512c-test sha512c-test crypt env TIMEOUTFACTOR=50  ./sha512c-test  
+0 getrpcent getrpcent rpc   ./getrpcent  
+0 tst-tls-at-ctor tst-tls-at-ctor tls env LD_LIBRARY_PATH="$PWD:.:"  ./tst-tls-at-ctor  
+0 tst-tls1 tst-tls1 tls env LD_LIBRARY_PATH="$PWD:.:"  ./tst-tls1  
+0 tst-tls10 tst-tls10 tls env LD_LIBRARY_PATH="$PWD:.:"  ./tst-tls10  
+0 tst-tls11 tst-tls11 tls env LD_LIBRARY_PATH="$PWD:.:"  ./tst-tls11  
+0 tst-tls12 tst-tls12 tls env LD_LIBRARY_PATH="$PWD:.:"  ./tst-tls12  
+0 tst-tls13 tst-tls13 tls env LD_LIBRARY_PATH="$PWD:.:"  ./tst-tls13  
+0 tst-tls14 tst-tls14 tls env LD_LIBRARY_PATH="$PWD:.:"  ./tst-tls14  
+0 tst-tls15 tst-tls15 tls env LD_LIBRARY_PATH="$PWD:.:"  ./tst-tls15  
+0 tst-tls17 tst-tls17 tls env LD_LIBRARY_PATH="$PWD:.:"  ./tst-tls17  
+0 tst-tls18 tst-tls18 tls env LD_LIBRARY_PATH="$PWD:.:"  ./tst-tls18  
+0 tst-tls2 tst-tls2 tls env LD_LIBRARY_PATH="$PWD:.:"  ./tst-tls2  
+0 tst-tls3 tst-tls3 tls env LD_LIBRARY_PATH="$PWD:.:"  ./tst-tls3  
+0 tst-tls4 tst-tls4 tls env LD_LIBRARY_PATH="$PWD:.:"  ./tst-tls4  
+0 tst-tls5 tst-tls5 tls env LD_LIBRARY_PATH="$PWD:.:"  ./tst-tls5  
+0 tst-tls6 tst-tls6 tls env LD_LIBRARY_PATH="$PWD:.:"  ./tst-tls6  
+0 tst-tls7 tst-tls7 tls env LD_LIBRARY_PATH="$PWD:.:"  ./tst-tls7  
+0 tst-tls8 tst-tls8 tls env LD_LIBRARY_PATH="$PWD:.:"  ./tst-tls8  
+0 tst-tls9 tst-tls9 tls env LD_LIBRARY_PATH="$PWD:.:"  ./tst-tls9  
+0 sigchld sigchld signal   ./sigchld  
+0 signal signal signal   ./signal  
+0 tst-raise tst-raise signal   ./tst-raise  
+0 tst-signal tst-signal signal   ./tst-signal  
+0 tst-signalfd tst-signalfd signal   ./tst-signalfd  
+0 tst-sigset tst-sigset signal   ./tst-sigset  
+0 bug-glob2 bug-glob2 misc   ./bug-glob2  
+0 bug-readdir1 bug-readdir1 misc   ./bug-readdir1  
+0 dirent dirent misc   ./dirent  
+0 dirent64 dirent64 misc   ./dirent64  
+0 fdopen fdopen misc   ./fdopen  
+0 opendir-tst1 opendir-tst1 misc   ./opendir-tst1  
+0 popen popen misc   ./popen  
+0 seek seek misc   ./seek  
+0 sem sem misc   ./sem  
+0 stdarg stdarg misc   ./stdarg  
+0 tst-inotify tst-inotify misc   ./tst-inotify  
+0 tst-mkostemps tst-mkostemps misc   ./tst-mkostemps  
+0 tst-nftw tst-nftw misc   ./tst-nftw  
+0 tst-preadvwritev tst-preadvwritev misc   ./tst-preadvwritev  
+0 tst-scandir tst-scandir misc   ./tst-scandir  
+0 tst-seekdir tst-seekdir misc   ./tst-seekdir  
+0 tst-statfs tst-statfs misc   ./tst-statfs  / /sys /proc /dev
+0 tst-statvfs tst-statvfs misc   ./tst-statvfs  / /sys /proc /dev
+0 tst-syscall0 tst-syscall0 misc   ./tst-syscall0  
+0 tst-syscall1 tst-syscall1 misc   ./tst-syscall1  
+0 tst-syscall6 tst-syscall6 misc   ./tst-syscall6  
+0 tst-utmp tst-utmp misc   ./tst-utmp  
+0 tst-utmpx tst-utmpx misc   ./tst-utmpx  
+0 tst-iconv1 tst-iconv1 iconv   ./tst-iconv1  
+0 tst-iconv2 tst-iconv2 iconv   ./tst-iconv2  
+0 tst-iconv3 tst-iconv3 iconv   ./tst-iconv3  
+0 tst-iconv4 tst-iconv4 iconv   ./tst-iconv4  
+0 tst-iconv5 tst-iconv5 iconv   ./tst-iconv5  
+0 tst-iconv6 tst-iconv6 iconv   ./tst-iconv6  
+0 memcmp-stat memcmp-stat stat   ./memcmp-stat  
+0 stat-loop256 stat-loop256 stat   ./stat-loop256  
+0 stat stat stat   ./stat  Makefile
+0 malloc-standard-alignment malloc-standard-alignment malloc   ./malloc-standard-alignment  
+0 malloc malloc malloc   ./malloc  
+0 mallocbug mallocbug malloc   ./mallocbug  
+0 realloc-can-shrink realloc-can-shrink malloc   ./realloc-can-shrink  
+0 realloc0 realloc0 malloc   ./realloc0  
+0 testmalloc testmalloc malloc   ./testmalloc  
+0 tst-calloc tst-calloc malloc   ./tst-calloc  
+0 tst-malloc tst-malloc malloc   ./tst-malloc  
+0 tst-mallocfork tst-mallocfork malloc   ./tst-mallocfork  
+0 tst-mcheck tst-mcheck malloc   ./tst-mcheck  
+0 tst-valloc tst-valloc malloc   ./tst-valloc  
+0 arg_test arg_test args  env -i ENVVAR=123 SOMETHING=sldajfasdf BLAHBLAH=" hi hi " ./arg_test  a b c d e f g h
+0 mmap mmap mmap   ./mmap  
+0 mmap2 mmap2 mmap   ./mmap2  
+0 mmap64 mmap64 mmap   ./mmap64  
+0 tst-mmap-eofsync tst-mmap-eofsync mmap   ./tst-mmap-eofsync  
+0 tst-mmap-fflushsync tst-mmap-fflushsync mmap   ./tst-mmap-fflushsync  
+0 tst-mmap-offend tst-mmap-offend mmap   ./tst-mmap-offend  
+0 tst-mmap-setvbuf tst-mmap-setvbuf mmap   ./tst-mmap-setvbuf  
+0 bug269-setjmp bug269-setjmp setjmp   ./bug269-setjmp  
+0 jmpbug jmpbug setjmp   ./jmpbug  
+0 sigjmpbug sigjmpbug setjmp   ./sigjmpbug  
+0 tst-setjmp tst-setjmp setjmp   ./tst-setjmp  
+0 tst-vfork-longjmp tst-vfork-longjmp setjmp   ./tst-vfork-longjmp  
+134 assert assert assert  trap ":" ABRT ; ./assert  
+0 ex1 ex1 pthread   ./ex1  
+0 ex2 ex2 pthread   ./ex2  
+0 ex3 ex3 pthread   ./ex3  
+0 ex4 ex4 pthread   ./ex4  
+0 ex5 ex5 pthread   ./ex5  
+0 ex6 ex6 pthread   ./ex6  
+0 ex7 ex7 pthread   ./ex7  
+0 ex8-mtx-odd ex8-mtx-odd pthread   ./ex8-mtx-odd  
+0 tst-c99 tst-c99 pthread   ./tst-c99  
+0 tst-join2 tst-join2 pthread   ./tst-join2  
+0 tst-join3 tst-join3 pthread   ./tst-join3  
+0 tst-too-many-cleanups tst-too-many-cleanups pthread   ./tst-too-many-cleanups  
+0 clone clone unistd   ./clone  
+0 errno errno unistd   ./errno  
+0 exec-null exec-null unistd   ./exec-null  
+0 fork fork unistd   ./fork  
+0 getcwd getcwd unistd   ./getcwd  
+0 getopt getopt unistd   ./getopt  -abcXXX -9
+0 getopt_long getopt_long unistd   ./getopt_long  --add XXX --delete YYY --verbose
+0 tst-fallocate tst-fallocate unistd   ./tst-fallocate  
+0 tst-getcwd tst-getcwd unistd   ./tst-getcwd  
+0 tst-posix_fallocate tst-posix_fallocate unistd   ./tst-posix_fallocate  
+0 tst-preadwrite tst-preadwrite unistd   ./tst-preadwrite  
+0 tst-preadwrite64 tst-preadwrite64 unistd   ./tst-preadwrite64  
+0 tst-pselect tst-pselect unistd   ./tst-pselect  
+0 tstgetopt tstgetopt unistd   ./tstgetopt  -a -b -cfoobar --required foobar --optional=bazbug --none random --col --color --colour
+0 vfork vfork unistd   ./vfork  
+0 tst-regex2 tst-regex2 regex   ./tst-regex2  
+0 tst-regexloc tst-regexloc regex   ./tst-regexloc  
+0 tst-posix_spawn tst-posix_spawn rt   ./tst-posix_spawn  ls
+0 ctype ctype ctype   ./ctype  
+0 clocktest clocktest time   ./clocktest  
+0 test_time test_time time   ./test_time  
+0 tst-ctime tst-ctime time   ./tst-ctime  
+0 tst-futimens1 tst-futimens1 time   ./tst-futimens1  
+0 tst-mktime tst-mktime time   ./tst-mktime  
+0 tst-mktime3 tst-mktime3 time   ./tst-mktime3  
+0 tst-strptime2 tst-strptime2 time   ./tst-strptime2  
+0 tst-timerfd tst-timerfd time   ./tst-timerfd  
+0 bug-if1 bug-if1 inet   ./bug-if1  
+0 gethost gethost inet   ./gethost  
+0 gethost_r-align gethost_r-align inet   ./gethost_r-align  
+0 gethostid gethostid inet   ./gethostid  
+0 getnetent getnetent inet   ./getnetent  
+0 if_nameindex if_nameindex inet   ./if_nameindex  
+0 tst-aton tst-aton inet   ./tst-aton  
+0 tst-ether_aton tst-ether_aton inet   ./tst-ether_aton  
+0 tst-ethers-line tst-ethers-line inet   ./tst-ethers-line  
+0 tst-ethers tst-ethers inet   ./tst-ethers  
+0 tst-getni1 tst-getni1 inet   ./tst-getni1  
+0 tst-getni2 tst-getni2 inet   ./tst-getni2  
+0 tst-ifaddrs tst-ifaddrs inet   ./tst-ifaddrs  
+0 tst-network tst-network inet   ./tst-network  
+0 tst-ntoa tst-ntoa inet   ./tst-ntoa  
+0 tst-res tst-res inet   ./tst-res  
+0 tst-sock-nonblock tst-sock-nonblock inet   ./tst-sock-nonblock  

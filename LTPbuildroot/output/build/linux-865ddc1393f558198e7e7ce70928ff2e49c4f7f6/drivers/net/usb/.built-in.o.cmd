@@ -1,0 +1,1 @@
+cmd_drivers/net/usb/built-in.o :=  rm -f drivers/net/usb/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/net/usb/built-in.o drivers/net/usb/lan78xx.o drivers/net/usb/smsc95xx.o drivers/net/usb/usbnet.o 

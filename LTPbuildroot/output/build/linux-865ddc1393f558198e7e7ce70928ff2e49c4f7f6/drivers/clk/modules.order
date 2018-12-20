@@ -1,0 +1,2 @@
+kernel/drivers/clk/clk-allo-dac.ko
+kernel/drivers/clk/clk-hifiberry-dacpro.ko

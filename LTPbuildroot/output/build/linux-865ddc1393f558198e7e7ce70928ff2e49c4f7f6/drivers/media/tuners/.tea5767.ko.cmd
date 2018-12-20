@@ -1,0 +1,1 @@
+cmd_drivers/media/tuners/tea5767.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/tuners/tea5767.ko drivers/media/tuners/tea5767.o drivers/media/tuners/tea5767.mod.o ;  true

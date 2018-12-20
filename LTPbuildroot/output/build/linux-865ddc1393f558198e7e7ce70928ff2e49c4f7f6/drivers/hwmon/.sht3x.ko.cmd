@@ -1,0 +1,1 @@
+cmd_drivers/hwmon/sht3x.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/hwmon/sht3x.ko drivers/hwmon/sht3x.o drivers/hwmon/sht3x.mod.o ;  true

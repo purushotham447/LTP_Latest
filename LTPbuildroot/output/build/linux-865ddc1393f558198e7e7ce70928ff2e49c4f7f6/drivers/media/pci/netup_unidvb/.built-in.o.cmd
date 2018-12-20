@@ -1,0 +1,1 @@
+cmd_drivers/media/pci/netup_unidvb/built-in.o :=  rm -f drivers/media/pci/netup_unidvb/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/media/pci/netup_unidvb/built-in.o

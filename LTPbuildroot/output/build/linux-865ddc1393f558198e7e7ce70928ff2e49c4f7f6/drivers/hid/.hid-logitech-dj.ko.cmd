@@ -1,0 +1,1 @@
+cmd_drivers/hid/hid-logitech-dj.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/hid/hid-logitech-dj.ko drivers/hid/hid-logitech-dj.o drivers/hid/hid-logitech-dj.mod.o ;  true

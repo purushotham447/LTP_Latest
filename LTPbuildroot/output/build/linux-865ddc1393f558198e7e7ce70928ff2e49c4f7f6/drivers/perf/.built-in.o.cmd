@@ -1,0 +1,1 @@
+cmd_drivers/perf/built-in.o :=  rm -f drivers/perf/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/perf/built-in.o drivers/perf/arm_pmu.o drivers/perf/arm_pmu_platform.o 

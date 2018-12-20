@@ -1,0 +1,1 @@
+cmd_drivers/w1/slaves/w1_ds2408.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/w1/slaves/w1_ds2408.ko drivers/w1/slaves/w1_ds2408.o drivers/w1/slaves/w1_ds2408.mod.o ;  true

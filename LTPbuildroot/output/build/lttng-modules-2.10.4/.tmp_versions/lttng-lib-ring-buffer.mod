@@ -1,0 +1,3 @@
+/usr/src/output/build/lttng-modules-2.10.4/./lib/lttng-lib-ring-buffer.ko
+/usr/src/output/build/lttng-modules-2.10.4/./lib/ringbuffer/ring_buffer_backend.o /usr/src/output/build/lttng-modules-2.10.4/./lib/ringbuffer/ring_buffer_frontend.o /usr/src/output/build/lttng-modules-2.10.4/./lib/ringbuffer/ring_buffer_iterator.o /usr/src/output/build/lttng-modules-2.10.4/./lib/ringbuffer/ring_buffer_vfs.o /usr/src/output/build/lttng-modules-2.10.4/./lib/ringbuffer/ring_buffer_splice.o /usr/src/output/build/lttng-modules-2.10.4/./lib/ringbuffer/ring_buffer_mmap.o /usr/src/output/build/lttng-modules-2.10.4/./lib/prio_heap/lttng_prio_heap.o /usr/src/output/build/lttng-modules-2.10.4/./lib/../wrapper/splice.o
+

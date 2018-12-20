@@ -1,0 +1,151 @@
+#!/bin/ksh
+#
+# Script: dtdh.ksh
+# Author: Robin T. Miller
+# Date:   May 2011
+#
+# Description:
+#	This script uses dt to emulate what the Disk Hogger tool does, well as
+# closely as possible. Note: Internally, diskhogger uses different UUID's in each
+# 4k block, except for its' dedupe version.
+#
+# Disclaimer:
+#       This script simply proves the flexibility of dt and its' options to do
+# creative testing. Granted, dt uses multiple processes rather than threads, so
+# no will not scale as well as diskhogger, using more memory and process slots.
+#
+# Note: dt still runs rather quickly, utilizing kernel file system threads! :-)
+# On raw disks, folks know the gig... enable asynchronous I/O for performance!
+#
+# Modification History:
+#       Make changes so this script runs on all OS's, not just Linux w/uuidgen!
+#
+
+typeset PROGRAM=$(basename $0)
+
+function usage
+{
+    print "\nUsage: $PROGRAM [help]"
+    print "\nNote: Script currently driven by environment variables."
+    print "\nWhere variables/defaults are:"
+    print "            Test Directory (DT_TESTDIR): ${DT_TESTDIR}"
+    print "             Number of Files (DT_FILES): ${DT_FILES}"
+    print "           Size of each File (DT_LIMIT): ${DT_LIMIT}"
+    print "          Subdirectory Depth (DT_DEPTH): ${DT_DEPTH}"
+    print "         Number of Threads (DT_THREADS): ${DT_THREADS}"
+    print "       Datatest I/O Tool Path (DT_PATH): ${DT_PATH}"
+    print "\nTherefore, to set a parameter use:"
+    print "    % export DT_LIMIT=100k\n"
+    print "\nLast Updated: August 15th, 2011 by Robin T. Miller"
+    exit 1
+}
+
+# Beware: Linux pdksh puts quotes around path from 'whence' output!
+typeset DT_PATH=${DT_PATH:-$(whence dt.latest | tr -d "'")}
+typeset DT_PATH=${DT_PATH:-~rtmiller/Tools/dt.d-WIP/linux2.6-x86/dt}
+typeset DT_PATH=${DT_PATH:-/usr/software/test/bin/dt.latest}
+
+#
+# Setup Defaults:
+#
+
+# Note: I'm not a big fan of positional options ($1 $2 $3 ...) so I'm
+#       using environment variables to set/override script options below.
+#
+# TODO: Add options to control each parameter (if this gets widely used).
+
+#
+# Default parameters to emulate:
+# % ./dh 10 10 100 Mb /var/tmp/dh
+# 10 threads, 10 directory depth, 100 files/dir, Mb is file size
+#
+# Default is 1m/4k = 256 records (diskhogger supports Kb, Mb, or Gb).
+typeset DT_LIMIT=${DT_LIMIT:-1m}
+typeset DT_RECORDS=${DT_RECORDS:-"${DT_LIMIT}/4k"}
+# FYI: dt creates files in top level directory 1st, then subdirectories, so
+#      (100 files * 10 procs) = 1000 extra files created versus dishhogger.
+#       Thus, reduce the directory depth by 1 to avoid too many files.
+typeset DT_FILES=${DT_FILES:-100}
+typeset DT_DEPTH=${DT_DEPTH:-10}
+# Note: dt only supports multiple processes (at present)
+typeset DT_THREADS=${DT_THREADS:-10}
+
+[[ "$1" == "help" ]] && usage
+
+#typeset DT_TESTDIR=${DT_TESTDIR:-/var/tmp/DtTest}
+if [[ -z "$DT_TESTDIR" ]]; then
+    print -u2 "Please define DT_TESTDIR to top of the directory tree to use!"
+    print -u2 "Example: export DT_TESTDIR=/var/tmp/DtTest"
+    usage
+fi
+
+print "\nTest Parameters:\n"
+print "            Test Directory (DT_TESTDIR): ${DT_TESTDIR}"
+print "             Number of Files (DT_FILES): ${DT_FILES}"
+print "           Size of each File (DT_LIMIT): ${DT_LIMIT}"
+print "          Subdirectory Depth (DT_DEPTH): ${DT_DEPTH}"
+print "         Number of Threads (DT_THREADS): ${DT_THREADS}"
+print "       Datatest I/O Tool Path (DT_PATH): ${DT_PATH}"
+
+typeset OSs=$(uname -s)
+if [ "$OSs" = "Linux" ]; then
+    #
+    # Note: The UUID is written to the end of each 4k block.
+    # Since file system blocks are at least 4k in size, all 4k gets written by FS.
+    # diskhogger normally writes a different UUID per 4k block, dt writes same UUID.
+    #
+    uuidlen=36
+    initpos="4k-$uuidlen"
+    stepval="4k-$uuidlen"
+    # Note: The uuidgen utility is specific to Linux!
+    UUID=$(uuidgen)
+    PATTERN="$UUID"
+    FILE="$UUID"
+    LENGTH=$uuidlen
+    EXTRA=""
+else
+    # Write lba + 4 bytes of data at start of each 4k block.
+    datalen=8
+    initpos=0
+    stepval="4k-$datalen"
+    PATTERN="incr"
+    FILE="dt.data"
+    LENGTH=$datalen
+    EXTRA="enable=lbdata"
+fi
+print "\n->> Removing existing files in directory ${DT_TESTDIR}, please be patient... <<-"
+time rm -rf ${DT_TESTDIR}
+mkdir -p ${DT_TESTDIR}
+
+#
+# Note: Data verification and file sync'ing disabled to mimic diskhogger!
+# Also Note: Adding dirp=$(uuidgen) will create longer directory names, but
+# is excluded since it will limit the subdirectory depth due to path length.
+#
+print "\n->> Starting to populate directory ${DT_TESTDIR}... <<-\n"
+time ${DT_PATH}                                                     \
+     of=${DT_TESTDIR}/${FILE} pattern="${PATTERN}" bs=${LENGTH}     \
+     position=${initpos} step=${stepval} records=${DT_RECORDS}      \
+     files=${DT_FILES} sdirs=${DT_DEPTH}-1 procs=${DT_THREADS}      \
+     dispose=keep disable=fsync,stats,verify log=/dev/tty ${EXTRA}
+#
+# URL: http://wikid.netapp.com/w/DPG_QA_NB_Automation/DiskHogger
+# http://wikid.netapp.com/w/DPG_QA_NB_Automation/Innovations_and_Publications#Disk_Hogger
+#
+# Usage: ./diskhogger <root dir no> <dir depth> <file count> <Kb/Mb/Gb> <path>
+#
+# robin-ptc% time /u/rtmiller/p4/dpg/DISKHOGGER/SRC/LINUX/diskhogger 10 10 100 Mb ./dh 
+# Fri Aug 12 15:06:01 EDT 2011
+# Fri Aug 12 15:12:55 EDT 2011
+# 
+# real    6m53.67s
+# user    0m10.63s
+# sys     1m2.96s
+# robin-ptc%
+# 
+
+# Note: With defaults, dt writes 10000 files in 6m50.56s (internal SCSI disk w/ext3 FS)
+print "\n->> Displaying the number of files created and resulting disk usage... <<-\n"
+set -x
+time find ${DT_TESTDIR} -type f -print | wc -l
+du -sk ${DT_TESTDIR}

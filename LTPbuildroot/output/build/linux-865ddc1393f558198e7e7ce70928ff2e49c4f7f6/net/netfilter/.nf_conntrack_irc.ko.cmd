@@ -1,0 +1,1 @@
+cmd_net/netfilter/nf_conntrack_irc.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/netfilter/nf_conntrack_irc.ko net/netfilter/nf_conntrack_irc.o net/netfilter/nf_conntrack_irc.mod.o ;  true

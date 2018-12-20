@@ -1,0 +1,1 @@
+cmd_drivers/staging/irda/net/ircomm/ircomm.o := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL    -r -o drivers/staging/irda/net/ircomm/ircomm.o drivers/staging/irda/net/ircomm/ircomm_core.o drivers/staging/irda/net/ircomm/ircomm_event.o drivers/staging/irda/net/ircomm/ircomm_lmp.o drivers/staging/irda/net/ircomm/ircomm_ttp.o 

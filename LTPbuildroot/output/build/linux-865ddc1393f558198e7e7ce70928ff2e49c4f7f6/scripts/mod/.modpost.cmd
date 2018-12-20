@@ -1,0 +1,1 @@
+cmd_scripts/mod/modpost := /usr/bin/gcc -O2 -I/usr/src/output/host/include -L/usr/src/output/host/lib -Wl,-rpath,/usr/src/output/host/lib  -o scripts/mod/modpost scripts/mod/modpost.o scripts/mod/file2alias.o scripts/mod/sumversion.o  

@@ -1,0 +1,303 @@
+<HTML>
+<HEAD>
+<TITLE>Data Test Program (dt) September 18th, 2008</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#D19275">
+
+<CENTER><H2><STRONG>What's New as of September 18th, 2008</STRONG></H2></CENTER>
+
+<H2>Changes For This Release</H2>
+This is a major release of <I>dt</I>, which includes several bug
+fixes and new features.
+<P>
+The following changes were made to <I>dt</I> Version 16.08:
+<UL>
+<LI>
+On data corruptions, the read is reread with direct I/O, to bypass the
+buffer cache. If the reread data matches the expected data pattern, then
+we assume a "read failure", otherwise if the reread data matches the previous
+read, we assume a "write failure" (the data was written incorrectly).	
+<p>
+New flags/options added:
+<pre>
+    retryDC          Retry data corruptions.(Default: enabled)
+    looponerror      Loop on error.         (Default: disabled)
+    retry_delay=value Delay before retrying operation. (Def: 5)
+</pre>
+Note: When looping on error, the retry delay is multiplied by the retry count,
+to avoid filling up log files with frequent retries.  Loop on error is useful
+if you'd like to monitor an analyzer to see the underlying LBA being accessed.
+Also Note: looponerror only applies to DC's, not various system call failures.
+<p>
+<LI>
+Add support for a history mechanism.  This saves the specified number
+of I/O request in a circular history buffer, which is dumped when there's
+a data corruptiom or an I/O error.
+<p>
+New Options Are:
+<pre>
+    history=value    Set the number of history request entries.
+    hdsize=value     Set the history data size (bytes to save).
+                     Default hdsize=32 (set to 0 to disable copy)
+</pre>
+Flags to enable/disable:
+<pre>
+    hdump            History dump.          (Default: disabled)
+    htiming          History timing.        (Default: disabled)
+</pre>
+<LI>
+Added <i>dispose=keeponerror</i> option, so the file is kept only on errors.
+<p>
+So, the updated option is:
+<pre>
+    dispose=mode     Set file dispose to: {delete, keep, or keeponerror}.
+</pre>
+<LI>     
+Add new option to control no-progress operations timed, rather than timing
+all operations. (used with <i>noprogt=</i> option)
+<pre>
+    notime=optype    Disable timing of specified operation type.
+    Valid optype's are: open close read write ioctl fsync msync aiowait
+</pre>
+Note: Since fsync() can take awhile if lots of data is being flushed from the
+buffer cache, you may wish to disable timing fsync's via: <i>notime=fsync</i>
+<p>
+<LI>
+Implement no-progress/keepalive timers for native Windows. Previosuly only
+the runtime= option was supported, now no/slow I/O progress can be monitored
+as well as emitting keepalive messages (if you desire).
+<p>
+<LI>
+Add </i>enable/disable=prefill</i> option to control the automatic pre-filling
+of the read buffers, since the filling adds to the compute (cpu) intensity.
+Note: This prefill was needed for simple 4-byte internal data patterns,
+but is *not* required for IOT and most pattern files since they're unique.
+<p>
+<LI>
+Added SetSparseFile() function to enable this file attribute for
+native WIndows files, to mimic Unix file behaviour. If this flag is not
+set, then writes to large offset force all blocks to be allocated, which
+causes false long no-progress indications.
+<p>
+<LI>
+Control fsync() via device info flag instead of using global.
+This change allows separate control for input and output files, and
+in particular allows reading from a file and writing to a pipe!
+Previously, an fsync was attempted to the pipe which would fail.
+<p>
+<LI>
+Map POSIX O_TRUNC to TRUNCATE_EXISTING disposition flag for Windows, to support
+truncating files on open and reopen file system operations. Note: This open flag
+is recommended when running multiple passes (passes= or runtime=), since truncating
+the file deallocates data blocks forcing them to be reallocated, thus avoiding
+reading previous data.
+<p>
+<LI>
+When using IOT data pattern, factor the pass count into the pattern generated
+so it is unique per block for each pass.  Normally the constant 0x01010101 is
+used as a seed along with the LBA in each 32-bit word of the block. Now, this
+constant is multiplied my the pass count, so each blocks' IOT data is unique
+on each pass. The last seed value is displayed in the final statistics.
+<p>
+This alternate IOT seed value can be specified with this new option:
+<pre>
+    iotseed=value    Set the IOT pattern block seed value.
+</pre>
+<LI>
+Added support for multiple processes on native Windows. This means the <i>procs=</i>
+and <i>slices=</i> options are now supported, bringing the native Windows <i>dt</i>
+to the same functionality level as the Unix version.
+<p>
+In support of this feature, these enable/disable flags were added:
+<pre>
+    funique          Unique output file.    (Default: disabled)
+    logpid           Log process ID.        (Default: disabled)
+    child            Child prcess.          (Default: disabled)
+                     Shorthand to enable funique and logpid flags.
+</pre>
+Note: The maximum processes on Windows is limited to 64.
+<p>
+<LI>A flag was added to log startup, complete, and errors to syslog via:
+<p>
+<pre>
+    syslog           Log errors to syslog.  (Default: disabled)
+</pre>
+This feature was added to correlate errors with <i>dt</i> processes.
+<p>
+<LI>To help with troubleshooting no-progress issues, <i>enable=tdebug</i> was added.
+<p>
+<LI>The log file option has been enhanced:
+<p>
+<pre>
+    log[tu]=filename The log file name to write.
+                     t=truncate, u=unique (w/pid)
+</pre>
+With unique log files and multiple processes, each process writes to its'
+own log file.  Like the output file w/multiple procs, the log file has the
+process ID (pid) appended to make the name unique.
+<p>
+Since the default is to append to existing log files, the truncate will do
+the obvious thing, to save one from deleting previous log file. While there
+was a historic reason for appending my default, I'm reluctant to change this
+history behaviour that existing scripts may depend on.
+<p>
+Also Note: If a log file is open, when the trigger script is executed, the
+output is now written to the log file.
+</ul>
+<P>
+<CENTER>Within NetApp, the updated <I>dt</I> kits are located @ URL:</CENTER>
+<P>
+<CENTER><A HREF="http://web.rtp.netapp.com/~rtmiller/dt.html">http://web.rtp.netapp.com/~rtmiller/dt.html</A></CENTER>
+<P>
+<CENTER>External to NetApp, you can obtain <I>dt</I> kits from URL:</CENTER>
+<P>
+<CENTER>TBD</CENTER>
+</UL>
+<HR>
+<A HREF="mailto:Robin.Miller@netapp.com"><IMG SRC="../gifs/mailbox.gif" ALT="Mail"></A>
+Send mail to admin of this page: <EM>Robin.Miller@netapp.com</EM>
+<A HREF="../index.html"><IMG SRC="../gifs/home04.gif" ALT="Home"></A>
+To Robin's home page.
+<P>
+Last Modified: September 18th, 2008
+<HR>
+
+<H2>Examples:</H2>
+<HR SIZE=5 NOSHADE>
+<pre>
+# <b>./dt version</b>
+    --> Date: September 15th, 2008, Version: 16.01, Author: Robin T. Miller <--
+# 
+# <b>dt of=/var/tmp/dt.data min=b max=256k incr=var pattern=iot \
+     passes=3 limit=100m dispose=keep disable=pstats,verbose</b>
+
+Total Statistics:
+     Output device/file name: /var/tmp/dt.data (device type=regular)
+     Type of I/O's performed: sequential (forward, rseed=0x246d5b5a)
+    Data pattern string used: 'IOT Pattern' (blocking is 512 bytes)
+    Last IOT seed value used: 0x03030303
+     Total records processed: 4662 with min=512, max=262144, incr=variable
+     Total bytes transferred: 629145600 (614400.000 Kbytes, 600.000 Mbytes)
+      Average transfer rates: 39618741 bytes/sec, 38690.176 Kbytes/sec
+     Number I/O's per second: 293.577
+      Total passes completed: 3/3
+       Total errors detected: 0/1
+          Total elapsed time: 00m15.88s
+           Total system time: 00m00.74s
+             Total user time: 00m07.17s
+               Starting time: Fri Sep 19 16:14:48 2008
+                 Ending time: Fri Sep 19 16:15:03 2008
+
+# <b>dt if=/var/tmp/dt.data min=b max=256k incr=var pattern=iot \
+     passes=3 limit=100m iotseed=0x03030303 disable=pstats,verbose</b>
+
+Total Statistics:
+      Input device/file name: /var/tmp/dt.data (device type=regular)
+     Type of I/O's performed: sequential (forward, rseed=0x246da97c)
+    Data pattern string used: 'IOT Pattern' (blocking is 512 bytes)
+     Total records processed: 2376 with min=512, max=262144, incr=variable
+     Total bytes transferred: 314572800 (307200.000 Kbytes, 300.000 Mbytes)
+      Average transfer rates: 49539024 bytes/sec, 48377.953 Kbytes/sec
+     Number I/O's per second: 374.173
+      Total passes completed: 3/3
+       Total errors detected: 0/1
+          Total elapsed time: 00m06.35s
+           Total system time: 00m00.15s
+             Total user time: 00m06.20s
+               Starting time: Fri Sep 19 16:18:14 2008
+                 Ending time: Fri Sep 19 16:18:20 2008
+
+# <b>dt of=/var/tmp/dt.data min=b max=256k incr=var pattern=iot \
+     limit=100m history=5 enable=hdump,htiming disable=pstats</b>
+dt: End of Write pass 0/1, 204800 blocks, 100.000 Mbytes, 759 records, errors 0/1, elapsed 00m03.14s
+dt: End of Read pass 1/1, 204800 blocks, 100.000 Mbytes, 759 records, errors 0/1, elapsed 00m02.13s
+
+Total Statistics:
+     Output device/file name: /var/tmp/dt.data (device type=regular)
+     Type of I/O's performed: sequential (forward, rseed=0x2469616c)
+    Data pattern string used: 'IOT Pattern' (blocking is 512 bytes)
+     Total records processed: 1518 with min=512, max=262144, incr=variable
+     Total bytes transferred: 209715200 (204800.000 Kbytes, 200.000 Mbytes)
+      Average transfer rates: 39794156 bytes/sec, 38861.480 Kbytes/sec
+     Number I/O's per second: 288.046
+      Total passes completed: 1/1
+       Total errors detected: 0/1
+          Total elapsed time: 00m05.27s
+           Total system time: 00m00.26s
+             Total user time: 00m02.35s
+               Starting time: Fri Sep 19 15:31:33 2008
+                 Ending time: Fri Sep 19 15:31:38 2008
+
+
+dt: Dumping History Data (5 entries):
+
+1221852698.397315 (0.004768) Record #759 - Read 105472 bytes (206 blocks) lba's 204594 - 204799 (pos 104752128)
+Offset
+000000  00031f32 01042033 02052134 03062235 
+000016  04072336 05082437 06092538 070a2639 
+
+1221852698.392547 (0.002549) Record #758 - Read 240640 bytes (470 blocks) lba's 204124 - 204593 (pos 104511488)
+Offset
+000000  00031d5c 01041e5d 02051f5e 0306205f 
+000016  04072160 05082261 06092362 070a2463 
+
+1221852698.389998 (0.004830) Record #757 - Read 119808 bytes (234 blocks) lba's 203890 - 204123 (pos 104391680)
+Offset
+000000  00031c72 01041d73 02051e74 03061f75 
+000016  04072076 05082177 06092278 070a2379 
+
+1221852698.385168 (0.004725) Record #756 - Read 242688 bytes (474 blocks) lba's 203416 - 203889 (pos 104148992)
+Offset
+000000  00031a98 01041b99 02051c9a 03061d9b 
+000016  04071e9c 05081f9d 0609209e 070a219f 
+
+1221852698.380443 Record #755 - Read 231424 bytes (452 blocks) lba's 202964 - 203415 (pos 103917568)
+Offset
+000000  000318d4 010419d5 02051ad6 03061bd7 
+000016  04071cd8 05081dd9 06091eda 070a1fdb 
+
+# <b>dt of=dt.data passes=2 pattern=iot bs=64k limit=100m disable=stats dispose=keep</b>
+# <b>dt if=dt.data pattern=iot position=50m bs=64k limit=100m disable=stats enable=syslog</b>
+
+dt: Error number 1 occurred on Fri Sep 19 17:51:58 2008
+dt: Elapsed time since beginning of pass: 00m00.00s
+dt: Elapsed time since beginning of test: 00m00.00s
+dt: Data compare error at byte 4 in record number 1
+dt: Relative block number where the error occurred is 102400, position 52428804 (offset 4)
+dt: Data expected = 0x1, data found = 0x2, byte count = 65536
+dt: The correct data starts at address 0x9e4e004 (marked by asterisk '*')
+dt: Dumping Pattern Buffer (base = 0x9e4e000, offset = 4, limit = 512 bytes):
+Offset
+000000  00 90 01 00*01 91 02 01 02 92 03 02 03 93 04 03
+000016  04 94 05 04 05 95 06 05 06 96 07 06 07 97 08 07
+          ...
+000480  78 08 7a 78 79 09 7b 79 7a 0a 7c 7a 7b 0b 7d 7b
+000496  7c 0c 7e 7c 7d 0d 7f 7d 7e 0e 80 7e 7f 0f 81 7f
+
+dt: The incorrect data starts at address 0x9e63004 (marked by asterisk '*')
+dt: Dumping Data Buffer (base = 0x9e63000, offset = 4, limit = 512 bytes):
+Offset
+000000  00 90 01 00*02 92 03 02 04 94 05 04 06 96 07 06
+000016  08 98 09 08 0a 9a 0b 0a 0c 9c 0d 0c 0e 9e 0f 0e
+          ...
+000480  f0 80 f2 f0 f2 82 f4 f2 f4 84 f6 f4 f6 86 f8 f6
+000496  f8 88 fa f8 fa 8a fc fa fc 8c fe fc fe 8e 00 ff
+
+dt: Rereading and verifying record data using Direct I/O...
+dt: Seeked to block 102400 (0x19000) at byte position 52428800
+dt: Record #1 - Reading 65536 bytes (128 blocks) into buffer 0x9e76000, lba's 102400 - 102527 (pos 52428800)
+dt: Reread data matches previous data read, possible write failure!
+# <b>tail /var/log/messages</b>
+Sep 18 17:26:10 sf49ers02 remote(pam_unix)[1352]: session closed for user rtmiller
+Sep 19 15:07:28 sf49ers02 remote(pam_unix)[7538]: session opened for user rtmiller by (uid=0)
+Sep 19 15:07:28 sf49ers02  -- rtmiller[7538]: LOGIN ON pts/1 BY rtmiller FROM 10.58.50.23
+Sep 19 17:51:58 sf49ers02 dt: (7765) Starting: /u/rtmiller/Tools/dt.d-WIP/linux2.6-x86/dt if=dt.data pattern=iot position=50m bs=64k limit=100m disable=stats enable=syslog  
+Sep 19 17:51:58 sf49ers02 dt: (7765) Relative block number where the error occurred is 102400, position 52428804 (offset 4) 
+Sep 19 17:51:58 sf49ers02 dt: (7765) Data compare error at byte 4 in record number 1 
+Sep 19 17:51:58 sf49ers02 dt: (7765) Data expected = 0x1, data found = 0x2, byte count = 65536 
+Sep 19 17:51:58 sf49ers02 dt: (7765) Finished: /u/rtmiller/Tools/dt.d-WIP/linux2.6-x86/dt if=dt.data pattern=iot position=50m bs=64k limit=100m disable=stats enable=syslog  
+# 
+</pre>
+</BODY>
+</HTML>

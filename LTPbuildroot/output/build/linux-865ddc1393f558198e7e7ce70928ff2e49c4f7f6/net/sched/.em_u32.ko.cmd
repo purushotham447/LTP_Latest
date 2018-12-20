@@ -1,0 +1,1 @@
+cmd_net/sched/em_u32.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/sched/em_u32.ko net/sched/em_u32.o net/sched/em_u32.mod.o ;  true

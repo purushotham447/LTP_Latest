@@ -1,0 +1,1 @@
+cmd_drivers/media/usb/usbtv/usbtv.o := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL    -r -o drivers/media/usb/usbtv/usbtv.o drivers/media/usb/usbtv/usbtv-core.o drivers/media/usb/usbtv/usbtv-video.o drivers/media/usb/usbtv/usbtv-audio.o 

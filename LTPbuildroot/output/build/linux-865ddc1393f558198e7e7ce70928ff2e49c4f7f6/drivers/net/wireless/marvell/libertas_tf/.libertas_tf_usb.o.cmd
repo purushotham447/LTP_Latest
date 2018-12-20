@@ -1,0 +1,1 @@
+cmd_drivers/net/wireless/marvell/libertas_tf/libertas_tf_usb.o := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL    -r -o drivers/net/wireless/marvell/libertas_tf/libertas_tf_usb.o drivers/net/wireless/marvell/libertas_tf/if_usb.o 

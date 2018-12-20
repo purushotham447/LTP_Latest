@@ -1,0 +1,1 @@
+cmd_drivers/media/dvb-frontends/si21xx.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/dvb-frontends/si21xx.ko drivers/media/dvb-frontends/si21xx.o drivers/media/dvb-frontends/si21xx.mod.o ;  true

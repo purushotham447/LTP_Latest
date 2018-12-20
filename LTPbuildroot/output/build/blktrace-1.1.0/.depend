@@ -1,0 +1,9 @@
+act_mask.o: act_mask.c blktrace.h blktrace_api.h rbtree.h
+blkiomon.o: blkiomon.c blktrace.h blktrace_api.h rbtree.h jhash.h \
+ blkiomon.h stats.h
+blkparse.o: blkparse.c blktrace.h blktrace_api.h rbtree.h jhash.h
+blkparse_fmt.o: blkparse_fmt.c blktrace.h blktrace_api.h rbtree.h
+blkrawverify.o: blkrawverify.c blktrace.h blktrace_api.h rbtree.h
+blktrace.o: blktrace.c btt/list.h blktrace.h blktrace_api.h rbtree.h
+rbtree.o: rbtree.c rbtree.h
+verify_blkparse.o: verify_blkparse.c

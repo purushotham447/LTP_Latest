@@ -1,0 +1,1 @@
+cmd_drivers/media/tuners/tda18271.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/tuners/tda18271.ko drivers/media/tuners/tda18271.o drivers/media/tuners/tda18271.mod.o ;  true

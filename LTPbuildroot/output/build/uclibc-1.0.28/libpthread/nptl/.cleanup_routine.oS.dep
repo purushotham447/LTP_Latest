@@ -1,0 +1,91 @@
+libpthread/nptl/cleanup_routine.oS: libpthread/nptl/cleanup_routine.c \
+ include/libc-symbols.h include/bits/uClibc_arch_features.h \
+ include/bits/uClibc_config.h include/pthread.h include/features.h \
+ include/sys/cdefs.h include/libc-internal.h include/endian.h \
+ include/bits/endian.h include/stdint.h include/bits/wordsize.h \
+ include/byteswap.h include/bits/byteswap.h \
+ include/bits/byteswap-common.h include/bits/types.h \
+ include/bits/kernel_types.h include/bits/typesizes.h \
+ include/bits/byteswap-16.h include/sched.h \
+ /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include/stddef.h \
+ include/time.h include/bits/sched.h include/stdlib.h \
+ include/bits/waitflags.h include/bits/waitstatus.h include/sys/types.h \
+ include/sys/select.h include/bits/select.h include/bits/sigset.h \
+ include/bits/time.h include/sys/sysmacros.h include/bits/pthreadtypes.h \
+ include/alloca.h include/bits/stackinfo.h include/bits/uClibc_clk_tck.h \
+ include/signal.h include/bits/setjmp.h
+
+include/libc-symbols.h:
+
+include/bits/uClibc_arch_features.h:
+
+include/bits/uClibc_config.h:
+
+include/pthread.h:
+
+include/features.h:
+
+include/sys/cdefs.h:
+
+include/libc-internal.h:
+
+include/endian.h:
+
+include/bits/endian.h:
+
+include/stdint.h:
+
+include/bits/wordsize.h:
+
+include/byteswap.h:
+
+include/bits/byteswap.h:
+
+include/bits/byteswap-common.h:
+
+include/bits/types.h:
+
+include/bits/kernel_types.h:
+
+include/bits/typesizes.h:
+
+include/bits/byteswap-16.h:
+
+include/sched.h:
+
+/usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include/stddef.h:
+
+include/time.h:
+
+include/bits/sched.h:
+
+include/stdlib.h:
+
+include/bits/waitflags.h:
+
+include/bits/waitstatus.h:
+
+include/sys/types.h:
+
+include/sys/select.h:
+
+include/bits/select.h:
+
+include/bits/sigset.h:
+
+include/bits/time.h:
+
+include/sys/sysmacros.h:
+
+include/bits/pthreadtypes.h:
+
+include/alloca.h:
+
+include/bits/stackinfo.h:
+
+include/bits/uClibc_clk_tck.h:
+
+include/signal.h:
+
+include/bits/setjmp.h:
+cmd_libpthread_nptl_cleanup_routine.oS := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-gcc -c libpthread/nptl/cleanup_routine.c -o libpthread/nptl/cleanup_routine.oS -Wall -Wstrict-prototypes -Wstrict-aliasing -funsigned-char -fno-builtin -fno-asm -fmerge-all-constants -std=gnu99 -mlittle-endian -fno-stack-protector -nostdinc -Iinclude -Iinclude -include libc-symbols.h -Ilibc/sysdeps/linux/arm -Ilibc/sysdeps/linux -Ildso/ldso/arm -Ildso/include -I. -Os -fstrict-aliasing -D__USE_STDIO_FUTEXES__ -DHAVE_FORCED_UNWIND -D_LIBC_REENTRANT -Ilibpthread/nptl -Ilibpthread/nptl -Ilibpthread/nptl/sysdeps/unix/sysv/linux/arm -Ilibpthread/nptl/sysdeps/arm -Ilibpthread/nptl/sysdeps/arm -Ilibpthread/nptl/sysdeps/unix/sysv/linux -Ilibpthread/nptl/sysdeps/unix/sysv/linux -Ilibpthread/nptl/sysdeps/pthread -Ilibpthread/nptl/sysdeps/pthread/bits -Ilibpthread/nptl/sysdeps/generic -Ilibc/sysdeps/linux/common -isystem /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include-fixed -isystem /usr/src/output/host/lib/gcc/arm-buildroot-linux-uclibcgnueabihf/6.4.0/include -I/usr/src/output/build/linux-headers-4.14.33/usr/include/ -DNDEBUG -DNOT_IN_libc -DIS_IN_libpthread -DIN_LIB=libpthread -fPIC -DSHARED -MT libpthread/nptl/cleanup_routine.oS -MD -MP -MF libpthread/nptl/.cleanup_routine.oS.dep

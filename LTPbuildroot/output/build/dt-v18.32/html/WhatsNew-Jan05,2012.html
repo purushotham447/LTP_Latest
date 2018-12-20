@@ -1,0 +1,93 @@
+<HTML>
+<HEAD>
+<TITLE>Data Test Program (dt) January 5th, 2012</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#D19275">
+
+<CENTER><H2><STRONG>What's New as of January 5th, 2012</STRONG></H2></CENTER>
+
+<H2>Changes For This Release</H2>
+The following changes were made to <I>dt</I> Version 17.58:
+<UL>
+<LI>
+Added prealloc flag for use with Windows when sparse files are disabled.
+For Windows, when the sparse file attribute is disabled, add a new
+preallocate method (seek/write at end of file), when random or reverse I/O
+is enabled, to avoid long no-progress messages. This write is NOT timed,
+thus allowing NTFS to preallocate data blocks before the writes begin.
+<p>
+enable/disable= flags Added:
+<pre>
+    prealloc         Preallocate w/o sparse.(Default: enabled)
+</pre>
+<p>
+<li>
+Add iotune=file to allow IO delays to be overriden from a file while running.
+<p>
+Options Added:
+<pre>
+    iotune=filename  Set I/O tune delay parameters via file.
+</pre>
+The delay values accepted from the I/O tune file are:
+<p>
+<pre>
+    io_delay=value      Sets both the read and write delays.
+    close_delay=value   Sets the close file delay.
+    end_delay=value     Sets the end of pass delay.
+    start_delay=value   Sets the start of test delay.
+    read_delay=value    Sets the read delay.
+    write_delay=value   Sets the write delay.
+</pre>
+Multiple delays should be placed on one line with a space between delay options.
+<p>
+The I/O tune file will be checked by the IO monitoring thread, and will be checked
+once a second, unless the alarm=value option is specified to set the interval.
+<p>
+This I/O tune file is a method by which one can do dynamic tuning (a.k.a. throttling
+I/O). It's expected an external process will monitor ONTAP CPU and disk utilization,
+then pass delays via this file to decrease or increase I/O loads (across all test clients).
+Note: The ability to dynamicaly add processes or threads to increase IO load is not
+possible at this time, therefore one can only set the delays to zero to increase load.
+<p>
+Please Note: This external monitoring process has *not* been developed as of yet!
+<p>
+<li>
+Allow keyword 'random' with *delay values to support random IO delays.
+<p>
+<pre>
+    Example: rdelay=random wdelay=random
+</pre>
+When microdelay is enabled, the delay is between 1 and 1000000, but the actual
+delay will be a minimum of 1ms (at present), until we switch to real time timers.
+<p>
+Note: This feature was taken from the sio tool, where "-think random" is available.
+<p>
+<li>
+Added enable=reread option for use with read-after-write (raw) option.
+This allows a full read pass to help determine if data was incorrectly changed
+after the initial write/read/verify pass. This adds an extra debug data point.
+<p>
+<li>
+When "deleteperpass" option is enabled, do NOT delete the files when the
+error limit is reached, otherwise the files cannot be reread for analysis.
+The terminate function will honor the dispose={delete|keep|keeponerror} setting.
+</ul>
+<P>
+<CENTER>Within NetApp, the updated <I>dt</I> kits are located @ URL:</CENTER>
+<P>
+<CENTER><A HREF="http://web.rtp.netapp.com/~rtmiller/dt.html">http://web.rtp.netapp.com/~rtmiller/dt.html</A></CENTER>
+<P>
+<CENTER>External to NetApp, you can obtain <I>dt</I> kits from URL:</CENTER>
+<P>
+<CENTER>TBD</CENTER>
+</UL>
+<HR>
+<A HREF="mailto:Robin.Miller@netapp.com"><IMG SRC="../gifs/mailbox.gif" ALT="Mail"></A>
+Send mail to admin of this page: <EM>Robin.Miller@netapp.com</EM>
+<A HREF="../index.html"><IMG SRC="../gifs/home04.gif" ALT="Home"></A>
+To Robin's home page.
+<P>
+Last Modified: April 5th, 2012
+</BODY>
+</HTML>

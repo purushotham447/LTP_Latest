@@ -1,0 +1,1 @@
+cmd_drivers/net/wireless/marvell/libertas/usb8xxx.o := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL    -r -o drivers/net/wireless/marvell/libertas/usb8xxx.o drivers/net/wireless/marvell/libertas/if_usb.o 

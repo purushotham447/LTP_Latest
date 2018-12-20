@@ -1,0 +1,1 @@
+cmd_drivers/usb/gadget/function/usb_f_rndis.o := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL    -r -o drivers/usb/gadget/function/usb_f_rndis.o drivers/usb/gadget/function/f_rndis.o drivers/usb/gadget/function/rndis.o 

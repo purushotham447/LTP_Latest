@@ -1,0 +1,1 @@
+cmd_drivers/mfd/arizona-spi.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/mfd/arizona-spi.ko drivers/mfd/arizona-spi.o drivers/mfd/arizona-spi.mod.o ;  true

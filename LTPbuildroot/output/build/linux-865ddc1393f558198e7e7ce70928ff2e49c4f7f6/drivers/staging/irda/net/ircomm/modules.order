@@ -1,0 +1,2 @@
+kernel/drivers/staging/irda/net/ircomm/ircomm.ko
+kernel/drivers/staging/irda/net/ircomm/ircomm-tty.ko

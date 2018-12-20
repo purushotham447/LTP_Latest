@@ -1,0 +1,1 @@
+cmd_drivers/mtd/nand/nand.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/mtd/nand/nand.ko drivers/mtd/nand/nand.o drivers/mtd/nand/nand.mod.o ;  true

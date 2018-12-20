@@ -1,0 +1,7 @@
+kernel/drivers/net/mii.ko
+kernel/drivers/net/phy/libphy.ko
+kernel/drivers/net/phy/fixed_phy.ko
+kernel/drivers/net/phy/microchip.ko
+kernel/drivers/net/usb/lan78xx.ko
+kernel/drivers/net/usb/smsc95xx.ko
+kernel/drivers/net/usb/usbnet.ko

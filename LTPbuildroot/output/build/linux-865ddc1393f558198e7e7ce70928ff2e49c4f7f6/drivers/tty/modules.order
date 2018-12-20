@@ -1,0 +1,2 @@
+kernel/drivers/tty/serial/sc16is7xx.ko
+kernel/drivers/tty/serdev/serdev.ko

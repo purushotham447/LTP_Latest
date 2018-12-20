@@ -1,0 +1,1 @@
+cmd_drivers/power/reset/built-in.o :=  rm -f drivers/power/reset/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/power/reset/built-in.o drivers/power/reset/gpio-poweroff.o 

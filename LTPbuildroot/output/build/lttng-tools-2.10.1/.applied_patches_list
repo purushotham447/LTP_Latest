@@ -1,0 +1,3 @@
+/usr/src/package/lttng-tools/0001-Fix-detect-dlmopen-and-disable-corresponding-tests-i.patch
+/usr/src/package/lttng-tools/0002-Fix-src-common-pipe.h-include-sys-types.h-for-ssize_.patch
+/usr/src/package/lttng-tools/0003-Fix-warning-src-bin-lttng-utils.c-cast-incompatible-.patch

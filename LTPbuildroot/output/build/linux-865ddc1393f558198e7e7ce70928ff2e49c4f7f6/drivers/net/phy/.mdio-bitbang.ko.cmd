@@ -1,0 +1,1 @@
+cmd_drivers/net/phy/mdio-bitbang.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/net/phy/mdio-bitbang.ko drivers/net/phy/mdio-bitbang.o drivers/net/phy/mdio-bitbang.mod.o ;  true

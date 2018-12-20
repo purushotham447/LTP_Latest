@@ -1,0 +1,1 @@
+cmd_drivers/media/usb/gspca/gspca_main.o := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL    -r -o drivers/media/usb/gspca/gspca_main.o drivers/media/usb/gspca/gspca.o drivers/media/usb/gspca/autogain_functions.o 

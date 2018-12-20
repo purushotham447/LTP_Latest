@@ -1,0 +1,10 @@
+prefix=/usr/src/output/host
+exec_prefix=/usr/src/output/host
+libdir=/usr/src/output/host/lib
+includedir=/usr/src/output/host/include
+
+Name: smartcols
+Description: table or tree library
+Version: 2.31.1
+Cflags: -I${includedir}/libsmartcols
+Libs: -L${libdir} -lsmartcols

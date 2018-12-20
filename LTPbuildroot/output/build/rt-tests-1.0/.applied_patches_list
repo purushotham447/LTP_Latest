@@ -1,0 +1,3 @@
+/usr/src/package/rt-tests/0001-Fix-various-minor-issues-with-rt-tests-build-system.patch
+/usr/src/package/rt-tests/0002-Fix-a-build-issue-with-uClibc-ng.patch
+/usr/src/package/rt-tests/0003-Add-syscall-number-for-sched_-gs-etattr-for-SH4.patch

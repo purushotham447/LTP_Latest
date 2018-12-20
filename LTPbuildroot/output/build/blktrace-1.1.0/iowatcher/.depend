@@ -1,0 +1,6 @@
+blkparse.o: blkparse.c plot.h list.h blkparse.h tracers.h
+fio.o: fio.c plot.h list.h blkparse.h tracers.h fio.h
+main.o: main.c plot.h list.h blkparse.h tracers.h mpstat.h fio.h
+mpstat.o: mpstat.c plot.h list.h blkparse.h tracers.h mpstat.h
+plot.o: plot.c plot.h list.h
+tracers.o: tracers.c plot.h list.h blkparse.h tracers.h

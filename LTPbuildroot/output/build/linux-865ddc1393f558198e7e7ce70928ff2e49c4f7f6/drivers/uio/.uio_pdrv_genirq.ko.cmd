@@ -1,0 +1,1 @@
+cmd_drivers/uio/uio_pdrv_genirq.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/uio/uio_pdrv_genirq.ko drivers/uio/uio_pdrv_genirq.o drivers/uio/uio_pdrv_genirq.mod.o ;  true

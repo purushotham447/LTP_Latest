@@ -1,0 +1,1 @@
+cmd_drivers/w1/slaves/w1_ds2760.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/w1/slaves/w1_ds2760.ko drivers/w1/slaves/w1_ds2760.o drivers/w1/slaves/w1_ds2760.mod.o ;  true

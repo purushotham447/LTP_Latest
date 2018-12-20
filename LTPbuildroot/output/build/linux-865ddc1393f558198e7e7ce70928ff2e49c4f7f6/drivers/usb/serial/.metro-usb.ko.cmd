@@ -1,0 +1,1 @@
+cmd_drivers/usb/serial/metro-usb.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/usb/serial/metro-usb.ko drivers/usb/serial/metro-usb.o drivers/usb/serial/metro-usb.mod.o ;  true

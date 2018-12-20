@@ -1,0 +1,1 @@
+cmd_drivers/usb/gadget/function/usb_f_acm.o := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL    -r -o drivers/usb/gadget/function/usb_f_acm.o drivers/usb/gadget/function/f_acm.o 

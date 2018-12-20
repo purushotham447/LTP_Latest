@@ -1,0 +1,1 @@
+cmd_drivers/mmc/core/built-in.o :=  rm -f drivers/mmc/core/built-in.o; /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ar rcSTPD drivers/mmc/core/built-in.o drivers/mmc/core/mmc_core.o drivers/mmc/core/pwrseq_simple.o drivers/mmc/core/pwrseq_emmc.o drivers/mmc/core/mmc_block.o 

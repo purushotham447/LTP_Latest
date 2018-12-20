@@ -1,0 +1,1 @@
+cmd_drivers/media/dvb-frontends/af9013.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/dvb-frontends/af9013.ko drivers/media/dvb-frontends/af9013.o drivers/media/dvb-frontends/af9013.mod.o ;  true

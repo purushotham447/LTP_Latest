@@ -1,0 +1,1 @@
+cmd_drivers/net/veth.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/net/veth.ko drivers/net/veth.o drivers/net/veth.mod.o ;  true

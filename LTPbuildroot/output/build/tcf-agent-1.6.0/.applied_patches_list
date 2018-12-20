@@ -1,0 +1,3 @@
+/usr/src/package/tcf-agent/0001-agent-add-install-target-to-the-CMakeLists.patch
+/usr/src/package/tcf-agent/0002-linux-remove-explicit-uses-of-__ptrace_request.patch
+/usr/src/package/tcf-agent/0003-linux-provide-canonicalize_file_name-for-all-c-libs-.patch

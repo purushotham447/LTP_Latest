@@ -1,0 +1,81 @@
+#
+# arm common makefile
+#
+# Authors: Andrew Jones <drjones@redhat.com>
+#
+
+ifeq ($(LOADADDR),)
+	# qemu mach-virt default load address
+	LOADADDR = 0x40000000
+endif
+
+tests-common  = $(TEST_DIR)/selftest.flat
+tests-common += $(TEST_DIR)/spinlock-test.flat
+tests-common += $(TEST_DIR)/pci-test.flat
+tests-common += $(TEST_DIR)/pmu.flat
+tests-common += $(TEST_DIR)/gic.flat
+tests-common += $(TEST_DIR)/psci.flat
+
+tests-all = $(tests-common) $(tests)
+all: directories $(tests-all)
+
+##################################################################
+phys_base = $(LOADADDR)
+
+CFLAGS += -std=gnu99
+CFLAGS += -ffreestanding
+CFLAGS += -O2
+CFLAGS += -I $(SRCDIR)/lib -I $(SRCDIR)/lib/libfdt -I lib
+
+# We want to keep intermediate files
+.PRECIOUS: %.elf %.o
+
+asm-offsets = lib/$(ARCH)/asm-offsets.h
+include $(SRCDIR)/scripts/asm-offsets.mak
+
+cflatobjs += lib/util.o
+cflatobjs += lib/alloc.o
+cflatobjs += lib/devicetree.o
+cflatobjs += lib/pci.o
+cflatobjs += lib/pci-host-generic.o
+cflatobjs += lib/pci-testdev.o
+cflatobjs += lib/virtio.o
+cflatobjs += lib/virtio-mmio.o
+cflatobjs += lib/chr-testdev.o
+cflatobjs += lib/arm/io.o
+cflatobjs += lib/arm/setup.o
+cflatobjs += lib/arm/mmu.o
+cflatobjs += lib/arm/bitops.o
+cflatobjs += lib/arm/psci.o
+cflatobjs += lib/arm/smp.o
+cflatobjs += lib/arm/delay.o
+cflatobjs += lib/arm/gic.o lib/arm/gic-v2.o lib/arm/gic-v3.o
+
+OBJDIRS += lib/arm
+
+libeabi = lib/arm/libeabi.a
+eabiobjs = lib/arm/eabi_compat.o
+
+libgcc := $(shell $(CC) $(machine) --print-libgcc-file-name)
+start_addr := $(shell printf "%x\n" $$(( $(phys_base) + $(kernel_offset) )))
+
+FLATLIBS = $(libcflat) $(LIBFDT_archive) $(libgcc) $(libeabi)
+%.elf: LDFLAGS = $(CFLAGS) -nostdlib
+%.elf: %.o $(FLATLIBS) $(SRCDIR)/arm/flat.lds $(cstart.o)
+	$(CC) $(LDFLAGS) -o $@ \
+		-Wl,-T,$(SRCDIR)/arm/flat.lds,--build-id=none,-Ttext=$(start_addr) \
+		$(filter %.o, $^) $(FLATLIBS) \
+		$(SRCDIR)/lib/auxinfo.c -DPROGNAME=\"$(@:.elf=.flat)\"
+
+%.flat: %.elf
+	$(OBJCOPY) -O binary $^ $@
+
+$(libeabi): $(eabiobjs)
+	$(AR) rcs $@ $^
+
+arm_clean: libfdt_clean asm_offsets_clean
+	$(RM) $(TEST_DIR)/*.{o,flat,elf} $(libeabi) $(eabiobjs) \
+	      $(TEST_DIR)/.*.d lib/arm/.*.d
+
+generated-files = $(asm-offsets)
+$(tests-all:.flat=.o) $(cstart.o) $(cflatobjs): $(generated-files)

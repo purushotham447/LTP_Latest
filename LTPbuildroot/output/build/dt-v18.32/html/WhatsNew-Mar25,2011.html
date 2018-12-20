@@ -1,0 +1,187 @@
+<HTML>
+<HEAD>
+<TITLE>Data Test Program (dt) March 25th, 2011</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#D19275">
+
+<CENTER><H2><STRONG>What's New as of March 25th, 2011</STRONG></H2></CENTER>
+
+<H2>Changes For This Release</H2>
+The following changes were made to <I>dt</I> Version 17.37:
+<UL>
+<LI>
+Added enable/disable flags to control file system buffering independently.
+<p>
+Options Added:
+<pre>
+    readcache        Read cache control.    (Default: enabled)
+    writecache       Write cache control.   (Default: enabled)
+</pre>
+Why control these separately? Well, it turns out switching to direct I/O (or
+unbuffered I/O on Windows), has the side affect of invalidating the buffer cache.
+So, if you do a buffered write pass followed by a read pass with caching disabled,
+the filesystem will flush write data (as necessary), invalidate the buffer cache,
+then read data from the underlying storage.
+<p>
+This ensures reads are not satisfied from the buffer cache, when what we really want
+to do (in most cases), is test storage. This allows testing with smaller data limits,
+instead of using larger limits (in attempts) to defeat the buffer cache.
+<p>
+Note: One of the reasons this was added, is because it's been observed many folks
+we using small data sizes (say 400m), with large host buffer caches, so most reads
+we being satisfied from cache, rather than reading form storage.
+<p>
+<li>
+Added a bufmodes= option to allow varying buffer modes. Basically <i>dt</i>
+will round-robin the modes specified on each pass. Note: read-after-write mode
+will get the same buffering mode, whatever was set, so these are most useful
+with dt's default write pass followed by a read pass.
+<p>
+Options Added:
+<pre>
+    bufmodes={buffered,unbuffered,cachereads,cachewrites}
+                     Set one or more buffering modes (Default: none)
+
+    buffered = means *no* special flags are added (normal I/O, uses the buffer cache)
+    unbuffered = applies Direct I/O (DIO) on both write and read passes (same a flags=direct)
+    cachereads = applies DIO flag on write pass only, reads are without DIO so cached
+    cachewrites = applies DIO flag on read pass only, writes are without DIO so cached
+	
+    Note: On Windows, DIO == (FILE_FLAG_NO_BUFFERING | FILE_FLAG_WRITE_THROUGH)
+</pre>
+So, both the cached and Direct I/O paths are covered with a single dt invocation.
+<p>
+Remember the unique (and desirable) side effect of using DIO...<br>
+When accessing data with DIO, if the data is in the buffer cache from a write pass,
+the file system will flush the data (if not done so already), then invalidate the buffer cache.
+The whole idea of these buffer modes is to flush data to ONTAP and access data from ONTAP,
+rather than accessing data in the buffer cache (we wish to test ONTAP more than the buffer cache, IMHO)
+<p>
+<li>
+For Windows, a case insensitive compare is done on \\.\PhysicalDriveN names, otherwise
+<i>dt</i> would not recognize the device as a disk type. Previously, dtype=disk was
+the workaround for say \\.\PHYSICALDRIVEn names, otherwise <i>dt</i> failed when trying
+to open the output file name.
+<p>
+<li>
+The previous version of <i>dt</i> introduced corruption analysis for the IOT data pattern,
+and a side-by-side data compare display. The maxbad=value option controlled how many bad
+blocks to display, and the initial default was 1 block. This default was been changed to
+display *all* bad blocks by default, since it's been found we'd like to see the corruption
+footprint of all bad blocks. So, now use maxbad=value to limit the bad blocks displayed.
+<p>
+<li>
+The display for data compare errors has been changed to include the buffer address and
+(and accurate) buffer offset (please see example below). Previously, the offset did not
+always reflect the proper corruption offset, when the corruption occurred in the middle
+of a record, since <i>dt</i> (tries) to display data before the bad data for context.
+<p>
+<li>
+Error messages are prefixed with "ERROR: ", to make it easier to detect <i>dt</i> errors.
+This was especially important on Windows using rsh, where the exit status isn't always accurate.
+<p>
+<li>
+A couple sanity checks were added to avoid dumping core when reporting errors when
+history and syslog options were enabled, prior to the device being opened, since the
+device data structure was not setup yet.
+<p>
+<li>
+When using procs= option with a disk device with IOT pattern, disable=unique so IOT
+pattern does not change during each pass, which eventually results in a false data
+comparison, since processes run at different rate. Actually, a message is emitted
+recommending using slices= option, so each process gets its' own block range.
+<p>
+</ul>
+<P>
+<CENTER>Within NetApp, the updated <I>dt</I> kits are located @ URL:</CENTER>
+<P>
+<CENTER><A HREF="http://web.rtp.netapp.com/~rtmiller/dt.html">http://web.rtp.netapp.com/~rtmiller/dt.html</A></CENTER>
+<P>
+<CENTER>External to NetApp, you can obtain <I>dt</I> kits from URL:</CENTER>
+<P>
+<CENTER>TBD</CENTER>
+</UL>
+<HR>
+<A HREF="mailto:Robin.Miller@netapp.com"><IMG SRC="../gifs/mailbox.gif" ALT="Mail"></A>
+Send mail to admin of this page: <EM>Robin.Miller@netapp.com</EM>
+<A HREF="../index.html"><IMG SRC="../gifs/home04.gif" ALT="Home"></A>
+To Robin's home page.
+<P>
+Last Modified: March 25th, 2011
+<HR>
+
+<H2>Examples:</H2>
+<HR SIZE=5 NOSHADE>
+<pre>
+robin-ptc% <b>dt version</b>
+    --> Date: March 25th, 2011, Version: 17.37, Author: Robin T. Miller <--
+robin-ptc% <b>dt of=/var/tmp/dt.data count=10 bufmodes=cachereads,buffered,unbuffered,cachewrites passes=10 enable=debug disable=pstats</b>
+dt: Parent process ID is 8973
+dt: Setting buffering mode to: cache reads
+dt: Opening output file '/var/tmp/dt.data', open flags = 040101 (0x4041)...
+dt: Output file '/var/tmp/dt.data' successfully opened, fd = 3
+dt: Allocated buffer at address 0x9655000 of 516 bytes, using offset 0
+dt: Using data pattern 0x39c39c39 for pass 1
+dt: Flushing data to file '/var/tmp/dt.data'...
+dt: Closing file '/var/tmp/dt.data', fd = 3...
+dt: End of Write pass 0/10, 10 blocks, 0.005 Mbytes, 10 records, errors 0/1, elapsed 00m00.00s
+dt: Reopening file '/var/tmp/dt.data', open flags = 0 (0)...
+dt: File '/var/tmp/dt.data' successfully reopened, fd = 3
+dt: End of Read pass 1/10, 10 blocks, 0.005 Mbytes, 10 records, errors 0/1, elapsed 00m00.04s
+dt: Setting buffering mode to: buffered I/O (cache reads and writes)
+                  ...
+robin-ptc% 
+robin-ptc% <b>dt if=/var/tmp/dtc.dat bs=4k position=m-3b</b>
+
+dt: Error number 1 occurred on Wed Mar 23 15:47:11 2011
+dt: Elapsed time since beginning of pass: 00m00.00s
+dt: Elapsed time since beginning of test: 00m00.00s
+dt: Data compare error at byte 1024 in record number 1
+dt: Relative block number where the error occurred is 2047, position 1048064
+dt: Data expected = 0x39, data found = 0xff, byte count = 4096
+dt: The correct data starts at address 0x9d91020 (marked by asterisk '*')
+dt: Dumping Pattern Buffer (base = 0x9d91020, offset = 0, limit = 4 bytes):
+  Address / Offset
+0x09d91020/     0 |*39 9c c3 39                                     "9  9"
+
+dt: The incorrect data starts at address 0x9d94400 (marked by asterisk '*')
+dt: Dumping Data Buffer (base = 0x9d94000, offset = 1024, limit = 512 bytes):
+  Address / Offset
+0x09d94300/   768 | 39 9c c3 39 39 9c c3 39 39 9c c3 39 39 9c c3 39 "9  99  99  99  9"
+0x09d94310/   784 | 39 9c c3 39 39 9c c3 39 39 9c c3 39 39 9c c3 39 "9  99  99  99  9"
+0x09d94320/   800 | 39 9c c3 39 39 9c c3 39 39 9c c3 39 39 9c c3 39 "9  99  99  99  9"
+0x09d94330/   816 | 39 9c c3 39 39 9c c3 39 39 9c c3 39 39 9c c3 39 "9  99  99  99  9"
+0x09d94340/   832 | 39 9c c3 39 39 9c c3 39 39 9c c3 39 39 9c c3 39 "9  99  99  99  9"
+0x09d94350/   848 | 39 9c c3 39 39 9c c3 39 39 9c c3 39 39 9c c3 39 "9  99  99  99  9"
+0x09d94360/   864 | 39 9c c3 39 39 9c c3 39 39 9c c3 39 39 9c c3 39 "9  99  99  99  9"
+0x09d94370/   880 | 39 9c c3 39 39 9c c3 39 39 9c c3 39 39 9c c3 39 "9  99  99  99  9"
+0x09d94380/   896 | 39 9c c3 39 39 9c c3 39 39 9c c3 39 39 9c c3 39 "9  99  99  99  9"
+0x09d94390/   912 | 39 9c c3 39 39 9c c3 39 39 9c c3 39 39 9c c3 39 "9  99  99  99  9"
+0x09d943a0/   928 | 39 9c c3 39 39 9c c3 39 39 9c c3 39 39 9c c3 39 "9  99  99  99  9"
+0x09d943b0/   944 | 39 9c c3 39 39 9c c3 39 39 9c c3 39 39 9c c3 39 "9  99  99  99  9"
+0x09d943c0/   960 | 39 9c c3 39 39 9c c3 39 39 9c c3 39 39 9c c3 39 "9  99  99  99  9"
+0x09d943d0/   976 | 39 9c c3 39 39 9c c3 39 39 9c c3 39 39 9c c3 39 "9  99  99  99  9"
+0x09d943e0/   992 | 39 9c c3 39 39 9c c3 39 39 9c c3 39 39 9c c3 39 "9  99  99  99  9"
+0x09d943f0/  1008 | 39 9c c3 39 39 9c c3 39 39 9c c3 39 39 9c c3 39 "9  99  99  99  9"
+0x09d94400/  1024 |*ff 07 00 00 00 09 01 01 01 0a 02 02 02 0b 03 03 "                "
+0x09d94410/  1040 | 03 0c 04 04 04 0d 05 05 05 0e 06 06 06 0f 07 07 "                "
+0x09d94420/  1056 | 07 10 08 08 08 11 09 09 09 12 0a 0a 0a 13 0b 0b "                "
+0x09d94430/  1072 | 0b 14 0c 0c 0c 15 0d 0d 0d 16 0e 0e 0e 17 0f 0f "                "
+0x09d94440/  1088 | 0f 18 10 10 10 19 11 11 11 1a 12 12 12 1b 13 13 "                "
+0x09d94450/  1104 | 13 1c 14 14 14 1d 15 15 15 1e 16 16 16 1f 17 17 "                "
+0x09d94460/  1120 | 17 20 18 18 18 21 19 19 19 22 1a 1a 1a 23 1b 1b "     !   "   #  "
+0x09d94470/  1136 | 1b 24 1c 1c 1c 25 1d 1d 1d 26 1e 1e 1e 27 1f 1f " $   %   &   '  "
+0x09d94480/  1152 | 1f 28 20 20 20 29 21 21 21 2a 22 22 22 2b 23 23 " (   )!!!*"""+##"
+0x09d94490/  1168 | 23 2c 24 24 24 2d 25 25 25 2e 26 26 26 2f 27 27 "#,$$$-%%%.&&&/''"
+0x09d944a0/  1184 | 27 30 28 28 28 31 29 29 29 32 2a 2a 2a 33 2b 2b "'0(((1)))2***3++"
+0x09d944b0/  1200 | 2b 34 2c 2c 2c 35 2d 2d 2d 36 2e 2e 2e 37 2f 2f "+4,,,5---6...7//"
+0x09d944c0/  1216 | 2f 38 30 30 30 39 31 31 31 3a 32 32 32 3b 33 33 "/80009111:222;33"
+0x09d944d0/  1232 | 33 3c 34 34 34 3d 35 35 35 3e 36 36 36 3f 37 37 "3<444=555>666?77"
+0x09d944e0/  1248 | 37 40 38 38 38 41 39 39 39 42 3a 3a 3a 43 3b 3b "7@888A999B:::C;;"
+0x09d944f0/  1264 | 3b 44 3c 3c 3c 45 3d 3d 3d 46 3e 3e 3e 47 3f 3f ";D<<<E===F>>>G??"
+				...
+robin-ptc% 
+</pre>
+</BODY>
+</HTML>

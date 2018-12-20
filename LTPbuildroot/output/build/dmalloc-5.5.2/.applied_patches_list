@@ -1,0 +1,4 @@
+/usr/src/package/dmalloc/0001-add-fpic.patch
+/usr/src/package/dmalloc/0002-mips.patch
+/usr/src/package/dmalloc/0003-fix-parallel-build.patch
+/usr/src/package/dmalloc/0004-fix-shlibs.patch

@@ -1,0 +1,500 @@
+<HTML>
+<HEAD>
+<TITLE>Data Test Program (dt)</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#D98719">
+
+<CENTER><H2><STRONG>Data Test Program (<I>dt</I>)</STRONG></H2></CENTER>
+
+<H2>What Is this Program Used For?</H2>
+    <I>dt</I> is a generic data test program used to verify proper operation of
+peripherals, file systems, device drivers, or any data stream supported by the
+operating system.  In its' simplest mode of operation, <I>dt</I> writes and then
+verifys its' default data pattern, then displays performance statisics and other
+test parameters before exiting.  Since verification of data is performed,
+<I>dt</I> can be thought of as a generic diagnostic tool.
+<P>
+    <I>dt</I> is conditionalized to run on Tru64 UNIX, HP-UX, SUN, ULTRIX, OSF/MK,
+QNX, Linux, SCO Unixware, and Windows operating systems.  There are two versions
+of <i>dt</i> for Windows, the previous version which requires the Cygnus Solutions
+<A HREF="http://sources.redhat.com/cygwin/"><I>cygwin</I> toolkit</A>, and a
+native version found under the windows subdirectory (Debug and Release versions).
+<P>
+    <I>dt</I> command lines are similar to the <I>dd</I> program, which is
+popular on most UNIX systems.  It contains numerous options to give the user
+control of various test parameters.
+<P>
+    <I>dt</I> has been used to successfully test disks, tapes, serial lines,
+parallel lines, pipes, and memory mapped files.  In fact, <I>dt</I> can be used
+for any device that allows the standard open, read, write, and close system
+calls.  Special support is necessary for some devices, such as serial lines,
+for setting up the speed, parity, data bits, etc.
+
+<H2>Releases</H2>
+Within NetApp, <i>dt</i> releases are maintained by the SAN Host Utility team in
+RTP, namely Tom Masterson, who maintains 
+<a href="http://wikid.netapp.com/w/Blocks_host/Automation/DT_versions">this Wiki</a>
+describing the latest versions of <i>dt</i>.
+
+<H2>Latest <I>dt</I> Kits:</H2>
+<DL>
+<DD><A HREF="kits/dt/dt-source.tar.gz">Latest <I>dt</I> source kit Version 17.70</A>
+<!-- <DD><A HREF="kits/dt/dt-hpux.tar.gz">HP-UX Data Test Program <I>dt</I> Kit.</A> -->
+<!-- <DD><A HREF="kits/dt/dt-linux.tar.gz">Linux Data Test Program <I>dt</I> Kit.</A> -->
+<!-- <DD><A HREF="kits/dt/dt-sunos.tar.gz">Solaris Data Test Program <I>dt</I> Kit.</A> -->
+<!-- <DD><A HREF="kits/dt/dt-WNT.tar.gz">Windows/NT Data Test Program <I>dt</I> Kit.</A> -->
+</DL>
+<P>
+Unpack the above archives via: "<B>gzip -dc kit-name.tar.gz | tar xvf -</B>"
+<P>
+BTW: For partners who wish to download the <I>dt</I> kit, it's located in my public
+<A href="http://dl.dropbox.com/u/32363629/Datatest/dt-source-v17.55.tar.gz">dropbox</A> area.
+
+<H3>Prebuilt Executables</H3>
+Within NetApp, you can find prebuilt <i>dt</i> executables here:
+<DL>
+    <DD>/usr/software/test/bin/dt.stable - stable version of dt (reference <a href="http://wikid.netapp.com/w/Blocks_host/Automation/DT_versions">this Wiki</a>)
+    <DD>/usr/software/test/bin/dt.latest - latest version of dt
+    <DD>/usr/software/test/bin/dt.staging - next dt ready to move to dt.latest
+	<DD>X:\SAN\bin\common\{dt.stable,dt.latest,dt.staging}\dt.exe - Windows versions
+</DL>
+The dt.stable and dt.latest symbolic links are recommended to use the most stable or latest versions.
+Note: dt.latest is the most current and will be staging to dt.stable. dt.staging is the most recent.
+<P>
+Also Note: A new common naming convention is being used for all IO Tools at NetApp:
+<DL>
+    <DD>/usr/software/test/bin/dt now points to current dt
+    <DD>/usr/software/test/bin/dt.current points to latest dt (same as dt.latest)
+    <DD>/usr/software/test/bin/dt.last points to the last build (same as dt.staging)
+	<DD>X:\bin\{dt.exe,dt.current.exe,dt.last.exe} - Windows versions of the same
+</DL>
+
+<h2>Documentation:</h2> 
+<dl>
+<DD><A HREF="dt/NetAppDtOverview.ppt">NetApp <I>dt</I> Overview (PowerPoint).</A>
+<DD><A HREF="dt/DT-LargeAggregateTesting.ppt"><I>dt</I> LA Testing (PowerPoint).</A>
+<DD><A HREF="http://wikid.netapp.com/w/User:Rtmiller/datatest_%28dt%29_Use_Cases"><i>dt</i> Use Cases</A>
+<DD><A HREF="http://wikid.netapp.com/w/User:Rtmiller/datatest_%28dt%29_No_Progress_Details"><i>dt</i> No Progress Details</A>
+<DD><A HREF="http://wikid.netapp.com/w/User:Rtmiller/datatest_%28dt%29_Test_Options"><i>dt</i> Test Options</A>
+<DD><A HREF="dt/dt-Recommendations.html"><i>dt</i> Test Recommendations</A>
+<DD><A HREF="dt/dt-UsersGuide.htm"><I>dt</I> User's Manual (HTML)</A>
+<DD><A HREF="dt/dt-UsersGuide.doc"><I>dt</I> User's Manual (MS Word)</A>
+<DD><A HREF="dt/dt-UsersGuide.pdf"><I>dt</I> User's Manual (PDF)</A>
+<DD><A HREF="dt/dt-Overview.pdf"><I>dt</I> Program Overview (PDF).</A>
+<DD><A HREF="dt/dt-Overview.htm"><I>dt</I> Program Overview (HTML).</A>
+<DD><A HREF="dt/dt-Overview.ppt"><I>dt</I> Program Overview (PowerPoint).</A>
+<DD><A HREF="dt/DtSourceOverview.doc"><I>dt</I> Source Overview (MS Word).</A>
+<!-- <DD><A HREF="dt/DtSourceOverview.pdf"><I>dt</I> Source Overview (Acrobat).</A> -->
+</dl>
+
+<b>Please Note:</b> Within NetApp, the released <i>dt</i> can be found here: /usr/software/test/bin/dt
+<br>The latest work-in-progress versions are found in: ~rtmiller/Tools/dt.d-WIP/{OSsubdir}
+<br>The latest released source is in Perforce here: /u/rtmiller/p4/performance/dt.d-v15.27
+<p>
+Rebuilding <I>dt</I> is fairly easy. After extracting the latest source kit, build <i>dt</i> via these steps:
+<P>
+<PRE>
+        % <B>cd linux2.6-x86</B>
+        % <B>make -f ../Makefile.linux clean</B>
+        % <B>make -f ../Makefile.linux VPATH=..</B>
+</PRE>
+
+<H2>Latest Changes:</H2>
+<DL>
+<DD><A HREF="dt/WhatsNew-Aug01,2012.html">What's New as of August 1st, 2012</A> (Version 17.70)
+<DD><A HREF="dt/WhatsNew-Jun20,2012.html">What's New as of June 20th, 2012</A> (Version 17.66)
+<DD><A HREF="dt/WhatsNew-Jan05,2012.html">What's New as of January 5th, 2012</A> (Version 17.58)
+<DD><A HREF="dt/WhatsNew-Aug24,2011.html">What's New as of August 24th, 2011</A> (Version 17.51)
+<DD><A HREF="dt/WhatsNew-Mar25,2011.html">What's New as of March 25th, 2011</A> (Version 17.37)
+<DD><A HREF="dt/WhatsNew-Nov01,2010.html">What's New as of November 1st, 2010</A> (Version 17.19)
+<DD><A HREF="dt/WhatsNew-Feb01,2010.html">What's New as of February 1st, 2010</A> (Version 17.07)
+<DD><A HREF="dt/WhatsNew-Dec01,2009.html">What's New as of December 1st, 2009</A> (Version 17.00)
+<DD><A HREF="dt/WhatsNew-Sep18,2008.html">What's New as of September 18th, 2008</A> (Version 16.01)
+<DD><A HREF="dt/WhatsNew-Jan13,2007.html">What's New as of January 13th, 2007</A> (Version 15.34)
+<DD><A HREF="dt/WhatsNew-Aug14,2004.html">What's New as of August 14th, 2004</A> (Version 15.10)
+<DD><A HREF="dt/WhatsNew-Mar25,2003.html">What's New as of March 25th, 2003</A> (Version 14.28)
+<DD><A HREF="dt/WhatsNew-Jan29,2001.html">What's New as of January 29th, 2001</A> (Version 14.2)
+<DD><A HREF="dt/WhatsNew-Apr02,2000.html">What's New as of April 2nd, 2000</A> (Version 13.10)
+<DD><A HREF="dt/WhatsNew-Jan12,2000.html">What's New as of January 12th, 2000</A> (Version 13.0)
+<DD><A HREF="dt/WhatsNew-Nov11,1999.html">What's New as of November 11th, 1999</A> (Version 12.10)
+<DD><A HREF="dt/WhatsNew-Aug02,1999.html">What's New as of August 2nd, 1999</A> (Version 12.3)
+<DD><A HREF="dt/WhatsNew-Jan13,1999.html">What's New as of January 13th, 1999</A> (Version 11.3)
+<DD><A HREF="dt/WhatsNew-Apr08,1998.html">What's New as of April 8th, 1998</A> (Version 10.15)
+<DD><A HREF="dt/WhatsNew-Jan28,1998.html">What's New as of January 28th, 1998</A> (Version 10.12)
+<DD><A HREF="dt/WhatsNew-May14,1997.html">What's New as of May 14th, 1997</A> (Version 10.8)
+<DD><A HREF="dt/WhatsNew-Mar30,1996.html">What's New as of March 30th, 1996</A> (Version 10.2)
+<DD><A HREF="dt/WhatsNew-Feb21,1996.html">What's New as of February 21st, 1996</A> (Version 9.4)
+<DD><A HREF="dt/WhatsNew-Dec09,1995.html">What's New as of December 9th, 1995</A> (Version 9.0)
+<DD><A HREF="dt/WhatsNew-Jul27,1995.html">What's New as of July 27th, 1995</A> (Version 8.0)
+</DL>
+
+<HR>
+<A HREF="mailto:Robin.Miller@netapp.com"><IMG SRC="images/mail_icon.gif" ALT="Mail"></A>
+Send mail to admin of this page: <EM>Robin.Miller@netapp.com</EM> 
+<A HREF="index.html"><IMG SRC="gifs/home04.gif" ALT="Home"></A>
+To Robin's home page.
+<P>
+Last modified: June 23rd, 2012
+<HR>
+
+<H2>Uses For <I>dt</I>:</H2>
+Those people with an imagination can find many uses for <I>dt</I>, but
+I'll list a few just to whet your appetite:
+<UL>
+<LI>Testing of tape devices using different block sizes to determine
+the best blocking factor for optimum performance and capacity.
+This is very important for streaming tapes devices.
+<LI>Write tapes to end of tape, to determine the total tape capacity.
+This gives the total data capacity of tapes, after inter-record
+gaps, preamble/postambles, or pad blocks are written on the tape.
+<LI>Read existing tapes with data comparison disabled, to determine
+the amount of data on the tape.  This is useful to determine how
+much disk space is required to read in a tape, or to simply verify
+the tape can be read without errors.
+<LI>Reading/writing an entire tape to ensure device drivers properly
+sense and handle end of tape error conditions.
+<LI>Write a tape and ensure it can be read on another tape drive to
+test drive compatibility (also referred to as transportability).
+<LI>Read multiple tape files to ensure file marks and end of tape are
+reported and handled properly by tape drivers.
+<LI>I/O to disks using the raw device interface, to determine the
+optimum performance of the controller.  This usually gives a
+good indication of how well the controller cache or read-ahead
+improves I/O performance for sequential file access.
+<LI>I/O to disk files through the file system, to determine the affect
+the buffer cache has on write and read performance.  You must know
+the characteristics of your O/S's buffer cache to select file sizes
+to either get optimum performance from the cache, or to defeat the
+affect of the buffer cache.
+<LI>Reading/writing of entire disks, to ensure the media capacity and
+error handling is properly reported by device drivers.
+<LI>Test memory mapped files to compare I/O performance against raw
+and file system I/O.  Typically, memory mapped I/O approaches the
+raw device performance.
+<LI>Testing I/O to files on NFS mounted file systems.  This will give
+you a good indication of your ethernet performance to remote files.
+<LI>Writing/reading pipes to verify pipe operation and performance.
+<LI>Initiating multiple processes to test optimizations of buffer cache,
+device drivers, and/or intelligent controllers.  This is also useful
+to test multiple device access and for loading the I/O sub-system.
+<LI>Force I/O at different memory boundaries to test low level driver
+handling.  Using the align option, you can set memory alignment for
+testing specialized device driver DMA code.  This is very useful
+when developing new I/O sub-systems.
+<LI>Do loopback testing of parallel or serial lines on either the same
+system or different systems.  This is a useful compatibility test
+when running different machines running different operating systems.
+<LI>Enable POSIX Asynchronous I/O to verify proper operation of this API
+and to determine performance gains (over standard synchronous I/O).
+This is also useful for queuing multiple I/O requests to drivers and
+for testing SCSI tag queuing and RAID configurations.
+<LI>Specify variable record options for testing variable tape devices.
+<LI>
+On Tru64 cluster systems, distributed lock manager (DLM) options can
+be used to control access to shared devices or files.
+<LI>
+Also available on Tru64 UNIX is the ability to use Extended Error
+information (EEI) to detect and recover from SCSI bus/device resets
+(tape is repositioned for continuing the test).
+</UL>
+    Although I've started to add specific testing of serial lines with modem
+control, this support is incomplete and untested.
+<P>
+    I hope you find <I>dt</I> as useful as I have.  This is usually one of the
+first tools I port to a new operating system, since it's an excellent diagnostic
+and performance tool.
+
+<H2>Help Text:</H2>
+<PRE>
+% <b>dt help</b>
+Usage: dt options...
+
+    Where options are:
+        if=filename      The input file to read.
+        of=filename      The output file to write.
+        pf=filename      The data pattern file to use.
+        dir=dirpath      The directory path for files.
+        dirp=string      The directory prefix for subdirs.
+        sdirs=value      The number of subdirectories.
+        depth=value      The subdirectory depth.
+        bs=value         The block size to read/write.
+    or  bs=random        Random size between 512 and 256k.
+        log[tu]=filename The log file name to write.
+                         t=truncate, u=unique (w/pid)
+        aios=value       Set number of AIO's to queue.
+        alarm=time       The keepalive alarm time.
+        keepalive=string The keepalive message string.
+        keepalivet=time  The keepalive message frequency.
+        pkeepalive=str   The pass keepalive message string.
+        tkeepalive=str   The totals keepalive message string.
+        align=offset     Set offset within page aligned buffer.
+    or  align=rotate     Rotate data address through sizeof(ptr).
+        capacity=value   Set the device capacity in bytes.
+    or  capacity=max     Set maximum capacity from disk driver.
+        bufmodes={buffered,unbuffered,cachereads,cachewrites}
+                         Set one or more buffering modes (Default: none)
+        boff=string      Set the buffer offsets to: dec or hex (Default: hex)
+        dfmt=string      Set the data format to: byte or word (Default: word)
+        dispose=mode     Set file dispose to: {delete, keep, or keeponerror}.
+        dlimit=value     Set the dump data buffer limit.
+        dtype=string     Set the device type being tested.
+        idtype=string    Set input device type being tested.
+        odtype=string    Set output device type being tested.
+        dsize=value      Set the device block (sector) size.
+        errors=value     The number of errors to tolerate.
+        files=value      Set number of disk/tape files to process.
+        ffreq=value      The frequency (in records) to flush buffers.
+        maxfiles=value   The maximum files for all directories.
+        flow=type        Set flow to: none, cts_rts, or xon_xoff.
+        incr=value       Set number of record bytes to increment.
+    or  incr=variable    Enables variable I/O request sizes.
+        iodir=direction  Set I/O direction to: {forward or reverse}.
+        iomode=mode      Set I/O mode to: {copy, test, or verify}.
+        iotype=type      Set I/O type to: {random or sequential}.
+        iotpass=value    Set the IOT pattern for specified pass.
+        iotseed=value    Set the IOT pattern block seed value.
+        iotune=filename  Set I/O tune delay parameters via file.
+        history=value    Set the number of history request entries.
+        hdsize=value     Set the history data size (bytes to save).
+        min=value        Set the minumum record size to transfer.
+        max=value        Set the maximum record size to transfer.
+        lba=value        Set starting block used w/lbdata option.
+        lbs=value        Set logical block size for lbdata option.
+        limit=value      The number of bytes to transfer.
+        maxdata=value    The maximum data limit (all files).
+        flags=flags      Set open flags:   {excl,sync,...}
+        oflags=flags     Set output flags: {append,trunc,...}
+        maxbad=value     Set maximum bad blocks to display.
+        oncerr=action    Set child error action: {abort or continue}.
+        nice=value       Apply the nice value to alter our priority.
+        noprogt=value    Set the no progress time (in seconds).
+        noprogtt=value   Set the no progress trigger time (secs).
+        notime=optype    Disable timing of specified operation type.
+        parity=string    Set parity to: {even, odd, or none}.
+        passes=value     The number of passes to perform.
+        pattern=value    The 32 bit hex data pattern to use.
+    or  pattern=iot      Use DJ's IOT test pattern.
+    or  pattern=incr     Use an incrementing data pattern.
+    or  pattern=string   The string to use for the data pattern.
+        position=offset  Position to offset before testing.
+        prefix=string    The data pattern prefix string.
+        procs=value      The number of processes to create.
+        ralign=value     The random I/O offset alignment.
+        rlimit=value     The random I/O data byte limit.
+        rseed=value      The random number generator seed.
+        records=value    The number of records to process.
+        runtime=time     The number of seconds to execute.
+        slice=value      The specific disk slice to test.
+        slices=value     The number of disk slices to test.
+        skip=value       The number of records to skip past.
+        seek=value       The number of records to seek past.
+        step=value       The number of bytes seeked after I/O.
+        stats=level      The stats level: {brief, full, or none}
+        speed=value      The tty speed (baud rate) to use.
+        timeout=value    The tty read timeout in .10 seconds.
+        ttymin=value     The tty read minimum count (sets vmin).
+        stopon=filename  Watch for file existance, then stop.
+        trigger=type     The trigger to execute during errors.
+        volumes=value    The number of volumes to process.
+        vrecords=value   The record limit for the last volume.
+        enable=flag      Enable one or more of the flags below.
+        disable=flag     Disable one or more of the flags below.
+
+    NetApp Specific Options:
+        ontap_cserver=string  The cluster server name.
+        ontap_nodes=string    The cluster node name(s).
+        ontap_username=string The user name (optional).
+        ontap_password=string The password (optional).
+        ontapi_path=string    The 'ontapi' path (optional)
+
+    Flags to enable/disable:
+        aio              POSIX Asynchronous I/O.(Default: disabled)
+        cerrors          Report close errors.   (Default: enabled)
+        compare          Data comparison.       (Default: enabled)
+        coredump         Core dump on errors.   (Default: disabled)
+        deleteperpass    Delete files per pass. (Default: disabled)
+        debug            Debug output.          (Default: disabled)
+        Debug            Verbose debug output.  (Default: disabled)
+        edebug           End of file debug.     (Default: disabled)
+        fdebug           File operations debug. (Default: disabled)
+        pdebug           Process related debug. (Default: disabled)
+        rdebug           Random debug output.   (Default: disabled)
+        tdebug           Timer debug output.    (Default: disabled)
+        dump             Dump data buffer.      (Default: enabled)
+        dumpall          Dump all blocks.       (Default: disabled)
+        eof              EOF/EOM exit status.   (Default: disabled)
+        fsalign          File system align.     (Default: disabled)
+        funique          Unique output file.    (Default: disabled)
+        flush            Flush tty I/O queues.  (Default: enabled)
+        fsincr           File size incrementing.(Default: disabled)
+        fsync            Controls file sync'ing.(Default: runtime)
+        header           Log file header.       (Default: enabled)
+        hdump            History dump.          (Default: disabled)
+        htiming          History timing.        (Default: disabled)
+        lbdata           Logical block data.    (Default: disabled)
+        logpid           Log process ID.        (Default: disabled)
+        loopback         Loopback mode.         (Default: disabled)
+        looponerror      Loop on error.         (Default: disabled)
+        microdelay       Microsecond delays.    (Default: disabled)
+        mmap             Memory mapped I/O.     (Default: disabled)
+        modem            Test modem tty lines.  (Default: disabled)
+        multi            Multiple volumes.      (Default: disabled)
+        noprog           No progress check.     (Default: disabled)
+        prefill          Prefill read buffer.   (Default: enabled)
+        pstats           Per pass statistics.   (Default: enabled)
+        raw              Read after write.      (Default: disabled)
+        reread           Re-read after raw.     (Default: disabled)
+        readcache        Read cache control.    (Default: enabled)
+        writecache       Write cache control.   (Default: enabled)
+        retryDC          Retry data corruptions.(Default: enabled)
+        softcar          tty software carrier.  (Default: none)
+        sighup           Hangup signal control. (Default: enabled)
+        stats            Display statistics.    (Default: enabled)
+        syslog           Log errors to syslog.  (Default: disabled)
+        timestamp        Timestamp each block.  (Default: disabled)
+        trigargs         Trigger cmd arguments. (Default: enabled)
+        ttyport          Flag device as a tty.  (Default: disabled)
+        unique           Unique pattern.        (Default: enabled)
+        verbose          Verbose output.        (Default: enabled)
+        verify           Verify data written.   (Default: enabled)
+
+      Example: enable=debug disable=compare,pstats
+
+    Common Open Flags:
+        excl (O_EXCL)         Exclusive open. (don't share)
+        ndelay (O_NDELAY)     Non-delay open. (don't block)
+        nonblock (O_NONBLOCK) Non-blocking open/read/write.
+        direct (directio())   Direct disk access. (don't cache data).
+        rsync (O_RSYNC)       Synchronize read operations.
+        sync (O_SYNC)         Sync updates for data/file attributes.
+        large (O_LARGEFILE)   Enable large (64-bit) file system support.
+
+    Output Open Flags:
+        append (O_APPEND)     Append data to end of existing file.
+        dsync (O_DSYNC)       Sync data to disk during write operations.
+        trunc (O_TRUNC)       Truncate an existing file before writing.
+
+    Delays (Values are seconds, unless microdelay enabled):
+        cdelay=value     Delay before closing the file.    (Def: 0)
+        edelay=value     Delay between multiple passes.    (Def: 0)
+        rdelay=value     Delay before reading each record. (Def: 0)
+        sdelay=value     Delay before starting the test.   (Def: 0)
+        tdelay=value     Delay before child terminates.    (Def: 1)
+        wdelay=value     Delay before writing each record. (Def: 0)
+        retry_delay=value Delay before retrying operation. (Def: 5)
+
+        cdelay, edelay, rdelay, sdelay, and wdelay accept 'random'.
+        When microdelay is enabled, the delay is between 1 and 1000000.
+
+    Numeric Input:
+        For options accepting numeric input, the string may contain any
+        combination of the following characters:
+
+        Special Characters:
+            w = words (4 bytes)            q = quadwords (8 bytes)
+            b = blocks (512 bytes)         k = kilobytes (1024 bytes)
+            m = megabytes (1048576 bytes)  p = page size (8192 bytes)
+            g = gigabytes (1073741824 bytes)
+            t = terabytes (1099511627776 bytes)
+            d = device size (set via dsize=value option)
+            inf or INF = infinity (18446744073709551615 bytes)
+
+        Arithmetic Characters:
+            + = addition                   - = subtraction
+            * or x = multiplcation         / = division
+            % = remainder
+
+        Bitwise Characters:
+            ~ = complement of value       >> = shift bits right
+           << = shift bits left            & = bitwise 'and' operation
+            | = bitwise 'or' operation     ^ = bitwise exclusive 'or'
+
+        The default base for numeric input is decimal, but you can override
+        this default by specifying 0x or 0X for hexadecimal conversions, or
+        a leading zero '0' for octal conversions.  NOTE: Evaluation is from
+        right to left without precedence, and parenthesis are not permitted.
+
+    Keepalive Format Control:
+            %b = The bytes read or written.   %B = Total bytes read and written.
+            %c = Record count for this pass.  %C = Total records for this test.
+            %d = The device name.             %D = The real device name.
+            %e = The number of errors.        %E = The error limit.
+            %f = The files read or written.   %F = Total files read and written.
+            %h = The host name.               %H = The full host name.
+            %k = The kilobytes this pass.     %K = Total kilobytes for this test.
+            %l = Blocks read or written.      %L = Total blocks read and written.
+            %m = The megabytes this pass.     %M = Total megabytes for this test.
+            %p = The pass count.              %P = The pass limit.
+            %r = Records read this pass.      %R = Total records read this test.
+            %s = The seconds this pass.       %S = The total seconds this test.
+            %t = The pass elapsed time.       %T = The total elapsed time.
+            %i = The I/O mode (read/write)    %u = The user (login) name.
+            %w = Records written this pass.   %W = Total records written this test.
+
+    Performance Keywords:
+            %bps  = The bytes per second.     %lbps = Logical blocks per second.
+            %kbps = Kilobytes per second.     %mbps = The megabytes per second.
+            %iops = The I/O's per second.     %spio = The seconds per I/O.
+
+    File Position Keywords:
+            %lba = The current logical block. %offset = The current file offset.
+
+      Lowercase means per pass stats, while uppercase means total stats.
+
+      Default: %d Stats: mode %i, blocks %l, %m Mbytes, pass %p/%P, elapsed %t
+                     or if pass statistics summary is disabled:
+               %d Stats: mode %i, blocks %L, %M Mbytes, pass %p/%P, elapsed %T
+
+    Log File Format Keywords:
+            %dsf   = The device name.       %device = The device path.
+            %iodir = The I/O direction.     %iotype = The I/O type.
+            %host  = The host name.         %pid    = The process ID.
+            %user  = The user name.
+
+      Example: log=dt_%host_%user_%iodir_%iotype-%pid.log
+
+    Pattern String Input:
+            \\ = Backslash   \a = Alert (bell)   \b = Backspace
+            \f = Formfeed    \n = Newline        \r = Carriage Return
+            \t = Tab         \v = Vertical Tab   \e or \E = Escape
+            \ddd = Octal Value    \xdd or \Xdd = Hexadecimal Value
+
+    Prefix Format Control:
+            %d = The device name.           %D = The real device name.
+            %h = The host name.             %H = The full host name.
+            %p = The process ID.            %P = The parent PID.
+            %u = The user name.
+
+      Example: prefix="%u@%h (pid %p)"
+
+    Time Input:
+            d = days (86400 seconds),      h = hours (3600 seconds)
+            m = minutes (60 seconds),      s = seconds (the default)
+
+        Arithmetic characters are permitted, and implicit addition is
+        performed on strings of the form '1d5h10m30s'.
+
+    Trigger Types:
+            br = Execute a bus reset.
+            bdr = Execute a bus device reset.
+            seek = Issue a seek to the failing lba.
+            zapipanic = Panic controllers via ZAPI.
+            cmd:string = Execute command with these args:
+              string dname op dsize offset position lba errno noprogt
+              args following cmd:string get appended to above args.
+
+            The first three options require Scu in your PATH.
+
+    Defaults:
+        errors=1, files=0, passes=1, records=0, bs=512, log=stderr
+        pattern=0x39c39c39, flow=xon_xoff, parity=none, speed=9600
+        timeout=3 seconds, dispose=delete, align=0 (page aligned)
+        aios=8, dlimit=512, oncerr=continue, volumes=0, vrecords=1
+        iodir=forward, iomode=test, iotype=sequential, stats=full
+        iotseed=0x01010101, hdsize=32, maxbad=10
+
+    --> Date: June 20th, 2012, Version: 17.66, Author: Robin T. Miller <--
+</PRE>
+</BODY>
+</HTML>

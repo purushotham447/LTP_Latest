@@ -1,0 +1,1 @@
+cmd_drivers/input/misc/ad714x.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/input/misc/ad714x.ko drivers/input/misc/ad714x.o drivers/input/misc/ad714x.mod.o ;  true

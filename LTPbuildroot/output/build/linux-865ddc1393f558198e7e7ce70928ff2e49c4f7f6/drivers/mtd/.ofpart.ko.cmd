@@ -1,0 +1,1 @@
+cmd_drivers/mtd/ofpart.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/mtd/ofpart.ko drivers/mtd/ofpart.o drivers/mtd/ofpart.mod.o ;  true

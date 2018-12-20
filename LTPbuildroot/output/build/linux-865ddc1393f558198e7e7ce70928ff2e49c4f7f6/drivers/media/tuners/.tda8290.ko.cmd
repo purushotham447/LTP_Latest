@@ -1,0 +1,1 @@
+cmd_drivers/media/tuners/tda8290.ko := /usr/src/output/host/bin/arm-buildroot-linux-uclibcgnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/tuners/tda8290.ko drivers/media/tuners/tda8290.o drivers/media/tuners/tda8290.mod.o ;  true

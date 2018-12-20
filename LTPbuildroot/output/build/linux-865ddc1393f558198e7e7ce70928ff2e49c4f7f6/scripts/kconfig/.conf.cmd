@@ -1,0 +1,1 @@
+cmd_scripts/kconfig/conf := /usr/bin/gcc -O2 -I/usr/src/output/host/include -L/usr/src/output/host/lib -Wl,-rpath,/usr/src/output/host/lib  -o scripts/kconfig/conf scripts/kconfig/conf.o scripts/kconfig/zconf.tab.o  
