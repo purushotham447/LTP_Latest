@@ -1,0 +1,7 @@
+*.ext2 filter=lfs diff=lfs merge=lfs -text
+*.ext4 filter=lfs diff=lfs merge=lfs -text
+*.img filter=lfs diff=lfs merge=lfs -text
+*.tar.gz filter=lfs diff=lfs merge=lfs -text
+*.cpio filter=lfs diff=lfs merge=lfs -text
+*.tar.xz filter=lfs diff=lfs merge=lfs -text
+*.gch filter=lfs diff=lfs merge=lfs -text
