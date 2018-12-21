@@ -1,6 +1,18 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot 2018.02.1 Configuration
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+# Buildroot 2018.02.1-gba7f6ed-dirty Configuration
+=======
+# Buildroot  2018.02.1-gba7f6ed-dirty Configuration LTP
+>>>>>>> 526e6537091152912b9e457b019bcdabf12cd211
+=======
+# Buildroot  2018.02.1-gba7f6ed-dirty Configuration LTP
+>>>>>>> 526e6537091152912b9e457b019bcdabf12cd211
+=======
+# Buildroot  2018.02.1-gba7f6ed-dirty Configuration LTP
+>>>>>>> 526e6537091152912b9e457b019bcdabf12cd211
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_HOST_GCC_AT_LEAST_4_5=y
@@ -9,7 +21,6 @@ BR2_HOST_GCC_AT_LEAST_4_7=y
 BR2_HOST_GCC_AT_LEAST_4_8=y
 BR2_HOST_GCC_AT_LEAST_4_9=y
 BR2_HOST_GCC_AT_LEAST_5=y
-BR2_HOST_GCC_AT_LEAST_6=y
 
 #
 # Target options
